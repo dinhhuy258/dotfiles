@@ -22,6 +22,7 @@ endif
 call plug#begin(expand('~/.config/nvim/plugged'))
 
 Plug 'scrooloose/nerdtree'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Initialize plugin system
 call plug#end()
