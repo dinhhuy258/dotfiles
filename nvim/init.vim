@@ -21,14 +21,27 @@ endif
 " Specify a directory for plugins
 call plug#begin(expand('~/.config/nvim/plugged'))
 
+" Tree explorer plugin
 Plug 'scrooloose/nerdtree'
+" Seamless navigation between tmux panes and vim splits
 Plug 'christoomey/vim-tmux-navigator'
+" Color scheme
+Plug 'tomasr/molokai'
+" Show git diff in the sign column
+Plug 'airblade/vim-gitgutter'
+" Lean & mean status/tabline
+Plug 'vim-airline/vim-airline'
+" Collection of themes for vim-airline
+Plug 'vim-airline/vim-airline-themes'
+" Stop repeating the basic movement keys
+Plug 'takac/vim-hardtime'
 
 " Initialize plugin system
 call plug#end()
+
 "*****************************************************************************
 " Basic Setup
-"*****************************************************************************"
+"*****************************************************************************
 
 " Change leader key to space
 let mapleader = "\<Space>"
@@ -54,16 +67,44 @@ set softtabstop=0
 set shiftwidth=4
 set expandtab
 
+" Stop line breaking
+set nowrap
+
+" Minimal number of screen lines to keep above and below the cursor
+set scrolloff=3
+
+" Searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
 "*****************************************************************************
 " Visual Settings
 "*****************************************************************************
 
+" Color Scheme
+let g:molokai_original = 1
+colorscheme molokai
+
+" Syntax highlighting
 syntax on
 
 " Display line numbers
 set number
 set numberwidth=5
 set relativenumber
+
+" Show the cursor position
+set ruler
+
+" Always show status bar (2 = always)
+set laststatus=2
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+
+" Display hidden characters
+set listchars=tab:▸\ ,eol:¬
+set list
 
 "*****************************************************************************
 " Mappings
@@ -72,4 +113,87 @@ set relativenumber
 " Split
 noremap <Leader>- :<C-u>split<CR>
 noremap <Leader>\ :<C-u>vsplit<CR>
+
+" Toggle nerdtree
+nnoremap <silent> <F1> :NERDTreeToggle<CR>
+
+" Clean search (highlight)
+nnoremap <silent> <Leader><space> :noh<CR>
+
+"*****************************************************************************
+" Commands
+"*****************************************************************************
+
+" Remove trailing whitespaces
+command! FixWhitespace :%s/\s\+$//e
+
+"*****************************************************************************
+" Plugin configs
+"*****************************************************************************
+
+" Vim airline
+let g:airline_theme = 'powerlineish'
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline_skip_empty_sections = 1
+
+let g:airline#extensions#virtualenv#enabled = 1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+if !exists('g:airline_powerline_fonts')
+  let g:airline#extensions#tabline#left_sep = ' '
+  let g:airline#extensions#tabline#left_alt_sep = '|'
+  let g:airline_left_sep          = '▶'
+  let g:airline_left_alt_sep      = '»'
+  let g:airline_right_sep         = '◀'
+  let g:airline_right_alt_sep     = '«'
+  let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
+  let g:airline#extensions#readonly#symbol   = '⊘'
+  let g:airline#extensions#linecolumn#prefix = '¶'
+  let g:airline#extensions#paste#symbol      = 'ρ'
+  let g:airline_symbols.linenr    = '␊'
+  let g:airline_symbols.branch    = '⎇'
+  let g:airline_symbols.paste     = 'ρ'
+  let g:airline_symbols.paste     = 'Þ'
+  let g:airline_symbols.paste     = '∥'
+  let g:airline_symbols.whitespace = 'Ξ'
+else
+  let g:airline#extensions#tabline#left_sep = ''
+  let g:airline#extensions#tabline#left_alt_sep = ''
+
+  " powerline symbols
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.readonly = ''
+  let g:airline_symbols.linenr = ''
+endif
+
+" GitGutter
+highlight clear SignColumn
+highlight GitGutterAdd ctermfg=green
+highlight GitGutterChange ctermfg=yellow
+highlight GitGutterDelete ctermfg=red
+highlight GitGutterChangeDelete ctermfg=yellow
+
+" Nerdtree
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+" Vim hardtime
+" Run vim hardtime on every buffer
+let g:hardtime_default_on = 1
+" Enable the nofication about hardtime being enabled set
+let g:hardtime_showmsg = 1
+" Tell hardtime ignore certain buffer pattern set
+let g:hardtime_ignore_buffer_patterns = [ "CustomPatt[ae]rn", "NERD.*" ]
+let g:hardtime_ignore_quickfix = 1
+let g:hardtime_maxcount = 1
 
