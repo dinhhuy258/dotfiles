@@ -316,6 +316,8 @@ live_config_reload: true
 #   - (Windows) powershell
 shell:
   program: /usr/local/bin/tmux
+  args:
+      - -u
 
 # Startup directory
 #
