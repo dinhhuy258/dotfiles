@@ -35,6 +35,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Stop repeating the basic movement keys
 Plug 'takac/vim-hardtime'
+" Vim easy motion
+Plug 'easymotion/vim-easymotion'
 
 " Initialize plugin system
 call plug#end()
@@ -110,6 +112,9 @@ set list
 " Mappings
 "*****************************************************************************
 
+" Reload vim configuration
+nnoremap <Leader>rl :so %<cr>
+
 " Split
 noremap <Leader>- :<C-u>split<CR>
 noremap <Leader>\ :<C-u>vsplit<CR>
@@ -119,6 +124,9 @@ nnoremap <silent> <F1> :NERDTreeToggle<CR>
 
 " Clean search (highlight)
 nnoremap <silent> <Leader><space> :noh<CR>
+
+" All easymotion will be triggered with ; key
+map ; <Plug>(easymotion-prefix)
 
 "*****************************************************************************
 " Commands
@@ -195,5 +203,11 @@ let g:hardtime_showmsg = 1
 " Tell hardtime ignore certain buffer pattern set
 let g:hardtime_ignore_buffer_patterns = [ "CustomPatt[ae]rn", "NERD.*" ]
 let g:hardtime_ignore_quickfix = 1
-let g:hardtime_maxcount = 1
+let g:hardtime_maxcount = 5
+
+" Vim easymotion
+" Disable default mappings
+let g:EasyMotion_do_mapping = 0
+" Turn on case-sensitive feature
+let g:EasyMotion_smartcase = 1
 
