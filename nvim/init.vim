@@ -37,6 +37,17 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'takac/vim-hardtime'
 " Vim easy motion
 Plug 'easymotion/vim-easymotion'
+" Vim surround
+Plug 'tpope/vim-surround'
+" Enable repeating supported plugins map with .
+Plug 'tpope/vim-repeat'
+" fzf
+if isdirectory('/usr/local/opt/fzf')
+  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+else
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+  Plug 'junegunn/fzf.vim'
+endif
 
 " Initialize plugin system
 call plug#end()
@@ -113,7 +124,7 @@ set list
 "*****************************************************************************
 
 " Reload vim configuration
-nnoremap <Leader>rl :so %<cr>
+nnoremap <Leader>r :so %<cr>
 
 " Split
 noremap <Leader>- :<C-u>split<CR>
@@ -127,6 +138,10 @@ nnoremap <silent> <Leader><space> :noh<CR>
 
 " All easymotion will be triggered with ; key
 map ; <Plug>(easymotion-prefix)
+
+" fzf
+nnoremap <silent> <Leader>f :FZF -m<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 
 "*****************************************************************************
 " Commands
@@ -206,8 +221,13 @@ let g:hardtime_ignore_quickfix = 1
 let g:hardtime_maxcount = 5
 
 " Vim easymotion
-" Disable default mappings
-let g:EasyMotion_do_mapping = 0
+" Enable default mappings
+let g:EasyMotion_do_mapping = 1
 " Turn on case-sensitive feature
 let g:EasyMotion_smartcase = 1
+
+" fzf
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
+let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 
