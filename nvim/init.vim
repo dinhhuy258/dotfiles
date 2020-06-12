@@ -45,6 +45,8 @@ Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 " Convenience for commenting things in and out 
 Plug 'scrooloose/nerdcommenter'
+" Make the yarn region apparent
+Plug 'machakann/vim-highlightedyank'
 " fzf
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -145,7 +147,7 @@ map ; <Plug>(easymotion-prefix)
 
 " fzf
 nnoremap <silent> <Leader>f :FZF -m<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
 
 " Nerdcommenter
 map <Leader>/ <plug>NERDCommenterToggle
@@ -247,6 +249,9 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
+
+" Highlighted yank
+ret g:highlightedyank_highlight_duration = 1000
 
 " fzf
 set wildmode=list:longest,list:full
