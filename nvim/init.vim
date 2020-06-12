@@ -41,6 +41,10 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 " Enable repeating supported plugins map with .
 Plug 'tpope/vim-repeat'
+" Automatically closing braces
+Plug 'jiangmiao/auto-pairs'
+" Convenience for commenting things in and out 
+Plug 'scrooloose/nerdcommenter'
 " fzf
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -143,6 +147,9 @@ map ; <Plug>(easymotion-prefix)
 nnoremap <silent> <Leader>f :FZF -m<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 
+" Nerdcommenter
+map <Leader>/ <plug>NERDCommenterToggle
+
 "*****************************************************************************
 " Commands
 "*****************************************************************************
@@ -225,6 +232,21 @@ let g:hardtime_maxcount = 5
 let g:EasyMotion_do_mapping = 1
 " Turn on case-sensitive feature
 let g:EasyMotion_smartcase = 1
+
+" Auto pair
+let g:AutoPairsMapSpace = 0
+
+" Nerdcommenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
 
 " fzf
 set wildmode=list:longest,list:full
