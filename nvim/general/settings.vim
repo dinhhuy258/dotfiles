@@ -67,6 +67,9 @@ set cmdheight=2
 " Faster completion
 set updatetime=300
 
+" Time in milliseconds to wait for a mapped sequence to complete
+set timeoutlen=1000
+
 " Don't pass messages to |ins-completion-menu|
 set shortmess+=c
 
@@ -93,4 +96,16 @@ set splitbelow
 
 " Vertical splits will automatically be to the right
 set splitright
+
+" Copy paste between vim and everything else
+set clipboard=unnamedplus
+
+" Setting the font in the GUI 
+set guifont=Hack\ Nerd\ Font
+
+" Support 256 colors
+set t_Co=256
+
+" Enable mouse
+set mouse=a
 
