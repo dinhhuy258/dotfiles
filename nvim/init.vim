@@ -23,4 +23,5 @@ source $HOME/.config/nvim/plugins/fzf.vim
 source $HOME/.config/nvim/plugins/vim-highlightedyank.vim
 source $HOME/.config/nvim/plugins/coc.vim
 source $HOME/.config/nvim/plugins/vim-which-key.vim
+source $HOME/.config/nvim/plugins/vim-floaterm.vim
 
