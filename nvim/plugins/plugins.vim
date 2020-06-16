@@ -43,6 +43,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'machakann/vim-highlightedyank'
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Show keybindings in popup
+Plug 'liuchengxu/vim-which-key'
 " fzf
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'

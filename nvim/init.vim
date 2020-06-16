@@ -1,4 +1,3 @@
-
 "    ____      _ __        _
 "   /  _/___  (_) /__   __(_)___ ___
 "   / // __ \/ / __/ | / / / __ `__ \
@@ -23,4 +22,5 @@ source $HOME/.config/nvim/plugins/auto-pairs.vim
 source $HOME/.config/nvim/plugins/fzf.vim
 source $HOME/.config/nvim/plugins/vim-highlightedyank.vim
 source $HOME/.config/nvim/plugins/coc.vim
+source $HOME/.config/nvim/plugins/vim-which-key.vim
 
