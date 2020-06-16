@@ -43,8 +43,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'machakann/vim-highlightedyank'
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Show keybindings in popup
-Plug 'liuchengxu/vim-which-key'
 " Use nvim's builtin terminal in the floating/popup window
 Plug 'voldikss/vim-floaterm'
 " fzf
