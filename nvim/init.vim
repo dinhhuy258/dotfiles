@@ -22,4 +22,5 @@ source $HOME/.config/nvim/plugins/vim-hardtime.vim
 source $HOME/.config/nvim/plugins/auto-pairs.vim
 source $HOME/.config/nvim/plugins/fzf.vim
 source $HOME/.config/nvim/plugins/vim-highlightedyank.vim
+source $HOME/.config/nvim/plugins/coc.vim
 
