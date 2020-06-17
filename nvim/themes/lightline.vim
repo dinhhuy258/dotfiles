@@ -78,6 +78,7 @@ function! LightLineModified()
 endfunction
 
 let g:lightline = {
+      \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [
       \      ['fileicon'],
@@ -105,8 +106,6 @@ let g:lightline = {
       \   'gitgutter': 'LightLineGitGutter',
       \   'modified': 'LightLineModified',
       \ },
-      \ 'separator': { 'left': '▓▒░', 'right': '░▒▓' },
-      \ 'subseparator': { 'left': '>', 'right': '⮃' }
       \ }
 
 " Use autocmd to force lightline update.
