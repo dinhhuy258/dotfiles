@@ -2,7 +2,7 @@
 let mapleader = "\<Space>"
 
 " Reload vim configuration
-nnoremap <Leader>rl :so %<cr>
+nnoremap <Leader>rl :so ~/.config/nvim/init.vim<cr>
 
 " Split
 noremap <Leader>- :<C-u>split<CR>
