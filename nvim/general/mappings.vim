@@ -17,3 +17,9 @@ nnoremap <C-s> :w<CR>
 " Alternate way to quit
 nnoremap <C-q> :wq!<CR>
 
+" Next buffer
+nnoremap <Leader>] :bnext<CR>
+nnoremap <Leader>[ :bprev<CR>
+nnoremap <Leader>w :bd<CR>
+nnoremap <Leader>W :bd!<CR>
+
