@@ -25,8 +25,12 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'christianchiarulli/onedark.vim'
 " Lean & mean status/tabline
 Plug 'vim-airline/vim-airline'
+" Add file type icons to vim plugins
+Plug 'ryanoasis/vim-devicons'
 " Show git diff in the sign column
 Plug 'airblade/vim-gitgutter'
+" Vim plugin for git
+Plug 'tpope/vim-fugitive'
 " Stop repeating the basic movement keys
 Plug 'takac/vim-hardtime'
 " Vim easy motion
