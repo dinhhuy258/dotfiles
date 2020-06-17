@@ -11,7 +11,7 @@ source $HOME/.config/nvim/general/mappings.vim
 source $HOME/.config/nvim/general/commands.vim
 
 source $HOME/.config/nvim/themes/onedark.vim
-source $HOME/.config/nvim/themes/vim-airline.vim
+source $HOME/.config/nvim/themes/lightline.vim
 
 source $HOME/.config/nvim/plugins/vim-easymotion.vim
 source $HOME/.config/nvim/plugins/nerdtree.vim

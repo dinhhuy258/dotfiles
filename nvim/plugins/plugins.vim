@@ -23,8 +23,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 " Color scheme
 Plug 'christianchiarulli/onedark.vim'
-" Lean & mean status/tabline
-Plug 'vim-airline/vim-airline'
+" A light and configurable statusline/tabline plugin
+Plug 'itchyny/lightline.vim'
 " Add file type icons to vim plugins
 Plug 'ryanoasis/vim-devicons'
 " Show git diff in the sign column
