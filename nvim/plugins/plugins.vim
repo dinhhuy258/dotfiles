@@ -49,6 +49,8 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Use nvim's builtin terminal in the floating/popup window
 Plug 'voldikss/vim-floaterm'
+" Tabline
+Plug 'ap/vim-buftabline'
 " fzf
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
