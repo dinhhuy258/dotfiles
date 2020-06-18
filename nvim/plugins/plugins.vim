@@ -53,6 +53,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'voldikss/vim-floaterm'
 " Tabline
 Plug 'ap/vim-buftabline'
+" The fancy start screen
+Plug 'mhinz/vim-startify'
 " fzf
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
