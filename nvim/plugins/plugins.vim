@@ -55,6 +55,8 @@ Plug 'voldikss/vim-floaterm'
 Plug 'ap/vim-buftabline'
 " The fancy start screen
 Plug 'mhinz/vim-startify'
+" Embed Neovim in browser
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 " fzf
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
