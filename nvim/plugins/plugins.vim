@@ -57,6 +57,8 @@ Plug 'ap/vim-buftabline'
 Plug 'mhinz/vim-startify'
 " Embed Neovim in browser
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+" Better syntax support
+Plug 'sheerun/vim-polyglot'
 " fzf
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
