@@ -9,6 +9,7 @@ let g:coc_global_extensions = [
     \ 'coc-snippets',
     \ 'coc-json',
     \ 'coc-phpls',
+    \ 'coc-clangd'
     \ ]
 
 inoremap <silent><expr> <TAB>

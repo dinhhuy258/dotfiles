@@ -71,6 +71,25 @@
     "snippet": "\ue60b",
     "typeParameter": "\uf728",
     "default": "\uf29c"
+  },
+
+  "languageserver": {
+    "clangd": {
+      "command": "clangd",
+      "rootPatterns": [
+          "compile_flags.txt",
+          "compile_commands.json",
+          ".vim/",
+          ".git/",
+          ".hg/"
+      ],
+      "filetypes": [
+          "c",
+          "cpp",
+          "objc",
+          "objcpp"
+      ]
+    }
   }
 }
 
