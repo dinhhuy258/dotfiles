@@ -100,7 +100,7 @@ set splitright
 " Copy paste between vim and everything else
 set clipboard=unnamedplus
 
-" Setting the font in the GUI 
+" Setting the font in the GUI
 set guifont=Hack\ Nerd\ Font
 
 " Support 256 colors
@@ -108,4 +108,10 @@ set t_Co=256
 
 " Enable mouse
 set mouse=a
+
+" Session manager
+let g:session_directory = "~/.config/nvim/session"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
 
