@@ -59,6 +59,8 @@ Plug 'mhinz/vim-startify'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 " Better syntax support
 Plug 'sheerun/vim-polyglot'
+" Multi editor tool for defining base file handling and code style preferences
+Plug 'editorconfig/editorconfig-vim'
 " fzf
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
