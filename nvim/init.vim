@@ -25,4 +25,5 @@ source $HOME/.config/nvim/plugins/coc.vim
 source $HOME/.config/nvim/plugins/vim-floaterm.vim
 source $HOME/.config/nvim/plugins/vim-buftabline.vim
 source $HOME/.config/nvim/plugins/vim-startify.vim
+source $HOME/.config/nvim/plugins/vim-fugitive.vim
 

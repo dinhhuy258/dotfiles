@@ -33,6 +33,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 " Vim plugin for git
 Plug 'tpope/vim-fugitive'
+" Github extension for fugitive.vim
+Plug 'tpope/vim-rhubarb'
 " Stop repeating the basic movement keys
 Plug 'takac/vim-hardtime'
 " Vim easy motion
@@ -43,7 +45,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 " Automatically closing braces
 Plug 'jiangmiao/auto-pairs'
-" Convenience for commenting things in and out 
+" Convenience for commenting things in and out
 Plug 'scrooloose/nerdcommenter'
 " Make the yarn region apparent
 Plug 'machakann/vim-highlightedyank'
