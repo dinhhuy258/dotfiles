@@ -74,6 +74,7 @@ ZSH_THEME="flazz"
 plugins=(
     git
     vi-mode
+    zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -106,6 +107,9 @@ source $ZSH/oh-my-zsh.sh
 alias vim=nvim
 alias vi=nvim
 alias lg=lazygit
+
+# Key bindings
+bindkey '^ ' autosuggest-accept
 
 # Use ~/.zshrc.local for your own customisation
 source "${HOME}/.zshrc.local"
