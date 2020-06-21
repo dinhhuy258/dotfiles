@@ -63,6 +63,8 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'sheerun/vim-polyglot'
 " Multi editor tool for defining base file handling and code style preferences
 Plug 'editorconfig/editorconfig-vim'
+" Define submodes to the built-in vim modes
+Plug 'kana/vim-submode'
 " fzf
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
