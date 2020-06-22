@@ -57,8 +57,6 @@ Plug 'voldikss/vim-floaterm'
 Plug 'ap/vim-buftabline'
 " The fancy start screen
 Plug 'mhinz/vim-startify'
-" Embed Neovim in browser
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 " Better syntax support
 Plug 'sheerun/vim-polyglot'
 " Multi editor tool for defining base file handling and code style preferences
