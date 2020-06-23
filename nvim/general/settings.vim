@@ -109,6 +109,9 @@ set t_Co=256
 " Enable mouse
 set mouse=a
 
+" When a file has been detected to have been changed outside of Vim and it has not been changed inside of Vim, automatically read it again
+autocmd FocusGained,BufEnter * :checktime
+
 " Session manager
 let g:session_directory = "~/.config/nvim/session"
 let g:session_autoload = "no"
