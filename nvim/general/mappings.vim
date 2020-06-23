@@ -23,6 +23,16 @@ nnoremap <Leader>[ :bprev<CR>
 nnoremap <Leader>w :bd<CR>
 nnoremap <Leader>W :bd!<CR>
 
+" Delete without putting into the registers
+nnoremap dd "_dd
+nnoremap dw "_dw
+nnoremap de "_de
+nnoremap dG "_dG
+nnoremap dgg "_dgg
+nnoremap D "_D
+nnoremap x "_x
+nnoremap X "_X
+
 " Abbreviations
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
