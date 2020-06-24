@@ -26,12 +26,30 @@ nnoremap <Leader>W :bd!<CR>
 " Delete without putting into the registers
 nnoremap dd "_dd
 nnoremap dw "_dw
+nnoremap db "_db
+nnoremap di( "_di(
+nnoremap di) "_di)
+nnoremap da( "_da(
+nnoremap da) "_da)
+nnoremap di[ "_di[
+nnoremap di] "_di]
+nnoremap da[ "_da[
+nnoremap da] "_da]
+nnoremap di{ "_di{
+nnoremap di} "_di}
+nnoremap da{ "_da{
+nnoremap da} "_da}
 nnoremap de "_de
 nnoremap dG "_dG
 nnoremap dgg "_dgg
+nnoremap d$ "_d$
+nnoremap d^ "_d^
+nnoremap d0 "_d0
 nnoremap D "_D
 nnoremap x "_x
 nnoremap X "_X
+vnoremap d "_d
+vnoremap D "_D
 
 " Abbreviations
 cnoreabbrev W! w!
