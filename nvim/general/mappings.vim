@@ -13,6 +13,7 @@ nnoremap <silent> <Leader><space> :noh<CR>
 
 " Alternate way to save
 nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>
 
 " Alternate way to quit
 nnoremap <C-q> :wq!<CR>
