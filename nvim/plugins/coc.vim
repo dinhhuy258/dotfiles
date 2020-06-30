@@ -8,6 +8,7 @@ let g:coc_global_extensions = [
     \ 'coc-highlight',
     \ 'coc-snippets',
     \ 'coc-json',
+    \ 'coc-yaml',
     \ 'coc-phpls',
     \ 'coc-clangd'
     \ ]

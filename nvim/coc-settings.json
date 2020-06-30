@@ -90,6 +90,10 @@
           "objcpp"
       ]
     }
+  },
+
+  "yaml.schemas": {
+      "kubernetes": "/*.yaml"
   }
 }
 
