@@ -28,6 +28,10 @@ nnoremap <Leader>W :bd!<CR>
 nnoremap dd "_dd
 nnoremap dw "_dw
 nnoremap db "_db
+nnoremap di" "_di"
+nnoremap da" "_da"
+nnoremap di' "_di'
+nnoremap da' "_da'
 nnoremap di( "_di(
 nnoremap di) "_di)
 nnoremap da( "_da(
