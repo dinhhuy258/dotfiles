@@ -63,8 +63,10 @@ Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
 " Define submodes to the built-in vim modes
 Plug 'kana/vim-submode'
-" Make FocusGained and FocusLost autocommand events worl
+" Make FocusGained and FocusLost autocommand events work
 Plug 'tmux-plugins/vim-tmux-focus-events'
+" Navigate windows
+Plug 't9md/vim-choosewin'
 " fzf
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
