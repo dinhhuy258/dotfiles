@@ -69,6 +69,8 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 't9md/vim-choosewin'
 " Disable search highlighing when you are done searching
 Plug 'romainl/vim-cool'
+" Support multiple cursors
+Plug 'terryma/vim-multiple-cursors'
 " fzf
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
