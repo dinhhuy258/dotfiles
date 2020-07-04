@@ -14,8 +14,6 @@ nnoremap <Leader>tl :FloatermNext<CR>
 tnoremap <Leader>tl <C-\><C-n>:FloatermNext<CR>
 nnoremap <Leader>tt :FloatermToggle<CR>
 tnoremap <Leader>tt <C-\><C-n>:FloatermToggle<CR>
-nnoremap <Leader>tf :FloatermNew fzf<CR>
-tnoremap <Leader>tf <C-\><C-n>:FloatermNew fzf<CR>
 nnoremap <Leader>tg :FloatermNew lazygit<CR>
 tnoremap <Leader>tg <C-\><C-n>:FloatermNew lazygit<CR>
 
