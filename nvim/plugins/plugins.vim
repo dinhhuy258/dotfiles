@@ -67,6 +67,8 @@ Plug 'kana/vim-submode'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 " Navigate windows
 Plug 't9md/vim-choosewin'
+" Disable search highlighing when you are done searching
+Plug 'romainl/vim-cool'
 " fzf
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
