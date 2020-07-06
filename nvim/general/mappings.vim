@@ -1,5 +1,5 @@
-" Change leader key to space
-let mapleader = "\<Space>"
+" Change leader key to semicolon
+let mapleader = ";"
 
 " Reload vim configuration
 nnoremap <Leader>rl :so ~/.config/nvim/init.vim<cr>
