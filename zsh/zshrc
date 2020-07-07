@@ -114,3 +114,8 @@ bindkey '^ ' autosuggest-accept
 # Use ~/.zshrc.local for your own customisation
 source "${HOME}/.zshrc.local"
 
+# Functions
+goto_project() {
+    cd $WORKSPACE; ls -d */ | fzf | { cd -; read result; cd $WORKSPACE/$result }
+}
+

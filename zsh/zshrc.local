@@ -1,1 +1,3 @@
+# Path to workspace folder
+export WORKSPACE=$HOME/Workspace
 
