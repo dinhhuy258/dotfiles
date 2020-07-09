@@ -1,9 +1,5 @@
 let g:coc_global_extensions = [
     \ 'coc-prettier',
-    \ 'coc-tag',
-    \ 'coc-word',
-    \ 'coc-dictionary',
-    \ 'coc-syntax',
     \ 'coc-tabnine',
     \ 'coc-highlight',
     \ 'coc-snippets',
