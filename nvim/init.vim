@@ -29,4 +29,5 @@ source $HOME/.config/nvim/plugins/vim-startify.vim
 source $HOME/.config/nvim/plugins/vim-fugitive.vim
 source $HOME/.config/nvim/plugins/vim-submode.vim
 source $HOME/.config/nvim/plugins/vim-choosewin.vim
+source $HOME/.config/nvim/plugins/vintellij.vim
 
