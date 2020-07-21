@@ -71,6 +71,8 @@ Plug 't9md/vim-choosewin'
 Plug 'romainl/vim-cool'
 " Support multiple cursors
 Plug 'terryma/vim-multiple-cursors'
+" Intellij as language server
+Plug 'dinhhuy258/vintellij'
 " fzf
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
