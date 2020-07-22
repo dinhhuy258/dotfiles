@@ -1,4 +1,5 @@
-nnoremap <Leader>gd :call vintellij#GoToDefinition()<CR>
-nnoremap <Leader>co :call vintellij#OpenFile()<CR>
-nnoremap <Leader>ci :call vintellij#SuggestImports()<CR>
+let g:vintellij_use_default_keymap = 0
+nnoremap <Leader>cgd :VintellijGoToDefinition<CR>
+nnoremap <Leader>co :VintellijOpenFile<CR>
+nnoremap <Leader>ci :VintellijSuggestImports<CR>
 
