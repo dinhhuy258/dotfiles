@@ -65,12 +65,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'kana/vim-submode'
 " Make FocusGained and FocusLost autocommand events work
 Plug 'tmux-plugins/vim-tmux-focus-events'
-" Navigate windows
-Plug 't9md/vim-choosewin'
-" Disable search highlighing when you are done searching
-Plug 'romainl/vim-cool'
-" Support multiple cursors
-Plug 'terryma/vim-multiple-cursors'
 " Intellij as language server
 Plug 'dinhhuy258/vintellij'
 " fzf

@@ -1,4 +1,4 @@
-augroup on_buf_enter
+augroup boost_performance_for_large_buffer
   autocmd!
   autocmd BufReadPost,FileReadPost * call s:ImprovePerformanceIfLinesOverLimit(800)
 augroup END
