@@ -9,7 +9,7 @@ noremap <Leader>- :<C-u>split<CR>
 noremap <Leader>\ :<C-u>vsplit<CR>
 
 " Clean search (highlight)
-nnoremap <silent> <Leader><space> :noh<CR>
+nnoremap <silent> <Leader>; :noh<CR>
 
 " Alternate way to save
 nnoremap <C-s> :w<CR>
