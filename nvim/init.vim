@@ -19,7 +19,6 @@ source $HOME/.config/nvim/plugins/vim-easymotion.vim
 source $HOME/.config/nvim/plugins/nerdtree.vim
 source $HOME/.config/nvim/plugins/nerdcommenter.vim
 source $HOME/.config/nvim/plugins/vim-gitgutter.vim
-source $HOME/.config/nvim/plugins/vim-hardtime.vim
 source $HOME/.config/nvim/plugins/auto-pairs.vim
 source $HOME/.config/nvim/plugins/fzf.vim
 source $HOME/.config/nvim/plugins/vim-highlightedyank.vim
@@ -29,6 +28,5 @@ source $HOME/.config/nvim/plugins/vim-buftabline.vim
 source $HOME/.config/nvim/plugins/vim-startify.vim
 source $HOME/.config/nvim/plugins/vim-fugitive.vim
 source $HOME/.config/nvim/plugins/vim-submode.vim
-source $HOME/.config/nvim/plugins/vim-choosewin.vim
 source $HOME/.config/nvim/plugins/vintellij.vim
 

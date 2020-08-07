@@ -1,2 +1,0 @@
-nmap - <Plug>(choosewin)
-

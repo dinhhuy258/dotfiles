@@ -35,8 +35,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 " Github extension for fugitive.vim
 Plug 'tpope/vim-rhubarb'
-" Stop repeating the basic movement keys
-Plug 'takac/vim-hardtime'
 " Vim easy motion
 Plug 'easymotion/vim-easymotion'
 " Vim surround
