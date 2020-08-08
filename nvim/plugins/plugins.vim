@@ -51,8 +51,8 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Use nvim's builtin terminal in the floating/popup window
 Plug 'voldikss/vim-floaterm'
-" Tabline
-Plug 'ap/vim-buftabline'
+" Bufferline
+Plug 'mengelbrecht/lightline-bufferline'
 " The fancy start screen
 Plug 'mhinz/vim-startify'
 " Better syntax support

@@ -92,6 +92,20 @@ let g:lightline = {
       \      ['lineinfo']
       \   ]
       \ },
+      \ 'tabline': {
+      \   'left': [
+      \      ['buffers']
+      \   ]
+      \ },
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers'
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
+      \ },
+      \ 'component_raw': {
+      \   'buffers': 1
+      \ },
       \ 'inactive': {
       \   'left': [ [], ['fileicon'], [ 'filename' ] ],
       \   'right': []
