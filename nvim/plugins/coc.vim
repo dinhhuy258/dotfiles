@@ -1,7 +1,6 @@
 let g:coc_global_extensions = [
     \ 'coc-prettier',
     \ 'coc-tabnine',
-    \ 'coc-highlight',
     \ 'coc-snippets',
     \ 'coc-json',
     \ 'coc-yaml',
@@ -67,9 +66,6 @@ augroup mygroup
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
-
-" Highlight the symbol and its references when holding the cursor
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Add `:Format` command to format current buffer
 command! -nargs=0 Format :call CocAction('format')
