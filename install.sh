@@ -60,6 +60,7 @@ if which brew >/dev/null; then
     installHomebrewPackage rg
     installHomebrewPackage node
     installHomebrewPackage lazygit
+    installHomebrewPackage urlview
   fi
 else
   echo "Homebrew not installed! Skipping package installation..."
