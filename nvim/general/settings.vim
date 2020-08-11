@@ -26,8 +26,11 @@ set autoindent
 " Display long lines as just one line
 set nowrap
 
-" Minimal number of screen lines to keep above and below the cursor
-set scrolloff=3
+" The minimal number of screen lines to keep above and below the cursor
+set scrolloff=4
+
+" The minimal number of screen columns to keep to the left and to the right of the cursor
+set sidescrolloff=4
 
 " Searching
 set hlsearch
@@ -111,6 +114,13 @@ set mouse=a
 
 " When a file has been detected to have been changed outside of Vim and it has not been changed inside of Vim, automatically read it again
 autocmd FocusGained,BufEnter * :checktime
+
+" Highlight current cursor line
+augroup CursorLine
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup END
 
 " Session manager
 let g:session_directory = "~/.config/nvim/session"
