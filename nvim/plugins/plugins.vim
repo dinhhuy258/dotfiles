@@ -67,6 +67,8 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'itchyny/vim-cursorword'
 " Intellij as language server
 Plug 'dinhhuy258/vintellij'
+" Vim utilities
+Plug 'dinhhuy258/vim-utilities'
 " fzf
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'

@@ -8,9 +8,6 @@ source $HOME/.config/nvim/plugins/plugins.vim
 
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/general/mappings.vim
-source $HOME/.config/nvim/customs/fix-whitespace.vim
-source $HOME/.config/nvim/customs/boost-performance-for-large-buffer.vim
-source $HOME/.config/nvim/customs/profiling.vim
 
 source $HOME/.config/nvim/themes/onedark.vim
 source $HOME/.config/nvim/themes/lightline.vim
