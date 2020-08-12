@@ -78,7 +78,7 @@ function! LightLineModified()
 endfunction
 
 let g:lightline = {
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': 'icebergDark',
       \ 'active': {
       \   'left': [
       \      ['fileicon'],
@@ -95,6 +95,8 @@ let g:lightline = {
       \ 'tabline': {
       \   'left': [
       \      ['buffers']
+      \   ],
+      \   'right': [
       \   ]
       \ },
       \ 'component_expand': {

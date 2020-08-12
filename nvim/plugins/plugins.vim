@@ -24,7 +24,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Seamless navigation between tmux panes and vim splits
 Plug 'christoomey/vim-tmux-navigator'
 " Color scheme
-Plug 'christianchiarulli/onedark.vim'
+Plug 'cocopon/iceberg.vim'
+Plug 'gkeep/iceberg-dark'
 " A light and configurable statusline/tabline plugin
 Plug 'itchyny/lightline.vim'
 " Add file type icons to vim plugins
