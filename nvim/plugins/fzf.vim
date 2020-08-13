@@ -11,11 +11,9 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_buffers_jump = 1
 
 nnoremap <silent> <Leader>ff :Files<CR>
-nnoremap <silent> <Leader>fa :Ag<CR>
 nnoremap <silent> <Leader>fr :Rg<CR>
-nnoremap <silent> <Leader>fg :GFiles<CR>
+nnoremap <silent> <Leader>fg :GFiles?<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
-nnoremap <silent> <Leader>ft :Tags<CR>
 nnoremap <silent> <Leader>fm :Marks<CR>
 
 let g:fzf_tags_command = 'ctags -R'

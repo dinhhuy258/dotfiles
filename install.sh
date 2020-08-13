@@ -56,7 +56,6 @@ if which brew >/dev/null; then
     installHomebrewPackage neovim
     installHomebrewPackage tmux
     installHomebrewPackage fzf
-    installHomebrewPackage ag
     installHomebrewPackage rg
     installHomebrewPackage node
     installHomebrewPackage lazygit
