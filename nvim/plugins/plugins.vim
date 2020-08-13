@@ -18,9 +18,7 @@ endif
 call plug#begin(expand('~/.config/nvim/plugged'))
 
 " Tree explorer plugin
-Plug 'scrooloose/nerdtree'
-" Showing git status in NERDTree
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 " Seamless navigation between tmux panes and vim splits
 Plug 'christoomey/vim-tmux-navigator'
 " Color scheme

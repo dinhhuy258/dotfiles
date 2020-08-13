@@ -13,7 +13,7 @@ source $HOME/.config/nvim/themes/iceberg.vim
 source $HOME/.config/nvim/themes/lightline.vim
 
 source $HOME/.config/nvim/plugins/vim-easymotion.vim
-source $HOME/.config/nvim/plugins/nerdtree.vim
+source $HOME/.config/nvim/plugins/chadtree.vim
 source $HOME/.config/nvim/plugins/nerdcommenter.vim
 source $HOME/.config/nvim/plugins/vim-gitgutter.vim
 source $HOME/.config/nvim/plugins/auto-pairs.vim
