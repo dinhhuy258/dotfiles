@@ -32,8 +32,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 " Vim plugin for git
 Plug 'tpope/vim-fugitive'
-" Github extension for fugitive.vim
-Plug 'tpope/vim-rhubarb'
 " Vim easy motion
 Plug 'easymotion/vim-easymotion'
 " Vim surround
