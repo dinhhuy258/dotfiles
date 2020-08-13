@@ -26,42 +26,10 @@ nnoremap <C-v> P<CR>
 inoremap <C-v> <Esc>p<CR>
 
 " Next buffer
-nnoremap <Leader>] :bnext<CR>
-nnoremap <Leader>[ :bprev<CR>
-nnoremap <Leader>w :bd<CR>
-nnoremap <Leader>W :bd!<CR>
-
-" Delete without putting into the registers
-nnoremap dd "_dd
-nnoremap dw "_dw
-nnoremap db "_db
-nnoremap di" "_di"
-nnoremap da" "_da"
-nnoremap di' "_di'
-nnoremap da' "_da'
-nnoremap di( "_di(
-nnoremap di) "_di)
-nnoremap da( "_da(
-nnoremap da) "_da)
-nnoremap di[ "_di[
-nnoremap di] "_di]
-nnoremap da[ "_da[
-nnoremap da] "_da]
-nnoremap di{ "_di{
-nnoremap di} "_di}
-nnoremap da{ "_da{
-nnoremap da} "_da}
-nnoremap de "_de
-nnoremap dG "_dG
-nnoremap dgg "_dgg
-nnoremap d$ "_d$
-nnoremap d^ "_d^
-nnoremap d0 "_d0
-nnoremap D "_D
-nnoremap x "_x
-nnoremap X "_X
-vnoremap d "_d
-vnoremap D "_D
+nnoremap <silent> <Leader>] :bnext<CR>
+nnoremap <silent> <Leader>[ :bprev<CR>
+nnoremap <silent> <Leader>w :bd<CR>
+nnoremap <silent> <Leader>W :bd!<CR>
 
 " Abbreviations
 cnoreabbrev W! w!
