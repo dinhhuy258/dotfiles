@@ -66,6 +66,8 @@ Plug 'itchyny/vim-cursorword'
 Plug 'dinhhuy258/vintellij'
 " Vim utilities
 Plug 'dinhhuy258/vim-utilities'
+" Open git repository
+Plug 'dinhhuy258/vim-git-browse'
 " fzf
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
