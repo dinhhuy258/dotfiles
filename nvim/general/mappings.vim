@@ -18,13 +18,6 @@ inoremap <C-s> <Esc>:w<CR>
 " Alternate way to quit
 nnoremap <C-q> :wq!<CR>
 
-" Alternate way to copy
-xnoremap <C-c> y<CR>
-
-" Alternate way to paste
-nnoremap <C-v> P<CR>
-inoremap <C-v> <Esc>p<CR>
-
 " Next buffer
 nnoremap <silent> <Leader>] :bnext<CR>
 nnoremap <silent> <Leader>[ :bprev<CR>
