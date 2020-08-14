@@ -538,23 +538,23 @@ key_bindings:
   #- { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
   #- { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
 
-  - { key: Key0,        mods: Command,           action: ResetFontSize    }
-  - { key: Equals,      mods: Command,           action: IncreaseFontSize }
-  - { key: Add,         mods: Command,           action: IncreaseFontSize }
-  - { key: Minus,       mods: Command,           action: DecreaseFontSize }
-  - { key: V,           mods: Command,           action: Paste            }
-  - { key: C,           mods: Command,           action: Copy             }
-  - { key: H,           mods: Command,           action: Hide             }
-  - { key: M,           mods: Command,           action: Minimize         }
-  - { key: Q,           mods: Command,           action: Quit             }
-  - { key: Return,      mods: Command,           action: ToggleFullscreen }
-  - { key: N,           mods: Command,           action: SpawnNewInstance } 
-  - { key: J,           mods: Alt,               chars: "\x1bj"           }
-  - { key: K,           mods: Alt,               chars: "\x1bk"           }
-  - { key: H,           mods: Alt,               chars: "\x1bh"           }
-  - { key: L,           mods: Alt,               chars: "\x1bl"           }
-  - { key: U,           mods: Alt,               chars: "\x1bu"           }
-  - { key: D,           mods: Alt,               chars: "\x1bd"           }
+  - { key: Key0,        mods: Command,                 action: ResetFontSize    }
+  - { key: Equals,      mods: Command,                 action: IncreaseFontSize }
+  - { key: Add,         mods: Command,                 action: IncreaseFontSize }
+  - { key: Minus,       mods: Command,                 action: DecreaseFontSize }
+  - { key: V,           mods: Command,                 action: Paste            }
+  - { key: C,           mods: Command,                 action: Copy             }
+  - { key: H,           mods: Command,                 action: Hide             }
+  - { key: M,           mods: Command,                 action: Minimize         }
+  - { key: Q,           mods: Command,                 action: Quit             }
+  - { key: Return,      mods: Command,                 action: ToggleFullscreen }
+  - { key: N,           mods: Command,                 action: SpawnNewInstance } 
+  - { key: J,           mods: Alt|Shift,               chars: "\x1bJ"           }
+  - { key: K,           mods: Alt|Shift,               chars: "\x1bK"           }
+  - { key: H,           mods: Alt|Shift,               chars: "\x1bH"           }
+  - { key: L,           mods: Alt|Shift,               chars: "\x1bL"           }
+  - { key: U,           mods: Alt|Shift,               chars: "\x1bU"           }
+  - { key: D,           mods: Alt|Shift,               chars: "\x1bD"           }
 
 #debug:
   # Display the time it takes to redraw each frame.
