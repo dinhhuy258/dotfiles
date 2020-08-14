@@ -1,7 +1,19 @@
 let loaded_settings_plugins_lightline = 1
+let s:icons_cache = {}
 
 function! GetFileIcon() abort
-  return winwidth(0) > 70 ? (strlen(&filetype) ? WebDevIconsGetFileTypeSymbol() : '') : ''
+  if empty(&filetype)
+    return
+  endif
+
+  if has_key(s:icons_cache, &filetype)
+    return get(s:icons_cache, &filetype)
+  endif
+
+  let l:icon = WebDevIconsGetFileTypeSymbol()
+  let s:icons_cache[&filetype] = l:icon
+
+  return l:icon
 endfunction
 
 function! GetFileName() abort
@@ -56,7 +68,7 @@ let g:lightline = {
       \   'left': [ [], ['fileicon'], [ 'filename' ] ],
       \   'right': []
       \ },
-      \ 'component': { 'lineinfo': ' %2p%% %3l/%L:%-2v' },
+      \ 'component': { 'lineinfo': '%2p%% %3l/%L:%-2v' },
       \ 'component_function': {
       \   'fileicon': 'GetFileIcon',
       \   'cocstatus': 'coc#status',
