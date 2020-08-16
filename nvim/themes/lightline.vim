@@ -27,6 +27,13 @@ let g:lightline = {
       \      ['lineinfo']
       \   ]
       \ },
+      \ 'inactive': {
+      \   'left': [
+      \      ['fileicon'],
+      \      ['relativepath'],
+      \   ],
+      \   'right': []
+      \ },
       \ 'tabline': {
       \   'left': [
       \      ['buffers']
@@ -42,10 +49,6 @@ let g:lightline = {
       \ },
       \ 'component_raw': {
       \   'buffers': 1
-      \ },
-      \ 'inactive': {
-      \   'left': [ [], ['fileicon'], [ 'filename' ] ],
-      \   'right': []
       \ },
       \ 'component': { 'lineinfo': '%2p%% %3l/%L:%-2v' },
       \ 'component_function': {
