@@ -58,8 +58,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'kana/vim-submode'
 " Make FocusGained and FocusLost autocommand events work
 Plug 'tmux-plugins/vim-tmux-focus-events'
-" Underlines the word under the cursor
-Plug 'itchyny/vim-cursorword'
 " Intellij as language server
 Plug 'dinhhuy258/vintellij'
 " Vim utilities
