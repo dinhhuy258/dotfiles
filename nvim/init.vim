@@ -18,7 +18,6 @@ source $HOME/.config/nvim/plugins/nerdcommenter.vim
 source $HOME/.config/nvim/plugins/vim-gitgutter.vim
 source $HOME/.config/nvim/plugins/auto-pairs.vim
 source $HOME/.config/nvim/plugins/fzf.vim
-source $HOME/.config/nvim/plugins/vim-highlightedyank.vim
 source $HOME/.config/nvim/plugins/coc.vim
 source $HOME/.config/nvim/plugins/vim-floaterm.vim
 source $HOME/.config/nvim/plugins/lightline-bufferline.vim

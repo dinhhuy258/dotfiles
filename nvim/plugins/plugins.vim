@@ -42,8 +42,6 @@ Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 " Convenience for commenting things in and out
 Plug 'scrooloose/nerdcommenter'
-" Make the yarn region apparent
-Plug 'machakann/vim-highlightedyank'
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Use nvim's builtin terminal in the floating/popup window
