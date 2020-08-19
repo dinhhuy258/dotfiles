@@ -73,6 +73,13 @@
     "default": "\uf29c"
   },
 
+  "yaml.schemas": {
+      "kubernetes": "/*.yaml"
+  },
+
+  "python.jediEnabled": false,
+  "python.linting.pylintEnabled": true,
+
   "languageserver": {
     "clangd": {
       "command": "clangd",
@@ -90,10 +97,6 @@
           "objcpp"
       ]
     }
-  },
-
-  "yaml.schemas": {
-      "kubernetes": "/*.yaml"
   }
 }
 

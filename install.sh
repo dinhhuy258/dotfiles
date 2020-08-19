@@ -60,6 +60,9 @@ if which brew >/dev/null; then
     installHomebrewPackage node
     installHomebrewPackage lazygit
     installHomebrewPackage urlview
+
+    # installHomebrewPackage ccls
+    # installHomebrewPackage pylint
   fi
 else
   echo "Homebrew not installed! Skipping package installation..."
