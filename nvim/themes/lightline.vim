@@ -17,7 +17,7 @@ function! GetFileIcon() abort
 endfunction
 
 let g:lightline = {
-      \ 'colorscheme': 'icebergDark',
+      \ 'colorscheme': 'iceberg',
       \ 'active': {
       \   'left': [
       \      ['fileicon'],
@@ -55,4 +55,11 @@ let g:lightline = {
       \   'fileicon': 'GetFileIcon',
       \ },
       \ }
+
+let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
+let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
+let s:palette.inactive.middle = s:palette.normal.middle
+let s:palette.tabline.middle = s:palette.normal.middle
+
+let s:palette.tabline.tabsel = s:palette.normal.middle
 

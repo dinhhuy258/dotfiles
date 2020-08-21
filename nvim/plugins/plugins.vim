@@ -23,7 +23,6 @@ Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 Plug 'christoomey/vim-tmux-navigator'
 " Color scheme
 Plug 'cocopon/iceberg.vim'
-Plug 'gkeep/iceberg-dark'
 " A light and configurable statusline/tabline plugin
 Plug 'itchyny/lightline.vim'
 " Add file type icons to vim plugins
