@@ -115,13 +115,6 @@ set mouse=a
 " When a file has been detected to have been changed outside of Vim and it has not been changed inside of Vim, automatically read it again
 autocmd FocusGained,BufEnter * :checktime
 
-" Highlight current cursor line
-augroup CursorLine
-  autocmd!
-  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-  autocmd WinLeave * setlocal nocursorline
-augroup END
-
 " Session manager
 let g:session_directory = "~/.config/nvim/session"
 let g:session_autoload = "no"
