@@ -37,6 +37,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 " Enable repeating supported plugins map with .
 Plug 'tpope/vim-repeat'
+" Make f, F, t, T more clever
+Plug 'rhysd/clever-f.vim'
 " Automatically closing braces
 Plug 'jiangmiao/auto-pairs'
 " Convenience for commenting things in and out
