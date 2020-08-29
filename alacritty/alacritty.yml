@@ -555,6 +555,7 @@ key_bindings:
   - { key: L,           mods: Alt|Shift,               chars: "\x1bL"           }
   - { key: U,           mods: Alt|Shift,               chars: "\x1bU"           }
   - { key: D,           mods: Alt|Shift,               chars: "\x1bD"           }
+  - { key: Space,       mods: Control,                 chars: "\x00"            }
 
 #debug:
   # Display the time it takes to redraw each frame.
