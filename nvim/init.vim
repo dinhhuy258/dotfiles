@@ -25,4 +25,5 @@ source $HOME/.config/nvim/plugins/lightline-bufferline.vim
 source $HOME/.config/nvim/plugins/vim-startify.vim
 source $HOME/.config/nvim/plugins/vim-fugitive.vim
 source $HOME/.config/nvim/plugins/vim-submode.vim
+source $HOME/.config/nvim/plugins/vim-local-history.vim
 

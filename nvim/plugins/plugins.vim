@@ -63,6 +63,8 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'dinhhuy258/vintellij'
 " Vim utilities
 Plug 'dinhhuy258/vim-utilities'
+" Local history in vim
+Plug 'dinhhuy258/vim-local-history', {'branch': 'master', 'do': ':UpdateRemotePlugins'}
 " Open git repository
 Plug 'dinhhuy258/vim-git-browse'
 " fzf
