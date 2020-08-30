@@ -1,7 +1,6 @@
 let g:coc_global_extensions = [
     \ 'coc-prettier',
     \ 'coc-tabnine',
-    \ 'coc-snippets',
     \ 'coc-json',
     \ 'coc-yaml',
     \ 'coc-phpls',
