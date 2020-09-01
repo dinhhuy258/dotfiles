@@ -39,8 +39,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 " Make f, F, t, T more clever
 Plug 'rhysd/clever-f.vim'
-" Automatically closing braces
-Plug 'jiangmiao/auto-pairs'
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Use nvim's builtin terminal in the floating/popup window
