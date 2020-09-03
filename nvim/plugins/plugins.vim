@@ -41,6 +41,8 @@ Plug 'tpope/vim-repeat'
 Plug 'rhysd/clever-f.vim'
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Asynchronous Lint Engine
+Plug 'dense-analysis/ale'
 " Use nvim's builtin terminal in the floating/popup window
 Plug 'voldikss/vim-floaterm'
 " Bufferline

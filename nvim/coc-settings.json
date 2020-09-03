@@ -11,7 +11,7 @@
   "diagnostic.hintSign": "",
   "diagnostic.refreshOnInsertMode": false,
   "diagnostic.refreshAfterSave": true,
-  "diagnostic.displayByAle": false,
+  "diagnostic.displayByAle": true,
   "diagnostic.level": "error",
   "diagnostic.virtualText": true,
   "diagnostic.checkCurrentLine": true,
