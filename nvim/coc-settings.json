@@ -20,7 +20,7 @@
 
   "suggest.triggerAfterInsertEnter": false,
   "suggest.minTriggerInputLength": 2,
-  "suggest.timeout": 15000,
+  "suggest.timeout": 5000,
   "suggest.labelMaxLength": 400,
   "suggest.enablePreselect": false,
   "suggest.maxPreviewWidth": 160,
@@ -43,8 +43,8 @@
   "suggest.snippetIndicator": ":star2:",
   "suggest.triggerCompletionWait": 300,
   "suggest.echodocSupport": true,
-  "suggest.autoTrigger": "always",
-  "suggest.maxCompleteItemCount": 10,
+  "suggest.autoTrigger": "none",
+  "suggest.maxCompleteItemCount": 15,
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
     "variable": "\ue79b",
