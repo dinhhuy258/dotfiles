@@ -43,6 +43,8 @@ Plug 'rhysd/clever-f.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Asynchronous Lint Engine
 Plug 'dense-analysis/ale'
+" Use fzf instead of coc.nvim built-in fuzzy finder
+Plug 'antoinemadec/coc-fzf'
 " Use nvim's builtin terminal in the floating/popup window
 Plug 'voldikss/vim-floaterm'
 " Bufferline
