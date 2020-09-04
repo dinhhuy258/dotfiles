@@ -23,6 +23,9 @@ set expandtab
 set smartindent
 set autoindent
 
+" Disable folding
+set nofoldenable
+
 " Display long lines as just one line
 set nowrap
 
