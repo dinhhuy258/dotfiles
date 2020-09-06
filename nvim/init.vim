@@ -14,7 +14,6 @@ source $HOME/.config/nvim/themes/lightline.vim
 
 source $HOME/.config/nvim/plugins/vim-easymotion.vim
 source $HOME/.config/nvim/plugins/clever-f.vim
-source $HOME/.config/nvim/plugins/chadtree.vim
 source $HOME/.config/nvim/plugins/vim-gitgutter.vim
 source $HOME/.config/nvim/plugins/fzf.vim
 source $HOME/.config/nvim/plugins/coc.vim

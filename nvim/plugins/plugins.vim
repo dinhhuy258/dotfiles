@@ -18,7 +18,7 @@ endif
 call plug#begin(expand('~/.config/nvim/plugged'))
 
 " Tree explorer plugin
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
+Plug 'dinhhuy258/chadtree', {'branch': 'master', 'do': ':UpdateRemotePlugins'}
 " Seamless navigation between tmux panes and vim splits
 Plug 'christoomey/vim-tmux-navigator'
 " Color scheme
