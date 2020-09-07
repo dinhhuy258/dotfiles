@@ -124,3 +124,6 @@ let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
 
+" Config variable for my plugins
+let g:huy_duong_workspace = 1
+
