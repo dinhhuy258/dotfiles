@@ -74,11 +74,19 @@
   },
 
   "yaml.schemas": {
-      "kubernetes": "/*.yaml"
+    "kubernetes": "/*.yaml"
   },
 
   "python.jediEnabled": false,
   "python.linting.pylintEnabled": true,
+
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-1.8",
+      "path": "/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home",
+      "default": true
+    }
+  ],
 
   "languageserver": {
     "clangd": {
