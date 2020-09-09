@@ -61,7 +61,7 @@ if which brew >/dev/null; then
     installHomebrewPackage lazygit
     installHomebrewPackage urlview
 
-    # installHomebrewPackage ccls
+    # installHomebrewPackage llvm 
     # installHomebrewPackage pylint
   fi
 else
