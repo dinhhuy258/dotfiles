@@ -67,6 +67,8 @@ Plug 'dinhhuy258/vim-utilities'
 Plug 'dinhhuy258/vim-local-history', {'branch': 'master', 'do': ':UpdateRemotePlugins'}
 " Open git repository
 Plug 'dinhhuy258/vim-git-browse'
+" Vim database
+Plug 'dinhhuy258/vim-database'
 " fzf
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
