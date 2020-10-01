@@ -43,7 +43,7 @@
   "suggest.snippetIndicator": ":star2:",
   "suggest.triggerCompletionWait": 300,
   "suggest.echodocSupport": true,
-  "suggest.autoTrigger": "none",
+  "suggest.autoTrigger": "always",
   "suggest.maxCompleteItemCount": 15,
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
