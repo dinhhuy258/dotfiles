@@ -158,7 +158,7 @@ function gretting_message() {
   e_success "Terminal color: $TERM"
   e_success "Uptime: $(uptime | sed 's/.*up \([^,]*\), .*/\1/')"
 
-  echo "Hello Huy Duong. This is for you today: \n "$(fortune)" \n\n Have a good day!" | cowsay -W 100 | lolcat
+  echo "Hello Huy Duong.\n\nHave a good day!" | cowsay | lolcat
 }
 
 gretting_message

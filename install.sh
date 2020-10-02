@@ -63,7 +63,6 @@ if which brew >/dev/null; then
 
     # Greeting message
     installHomebrewPackage cowsay
-    installHomebrewPackage fortune
     installHomebrewPackage lolcat
 
     # installHomebrewPackage llvm 
