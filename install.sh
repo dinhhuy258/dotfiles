@@ -61,6 +61,11 @@ if which brew >/dev/null; then
     installHomebrewPackage lazygit
     installHomebrewPackage urlview
 
+    # Greeting message
+    installHomebrewPackage cowsay
+    installHomebrewPackage fortune
+    installHomebrewPackage lolcat
+
     # installHomebrewPackage llvm 
     # installHomebrewPackage pylint
   fi

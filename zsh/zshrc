@@ -1,7 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 if [ -d "/usr/local/opt/llvm/bin/" ]; then
-    export PATH=/usr/local/opt/llvm/bin/:$PATH
+  export PATH=/usr/local/opt/llvm/bin/:$PATH
 fi
 
 # Path to your oh-my-zsh installation.
@@ -72,9 +72,9 @@ ZSH_THEME="flazz"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
-    vi-mode
-    zsh-autosuggestions
+  git
+  vi-mode
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -117,8 +117,48 @@ bindkey '^ ' autosuggest-accept
 # Use ~/.zshrc.local for your own customisation
 source "${HOME}/.zshrc.local"
 
-# Functions
-goto_project() {
-    cd $WORKSPACE; ls -d */ | fzf | { cd -; read result; cd $WORKSPACE/$result }
+# Go to project
+function goto_project() {
+  cd $WORKSPACE; ls -d */ | fzf | { cd -; read result; cd $WORKSPACE/$result }
 }
 
+# Utils functions
+
+bold=$(tput bold)
+
+underline=$(tput sgr 0 1)
+
+reset=$(tput sgr0)
+
+green=$(tput setaf 76)
+
+blue=$(tput setaf 38)
+
+function e_arrow() {
+  printf "➜ $1\n"
+}
+
+function e_success() {
+  printf "${green}✔ %s${reset}\n" "$@"
+}
+
+function e_bold() {
+  printf "${bold}%s${reset}\n" "$@"
+}
+
+function e_note() {
+  printf "${underline}${bold}${blue}Note:${reset}  ${blue}%s${reset}\n" "$@"
+}
+
+# Greeting message
+function gretting_message() {
+  e_bold "Host name: $(hostname), User: $(whoami)"
+  e_success "On $(sw_vers -productName)$(sw_vers -productVersion), build version: $(sw_vers -buildVersion)"
+  e_success "Shell: $(zsh --version)"
+  e_success "Terminal color: $TERM"
+  e_success "Uptime: $(uptime | sed 's/.*up \([^,]*\), .*/\1/')"
+
+  echo "Hello Huy Duong. This is for you today: \n "$(fortune)" \n\n Have a good day!" | cowsay -W 100 | lolcat
+}
+
+gretting_message
