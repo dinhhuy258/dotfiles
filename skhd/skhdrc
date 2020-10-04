@@ -1,0 +1,3 @@
+# Open terminal
+cmd + shift - return : open -a Alacritty
+

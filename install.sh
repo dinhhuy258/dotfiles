@@ -20,16 +20,6 @@ function installHomebrewPackage() {
   fi
 }
 
-# XCode
-if which xcode-select >/dev/null; then
-  read -p "Install xcode command line tools? (y/n) " -n 1
-  echo ""
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo "Running installer.."
-    xcode-select --install
-  fi
-fi
-
 # Init and update git submodules
 echo "Init and update git submodules..."
 git submodule update --init --recursive
@@ -110,6 +100,21 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   ln -sf $CWD/zsh/zshrc ~/.zshrc
   rm -rf ~/.oh-my-zsh/custom/plugins
   ln -sf $CWD/zsh/plugins ~/.oh-my-zsh/custom/plugins
+fi
+
+read -p "Install skhd? (y/n) " -n 1;
+echo "";
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  if brew list | grep skhd > /dev/null; then
+    echo "skhd is already installed"
+  else
+    echo "Installing skhd..."
+    brew install koekeishiya/formulae/skhd
+    brew services start skhd
+  fi
+
+  # Sync skhd config
+  ln -sf $CWD/skhd/skhdrc ~/.skhdrc
 fi
 
 echo "All done!"
