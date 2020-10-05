@@ -1,3 +1,8 @@
-# Open terminal
 cmd + shift - return : open -a Alacritty
+
+cmd + shift - i : open -a "IntelliJ IDEA"
+
+cmd + shift - g : open -a "Google Chrome"
+
+cmd + shift - s : open -a "Slack"
 
