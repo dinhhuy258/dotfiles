@@ -79,6 +79,17 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi;
 
+# Install karabiner
+read -p "Install karabiner? (y/n) " -n 1;
+echo "";
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  installHomebrewCaskPackage karabiner-elements
+
+  # Sync karabiner config
+  mkdir -p ~/.config/karabiner
+  ln -sf $CWD/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+fi
+
 # Sync folders 
 read -p "Sync folders? (y/n) " -n 1;
 echo "";
@@ -100,21 +111,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   ln -sf $CWD/zsh/zshrc ~/.zshrc
   rm -rf ~/.oh-my-zsh/custom/plugins
   ln -sf $CWD/zsh/plugins ~/.oh-my-zsh/custom/plugins
-fi
-
-read -p "Install skhd? (y/n) " -n 1;
-echo "";
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  if brew list | grep skhd > /dev/null; then
-    echo "skhd is already installed"
-  else
-    echo "Installing skhd..."
-    brew install koekeishiya/formulae/skhd
-    brew services start skhd
-  fi
-
-  # Sync skhd config
-  ln -sf $CWD/skhd/skhdrc ~/.skhdrc
 fi
 
 echo "All done!"
