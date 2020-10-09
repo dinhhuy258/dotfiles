@@ -61,6 +61,7 @@ Plug 'kana/vim-submode'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 " Intellij as language server
 Plug 'dinhhuy258/vintellij'
+Plug 'beeender/Comrade'
 " Vim utilities
 Plug 'dinhhuy258/vim-utilities'
 " Local history in vim

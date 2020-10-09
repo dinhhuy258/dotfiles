@@ -7,7 +7,8 @@ let g:coc_global_extensions = [
     \ 'coc-phpls',
     \ 'coc-python',
     \ 'coc-clangd',
-    \ 'coc-java'
+    \ 'coc-java',
+    \ 'coc-comrade'
     \ ]
 
 inoremap <silent><expr> <TAB>
