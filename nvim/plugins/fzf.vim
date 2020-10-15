@@ -1,6 +1,6 @@
 " This is the default extra key bindings
 let g:fzf_action = {
-  \ 'enter': 'tab split',
+  \ 'enter': 'edit',
   \ 'ctrl-h': 'split',
   \ 'ctrl-v': 'vsplit' }
 
