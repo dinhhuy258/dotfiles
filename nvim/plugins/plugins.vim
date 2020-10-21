@@ -39,8 +39,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 " Make f, F, t, T more clever
 Plug 'rhysd/clever-f.vim'
-" LSP
+" Completion framework
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Asynchronous Lint Engine
 Plug 'dense-analysis/ale'
 " Use fzf instead of coc.nvim built-in fuzzy finder
