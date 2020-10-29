@@ -16,15 +16,15 @@
                 },
                 "rules": [
                     {
-                        "description": "Quickly open Google Chrome (right_command + B)",
+                        "description": "Quickly open Google Chrome (left_command + right_command + B)",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "b",
                                     "modifiers": {
                                         "mandatory": [
-                                            "right_command",
-                                            "shift"
+                                            "left_command",
+                                            "right_command"
                                         ]
                                     }
                                 },
@@ -38,15 +38,15 @@
                         ]
                     },
                     {
-                        "description": "Quickly open Alacritty (right_command + T)",
+                        "description": "Quickly open Alacritty (left_command + right_command + T)",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "t",
                                     "modifiers": {
                                         "mandatory": [
-                                            "right_command",
-                                            "shift"
+                                            "left_command",
+                                            "right_command"
                                         ]
                                     }
                                 },
@@ -60,15 +60,15 @@
                         ]
                     },
                     {
-                        "description": "Quickly open IntelliJ IDEA (right_command + I)",
+                        "description": "Quickly open IntelliJ IDEA (left_command + right_command + I)",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "i",
                                     "modifiers": {
                                         "mandatory": [
-                                            "right_command",
-                                            "shift"
+                                            "left_command",
+                                            "right_command"
                                         ]
                                     }
                                 },
@@ -82,15 +82,15 @@
                         ]
                     },
                     {
-                        "description": "Quickly open Skype (right_command + S)",
+                        "description": "Quickly open Skype (left_command + right_command + S)",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": {
                                         "mandatory": [
-                                            "right_command",
-                                            "shift"
+                                            "left_command",
+                                            "right_command"
                                         ]
                                     }
                                 },
@@ -104,15 +104,15 @@
                         ]
                     },
                     {
-                        "description": "Quickly open Slack (right_command + C)",
+                        "description": "Quickly open Slack (left_command + right_command + C)",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "c",
                                     "modifiers": {
                                         "mandatory": [
-                                            "right_command",
-                                            "shift"
+                                            "left_command",
+                                            "right_command"
                                         ]
                                     }
                                 },
@@ -126,15 +126,15 @@
                         ]
                     },
                     {
-                        "description": "Quickly open Zalo (right_command + Z)",
+                        "description": "Quickly open Zalo (left_command + right_command + Z)",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "z",
                                     "modifiers": {
                                         "mandatory": [
-                                            "right_command",
-                                            "shift"
+                                            "left_command",
+                                            "right_command"
                                         ]
                                     }
                                 },
@@ -148,15 +148,15 @@
                         ]
                     },
                     {
-                        "description": "Quickly open Finder (right_command + F)",
+                        "description": "Quickly open Finder (left_command + right_command + F)",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "f",
                                     "modifiers": {
                                         "mandatory": [
-                                            "right_command",
-                                            "shift"
+                                            "left_command",
+                                            "right_command"
                                         ]
                                     }
                                 },
