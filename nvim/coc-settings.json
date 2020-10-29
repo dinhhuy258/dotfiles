@@ -3,20 +3,13 @@
   "coc.preferences.messageLevel": "error",
 
   "diagnostic.enable": true,
+  "diagnostic.enableSign": true,
   "diagnostic.enableMessage": "always",
-  "diagnostic.signOffset": 9999999,
   "diagnostic.warningSign": "",
   "diagnostic.errorSign": "",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "",
-  "diagnostic.refreshOnInsertMode": false,
-  "diagnostic.refreshAfterSave": true,
   "diagnostic.displayByAle": true,
-  "diagnostic.level": "error",
-  "diagnostic.virtualText": true,
-  "diagnostic.checkCurrentLine": true,
-  "diagnostic.messageTarget": "float",
-  "diagnostic.highlightOffset": 1000,
 
   "suggest.triggerAfterInsertEnter": false,
   "suggest.minTriggerInputLength": 2,
@@ -89,6 +82,19 @@
   ],
 
   "languageserver": {
+    "vintellij":{
+        "host": "127.0.0.1",
+        "port": 6969,
+        "rootPatterns": [
+          ".vim/",
+          ".git/",
+          ".hg/"
+        ],
+        "filetypes": [
+            "java",
+            "kotlin"
+        ]
+    },
     "clangd": {
       "command": "clangd",
       "rootPatterns": [
