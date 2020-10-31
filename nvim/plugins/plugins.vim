@@ -61,7 +61,7 @@ Plug 'kana/vim-submode'
 " Make FocusGained and FocusLost autocommand events work
 Plug 'tmux-plugins/vim-tmux-focus-events'
 " Intellij as language server
-Plug 'dinhhuy258/vintellij', {'branch': 'comrade'}
+Plug 'dinhhuy258/vintellij', {'branch': 'lsp'}
 " Vim utilities
 Plug 'dinhhuy258/vim-utilities'
 " Local history in vim
