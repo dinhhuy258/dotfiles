@@ -165,7 +165,7 @@ function gretting_message() {
 
 # Lauch application
 function fapp() {
-  local app=$(ls /Applications | sed 's/.app//g' | fzf)
+  local app=$((ls /Applications; ls /System/Applications/; ls /System/Applications/Utilities) | cat | sed 's/.app//g' | fzf)
   open -a $app
 }
 

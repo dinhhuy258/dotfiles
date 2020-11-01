@@ -17,7 +17,6 @@ source $HOME/.config/nvim/plugins/clever-f.vim
 source $HOME/.config/nvim/plugins/vim-gitgutter.vim
 source $HOME/.config/nvim/plugins/fzf.vim
 source $HOME/.config/nvim/plugins/coc.vim
-source $HOME/.config/nvim/plugins/deoplete.vim
 source $HOME/.config/nvim/plugins/ale.vim
 source $HOME/.config/nvim/plugins/vim-floaterm.vim
 source $HOME/.config/nvim/plugins/lightline-bufferline.vim

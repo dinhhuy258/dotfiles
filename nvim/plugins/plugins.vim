@@ -41,7 +41,6 @@ Plug 'tpope/vim-repeat'
 Plug 'rhysd/clever-f.vim'
 " Completion framework
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Asynchronous Lint Engine
 Plug 'dense-analysis/ale'
 " Use fzf instead of coc.nvim built-in fuzzy finder
