@@ -89,6 +89,8 @@ source $ZSH/oh-my-zsh.sh
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+export EDITOR=nvim
+export VISUAL="$EDITOR"
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -161,4 +163,10 @@ function gretting_message() {
   echo "Hello Huy Duong.\n\nHave a good day!" | cowsay | lolcat
 }
 
-gretting_message
+# Lauch application
+function fapp() {
+  local app=$(ls /Applications | sed 's/.app//g' | fzf)
+  open -a $app
+}
+
+# gretting_message

@@ -41,6 +41,7 @@ if which brew >/dev/null; then
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "Installing homebrew packages..."
     installHomebrewCaskPackage alacritty
+    installHomebrewCaskPackage karabiner-elements
     brew tap homebrew/cask-fonts
     installHomebrewCaskPackage font-fira-code-nerd-font
     installHomebrewPackage neovim
@@ -50,6 +51,7 @@ if which brew >/dev/null; then
     installHomebrewPackage node
     installHomebrewPackage lazygit
     installHomebrewPackage urlview
+    installHomebrewPackage ranger
 
     # Greeting message
     installHomebrewPackage cowsay
@@ -79,17 +81,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi;
 
-# Install karabiner
-read -p "Install karabiner? (y/n) " -n 1;
-echo "";
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  installHomebrewCaskPackage karabiner-elements
-
-  # Sync karabiner config
-  mkdir -p ~/.config/karabiner
-  ln -sf $CWD/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
-fi
-
 # Sync folders 
 read -p "Sync folders? (y/n) " -n 1;
 echo "";
@@ -111,6 +102,14 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   ln -sf $CWD/zsh/zshrc ~/.zshrc
   rm -rf ~/.oh-my-zsh/custom/plugins
   ln -sf $CWD/zsh/plugins ~/.oh-my-zsh/custom/plugins
+
+  # Sync karabiner config
+  mkdir -p ~/.config/karabiner
+  ln -sf $CWD/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+
+  # Sync ranger
+  rm -rf ~/.config/ranger
+  ln -sf $CWD/ranger ~/.config/ranger
 fi
 
 echo "All done!"
