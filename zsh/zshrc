@@ -169,4 +169,21 @@ function fapp() {
   open -a $app
 }
 
-# gretting_message
+# Run frequently used commands
+# First param take local path to set of commands, i.e. ~/local/cmds
+frun() {
+  echo $1
+  local cmd=$(cat $1 | fzf)
+  if [ -n "$cmd" ]; then
+    local escape=$(echo $cmd | sed 's/[]\/$*.^[]/\\&/g')
+    echo -e "$cmd\n$(cat $1 | sed "s/$escape//g" | sed '/^$/d')" > $1
+    echo ""
+    echo $fg[yellow] "$cmd"
+    echo ""
+    eval $cmd
+  else
+    echo $fg[red] "Run nothing!"
+  fi
+}
+
+gretting_message

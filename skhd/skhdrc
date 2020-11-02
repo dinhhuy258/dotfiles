@@ -1,1 +1,2 @@
+cmd + ctrl - r :open -na Alacritty --args -e zsh -ci "frun ~/.local/syscmds"
 cmd + ctrl - a :open -na Alacritty --args -e zsh -ci "fapp"
