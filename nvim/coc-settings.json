@@ -9,7 +9,7 @@
   "diagnostic.errorSign": "",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "",
-  "diagnostic.displayByAle": true,
+  "diagnostic.displayByAle": false,
 
   "suggest.triggerAfterInsertEnter": false,
   "suggest.minTriggerInputLength": 2,

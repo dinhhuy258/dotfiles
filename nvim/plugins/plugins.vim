@@ -23,6 +23,9 @@ Plug 'dinhhuy258/chadtree', {'branch': 'master', 'do': ':UpdateRemotePlugins'}
 Plug 'christoomey/vim-tmux-navigator'
 " Color scheme
 Plug 'cocopon/iceberg.vim'
+" Highlighting
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'udalov/kotlin-vim'
 " A light and configurable statusline/tabline plugin
 Plug 'itchyny/lightline.vim'
 " Add file type icons to vim plugins
@@ -41,8 +44,6 @@ Plug 'tpope/vim-repeat'
 Plug 'rhysd/clever-f.vim'
 " Completion framework
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Asynchronous Lint Engine
-Plug 'dense-analysis/ale'
 " Use fzf instead of coc.nvim built-in fuzzy finder
 Plug 'antoinemadec/coc-fzf'
 " Use nvim's builtin terminal in the floating/popup window
@@ -51,8 +52,6 @@ Plug 'voldikss/vim-floaterm'
 Plug 'mengelbrecht/lightline-bufferline'
 " The fancy start screen
 Plug 'mhinz/vim-startify'
-" Better syntax support
-Plug 'sheerun/vim-polyglot'
 " Multi editor tool for defining base file handling and code style preferences
 Plug 'editorconfig/editorconfig-vim'
 " Define submodes to the built-in vim modes
