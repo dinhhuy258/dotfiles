@@ -70,6 +70,9 @@ echo "";
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   echo "Installing zsh..."
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+  echo "Installing antigen..."
+  curl -L git.io/antigen > $HOME/.oh-my-zsh/antigen.zsh
 fi
 
 # Install tmux plugins
@@ -115,8 +118,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   # Sync zsh
   ln -sf $CWD/zsh/zshrc.local ~/.zshrc.local
   ln -sf $CWD/zsh/zshrc ~/.zshrc
-  rm -rf ~/.oh-my-zsh/custom/plugins
-  ln -sf $CWD/zsh/plugins ~/.oh-my-zsh/custom/plugins
 
   # Sync karabiner config
   mkdir -p ~/.config/karabiner
