@@ -6,8 +6,7 @@ let g:coc_global_extensions = [
     \ 'coc-yaml',
     \ 'coc-phpls',
     \ 'coc-python',
-    \ 'coc-clangd',
-    \ 'coc-java'
+    \ 'coc-clangd'
     \ ]
 
 inoremap <silent><expr> <TAB>
@@ -49,9 +48,9 @@ function! s:show_documentation()
 endfunction
 
 " Formatting selected code
-xmap <Leader>cf <Plug>(coc-format-selected)
-nmap <Leader>cf <Plug>(coc-format-selected)
+vmap <Leader>cl <Plug>(coc-format-selected)
+nmap <Leader>cl <Plug>(coc-format)
 
-" Add `:Format` command to format current buffer
-command! -nargs=0 CocFormat :call CocAction('format')
+nmap <Leader>cf :CocFix<CR>
 
+nmap <Leader>cc :CocFzfList<CR>
