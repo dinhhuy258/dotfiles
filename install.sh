@@ -111,6 +111,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   # Sync alacritty
   ln -sf $CWD/alacritty/alacritty.yml ~/.config/alacritty.yml
+  ln -sf $CWD/alacritty/alacritty-popup.yml ~/.config/alacritty-popup.yml
 
   # Sync tmux
   ln -sf $CWD/tmux/tmux.conf ~/.tmux.conf
