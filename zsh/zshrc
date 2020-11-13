@@ -130,14 +130,13 @@ function goto_project() {
 # Utils functions
 
 bold=$(tput bold)
-
 underline=$(tput sgr 0 1)
-
 reset=$(tput sgr0)
 
 green=$(tput setaf 76)
-
 blue=$(tput setaf 38)
+tan=$(tput setaf 3)
+red=$(tput setaf 1)
 
 function e_arrow() {
   printf "➜ $1\n"
@@ -145,6 +144,14 @@ function e_arrow() {
 
 function e_success() {
   printf "${green}✔ %s${reset}\n" "$@"
+}
+
+function e_warning() {
+  printf "${tan}➜ %s${reset}\n" "$@"
+}
+
+function e_error() {
+  printf "${red}✖ %s${reset}\n" "$@"
 }
 
 function e_bold() {
@@ -174,7 +181,7 @@ function fapp() {
 
 # Run frequently used commands
 # First param take local path to set of commands, i.e. ~/local/cmds
-frun() {
+function frun() {
   echo $1
   local cmd=$(cat $1 | fzf)
   if [ -n "$cmd" ]; then
@@ -189,4 +196,34 @@ frun() {
   fi
 }
 
+# Select password using fzf
+function pass_fzf() {
+  local prompt='Search password: '
+  local fzf_cmd="fzf --print-query --prompt=\"$prompt\""
+
+  if [ -n "$term" ]; then
+    fzf_cmd="$fzf_cmd -q\"$term\""
+  fi
+
+  fzf_cmd="$fzf_cmd | tail -n1"
+
+  if [ ! -d $HOME/.password-store ]; then
+    e_error "Could not locate password store directory. Please ensure $HOME/.password-store is setup."
+    return
+  fi
+
+  passfile=$(find -L "$HOME/.password-store" -path '*/.git' -prune -o -iname '*.gpg' -print \
+        | sed -e 's/.gpg$//' | sed -e 's/\/Users\/'$(whoami)'\/.password-store\///' \
+        | sort \
+        | eval "$fzf_cmd" )
+
+  if [ -z "$passfile" ]; then
+    e_warning 'No passfile selected.'
+    return
+  fi
+
+  pass show "$passfile" --clip || return
+}
+
 gretting_message
+
