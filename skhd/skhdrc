@@ -1,2 +1,2 @@
-cmd + ctrl - r :open -na Alacritty --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "frun ~/.local/syscmds"
-cmd + ctrl - a :open -na Alacritty --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fapp"
+cmd + ctrl - r :open -na Alacritty --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "run_cmds_fzf ~/.local/syscmds"
+cmd + ctrl - a :open -na Alacritty --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "app_fzf"

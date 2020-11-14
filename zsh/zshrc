@@ -116,16 +116,8 @@ alias vim=nvim
 alias vi=nvim
 alias lg=lazygit
 
-# Key bindings
-bindkey '^ ' autosuggest-accept
-
 # Use ~/.zshrc.local for your own customisation
 source "${HOME}/.zshrc.local"
-
-# Go to project
-function goto_project() {
-  cd $WORKSPACE; ls -d */ | fzf | { cd -; read result; cd $WORKSPACE/$result }
-}
 
 # Utils functions
 
@@ -173,15 +165,21 @@ function gretting_message() {
   echo "Hello Huy Duong.\n\nHave a good day!" | cowsay | lolcat
 }
 
+# Open project under workspace folder
+function workspace_fzf() {
+  cd $WORKSPACE; ls -d */ | fzf | { cd -; read result; cd $WORKSPACE/$result }
+  zle && zle reset-prompt
+}
+
 # Lauch application
-function fapp() {
+function app_fzf() {
   local app=$((ls /Applications; ls /System/Applications/; ls /System/Applications/Utilities) | cat | sed 's/.app//g' | fzf)
   open -a $app
 }
 
 # Run frequently used commands
 # First param take local path to set of commands, i.e. ~/local/cmds
-function frun() {
+function run_cmds_fzf() {
   echo $1
   local cmd=$(cat $1 | fzf)
   if [ -n "$cmd" ]; then
@@ -224,6 +222,11 @@ function pass_fzf() {
 
   pass show "$passfile" --clip || return
 }
+
+# Key bindings
+bindkey '^ ' autosuggest-accept
+zle -N workspace_fzf
+bindkey '^w' workspace_fzf 
 
 gretting_message
 
