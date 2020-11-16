@@ -12,3 +12,7 @@ insert_final_newline = true
 tab_width = 2
 indent_size = 2
 
+[*.lua]
+tab_width = 2
+indent_size = 2
+
