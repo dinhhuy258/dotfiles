@@ -20,11 +20,11 @@ end
 utils.set_keymap('i', '<TAB>', 'pumvisible() ? "<C-n>" : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', { noremap = true, expr = true })
 utils.set_keymap('i', '<S-TAB>', 'pumvisible() ? "<C-p>" : "<C-h>"', { noremap = true, expr = true })
 
--- " Use <c-space> to trigger completion
-utils.set_keymap('i', '<c-space>', 'coc#refresh()', { noremap = false, expr = true })
+-- Use <c-space> to trigger completion
+utils.set_keymap('i', '<c-space>', 'coc#refresh()', { noremap = true, expr = true })
 
 -- User <CR> to select a suggestion
-utils.set_keymap('i', '<CR>', 'pumvisible() ? coc#_select_confirm() : "<C-g>u<CR><C-r>=coc#on_enter()<CR>"', { noremap = false, expr = true })
+utils.set_keymap('i', '<CR>', 'pumvisible() ? coc#_select_confirm() : "<C-g>u<CR><C-r>=coc#on_enter()<CR>"', { noremap = true, expr = true })
 
 -- Use `g[` and `g]` to navigate diagnostics
 utils.set_keymap('n', 'g[', '<Plug>(coc-diagnostic-prev)', { noremap = false })
