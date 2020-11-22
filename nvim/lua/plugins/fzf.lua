@@ -1,3 +1,5 @@
+local utils = require 'utils'
+
 vim.g.fzf_action = {
   [ 'enter' ] = 'edit',
   [ 'ctrl-h' ] = 'split',
@@ -54,14 +56,14 @@ vim.api.nvim_exec(
 
     command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
-    nnoremap <silent> <Leader>fr :Rg<CR>
-    nnoremap <silent> <Leader>fg :GFiles?<CR>
-    nnoremap <silent> <Leader>fb :Buffers<CR>
-    nnoremap <silent> <Leader>fm :Marks<CR>
-    nnoremap <silent> <Leader>fe :History<CR>
-    nnoremap <silent> <Leader>ff :Files<CR>
-
   ]],
   ""
 )
+
+utils.set_keymap('n', '<Leader>fr', ':Rg<CR>', { noremap = true })
+utils.set_keymap('n', '<Leader>fg', ':GFiles?<CR>', { noremap = true })
+utils.set_keymap('n', '<Leader>fb', ':Buffers<CR>', { noremap = true })
+utils.set_keymap('n', '<Leader>fm', ':Marks<CR>', { noremap = true })
+utils.set_keymap('n', '<Leader>fe', ':History<CR>', { noremap = true })
+utils.set_keymap('n', '<Leader>ff', ':Files<CR>', { noremap = true })
 
