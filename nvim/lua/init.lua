@@ -1,3 +1,6 @@
+require 'general.settings'
+require 'general.mappings'
+
 require 'themes.colorscheme'
 require 'themes.lightline'
 

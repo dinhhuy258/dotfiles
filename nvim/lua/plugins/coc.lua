@@ -14,7 +14,11 @@ vim.g.coc_global_extensions = {
 function _G.check_back_space()
   local col = vim.fn.col('.') - 1
 
-  return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
+  if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+    return true
+  else
+    return false
+  end
 end
 
 utils.set_keymap('i', '<TAB>', 'pumvisible() ? "<C-n>" : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', { noremap = true, expr = true })

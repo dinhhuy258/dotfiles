@@ -1,3 +1,5 @@
+vim.cmd('let g:lightline_icons_cache = {}')
+
 vim.api.nvim_exec(
   [[
 
@@ -6,12 +8,12 @@ vim.api.nvim_exec(
         return
       endif
 
-      if has_key(g:icons_cache, &filetype)
-        return get(g:icons_cache, &filetype)
+      if has_key(g:lightline_icons_cache, &filetype)
+        return get(g:lightline_icons_cache, &filetype)
       endif
 
       let l:icon = WebDevIconsGetFileTypeSymbol()
-      let g:icons_cache[&filetype] = l:icon
+      let g:lightline_icons_cache[&filetype] = l:icon
 
       return l:icon
     endfunction
