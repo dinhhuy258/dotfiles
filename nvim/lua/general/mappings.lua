@@ -26,6 +26,17 @@ utils.set_keymap('n', '<Leader>[', ':bprev<CR>', { noremap = true })
 utils.set_keymap('n', '<Leader>w', ':bd<CR>', { noremap = true })
 utils.set_keymap('n', '<Leader>W', ':bd!<CR>', { noremap = true })
 
+-- Vim move
+utils.set_keymap('x', '<A-L>', '>gv', { noremap = true })
+utils.set_keymap('x', '<A-H>', '<gv', { noremap = true })
+utils.set_keymap('x', '<A-K>', ":move '<-2<CR>gv=gv", { noremap = true })
+utils.set_keymap('x', '<A-J>', ":move '>+1<CR>gv=gv", { noremap = true })
+
+utils.set_keymap('n', '<A-L>', '>>', { noremap = true })
+utils.set_keymap('n', '<A-H>', '<<', { noremap = true })
+utils.set_keymap('n', '<A-K>', ':move .-2<CR>', { noremap = true })
+utils.set_keymap('n', '<A-J>', ':move .+1<CR>', { noremap = true })
+
 -- -- Abbreviations
 vim.cmd('cnoreabbrev W! w!')
 vim.cmd('cnoreabbrev Q! q!')

@@ -13,5 +13,5 @@ require 'plugins.lightline-bufferline'
 require 'plugins.fzf'
 require 'plugins.clever-f'
 require 'plugins.coc'
-require 'plugins.treesitter'
+require 'plugins.nvim-treesitter'
 

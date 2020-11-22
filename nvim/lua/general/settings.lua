@@ -113,6 +113,9 @@ vim.cmd('autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatopt
 -- When a file has been detected to have been changed outside of Vim and it has not been changed inside of Vim, automatically read it again
 vim.cmd('autocmd FocusGained, BufEnter * :checktime')
 
+-- Highlighting yarked region
+vim.cmd('autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup = "HighlightedYankRegion", timeout = 1000 })')
+
 -- Session manager
 vim.g.session_directory = '~/.config/nvim/session'
 vim.g.session_autoload = 'no'
