@@ -172,7 +172,7 @@ function workspace_fzf() {
 }
 
 # Lauch application
-function app_fzf() {
+function open_app_fzf() {
   local app=$((ls /Applications; ls /System/Applications/; ls /System/Applications/Utilities) | cat | sed 's/.app//g' | fzf)
   open -a $app
 }
@@ -191,6 +191,17 @@ function run_cmds_fzf() {
     eval $cmd
   else
     echo $fg[red] "Run nothing!"
+  fi
+}
+
+function kill_app_fzf() {
+  select_app=$(osascript -e 'tell application "System Events" to get name of (processes where background only is false)' | awk -F ', ' '{for(i=1;i<=NF;i++) printf "%s\n", $i}'  | fzf)
+  if [ -n "$select_app" ]; then
+    printf "${bold}Do you want to kill ${select_app}? (y/n)${reset}\n"
+    read
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      pkill -x "${select_app}"
+    fi
   fi
 }
 
