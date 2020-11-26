@@ -1,2 +1,3 @@
-cmd + ctrl - r :open -na Alacritty --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "run_cmds_fzf ~/.local/syscmds"
-cmd + ctrl - a :open -na Alacritty --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "app_fzf"
+cmd + ctrl - r :open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "run_cmds_fzf ~/.local/syscmds"
+cmd + ctrl - a :open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "app_fzf"
+cmd + ctrl - f :open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "ranger"

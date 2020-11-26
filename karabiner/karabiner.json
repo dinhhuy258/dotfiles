@@ -84,6 +84,28 @@
                         ]
                     },
                     {
+                        "description": "Quickly open AlacrittyPopup (left_command + right_command + return_or_enter)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "return_or_enter",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command",
+                                            "right_command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a \"AlacrittyPopup\" --args --config-file=$HOME/.config/alacritty-popup.yml"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Quickly open IntelliJ IDEA (left_command + right_command + I)",
                         "manipulators": [
                             {
