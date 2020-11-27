@@ -22,7 +22,6 @@
   "suggest.enablePreview": true,
   "suggest.floatEnable": true,
   "suggest.detailMaxLength": 150,
-  "suggest.languageSourcePriority": 99,
   "suggest.numberSelect": false,
   "suggest.disableKind": false,
   "suggest.disableMenu": false,
@@ -30,8 +29,6 @@
   "suggest.localityBonus": true,
   "suggest.acceptSuggestionOnCommitCharacter": false,
   "suggest.keepCompleteopt": false,
-  "suggest.lowPrioritySourceLimit": 60,
-  "suggest.highPrioritySourceLimit": 90,
   "suggest.noselect": true,
   "suggest.defaultSortMethod": "alphabetical",
   "suggest.detailField":"abbr",
@@ -67,6 +64,13 @@
     "typeParameter": "\uf728",
     "default": "\uf29c"
   },
+  "suggest.highPrioritySourceLimit": 99,
+  "suggest.lowPrioritySourceLimit": 60,
+  "suggest.languageSourcePriority": 99,
+  "coc.source.buffer.priority": 98,
+  "coc.source.around.priority": 97,
+  "coc.source.file.priority": 96,
+  "tabnine.priority": 95,
 
   "yaml.schemas": {
     "kubernetes": "/*.yaml"
