@@ -239,5 +239,8 @@ bindkey '^ ' autosuggest-accept
 zle -N workspace_fzf
 bindkey '^w' workspace_fzf 
 
-gretting_message
+if [ -z "$IGNORE_GREETING_MESSAGE" ]
+then
+  gretting_message
+fi
 
