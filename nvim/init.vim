@@ -58,6 +58,8 @@ Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-startify'
 " Multi editor tool for defining base file handling and code style preferences
 Plug 'editorconfig/editorconfig-vim'
+" Modify variable name to snake_case, camelCase, UPPER_CASE...
+Plug 'tpope/vim-abolish'
 " Define submodes to the built-in vim modes
 Plug 'kana/vim-submode'
 " Make FocusGained and FocusLost autocommand events work
