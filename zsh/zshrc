@@ -194,6 +194,33 @@ function run_cmds_fzf() {
   fi
 }
 
+function reboot() {
+  close_all_apps
+
+  sudo reboot
+}
+
+function shutdown() {
+  close_all_apps
+
+  sudo shutdown -h now
+}
+
+function close_all_apps() {
+  apps=$(osascript -e 'tell application "System Events" to get name of (processes where background only is false)' | awk -F ', ' '{for(i=1;i<=NF;i++) printf "%s;", $i}')
+  while [ "$apps" ] ;do
+    app=${apps%%;*}
+    if [[ $app != 'alacritty' && $app != 'alacritty-popup' ]]
+    then
+      pkill -x echo $app
+    fi
+
+    [ "$apps" = "$app" ] && \
+        apps='' || \
+        apps="${apps#*;}"
+  done
+}
+
 function kill_app_fzf() {
   select_app=$(osascript -e 'tell application "System Events" to get name of (processes where background only is false)' | awk -F ', ' '{for(i=1;i<=NF;i++) printf "%s\n", $i}'  | fzf)
   if [ -n "$select_app" ]; then
