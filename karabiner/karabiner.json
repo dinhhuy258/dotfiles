@@ -150,15 +150,16 @@
                         ]
                     },
                     {
-                        "description": "Quickly open Slack (left_command + right_command + C)",
+                        "description": "Quickly open Slack (left_command + right_command + left_shift + S)",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "c",
+                                    "key_code": "s",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "right_command"
+                                            "right_command",
+                                            "left_shift"
                                         ]
                                     }
                                 },
@@ -209,6 +210,28 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a \"Finder\""
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Quickly open Visual Studio Code (left_command + right_command + C)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command",
+                                            "right_command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a \"Visual Studio Code\""
                                     }
                                 ],
                                 "type": "basic"
