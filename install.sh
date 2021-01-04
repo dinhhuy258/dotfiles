@@ -41,6 +41,7 @@ if which brew >/dev/null; then
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "Installing homebrew packages..."
     installHomebrewCaskPackage alacritty
+    installHomebrewCaskPackage kitty
     installHomebrewCaskPackage karabiner-elements
     brew tap homebrew/cask-fonts
     installHomebrewCaskPackage font-fira-code-nerd-font
@@ -127,6 +128,10 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   # Sync ranger
   rm -rf ~/.config/ranger
   ln -sf $CWD/ranger ~/.config/ranger
+
+  # Sync kitty
+  rm -rf ~/.config/kitty
+  ln -sf $CWD/kitty ~/.config/kitty
 fi
 
 echo "All done!"
