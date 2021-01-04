@@ -52,7 +52,7 @@ if which brew >/dev/null; then
     installHomebrewPackage node
     installHomebrewPackage lazygit
     installHomebrewPackage urlview
-    installHomebrewPackage ranger
+    installHomebrewPackage lf
 
     # Greeting message
     installHomebrewPackage cowsay
@@ -125,9 +125,9 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   mkdir -p ~/.config/karabiner
   ln -sf $CWD/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 
-  # Sync ranger
-  rm -rf ~/.config/ranger
-  ln -sf $CWD/ranger ~/.config/ranger
+  # Sync lf
+  rm -rf ~/.config/lf
+  ln -sf $CWD/lf ~/.config/lf
 
   # Sync kitty
   rm -rf ~/.config/kitty
