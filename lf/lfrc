@@ -77,17 +77,19 @@ cmd zip ${{
     rm -rf $1
 }}
 
-# create file
-cmd touch ${{
-    touch $1
-}}
-
-# create folder
-cmd mkdir ${{
-    mkdir $1
-}}
-
 cmd open &$OPENER "$f"
+
+cmd yarn-path ${{
+    echo -n $fx | pbcopy -selection clipboard
+}}
+
+cmd yarn-name ${{
+    echo -n $(basename $fx) | pbcopy -selection clipboard
+}}
+
+cmd yarn-dir ${{
+    echo -n $(dirname $fx) | pbcopy -selection clipboard
+}}
 
 # shortcuts
 map g~ cd ~
@@ -100,3 +102,11 @@ map g/ cd /
 map ` mark-load
 map <space> :toggle
 map <enter> open
+map c copy
+map y
+map yp yarn-path
+map yd yarn-dir
+map yn yarn-name
+map u :clear; unselect
+
+clear
