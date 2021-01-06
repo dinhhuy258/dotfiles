@@ -79,15 +79,15 @@ cmd zip ${{
 
 cmd open &$OPENER "$f"
 
-cmd yarn-path ${{
+cmd yark-path ${{
     echo -n $fx | pbcopy -selection clipboard
 }}
 
-cmd yarn-name ${{
+cmd yark-name ${{
     echo -n $(basename $fx) | pbcopy -selection clipboard
 }}
 
-cmd yarn-dir ${{
+cmd yark-dir ${{
     echo -n $(dirname $fx) | pbcopy -selection clipboard
 }}
 
@@ -104,9 +104,9 @@ map <space> :toggle
 map <enter> open
 map c copy
 map y
-map yp yarn-path
-map yd yarn-dir
-map yn yarn-name
+map yp yark-path
+map yd yark-dir
+map yn yark-name
 map u :clear; unselect
 
 clear
