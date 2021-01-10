@@ -78,6 +78,7 @@ antigen apply
 plugins=(
   git
   vi-mode
+  z
 )
 
 source $ZSH/oh-my-zsh.sh
