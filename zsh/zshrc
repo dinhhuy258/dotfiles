@@ -262,10 +262,14 @@ function pass_fzf() {
   pass show "$passfile" --clip || return
 }
 
+autoload -z edit-command-line
+zle -N edit-command-line
+
 # Key bindings
 bindkey '^ ' autosuggest-accept
 zle -N workspace_fzf
 bindkey '^w' workspace_fzf 
+bindkey '^v' edit-command-line
 
 if [ -z "$IGNORE_GREETING_MESSAGE" ]
 then
