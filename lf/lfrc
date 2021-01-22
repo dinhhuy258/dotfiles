@@ -5,7 +5,7 @@ set drawbox true
 set icons true
 set ignorecase true
 set hidden
-set ratios 1:1:2
+set ratios 1:2:2
 set incsearch
 set info size
 set tabstop 4
@@ -105,7 +105,6 @@ cmd fzf_jump ${{
     lf -remote "send $id $cmd \"$res\""
 }}
 
-
 # shortcuts
 map g~ cd ~
 map gd cd ~/Downloads
@@ -133,5 +132,8 @@ map oo open
 map ob open_with_chrome
 map oc open_with_visual_studio_code
 map of open_with_finder
+
+map zv :set ratios 1:2:2; set preview; set info size
+map zV :set nopreview; set ratios 1; set info size:time
 
 clear
