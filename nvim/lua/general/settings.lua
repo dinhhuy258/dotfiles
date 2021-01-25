@@ -43,7 +43,7 @@ vim.cmd('syntax on')
 -- Display line numbers
 vim.o.number = true
 vim.o.numberwidth = 4
-vim.o.relativenumber = true
+vim.o.relativenumber = false
 
 -- Show the cursor position
 vim.o.ruler = true
