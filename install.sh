@@ -53,6 +53,7 @@ if which brew >/dev/null; then
     installHomebrewPackage lazygit
     installHomebrewPackage urlview
     installHomebrewPackage lf
+    installHomebrewPackage tldr
 
     # Greeting message
     installHomebrewPackage cowsay
