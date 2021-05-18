@@ -549,6 +549,7 @@ key_bindings:
   - { key: Q,           mods: Command,                 action: Quit             }
   - { key: Return,      mods: Command,                 action: ToggleFullscreen }
   - { key: N,           mods: Command,                 action: SpawnNewInstance } 
+  - { key: W,           mods: Command,                 action: None             }
   - { key: J,           mods: Alt|Shift,               chars: "\x1bJ"           }
   - { key: K,           mods: Alt|Shift,               chars: "\x1bK"           }
   - { key: H,           mods: Alt|Shift,               chars: "\x1bH"           }
