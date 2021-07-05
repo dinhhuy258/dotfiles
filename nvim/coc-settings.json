@@ -115,6 +115,11 @@
       "command": "sql-language-server",
       "args": ["up", "--method", "stdio"],
       "filetypes": ["sql"]
+    },
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
     }
   }
 }

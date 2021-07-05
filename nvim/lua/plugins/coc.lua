@@ -9,7 +9,8 @@ vim.g.coc_global_extensions = {
   'coc-phpls',
   'coc-python',
   'coc-clangd',
-  'coc-tsserver'
+  'coc-tsserver',
+  'coc-go'
 }
 
 function _G.check_back_space()
