@@ -102,7 +102,7 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.guifont = 'Hack Nerd Font'
 
 -- Support 256 colors
-vim.o.t_Co = '256'
+vim.go.t_Co = '256'
 
 -- Enable mouse
 vim.o.mouse = 'a'
