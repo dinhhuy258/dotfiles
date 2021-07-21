@@ -112,9 +112,10 @@
       ]
     },
     "sql": {
-      "command": "sql-language-server",
-      "args": ["up", "--method", "stdio"],
-      "filetypes": ["sql"]
+      "command": "sqls",
+      "args": ["-config", "$HOME/.config/sqls/config.yml"],
+      "filetypes": ["sql"],
+      "shell": true
     },
     "golang": {
       "command": "gopls",
