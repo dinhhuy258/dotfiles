@@ -1,5 +1,8 @@
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "all",
+  ignore_install = {
+    "haskell",
+  },
   highlight = {
     enable = true,
     use_languagetree = false, -- Use this to enable language injection (this is very unstable)

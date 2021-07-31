@@ -1,0 +1,72 @@
+return {
+  -- Packer can manage itself as an optional plugin
+  { "wbthomason/packer.nvim" },
+  -- Intellij as language server
+  {
+    "dinhhuy258/vintellij",
+    branch = "lsp",
+  },
+  -- Vim utilities
+  { "dinhhuy258/vim-utilities" },
+  -- Local history in vim
+  {
+    "dinhhuy258/vim-local-history",
+    run = ":UpdateRemotePlugins",
+  },
+  -- Open git repository
+  { "dinhhuy258/vim-git-browse" },
+  -- Vim database
+  { "dinhhuy258/vim-database" },
+  -- File explorer
+  {
+    "dinhhuy258/chadtree",
+    run = ":UpdateRemotePlugins",
+  },
+  -- Color scheme
+  { "cocopon/iceberg.vim" },
+  -- Seamless navigation between tmux panes and vim splits
+  { "christoomey/vim-tmux-navigator" },
+  -- Highlighting
+  {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  },
+  -- A light and configurable statusline/tabline plugin
+  { "itchyny/lightline.vim" },
+  -- Adds file type icons to Vim plugins such as: NERDTree, lightline, vim-startify...
+  { "ryanoasis/vim-devicons" },
+  -- Vim plugin for git
+  { "tpope/vim-fugitive" },
+  -- Show git diff in the sign column
+  { "airblade/vim-gitgutter" },
+  -- Vim easy motion
+  { "easymotion/vim-easymotion" },
+  -- Vim surround
+  { "tpope/vim-surround" },
+  -- Enable repeating supported plugins map with .
+  { "tpope/vim-repeat" },
+  -- Make f, F, t, T more clever
+  { "rhysd/clever-f.vim" },
+  -- Completion framework
+  {
+    "neoclide/coc.nvim",
+    branch = "release",
+  },
+  -- Use fzf instead of coc.nvim built-in fuzzy finder
+  { "antoinemadec/coc-fzf" },
+  -- Bufferline
+  { "mengelbrecht/lightline-bufferline" },
+  -- The fancy start screen
+  { "mhinz/vim-startify" },
+  -- Multi editor tool for defining base file handling and code style preferences
+  { "editorconfig/editorconfig-vim" },
+  -- Modify variable name to snake_case, camelCase, UPPER_CASE...
+  { "tpope/vim-abolish" },
+  -- Define submodes to the built-in vim modes
+  { 'kana/vim-submode' },
+  -- Make FocusGained and FocusLost autocommand events work
+  { "tmux-plugins/vim-tmux-focus-events" },
+  -- Fzf
+  { "/usr/local/opt/fzf" },
+  { "junegunn/fzf.vim" },
+}
