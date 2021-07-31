@@ -24,7 +24,9 @@ for _, plugin in pairs(disabled_built_ins) do
     vim.g["loaded_" .. plugin] = 1
 end
 
-local plugin_loader = require("plugins.plugin-loader").init()
+local packer = require("plugins.packer").init()
+local plugins = require "plugins.plugins"
+packer:load { plugins }
 
 require 'general.settings'
 require 'general.mappings'
@@ -42,4 +44,3 @@ require 'plugins.fzf'
 require 'plugins.clever-f'
 require 'plugins.coc'
 require 'plugins.nvim-treesitter'
-

@@ -1,7 +1,8 @@
 local plugin_loader = {}
 
 function plugin_loader:init()
-  local install_path = "~/.local/share/nvim/site/pack/packer/start/packer.nvim"
+  local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     vim.api.nvim_command("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
     vim.api.nvim_command "packadd packer.nvim"
@@ -15,8 +16,8 @@ function plugin_loader:init()
   local util = require "packer.util"
 
   packer.init {
-    package_root = util.join_paths "~/.local/share/nvim/site/pack/",
-    compile_path = util.join_paths("~/.config/nvim", "plugin", "packer_compiled.lua"),
+    package_root = util.join_paths(vim.fn.stdpath('data'), 'site', 'pack'),
+    compile_path = util.join_paths(vim.fn.stdpath('config'), 'plugin', 'packer_compiled.lua'),
     git = { clone_timeout = 300 },
     display = {
       open_fn = function()
