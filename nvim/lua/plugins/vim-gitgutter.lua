@@ -1,14 +1,6 @@
-local utils = require 'utils'
+local M = {}
 
-vim.cmd('highlight GitGutterAdd ctermfg=green')
-vim.cmd('highlight GitGutterChange ctermfg=yellow')
-vim.cmd('highlight GitGutterDelete ctermfg=red')
-vim.cmd('highlight GitGutterChangeDelete ctermfg=yellow')
-
-utils.set_keymap('n', 'ghv', '<Plug>(GitGutterPreviewHunk)', { noremap = false })
-utils.set_keymap('n', 'ghu', '<Plug>(GitGutterUndoHunk)', { noremap = false })
-
-function gitgutter_next_hunk_cycle()
+function M.gitgutter_next_hunk_cycle()
   local line = vim.fn.line('.')
   vim.cmd('silent! GitGutterNextHunk')
 
@@ -18,7 +10,7 @@ function gitgutter_next_hunk_cycle()
   end
 end
 
-function gitgutter_prev_hunk_cycle()
+function M.gitgutter_prev_hunk_cycle()
   local line = vim.fn.line('.')
   vim.cmd('silent! GitGutterPrevHunk')
 
@@ -28,6 +20,18 @@ function gitgutter_prev_hunk_cycle()
   end
 end
 
-utils.set_keymap('n', 'ghn', '<CMD>lua gitgutter_next_hunk_cycle()<CR>', { noremap = false })
-utils.set_keymap('n', 'ghp', '<CMD>lua gitgutter_prev_hunk_cycle()<CR>', { noremap = false })
+M.setup = function()
+  vim.cmd('highlight GitGutterAdd ctermfg=green')
+  vim.cmd('highlight GitGutterChange ctermfg=yellow')
+  vim.cmd('highlight GitGutterDelete ctermfg=red')
+  vim.cmd('highlight GitGutterChangeDelete ctermfg=yellow')
 
+  local utils = require 'utils'
+  utils.set_keymap('n', 'ghv', '<Plug>(GitGutterPreviewHunk)', { noremap = false })
+  utils.set_keymap('n', 'ghu', '<Plug>(GitGutterUndoHunk)', { noremap = false })
+
+  utils.set_keymap('n', 'ghn', '<CMD>lua require("plugins.vim-gitgutter").gitgutter_next_hunk_cycle()<CR>', { noremap = false })
+  utils.set_keymap('n', 'ghp', '<CMD>lua require("plugins.vim-gitgutter").gitgutter_prev_hunk_cycle()<CR>', { noremap = false })
+end
+
+return M

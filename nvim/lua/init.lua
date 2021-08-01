@@ -39,12 +39,3 @@ require 'general.mappings'
 
 require 'themes.colorscheme'
 require 'themes.lightline'
-
-require 'plugins.vim-easymotion'
-require 'plugins.vim-startify'
-require 'plugins.vim-gitgutter'
-require 'plugins.vim-submode'
-require 'plugins.vim-fugitive'
-require 'plugins.lightline-bufferline'
-require 'plugins.clever-f'
-require 'plugins.nvim-treesitter'
