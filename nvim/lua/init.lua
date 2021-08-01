@@ -57,3 +57,5 @@ require 'plugins.nvim-treesitter'
 
 -- TODO: Load in ftplugin
 require("lsp").setup "go"
+require("lsp").setup "lua"
+require("lsp").setup "json"
