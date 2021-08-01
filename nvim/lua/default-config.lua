@@ -5,6 +5,7 @@ nvim = {
   },
 }
 
+DATA_PATH = vim.fn.stdpath "data"
 local schemas = nil
 local lsp = require "lsp"
 local common_on_attach = lsp.common_on_attach

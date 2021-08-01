@@ -35,6 +35,9 @@ packer:load { plugins }
 -- Load lsp config
 require("lsp").config()
 
+
+require("general.autocmds").define_default_autogroups()
+
 require 'general.settings'
 require 'general.mappings'
 

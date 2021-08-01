@@ -107,15 +107,6 @@ vim.go.t_Co = '256'
 -- Enable mouse
 vim.o.mouse = 'a'
 
--- Stop newline continution of comments
-vim.cmd('autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o')
-
--- When a file has been detected to have been changed outside of Vim and it has not been changed inside of Vim, automatically read it again
-vim.cmd('autocmd FocusGained, BufEnter * :checktime')
-
--- Highlighting yarked region
-vim.cmd('autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup = "HighlightedYankRegion", timeout = 1000 })')
-
 -- For autocomplete plugin
 vim.o.completeopt = "menuone,noselect"
 
