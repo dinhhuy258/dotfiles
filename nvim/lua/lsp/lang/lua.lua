@@ -9,7 +9,6 @@ function M.config(common_on_attach, common_capabilities, common_on_init)
         args = {},
       },
     },
-    linters = {},
     lsp = {
       provider = "sumneko_lua",
       setup = {
