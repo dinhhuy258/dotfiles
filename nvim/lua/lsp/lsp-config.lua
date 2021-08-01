@@ -104,10 +104,10 @@ function M.config()
   utils.set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "g[", "<CMD>lua vim.lsp.diagnostic.goto_prev({popup_opts = { border = 'single' }})<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "g]", "<CMD>lua vim.lsp.diagnostic.goto_next({popup_opts = { border = 'single' }})<CR>", { noremap = true, silent = true })
-  -- utils.set_keymap("n", "ga", "<CMD>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
-  utils.set_keymap("n", "ga", "<CMD>Telescope lsp_code_actions<CR>", { noremap = true, silent = true })
-  utils.set_keymap("n", "gf", "<CMD>lua vim.lsp.buf.formatting()<CR>", { noremap = true, silent = false })
-  utils.set_keymap("n", "go", "<CMD>Telescope lsp_document_symbols<CR>", { noremap = true, silent = false })
+  -- utils.set_keymap("n", "ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "ca", "<CMD>Telescope lsp_code_actions<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "cf", "<CMD>lua vim.lsp.buf.formatting()<CR>", { noremap = true, silent = false })
+  utils.set_keymap("n", "co", "<CMD>Telescope lsp_document_symbols<CR>", { noremap = true, silent = false })
 
   -- LSP handlers
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
