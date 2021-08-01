@@ -17,6 +17,7 @@ function M.config(common_on_attach, common_capabilities, common_on_init)
         cmd = {
           vim.fn.stdpath "data" .. "/lspinstall/go/gopls",
         },
+        filetypes = { "go" },
         on_attach = common_on_attach,
         on_init = common_on_init,
         capabilities = common_capabilities,
