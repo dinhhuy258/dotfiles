@@ -168,7 +168,7 @@ function M.common_capabilities()
 end
 
 function M.common_on_init(client, bufnr)
-  local formatters = nvim.lang[vim.bo.filetype].formatters
+  local formatters = lsp_clients.lang[vim.bo.filetype].formatters
   if not vim.tbl_isempty(formatters) then
     client.resolved_capabilities.document_formatting = false
   end
