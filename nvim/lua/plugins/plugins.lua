@@ -47,13 +47,6 @@ return {
   { "tpope/vim-repeat" },
   -- Make f, F, t, T more clever
   { "rhysd/clever-f.vim" },
-  -- Completion framework
-  {
-    "neoclide/coc.nvim",
-    branch = "release",
-  },
-  -- Use fzf instead of coc.nvim built-in fuzzy finder
-  { "antoinemadec/coc-fzf" },
   -- Bufferline
   { "mengelbrecht/lightline-bufferline" },
   -- The fancy start screen
@@ -69,4 +62,22 @@ return {
   -- Fzf
   { "/usr/local/opt/fzf" },
   { "junegunn/fzf.vim" },
+  -- LSP client
+  { "neovim/nvim-lspconfig" },
+  -- Completion
+  {
+    "hrsh7th/nvim-compe",
+    -- event = "InsertEnter",
+    config = function ()
+      require("plugins.nvim-compe").setup()
+    end
+  },
+  -- Autopair
+  {
+    "windwp/nvim-autopairs",
+    after = "nvim-compe",
+    config = function ()
+      require("nvim-autopairs").setup()
+    end
+  },
 }
