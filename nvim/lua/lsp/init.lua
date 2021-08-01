@@ -2,12 +2,53 @@ local utils = require 'utils'
 local M = {}
 
 function M.config()
-  vim.lsp.protocol.CompletionItemKind = nvim.lsp.completion.item_kind
+  vim.lsp.protocol.CompletionItemKind = {
+        "   (Text) ",
+        "   (Method)",
+        "   (Function)",
+        "   (Constructor)",
+        " ﴲ  (Field)",
+        "[] (Variable)",
+        "   (Class)",
+        " ﰮ  (Interface)",
+        "   (Module)",
+        " 襁 (Property)",
+        "   (Unit)",
+        "   (Value)",
+        " 練 (Enum)",
+        "   (Keyword)",
+        "   (Snippet)",
+        "   (Color)",
+        "   (File)",
+        "   (Reference)",
+        "   (Folder)",
+        "   (EnumMember)",
+        " ﲀ  (Constant)",
+        " ﳤ  (Struct)",
+        "   (Event)",
+        "   (Operator)",
+        "   (TypeParameter)",
+      }
 
-  for _, sign in ipairs(nvim.lsp.diagnostics.signs.values) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
-  end
+    -- Sign define
+    vim.fn.sign_define(
+      "LspDiagnosticsSignError",
+      { texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError" }
+    )
+    vim.fn.sign_define(
+      "LspDiagnosticsSignWarning",
+      { texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning" }
+    )
+    vim.fn.sign_define(
+      "LspDiagnosticsSignHint",
+      { texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint" }
+    )
+    vim.fn.sign_define(
+      "LspDiagnosticsSignInformation",
+      { texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation" }
+    )
 
+  -- Lsp key mappings
   utils.set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
@@ -21,7 +62,60 @@ function M.config()
   utils.set_keymap("n", "ga", "<CMD>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "gf", "<CMD>lua vim.lsp.buf.formatting()<CR>", { noremap = true, silent = false })
 
-  require("lsp.handlers").setup()
+  -- LSP handlers
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = {
+      prefix = "",
+      spacing = 0,
+    },
+    signs = true,
+    underline = true,
+  })
+
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, _, params, client_id, _)
+    local config = {
+      virtual_text = {
+        prefix = "",
+        spacing = 0,
+      },
+      signs = true,
+      underline = true,
+      update_in_insert = false,
+      severity_sort = true,
+    }
+    local uri = params.uri
+    local bufnr = vim.uri_to_bufnr(uri)
+
+    if not bufnr then
+      return
+    end
+
+    local diagnostics = params.diagnostics
+
+    for i, v in ipairs(diagnostics) do
+      diagnostics[i].message = string.format("%s: %s", v.source, v.message)
+
+      if vim.tbl_contains(vim.tbl_keys(v), "code") then
+        diagnostics[i].message = diagnostics[i].message .. string.format(" [%s]", v.code)
+      end
+    end
+
+    vim.lsp.diagnostic.save(diagnostics, bufnr, client_id)
+
+    if not vim.api.nvim_buf_is_loaded(bufnr) then
+      return
+    end
+
+    vim.lsp.diagnostic.display(diagnostics, bufnr, client_id, config)
+  end
+
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = "single",
+  })
+
+  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    border = "single",
+  })
 end
 
 local function lsp_highlight_document(client)
