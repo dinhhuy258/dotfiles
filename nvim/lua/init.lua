@@ -24,17 +24,15 @@ for _, plugin in pairs(disabled_built_ins) do
     vim.g["loaded_" .. plugin] = 1
 end
 
--- Load configs
-require "default-config"
-
 -- Load plugins
 local packer = require("plugins.packer").init()
 local plugins = require "plugins.plugins"
 packer:load { plugins }
 
+-- Load lsp default configs
+require "lsp.default-config"
 -- Load lsp config
 require("lsp.lsp-config").config()
-
 
 require("general.autocmds").define_default_autogroups()
 

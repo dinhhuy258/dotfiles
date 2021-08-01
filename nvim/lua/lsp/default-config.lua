@@ -1,10 +1,3 @@
-nvim = {
-  lsp = {
-    on_attach_callback = nil,
-    on_init_callback = nil,
-  },
-}
-
 DATA_PATH = vim.fn.stdpath "data"
 local schemas = nil
 local lsp = require "lsp.lsp-config"
@@ -16,7 +9,7 @@ if status_ok then
   schemas = jsonls_settings.get_default_schemas()
 end
 
-nvim.lang = {
+lsp_clients = {
   go = {
     formatters = {
       {

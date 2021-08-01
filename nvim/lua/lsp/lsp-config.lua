@@ -56,9 +56,9 @@ function M.config()
   utils.set_keymap("n", "gl", "<CMD>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = 'single' })<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "gs", "<CMD>lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
-  utils.set_keymap("n", "g[", "<CMD>lua vim.lsp.diagnostic.goto_prev({popup_opts = {border = nvim.lsp.popup_border}})<CR>", { noremap = true, silent = true })
-  utils.set_keymap("n", "g]", "<CMD>lua vim.lsp.diagnostic.goto_next({popup_opts = {border = nvim.lsp.popup_border}})<CR>", { noremap = true, silent = true })
-  utils.set_keymap("n", "g]", "<CMD>lua vim.lsp.diagnostic.goto_next({popup_opts = {border = nvim.lsp.popup_border}})<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "g[", "<CMD>lua vim.lsp.diagnostic.goto_prev({popup_opts = { border = 'single' }})<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "g]", "<CMD>lua vim.lsp.diagnostic.goto_next({popup_opts = { border = 'single' }})<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "g]", "<CMD>lua vim.lsp.diagnostic.goto_next({popup_opts = { border = 'single' }})<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "ga", "<CMD>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "gf", "<CMD>lua vim.lsp.buf.formatting()<CR>", { noremap = true, silent = false })
 
@@ -151,11 +151,6 @@ function M.common_capabilities()
 end
 
 function M.common_on_init(client, bufnr)
-  if nvim.lsp.on_init_callback then
-    nvim.lsp.on_init_callback(client, bufnr)
-    return
-  end
-
   local formatters = nvim.lang[vim.bo.filetype].formatters
   if not vim.tbl_isempty(formatters) then
     client.resolved_capabilities.document_formatting = false
@@ -163,14 +158,11 @@ function M.common_on_init(client, bufnr)
 end
 
 function M.common_on_attach(client, bufnr)
-  if nvim.lsp.on_attach_callback then
-    nvim.lsp.on_attach_callback(client, bufnr)
-  end
   lsp_highlight_document(client)
 end
 
 function M.setup(lang)
-  local lsp = nvim.lang[lang].lsp
+  local lsp = lsp_clients[lang].lsp
   if require("utils").check_lsp_client_active(lsp.provider) then
     return
   end
@@ -180,4 +172,3 @@ function M.setup(lang)
 end
 
 return M
-
