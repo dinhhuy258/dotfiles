@@ -21,11 +21,12 @@ local default_autogroups = {
       "lua require('vim.highlight').on_yank({ higroup = 'HighlightedYankRegion', timeout = 1000 })",
     },
   },
-  _packer_compile = {
-    { "BufWritePost", "plugins.lua", "PackerCompile" },
-  },
   _general_lsp = {
-    { "FileType", "lspinfo", "nnoremap <silent> <buffer> q :q<CR>" },
+    {
+      "FileType",
+      "lspinfo",
+      "nnoremap <silent> <buffer> q :q<CR>",
+    },
   },
 }
 
