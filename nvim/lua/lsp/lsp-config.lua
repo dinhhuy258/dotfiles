@@ -4,6 +4,46 @@ local M = {}
 lsp_clients = {
 }
 
+local function common_capabilities()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  capabilities.textDocument.completion.completionItem.resolveSupport = {
+    properties = {
+      "documentation",
+      "detail",
+      "additionalTextEdits",
+    },
+  }
+
+  return capabilities
+end
+
+local function common_on_init(client, _)
+  local formatters = lsp_clients.lang[vim.bo.filetype].formatters
+  if not vim.tbl_isempty(formatters) then
+    client.resolved_capabilities.document_formatting = false
+  end
+end
+
+local function common_on_attach(client, _)
+  -- Set autocommands conditional on server_capabilities
+  if client.resolved_capabilities.document_highlight then
+    vim.api.nvim_exec(
+      [[
+      hi LspReferenceRead cterm=bold ctermbg=red guibg=#464646
+      hi LspReferenceText cterm=bold ctermbg=red guibg=#464646
+      hi LspReferenceWrite cterm=bold ctermbg=red guibg=#464646
+      augroup lsp_document_highlight
+        autocmd! * <buffer>
+        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+      augroup END
+    ]],
+      false
+    )
+  end
+end
+
 function M.config()
   vim.lsp.protocol.CompletionItemKind = {
         "   (Text) ",
@@ -125,63 +165,17 @@ function M.config()
   })
 
   -- Config lsp clients
-  local common_on_attach = M.common_on_attach
-  local common_capabilities = M.common_capabilities()
-  local common_on_init = M.common_on_init
+  local capabilities = common_capabilities()
 
-  require("lsp.lang.go").config(common_on_attach, common_capabilities, common_on_init)
-  require("lsp.lang.lua").config(common_on_attach, common_capabilities, common_on_init)
-  require("lsp.lang.json").config(common_on_attach, common_capabilities, common_on_init)
-  require("lsp.lang.php").config(common_on_attach, common_capabilities, common_on_init)
+  require("lsp.lang.go").config(common_on_attach, capabilities, common_on_init)
+  require("lsp.lang.lua").config(common_on_attach, capabilities, common_on_init)
+  require("lsp.lang.json").config(common_on_attach, capabilities, common_on_init)
+  require("lsp.lang.php").config(common_on_attach, capabilities, common_on_init)
 
-  -- TODO: Figure out why do we need these lines
   M.setup "go"
   M.setup "lua"
   M.setup "json"
   M.setup "php"
-end
-
-local function lsp_highlight_document(client)
-  -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
-    vim.api.nvim_exec(
-      [[
-      hi LspReferenceRead cterm=bold ctermbg=red guibg=#464646
-      hi LspReferenceText cterm=bold ctermbg=red guibg=#464646
-      hi LspReferenceWrite cterm=bold ctermbg=red guibg=#464646
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]],
-      false
-    )
-  end
-end
-
-function M.common_capabilities()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities.textDocument.completion.completionItem.resolveSupport = {
-    properties = {
-      "documentation",
-      "detail",
-      "additionalTextEdits",
-    },
-  }
-  return capabilities
-end
-
-function M.common_on_init(client, _)
-  local formatters = lsp_clients.lang[vim.bo.filetype].formatters
-  if not vim.tbl_isempty(formatters) then
-    client.resolved_capabilities.document_formatting = false
-  end
-end
-
-function M.common_on_attach(client, _)
-  lsp_highlight_document(client)
 end
 
 function M.setup(lang)
