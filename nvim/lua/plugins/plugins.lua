@@ -64,11 +64,14 @@ return {
   { "junegunn/fzf.vim" },
   -- LSP client
   { "neovim/nvim-lspconfig" },
-  -- Make LSP client use FZF
   {
-    "ojroques/nvim-lspfuzzy",
-    config = function()
-      require('lspfuzzy').setup {}
+    "nvim-telescope/telescope.nvim",
+    requires = {
+      { "nvim-lua/popup.nvim" },
+      { "nvim-lua/plenary.nvim" },
+    },
+    config = function ()
+      require("plugins.telescope").setup()
     end
   },
   -- Provides the missing :LspInstall for nvim-lspconfig
