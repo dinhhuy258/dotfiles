@@ -138,4 +138,14 @@ return {
       require("plugins.nvim-autopairs").setup()
     end
   },
+  -- Snippet
+  {
+    "hrsh7th/vim-vsnip",
+    event = "InsertCharPre",
+  },
+  -- Set of preconfigured snippets for different languages.
+  {
+    "rafamadriz/friendly-snippets",
+    event = "InsertCharPre",
+  },
 }
