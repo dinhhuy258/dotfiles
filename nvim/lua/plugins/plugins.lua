@@ -30,33 +30,73 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
+    config = function ()
+      require("plugins.nvim-treesitter").setup()
+    end
   },
   -- A light and configurable statusline/tabline plugin
   { "itchyny/lightline.vim" },
   -- Adds file type icons to Vim plugins such as: NERDTree, lightline, vim-startify...
   { "ryanoasis/vim-devicons" },
   -- Vim plugin for git
-  { "tpope/vim-fugitive" },
+  {
+    "tpope/vim-fugitive",
+    config = function ()
+      require("plugins.vim-fugitive").setup()
+    end
+  },
   -- Show git diff in the sign column
-  { "airblade/vim-gitgutter" },
+  {
+    "airblade/vim-gitgutter",
+    event = "BufRead",
+    config = function ()
+      require("plugins.vim-gitgutter").setup()
+    end
+  },
   -- Vim easy motion
-  { "easymotion/vim-easymotion" },
+  {
+    "easymotion/vim-easymotion",
+    config = function ()
+      require("plugins.vim-easymotion").setup()
+    end
+  },
   -- Vim surround
   { "tpope/vim-surround" },
   -- Enable repeating supported plugins map with .
   { "tpope/vim-repeat" },
   -- Make f, F, t, T more clever
-  { "rhysd/clever-f.vim" },
+  {
+    "rhysd/clever-f.vim",
+    config = function ()
+      require("plugins.clever-f").setup()
+    end
+  },
   -- Bufferline
-  { "mengelbrecht/lightline-bufferline" },
+  {
+    "mengelbrecht/lightline-bufferline",
+    config = function ()
+      require("plugins.lightline-bufferline").setup()
+    end
+  },
   -- The fancy start screen
-  { "mhinz/vim-startify" },
+  {
+    "mhinz/vim-startify",
+    event = "BufWinEnter",
+    config = function()
+      require("plugins.vim-startify").setup()
+    end
+  },
   -- Multi editor tool for defining base file handling and code style preferences
   { "editorconfig/editorconfig-vim" },
   -- Modify variable name to snake_case, camelCase, UPPER_CASE...
   { "tpope/vim-abolish" },
   -- Define submodes to the built-in vim modes
-  { 'kana/vim-submode' },
+  {
+    'kana/vim-submode',
+    config = function ()
+      require("plugins.vim-submode").setup()
+    end
+  },
   -- Make FocusGained and FocusLost autocommand events work
   { "tmux-plugins/vim-tmux-focus-events" },
   -- LSP client
