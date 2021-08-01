@@ -29,8 +29,6 @@ local packer = require("plugins.packer").init()
 local plugins = require "plugins.plugins"
 packer:load { plugins }
 
--- Load lsp default configs
-require "lsp.default-config"
 -- Load lsp config
 require("lsp.lsp-config").config()
 
@@ -50,10 +48,4 @@ require 'plugins.vim-fugitive'
 require 'plugins.lightline-bufferline'
 require 'plugins.fzf'
 require 'plugins.clever-f'
--- require 'plugins.coc'
 require 'plugins.nvim-treesitter'
-
--- TODO: Load in ftplugin
-require("lsp.lsp-config").setup "go"
-require("lsp.lsp-config").setup "lua"
-require("lsp.lsp-config").setup "json"

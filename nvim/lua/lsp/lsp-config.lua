@@ -1,6 +1,9 @@
 local utils = require 'utils'
 local M = {}
 
+lsp_clients = {
+}
+
 function M.config()
   vim.lsp.protocol.CompletionItemKind = {
         "   (Text) ",
@@ -116,6 +119,20 @@ function M.config()
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
     border = "single",
   })
+
+  -- Config lsp clients
+  local common_on_attach = M.common_on_attach
+  local common_capabilities = M.common_capabilities()
+  local common_on_init = M.common_on_init
+
+  require("lsp.lang.go").config(common_on_attach, common_capabilities, common_on_init)
+  require("lsp.lang.lua").config(common_on_attach, common_capabilities, common_on_init)
+  require("lsp.lang.json").config(common_on_attach, common_capabilities, common_on_init)
+
+  -- TODO: Load in ftplugin
+  require("lsp.lsp-config").setup "go"
+  require("lsp.lsp-config").setup "lua"
+  require("lsp.lsp-config").setup "json"
 end
 
 local function lsp_highlight_document(client)
