@@ -64,10 +64,20 @@ return {
   { "junegunn/fzf.vim" },
   -- LSP client
   { "neovim/nvim-lspconfig" },
+  -- Provides the missing :LspInstall for nvim-lspconfig
+  {
+    "kabouzeid/nvim-lspinstall",
+    event = "VimEnter",
+    config = function()
+      require"lspinstall".setup()
+    end,
+  },
+  -- Setting LSP with json files
+  { "tamago324/nlsp-settings.nvim" },
   -- Completion
   {
     "hrsh7th/nvim-compe",
-    -- event = "InsertEnter",
+    event = "InsertEnter",
     config = function ()
       require("plugins.nvim-compe").setup()
     end
