@@ -18,6 +18,7 @@ function M.config(common_on_attach, common_capabilities, common_on_init)
           "-E",
           vim.fn.stdpath "data" .. "/lspinstall/lua/main.lua",
         },
+        filetypes = { "lua" },
         capabilities = common_capabilities,
         on_attach = common_on_attach,
         on_init = common_on_init,

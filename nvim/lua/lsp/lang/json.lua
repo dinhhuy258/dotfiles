@@ -25,6 +25,7 @@ function M.config(common_on_attach, common_capabilities, common_on_init)
           vim.fn.stdpath "data" .. "/lspinstall/json/vscode-json/json-language-features/server/dist/node/jsonServerMain.js",
           "--stdio",
         },
+        filetypes = { "json" },
         on_attach = common_on_attach,
         on_init = common_on_init,
         capabilities = common_capabilities,

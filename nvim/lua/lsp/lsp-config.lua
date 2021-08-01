@@ -132,11 +132,13 @@ function M.config()
   require("lsp.lang.go").config(common_on_attach, common_capabilities, common_on_init)
   require("lsp.lang.lua").config(common_on_attach, common_capabilities, common_on_init)
   require("lsp.lang.json").config(common_on_attach, common_capabilities, common_on_init)
+  require("lsp.lang.php").config(common_on_attach, common_capabilities, common_on_init)
 
   -- TODO: Figure out why do we need these lines
   M.setup "go"
   M.setup "lua"
   M.setup "json"
+  M.setup "php"
 end
 
 local function lsp_highlight_document(client)
@@ -171,14 +173,14 @@ function M.common_capabilities()
   return capabilities
 end
 
-function M.common_on_init(client, bufnr)
+function M.common_on_init(client, _)
   local formatters = lsp_clients.lang[vim.bo.filetype].formatters
   if not vim.tbl_isempty(formatters) then
     client.resolved_capabilities.document_formatting = false
   end
 end
 
-function M.common_on_attach(client, bufnr)
+function M.common_on_attach(client, _)
   lsp_highlight_document(client)
 end
 
