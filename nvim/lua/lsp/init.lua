@@ -1,3 +1,4 @@
+local utils = require 'utils'
 local M = {}
 
 function M.config()
@@ -6,6 +7,19 @@ function M.config()
   for _, sign in ipairs(nvim.lsp.diagnostics.signs.values) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
   end
+
+  utils.set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "gl", "<CMD>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = 'single' })<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "gs", "<CMD>lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "g[", "<CMD>lua vim.lsp.diagnostic.goto_prev({popup_opts = {border = nvim.lsp.popup_border}})<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "g]", "<CMD>lua vim.lsp.diagnostic.goto_next({popup_opts = {border = nvim.lsp.popup_border}})<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "g]", "<CMD>lua vim.lsp.diagnostic.goto_next({popup_opts = {border = nvim.lsp.popup_border}})<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "ga", "<CMD>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "gf", "<CMD>lua vim.lsp.buf.formatting()<CR>", { noremap = true, silent = false })
 
   require("lsp.handlers").setup()
 end
