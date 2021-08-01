@@ -33,7 +33,7 @@ local plugins = require "plugins.plugins"
 packer:load { plugins }
 
 -- Load lsp config
-require("lsp").config()
+require("lsp.lsp-config").config()
 
 
 require("general.autocmds").define_default_autogroups()
@@ -56,6 +56,6 @@ require 'plugins.clever-f'
 require 'plugins.nvim-treesitter'
 
 -- TODO: Load in ftplugin
-require("lsp").setup "go"
-require("lsp").setup "lua"
-require("lsp").setup "json"
+require("lsp.lsp-config").setup "go"
+require("lsp.lsp-config").setup "lua"
+require("lsp.lsp-config").setup "json"
