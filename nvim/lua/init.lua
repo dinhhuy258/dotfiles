@@ -24,6 +24,7 @@ for _, plugin in pairs(disabled_built_ins) do
     vim.g["loaded_" .. plugin] = 1
 end
 
+-- Load plugins
 local packer = require("plugins.packer").init()
 local plugins = require "plugins.plugins"
 packer:load { plugins }
@@ -42,5 +43,5 @@ require 'plugins.vim-fugitive'
 require 'plugins.lightline-bufferline'
 require 'plugins.fzf'
 require 'plugins.clever-f'
-require 'plugins.coc'
+-- require 'plugins.coc'
 require 'plugins.nvim-treesitter'
