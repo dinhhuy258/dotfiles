@@ -1,1 +1,1 @@
-require("lsp").setup "lua"
+require("lsp.lsp-config").setup "lua"
