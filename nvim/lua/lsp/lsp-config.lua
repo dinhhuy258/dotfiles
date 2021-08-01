@@ -129,10 +129,10 @@ function M.config()
   require("lsp.lang.lua").config(common_on_attach, common_capabilities, common_on_init)
   require("lsp.lang.json").config(common_on_attach, common_capabilities, common_on_init)
 
-  -- TODO: Load in ftplugin
-  require("lsp.lsp-config").setup "go"
-  require("lsp.lsp-config").setup "lua"
-  require("lsp.lsp-config").setup "json"
+  -- TODO: Figure out why do we need these lines
+  M.setup "go"
+  M.setup "lua"
+  M.setup "json"
 end
 
 local function lsp_highlight_document(client)
