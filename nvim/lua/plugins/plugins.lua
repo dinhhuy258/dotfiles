@@ -77,7 +77,7 @@ return {
     "windwp/nvim-autopairs",
     after = "nvim-compe",
     config = function ()
-      require("nvim-autopairs").setup()
+      require("plugins.nvim-autopairs").setup()
     end
   },
 }
