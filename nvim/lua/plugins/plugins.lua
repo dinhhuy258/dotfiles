@@ -59,11 +59,9 @@ return {
   { 'kana/vim-submode' },
   -- Make FocusGained and FocusLost autocommand events work
   { "tmux-plugins/vim-tmux-focus-events" },
-  -- Fzf
-  { "/usr/local/opt/fzf" },
-  { "junegunn/fzf.vim" },
   -- LSP client
   { "neovim/nvim-lspconfig" },
+  -- Telescope
   {
     "nvim-telescope/telescope.nvim",
     requires = {
