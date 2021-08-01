@@ -24,10 +24,16 @@ for _, plugin in pairs(disabled_built_ins) do
     vim.g["loaded_" .. plugin] = 1
 end
 
+-- Load configs
+require "default-config"
+
 -- Load plugins
 local packer = require("plugins.packer").init()
 local plugins = require "plugins.plugins"
 packer:load { plugins }
+
+-- Load lsp config
+require("lsp").config()
 
 require 'general.settings'
 require 'general.mappings'
@@ -45,3 +51,6 @@ require 'plugins.fzf'
 require 'plugins.clever-f'
 -- require 'plugins.coc'
 require 'plugins.nvim-treesitter'
+
+-- TODO: Load in ftplugin
+require("lsp").setup "go"

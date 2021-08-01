@@ -116,6 +116,9 @@ vim.cmd('autocmd FocusGained, BufEnter * :checktime')
 -- Highlighting yarked region
 vim.cmd('autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup = "HighlightedYankRegion", timeout = 1000 })')
 
+-- For autocomplete plugin
+vim.o.completeopt = "menuone,noselect"
+
 -- Session manager
 vim.g.session_directory = '~/.config/nvim/session'
 vim.g.session_autoload = 'no'
