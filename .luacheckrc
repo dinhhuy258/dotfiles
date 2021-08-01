@@ -3,11 +3,6 @@
 stds.nvim = {
 	globals = {
 		vim = { fields = { "g" } },
-		"CONFIG_PATH",
-		"CACHE_PATH",
-		"DATA_PATH",
-		"TERMINAL",
-		"USER",
     "C",
     "Config",
     "WORKSPACE_PATH",
