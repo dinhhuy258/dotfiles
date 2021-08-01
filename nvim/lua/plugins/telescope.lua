@@ -64,6 +64,16 @@ M.setup = function()
     },
   }
 )
+
+local utils = require 'utils'
+
+utils.set_keymap('n', '<Leader>fr', ':Telescope live_grep<CR>', { noremap = true })
+utils.set_keymap('n', '<Leader>fg', ':Telescope git_status<CR>', { noremap = true })
+utils.set_keymap('n', '<Leader>fb', ':Telescope buffers<CR>', { noremap = true })
+utils.set_keymap('n', '<Leader>fm', ':Telescope marks<CR>', { noremap = true })
+utils.set_keymap('n', '<Leader>fe', ':Telescope oldfiles<CR>', { noremap = true })
+utils.set_keymap('n', '<Leader>ff', ':Telescope find_files<CR>', { noremap = true })
+
 end
 
 return M
