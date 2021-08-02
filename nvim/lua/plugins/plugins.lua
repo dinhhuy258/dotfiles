@@ -31,6 +31,7 @@ return {
   -- Highlighting
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "0.5-compat",
     run = ":TSUpdate",
     config = function ()
       require("plugins.nvim-treesitter").setup()
