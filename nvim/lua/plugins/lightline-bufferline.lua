@@ -1,7 +1,7 @@
 local M = {}
 
 function M.go_to_last_buffer()
-  last_buffer_index = vim.fn.len(vim.fn.getbufinfo({ [ 'buflisted' ] = 1 }))
+  local last_buffer_index = vim.fn.len(vim.fn.getbufinfo({ [ 'buflisted' ] = 1 }))
   if last_buffer_index >= 0 then
   vim.call('lightline#bufferline#go', last_buffer_index)
   end
