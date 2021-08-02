@@ -80,9 +80,6 @@ vim.o.signcolumn = 'yes'
 -- Treat dash separated words as a word text object
 vim.cmd('set iskeyword+=-')
 
--- Tell vim what the background color looks like
-vim.o.background = 'dark'
-
 -- We don't need the see things like -- INSERT -- anymore
 vim.o.showmode = false
 
@@ -95,14 +92,14 @@ vim.o.splitbelow = true
 -- Vertical splits will automatically be to the right
 vim.o.splitright = true
 
+-- Disable swapfiles
+vim.o.swapfile = false
+
 -- Copy paste between vim and everything else
 vim.o.clipboard = 'unnamedplus'
 
 -- Setting the font in the GUI
 vim.o.guifont = 'Hack Nerd Font'
-
--- Support 256 colors
-vim.go.t_Co = '256'
 
 -- Enable mouse
 vim.o.mouse = 'a'
