@@ -93,21 +93,21 @@ function M.config()
 
   -- Lsp key mappings
   -- utils.set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
-  utils.set_keymap("n", "gd", "<CMD>Telescope lsp_definitions<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "gd", "<CMD>lua require('fzf-lua').lsp_definitions({ jump_to_single_result = true })<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
   -- utils.set_keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
-  utils.set_keymap("n", "gr", "<CMD>Telescope lsp_references<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "gr", "<CMD>lua require('fzf-lua').lsp_references()<CR>", { noremap = true, silent = true })
   -- utils.set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", { noremap = true, silent = true })
-  utils.set_keymap("n", "gi", "<CMD>Telescope lsp_implementations<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "gi", "<CMD>lua require('fzf-lua').lsp_implementations()<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "gl", "<CMD>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = 'single' })<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "gs", "<CMD>lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "g[", "<CMD>lua vim.lsp.diagnostic.goto_prev({popup_opts = { border = 'single' }})<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "g]", "<CMD>lua vim.lsp.diagnostic.goto_next({popup_opts = { border = 'single' }})<CR>", { noremap = true, silent = true })
   -- utils.set_keymap("n", "ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
-  utils.set_keymap("n", "ca", "<CMD>Telescope lsp_code_actions<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "ca", "<CMD>lua require('fzf-lua').lsp_code_actions()<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "cf", "<CMD>lua vim.lsp.buf.formatting()<CR>", { noremap = true, silent = false })
-  utils.set_keymap("n", "co", "<CMD>Telescope lsp_document_symbols<CR>", { noremap = true, silent = false })
+  utils.set_keymap("n", "co", "<CMD>lua require('fzf-lua').lsp_document_symbols()<CR>", { noremap = true, silent = false })
 
   -- LSP handlers
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {

@@ -38,6 +38,17 @@ return {
   { "itchyny/lightline.vim" },
   -- Adds file type icons to Vim plugins such as: NERDTree, lightline, vim-startify...
   { "ryanoasis/vim-devicons" },
+  { "kyazdani42/nvim-web-devicons" },
+  -- Fzf
+  {
+    "ibhagwan/fzf-lua",
+    requires = {
+      { "vijaymarupudi/nvim-fzf" },
+    },
+    config = function ()
+      require("plugins.fzf-lua").setup()
+    end
+  },
   -- Vim plugin for git
   {
     "tpope/vim-fugitive",
@@ -103,17 +114,6 @@ return {
   { "tjdevries/astronauta.nvim" },
   -- LSP client
   { "neovim/nvim-lspconfig" },
-  -- Telescope
-  {
-    "nvim-telescope/telescope.nvim",
-    requires = {
-      { "nvim-lua/popup.nvim" },
-      { "nvim-lua/plenary.nvim" },
-    },
-    config = function ()
-      require("plugins.telescope").setup()
-    end
-  },
   -- Provides the missing :LspInstall for nvim-lspconfig
   {
     "kabouzeid/nvim-lspinstall",

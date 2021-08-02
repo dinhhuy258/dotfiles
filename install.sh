@@ -48,7 +48,8 @@ if which brew >/dev/null; then
     installHomebrewPackage neovim
     installHomebrewPackage tmux
     installHomebrewPackage fzf
-    installHomebrewPackage rg
+    installHomebrewPackage ripgrep
+    installHomebrewPackage fd
     installHomebrewPackage node
     installHomebrewPackage lazygit
     installHomebrewPackage urlview
@@ -58,9 +59,6 @@ if which brew >/dev/null; then
     # Greeting message
     installHomebrewPackage cowsay
     installHomebrewPackage lolcat
-
-    # installHomebrewPackage llvm 
-    # installHomebrewPackage pylint
   fi
 else
   echo "Homebrew not installed! Skipping package installation..."
@@ -101,7 +99,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   ln -sf $CWD/skhd/skhdrc ~/.skhdrc
 fi
 
-# Sync folders 
+# Sync folders
 read -p "Sync folders? (y/n) " -n 1;
 echo "";
 if [[ $REPLY =~ ^[Yy]$ ]]; then
