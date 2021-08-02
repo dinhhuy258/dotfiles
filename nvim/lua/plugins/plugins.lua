@@ -19,8 +19,10 @@ return {
   { "dinhhuy258/vim-database" },
   -- File explorer
   {
-    "dinhhuy258/chadtree",
-    run = ":UpdateRemotePlugins",
+    "kyazdani42/nvim-tree.lua",
+    config = function()
+      require("plugins.nvim-tree").setup()
+    end,
   },
   -- Color scheme
   { "cocopon/iceberg.vim" },
