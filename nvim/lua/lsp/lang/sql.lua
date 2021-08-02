@@ -13,7 +13,6 @@ function M.config(_, _, _)
       provider = "sqls",
       setup = {
         cmd = { "sqls" },
-        filetypes = { "sql" },
       },
     },
   }

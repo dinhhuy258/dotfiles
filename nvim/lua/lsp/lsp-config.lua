@@ -173,13 +173,6 @@ function M.config()
   require("lsp.lang.php").config(common_on_attach, capabilities, common_on_init)
   require("lsp.lang.sql").config(common_on_attach, capabilities, common_on_init)
   require("lsp.lang.cpp").config(common_on_attach, capabilities, common_on_init)
-
-  M.setup "go"
-  M.setup "lua"
-  M.setup "json"
-  M.setup "php"
-  M.setup "sql"
-  M.setup "cpp"
 end
 
 function M.setup(lang)

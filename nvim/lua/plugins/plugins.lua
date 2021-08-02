@@ -99,6 +99,8 @@ return {
   },
   -- Make FocusGained and FocusLost autocommand events work
   { "tmux-plugins/vim-tmux-focus-events" },
+  -- File in ftplugin/*.lua or after/ftplugin/*.lua will now get automatically run at the correct time
+  { "tjdevries/astronauta.nvim" },
   -- LSP client
   { "neovim/nvim-lspconfig" },
   -- Telescope

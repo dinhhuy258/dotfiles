@@ -18,7 +18,6 @@ function M.config(common_on_attach, _, common_on_init)
         },
         on_attach = common_on_attach,
         on_init = common_on_init,
-        filetypes = { "php" },
         settings = {
           intelephense = {
             environment = {
