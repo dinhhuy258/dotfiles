@@ -107,9 +107,6 @@ vim.go.t_Co = '256'
 -- Enable mouse
 vim.o.mouse = 'a'
 
--- For autocomplete plugin
-vim.o.completeopt = "menuone,noselect"
-
 -- Session manager
 vim.g.session_directory = '~/.config/nvim/session'
 vim.g.session_autoload = 'no'
