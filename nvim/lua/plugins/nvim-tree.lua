@@ -63,9 +63,10 @@ M.setup = function()
   end
 
   local tree_cb = config.nvim_tree_callback
+  vim.g['nvim_tree_disable_default_keybindings'] = 1
   vim.g.nvim_tree_bindings = {
-    { key = {"<CR>", "o", "<2-LeftMouse>"}, cb = tree_cb("edit") },
-    { key = {"<2-RightMouse>", "<C-]>"},    cb = tree_cb("cd") },
+    { key = {"<CR>", "<2-LeftMouse>"},      cb = tree_cb("edit") },
+    { key = {"<2-RightMouse>"},             cb = tree_cb("cd") },
     { key = "<C-v>",                        cb = tree_cb("vsplit") },
     { key = "<C-h>",                        cb = tree_cb("split") },
     { key = "<C-t>",                        cb = tree_cb("tabnew") },
