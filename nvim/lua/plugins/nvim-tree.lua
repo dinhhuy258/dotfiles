@@ -82,7 +82,6 @@ M.setup = function()
     { key = "H",                            cb = tree_cb("toggle_dotfiles") },
     { key = "R",                            cb = tree_cb("refresh") },
     { key = "n",                            cb = tree_cb("create") },
-    { key = "d",                            cb = tree_cb("remove") },
     { key = "r",                            cb = tree_cb("rename") },
     { key = "<C-r>",                        cb = tree_cb("full_rename") },
     { key = "x",                            cb = tree_cb("cut") },
@@ -95,6 +94,9 @@ M.setup = function()
     { key = "]c",                           cb = tree_cb("next_git_item") },
     { key = "-",                            cb = tree_cb("dir_up") },
     { key = "q",                            cb = tree_cb("close") },
+    { key = "s",                            cb = tree_cb("toggle_selection") },
+    { key = "S",                            cb = tree_cb("clear_selections") },
+    { key = "d",                            cb = tree_cb("batch_delete") },
     { key = "g?",                           cb = tree_cb("toggle_help") },
   }
 
