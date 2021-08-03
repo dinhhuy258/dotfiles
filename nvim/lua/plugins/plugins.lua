@@ -19,7 +19,7 @@ return {
   { "dinhhuy258/vim-database" },
   -- File explorer
   {
-    "kyazdani42/nvim-tree.lua",
+    "dinhhuy258/nvim-tree.lua",
     config = function()
       require("plugins.nvim-tree").setup()
     end,
