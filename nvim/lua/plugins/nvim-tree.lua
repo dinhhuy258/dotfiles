@@ -70,16 +70,12 @@ M.setup = function()
     { key = "<C-v>",                        cb = tree_cb("vsplit") },
     { key = "<C-x>",                        cb = tree_cb("split") },
     { key = "<C-t>",                        cb = tree_cb("tabnew") },
-    -- { key = "<",                            cb = tree_cb("prev_sibling") },
-    -- { key = ">",                            cb = tree_cb("next_sibling") },
     { key = "P",                            cb = tree_cb("parent_node") },
     { key = "<S-TAB>",                      cb = tree_cb("close_node") },
     { key = "<S-CR>",                       cb = tree_cb("close_node") },
     { key = "<Tab>",                        cb = tree_cb("preview") },
     { key = "K",                            cb = tree_cb("first_sibling") },
     { key = "J",                            cb = tree_cb("last_sibling") },
-    { key = "I",                            cb = tree_cb("toggle_ignored") },
-    { key = "H",                            cb = tree_cb("toggle_dotfiles") },
     { key = "R",                            cb = tree_cb("refresh") },
     { key = "n",                            cb = tree_cb("create") },
     { key = "r",                            cb = tree_cb("rename") },
@@ -97,7 +93,7 @@ M.setup = function()
     { key = "s",                            cb = tree_cb("toggle_selection") },
     { key = "S",                            cb = tree_cb("clear_selections") },
     { key = "d",                            cb = tree_cb("batch_delete") },
-    { key = "g?",                           cb = tree_cb("toggle_help") },
+    { key = ".",                            cb = tree_cb("toggle_hidden") },
   }
 
   local utils = require 'utils'
