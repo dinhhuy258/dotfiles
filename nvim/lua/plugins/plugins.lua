@@ -61,10 +61,13 @@ return {
   },
   -- Show git diff in the sign column
   {
-    "airblade/vim-gitgutter",
+    "lewis6991/gitsigns.nvim",
     event = "BufRead",
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
     config = function ()
-      require("plugins.vim-gitgutter").setup()
+      require("plugins.gitsigns").setup()
     end
   },
   -- Vim easy motion
