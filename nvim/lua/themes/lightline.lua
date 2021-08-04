@@ -48,12 +48,6 @@ vim.api.nvim_exec(
       let p.inactive.left = [col_nc, col_nc]
       let p.inactive.right = [col_nc, col_nc]
 
-      let p.tabline.middle = [col_base]
-      let p.tabline.left = [col_tabfill]
-      let p.tabline.tabsel = [col_tabsel]
-
-      let p.tabline.right = copy(p.normal.right)
-
       return p
     endfunction
 
@@ -80,21 +74,6 @@ vim.g.lightline = {
       { 'relativepath' }
     },
     [ 'right' ] = {}
-  },
-  [ 'tabline' ] = {
-    [ 'left' ] = {
-      { 'buffers' }
-    },
-    [ 'right' ] = {}
-  },
-  [ 'component_expand' ] = {
-    [ 'buffers' ] = 'lightline#bufferline#buffers'
-  },
-  [ 'component_type' ] = {
-    [ 'buffers' ] = 'tabsel'
-  },
-  [ 'component_raw' ] = {
-    [ 'buffers' ] = 1
   },
   [ 'component' ] = {
     [ 'lineinfo' ] = '%2p%% %3l/%L:%-2v'

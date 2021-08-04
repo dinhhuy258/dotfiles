@@ -20,12 +20,6 @@ utils.set_keymap('i', '<C-s>', '<Esc>:w<CR>', { noremap = true, silent = false }
 -- Alternate way to quit
 utils.set_keymap('n', '<C-q>', ':wq!<CR>', { noremap = true, silent = false })
 
--- Next buffer
-utils.set_keymap('n', '<Leader>]', ':bnext<CR>', { noremap = true })
-utils.set_keymap('n', '<Leader>[', ':bprev<CR>', { noremap = true })
-utils.set_keymap('n', '<Leader>w', ':bd<CR>', { noremap = true })
-utils.set_keymap('n', '<Leader>W', ':bd!<CR>', { noremap = true })
-
 -- Vim move
 utils.set_keymap('x', '<A-L>', '>gv', { noremap = true })
 utils.set_keymap('x', '<A-H>', '<gv', { noremap = true })

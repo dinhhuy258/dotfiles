@@ -88,12 +88,13 @@ return {
       require("plugins.clever-f").setup()
     end
   },
-  -- Bufferline
+  -- Tabline plugin
   {
-    "mengelbrecht/lightline-bufferline",
-    config = function ()
-      require("plugins.lightline-bufferline").setup()
-    end
+    "romgrk/barbar.nvim",
+    event = "BufRead",
+    config = function()
+      require("plugins.barbar").setup()
+    end,
   },
   -- The fancy start screen
   {
