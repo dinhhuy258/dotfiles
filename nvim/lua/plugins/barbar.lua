@@ -1,7 +1,7 @@
 local M = {}
 
 M.setup = function()
-  local utils = require 'utils'
+  local utils = require "utils"
 
   utils.set_keymap("n", "<Left>", ":BufferPrevious<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "<Right>", ":BufferNext<CR>", { noremap = true, silent = true })
@@ -40,17 +40,17 @@ M.setup = function()
   utils.set_keymap("n", "<Leader>bb", ":BufferPin<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "<Leader>bp", ":BufferPick<CR>", { noremap = true, silent = true })
 
-  vim.api.nvim_command("hi BufferCurrent       guibg=none guifg=none")
-  vim.api.nvim_command("hi BufferCurrentMod    guibg=none guifg=none")
-  vim.api.nvim_command("hi BufferCurrentIndex  guibg=none guifg=none")
-  vim.api.nvim_command("hi BufferCurrentSign   guibg=none guifg=none")
-  vim.api.nvim_command("hi BufferCurrentTarget guibg=none guifg=none")
+  vim.api.nvim_command "hi BufferCurrent       guibg=none guifg=none"
+  vim.api.nvim_command "hi BufferCurrentMod    guibg=none guifg=none"
+  vim.api.nvim_command "hi BufferCurrentIndex  guibg=none guifg=none"
+  vim.api.nvim_command "hi BufferCurrentSign   guibg=none guifg=none"
+  vim.api.nvim_command "hi BufferCurrentTarget guibg=none guifg=none"
 
-  vim.api.nvim_command("hi BufferInactive      guibg=none guifg=#3e445e")
-  vim.api.nvim_command("hi BufferInactiveIndex guibg=none guifg=#3e445e")
-  vim.api.nvim_command("hi BufferInactiveSign  guibg=none guifg=#3e445e")
-  vim.api.nvim_command("hi BufferInactiveMod   guibg=none guifg=#3e445e")
-  vim.api.nvim_command("hi BufferTabpageFill   guibg=none guifg=#3e445e")
+  vim.api.nvim_command "hi BufferInactive      guibg=none guifg=#3e445e"
+  vim.api.nvim_command "hi BufferInactiveIndex guibg=none guifg=#3e445e"
+  vim.api.nvim_command "hi BufferInactiveSign  guibg=none guifg=#3e445e"
+  vim.api.nvim_command "hi BufferInactiveMod   guibg=none guifg=#3e445e"
+  vim.api.nvim_command "hi BufferTabpageFill   guibg=none guifg=#3e445e"
 end
 
 return M

@@ -1,7 +1,7 @@
 local M = {}
 
 function M.config(common_on_attach, common_capabilities, common_on_init)
-  lsp_clients['go'] = {
+  lsp_clients["go"] = {
     formatters = {
       {
         -- @usage can be gofmt or goimports or gofumpt

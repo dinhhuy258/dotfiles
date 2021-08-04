@@ -12,7 +12,7 @@ function utils.set_keymap(mode, key, func_or_command, options)
   options = table.merge({
     noremap = true,
     silent = true,
-    expr = false
+    expr = false,
   }, options or {})
 
   vim.api.nvim_set_keymap(mode, key, func_or_command, options)

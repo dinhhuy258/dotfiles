@@ -1,4 +1,4 @@
-vim.cmd('let g:lightline_icons_cache = {}')
+vim.cmd "let g:lightline_icons_cache = {}"
 
 vim.api.nvim_exec(
   [[
@@ -58,28 +58,27 @@ vim.api.nvim_exec(
 )
 
 vim.g.lightline = {
-  [ 'colorscheme' ] = 'custom',
-  [ 'active' ] = {
-    [ 'left' ] = {
-      { 'fileicon' },
-      { 'relativepath' }
+  ["colorscheme"] = "custom",
+  ["active"] = {
+    ["left"] = {
+      { "fileicon" },
+      { "relativepath" },
     },
-    [ 'right' ] = {
-      { 'lineinfo' }
-    }
-  },
-  [ 'inactive' ] = {
-    [ 'left' ] = {
-      { 'fileicon' },
-      { 'relativepath' }
+    ["right"] = {
+      { "lineinfo" },
     },
-    [ 'right' ] = {}
   },
-  [ 'component' ] = {
-    [ 'lineinfo' ] = '%2p%% %3l/%L:%-2v'
+  ["inactive"] = {
+    ["left"] = {
+      { "fileicon" },
+      { "relativepath" },
+    },
+    ["right"] = {},
   },
-  [ 'component_function' ] = {
-    [ 'fileicon' ] = 'GetFileIcon'
-  }
+  ["component"] = {
+    ["lineinfo"] = "%2p%% %3l/%L:%-2v",
+  },
+  ["component_function"] = {
+    ["fileicon"] = "GetFileIcon",
+  },
 }
-

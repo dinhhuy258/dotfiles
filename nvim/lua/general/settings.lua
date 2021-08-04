@@ -1,13 +1,13 @@
 -- Shell
-vim.o.shell = '/bin/zsh'
+vim.o.shell = "/bin/zsh"
 
 -- Encoding
-vim.o.encoding = 'utf-8'
-vim.o.fileencoding = 'utf-8'
-vim.o.fileencodings = 'utf-8'
+vim.o.encoding = "utf-8"
+vim.o.fileencoding = "utf-8"
+vim.o.fileencodings = "utf-8"
 
 -- Allow backspacing over everything in insert mode
-vim.o.backspace = 'indent,eol,start'
+vim.o.backspace = "indent,eol,start"
 
 -- Tab
 vim.o.tabstop = 4
@@ -38,7 +38,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Enables syntax highlighting
-vim.cmd('syntax on')
+vim.cmd "syntax on"
 
 -- Display line numbers
 vim.o.number = true
@@ -52,7 +52,7 @@ vim.o.ruler = true
 vim.o.laststatus = 2
 
 -- Display hidden characters
-vim.cmd('set listchars=tab:▸\\ ,eol:¬')
+vim.cmd "set listchars=tab:▸\\ ,eol:¬"
 vim.o.list = true
 
 -- Required to keep multiple buffers open multiple buffers
@@ -72,13 +72,13 @@ vim.o.updatetime = 300
 vim.o.timeoutlen = 1000
 
 -- Don't pass messages to |ins-completion-menu|
-vim.cmd('set shortmess+=c')
+vim.cmd "set shortmess+=c"
 
 -- Always show the signcolumn, otherwise it would shift the text each time diagnostics appear/become resolved.
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn = "yes"
 
 -- Treat dash separated words as a word text object
-vim.cmd('set iskeyword+=-')
+vim.cmd "set iskeyword+=-"
 
 -- We don't need the see things like -- INSERT -- anymore
 vim.o.showmode = false
@@ -96,20 +96,19 @@ vim.o.splitright = true
 vim.o.swapfile = false
 
 -- Copy paste between vim and everything else
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = "unnamedplus"
 
 -- Setting the font in the GUI
-vim.o.guifont = 'Hack Nerd Font'
+vim.o.guifont = "Hack Nerd Font"
 
 -- Enable mouse
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 
 -- Session manager
-vim.g.session_directory = '~/.config/nvim/session'
-vim.g.session_autoload = 'no'
-vim.g.session_autosave = 'no'
+vim.g.session_directory = "~/.config/nvim/session"
+vim.g.session_autoload = "no"
+vim.g.session_autosave = "no"
 vim.g.session_command_aliases = 1
 
 -- Config variable for my plugins
 vim.g.huy_duong_workspace = 1
-

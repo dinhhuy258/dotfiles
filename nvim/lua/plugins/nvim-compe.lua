@@ -1,4 +1,4 @@
-local utils = require 'utils'
+local utils = require "utils"
 local M = {}
 
 M.setup = function()
@@ -59,9 +59,19 @@ M.setup = function()
     end
   end
 
-  vim.api.nvim_set_keymap("i", "<Tab>", 'pumvisible() ? "<C-n>" : "<Tab>"', { silent = true, noremap = true, expr = true })
+  vim.api.nvim_set_keymap(
+    "i",
+    "<Tab>",
+    'pumvisible() ? "<C-n>" : "<Tab>"',
+    { silent = true, noremap = true, expr = true }
+  )
 
-  vim.api.nvim_set_keymap("i", "<S-Tab>", 'pumvisible() ? "<C-p>" : "<S-Tab>"', { silent = true, noremap = true, expr = true })
+  vim.api.nvim_set_keymap(
+    "i",
+    "<S-Tab>",
+    'pumvisible() ? "<C-p>" : "<S-Tab>"',
+    { silent = true, noremap = true, expr = true }
+  )
 
   -- Use (s-)tab to:
   --- move to prev/next item in completion menuone
@@ -96,4 +106,3 @@ M.setup = function()
 end
 
 return M
-

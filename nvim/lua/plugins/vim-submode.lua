@@ -8,12 +8,12 @@ M.setup = function()
   vim.g.submode_timeout = 0
 
   -- Windows
-  vim.call('submode#enter_with', 'window', 'n', '', '<C-w>')
-  vim.call('submode#map', 'window', 'n', '', 'h', ':vertical resize -3<CR>')
-  vim.call('submode#map', 'window', 'n', '', 'l', ':vertical resize +3<CR>')
-  vim.call('submode#map', 'window', 'n', '', 'j', ':resize -3<CR>')
-  vim.call('submode#map', 'window', 'n', '', 'k', ':resize +3<CR>')
-  vim.call('submode#leave_with', 'window', 'n', '', '<ESC>')
+  vim.call("submode#enter_with", "window", "n", "", "<C-w>")
+  vim.call("submode#map", "window", "n", "", "h", ":vertical resize -3<CR>")
+  vim.call("submode#map", "window", "n", "", "l", ":vertical resize +3<CR>")
+  vim.call("submode#map", "window", "n", "", "j", ":resize -3<CR>")
+  vim.call("submode#map", "window", "n", "", "k", ":resize +3<CR>")
+  vim.call("submode#leave_with", "window", "n", "", "<ESC>")
 end
 
 return M

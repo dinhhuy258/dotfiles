@@ -1,7 +1,7 @@
 local M = {}
 
 function M.config(common_on_attach, _, common_on_init)
-  lsp_clients['php'] = {
+  lsp_clients["php"] = {
     formatters = {
       {
         -- @usage can be phpcbf
@@ -31,4 +31,3 @@ function M.config(common_on_attach, _, common_on_init)
 end
 
 return M
-

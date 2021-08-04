@@ -7,8 +7,8 @@ function M.config(common_on_attach, common_capabilities, common_on_init)
     schemas = jsonls_settings.get_default_schemas()
   end
 
-  lsp_clients['json'] = {
-        formatters = {
+  lsp_clients["json"] = {
+    formatters = {
       {
         -- @usage can be json_tool or prettier or prettierd
         exe = "",
@@ -21,7 +21,8 @@ function M.config(common_on_attach, common_capabilities, common_on_init)
       setup = {
         cmd = {
           "node",
-          vim.fn.stdpath "data" .. "/lspinstall/json/vscode-json/json-language-features/server/dist/node/jsonServerMain.js",
+          vim.fn.stdpath "data"
+            .. "/lspinstall/json/vscode-json/json-language-features/server/dist/node/jsonServerMain.js",
           "--stdio",
         },
         on_attach = common_on_attach,

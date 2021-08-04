@@ -1,7 +1,7 @@
 local M = {}
 
 function M.config(common_on_attach, common_capabilities, common_on_init)
-  lsp_clients['cpp'] = {
+  lsp_clients["cpp"] = {
     formatters = {
       {
         -- @usage can be clang-format or uncrustify
@@ -31,4 +31,3 @@ function M.config(common_on_attach, common_capabilities, common_on_init)
 end
 
 return M
-

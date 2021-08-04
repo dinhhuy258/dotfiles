@@ -35,9 +35,9 @@ return {
     "nvim-treesitter/nvim-treesitter",
     branch = "0.5-compat",
     run = ":TSUpdate",
-    config = function ()
+    config = function()
       require("plugins.nvim-treesitter").setup()
-    end
+    end,
   },
   -- A light and configurable statusline/tabline plugin
   { "itchyny/lightline.vim" },
@@ -50,34 +50,34 @@ return {
     requires = {
       { "vijaymarupudi/nvim-fzf" },
     },
-    config = function ()
+    config = function()
       require("plugins.fzf-lua").setup()
-    end
+    end,
   },
   -- Vim plugin for git
   {
     "tpope/vim-fugitive",
-    config = function ()
+    config = function()
       require("plugins.vim-fugitive").setup()
-    end
+    end,
   },
   -- Show git diff in the sign column
   {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
     requires = {
-      'nvim-lua/plenary.nvim'
+      "nvim-lua/plenary.nvim",
     },
-    config = function ()
+    config = function()
       require("plugins.gitsigns").setup()
-    end
+    end,
   },
   -- Vim easy motion
   {
     "easymotion/vim-easymotion",
-    config = function ()
+    config = function()
       require("plugins.vim-easymotion").setup()
-    end
+    end,
   },
   -- Vim surround
   {
@@ -93,9 +93,9 @@ return {
   {
     "rhysd/clever-f.vim",
     event = "BufRead",
-    config = function ()
+    config = function()
       require("plugins.clever-f").setup()
-    end
+    end,
   },
   -- Tabline plugin
   {
@@ -111,7 +111,7 @@ return {
     event = "BufWinEnter",
     config = function()
       require("plugins.vim-startify").setup()
-    end
+    end,
   },
   -- Multi editor tool for defining base file handling and code style preferences
   { "editorconfig/editorconfig-vim" },
@@ -122,10 +122,10 @@ return {
   },
   -- Define submodes to the built-in vim modes
   {
-    'kana/vim-submode',
-    config = function ()
+    "kana/vim-submode",
+    config = function()
       require("plugins.vim-submode").setup()
-    end
+    end,
   },
   -- File in ftplugin/*.lua or after/ftplugin/*.lua will now get automatically run at the correct time
   { "tjdevries/astronauta.nvim" },
@@ -136,7 +136,7 @@ return {
     "kabouzeid/nvim-lspinstall",
     event = "VimEnter",
     config = function()
-      require"lspinstall".setup()
+      require("lspinstall").setup()
     end,
   },
   -- Setting LSP with json files
@@ -145,17 +145,17 @@ return {
   {
     "hrsh7th/nvim-compe",
     event = "InsertEnter",
-    config = function ()
+    config = function()
       require("plugins.nvim-compe").setup()
-    end
+    end,
   },
   -- Autopair
   {
     "windwp/nvim-autopairs",
     after = "nvim-compe",
-    config = function ()
+    config = function()
       require("plugins.nvim-autopairs").setup()
-    end
+    end,
   },
   -- Snippet
   {

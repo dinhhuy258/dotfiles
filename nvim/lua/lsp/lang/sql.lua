@@ -1,7 +1,7 @@
 local M = {}
 
 function M.config(_, _, _)
-  lsp_clients['sql'] = {
+  lsp_clients["sql"] = {
     formatters = {
       {
         -- @usage can be sqlformat

@@ -31,7 +31,7 @@ M.setup = function()
       },
     },
     indent = {
-      enable = true
+      enable = true,
     },
     incremental_selection = {
       enable = true,

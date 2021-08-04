@@ -6,7 +6,7 @@ M.setup = function()
     return
   end
 
-  gitsigns.setup({
+  gitsigns.setup {
     signs = {
       add = {
         hl = "GitSignsAdd",
@@ -46,19 +46,19 @@ M.setup = function()
       noremap = true,
       buffer = true,
 
-      ['n ghn'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"},
-      ['n ghp'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"},
-      ['n ghu'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-      ['v ghu'] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-      ['n ghv'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-      ['n ghl'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
+      ["n ghn"] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'" },
+      ["n ghp"] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'" },
+      ["n ghu"] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
+      ["v ghu"] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+      ["n ghv"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
+      ["n ghl"] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
     },
     watch_index = { interval = 1000 },
     sign_priority = 6,
     update_debounce = 200,
     status_formatter = nil, -- Use default
     use_decoration_api = false,
-  })
+  }
 end
 
 return M

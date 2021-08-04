@@ -1,7 +1,7 @@
 local M = {}
 
 function M.config(common_on_attach, common_capabilities, common_on_init)
-  lsp_clients['javascript'] = {
+  lsp_clients["javascript"] = {
     -- @usage can be prettier or prettier_d_slim or prettierd
     formatters = {
       {
@@ -27,4 +27,3 @@ function M.config(common_on_attach, common_capabilities, common_on_init)
 end
 
 return M
-
