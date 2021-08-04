@@ -172,7 +172,13 @@ function gretting_message() {
 
 # Open project under workspace folder
 function workspace_fzf() {
-  cd $WORKSPACE; ls -d */ | fzfp | { cd -; read result; cd $WORKSPACE/$result }
+  cd $WORKSPACE; ls -d */ | fzfp | {
+    cd -;
+    read result;
+    if [ ! -z "$result" ]; then
+      cd $WORKSPACE/$result
+    fi
+  }
   zle && zle reset-prompt
 }
 
@@ -340,7 +346,7 @@ zle -N edit-command-line
 # Key bindings
 bindkey '^ ' autosuggest-accept
 zle -N workspace_fzf
-bindkey '^w' workspace_fzf 
+bindkey '^w' workspace_fzf
 bindkey '^v' edit-command-line
 
 if [ -z "$IGNORE_GREETING_MESSAGE" ]
