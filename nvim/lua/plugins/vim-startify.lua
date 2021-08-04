@@ -25,7 +25,6 @@ M.setup = function()
   }
 
   vim.g.startify_bookmarks = {
-    { ["i"] = "~/.config/nvim/init.vim" },
     { ["z"] = "~/.zshrc" },
   }
 

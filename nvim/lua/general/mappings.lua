@@ -6,9 +6,6 @@ vim.g.mapleader = ";"
 -- Disable keys
 utils.set_keymap("n", "Q", "<Nop>", { noremap = true })
 
--- Reload vim configuration
-utils.set_keymap("n", "<Leader>rl", ":so ~/.config/nvim/init.vim<CR>", { noremap = true, silent = false })
-
 -- Split
 utils.set_keymap("n", "<Leader>-", ":<C-u>split<CR>", { noremap = true, silent = false })
 utils.set_keymap("n", "<Leader>\\", ":<C-u>vsplit<CR>", { noremap = true, silent = false })
