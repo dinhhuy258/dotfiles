@@ -5,6 +5,7 @@ return {
   {
     "dinhhuy258/vintellij",
     branch = "lsp",
+    event = "BufRead",
   },
   -- Vim utilities
   { "dinhhuy258/vim-utilities" },
@@ -12,6 +13,7 @@ return {
   {
     "dinhhuy258/vim-local-history",
     run = ":UpdateRemotePlugins",
+    event = "BufRead",
   },
   -- Open git repository
   { "dinhhuy258/vim-git-browse" },
@@ -78,12 +80,19 @@ return {
     end
   },
   -- Vim surround
-  { "tpope/vim-surround" },
+  {
+    "tpope/vim-surround",
+    event = "BufRead",
+  },
   -- Enable repeating supported plugins map with .
-  { "tpope/vim-repeat" },
+  {
+    "tpope/vim-repeat",
+    event = "BufRead",
+  },
   -- Make f, F, t, T more clever
   {
     "rhysd/clever-f.vim",
+    event = "BufRead",
     config = function ()
       require("plugins.clever-f").setup()
     end
@@ -107,7 +116,10 @@ return {
   -- Multi editor tool for defining base file handling and code style preferences
   { "editorconfig/editorconfig-vim" },
   -- Modify variable name to snake_case, camelCase, UPPER_CASE...
-  { "tpope/vim-abolish" },
+  {
+    "tpope/vim-abolish",
+    event = "BufRead",
+  },
   -- Define submodes to the built-in vim modes
   {
     'kana/vim-submode',
@@ -115,8 +127,6 @@ return {
       require("plugins.vim-submode").setup()
     end
   },
-  -- Make FocusGained and FocusLost autocommand events work
-  { "tmux-plugins/vim-tmux-focus-events" },
   -- File in ftplugin/*.lua or after/ftplugin/*.lua will now get automatically run at the correct time
   { "tjdevries/astronauta.nvim" },
   -- LSP client
