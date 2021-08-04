@@ -37,6 +37,9 @@ M.setup = function()
   utils.set_keymap("i", "<Leader>w", "<ESC>:BufferClose<CR>", { noremap = true, silent = true })
   utils.set_keymap("i", "<Leader>x", "<ESC>:BufferCloseAllButCurrent<CR>", { noremap = true, silent = true })
 
+  utils.set_keymap("n", "<Leader>bb", ":BufferPin<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "<Leader>bp", ":BufferPick<CR>", { noremap = true, silent = true })
+
   vim.api.nvim_command("hi BufferCurrent       guibg=none guifg=none")
   vim.api.nvim_command("hi BufferCurrentMod    guibg=none guifg=none")
   vim.api.nvim_command("hi BufferCurrentIndex  guibg=none guifg=none")
