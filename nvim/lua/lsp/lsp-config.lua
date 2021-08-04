@@ -20,23 +20,13 @@ end
 
 local function common_on_init(client, _)
   local formatters = lsp_clients.lang[vim.bo.filetype].formatters
-  if not vim.tbl_isempty(formatters) then
+  if not vim.tbl_isempty(formatters) and formatters[1]["exe"] ~= nil and formatters[1].exe ~= "" then
     client.resolved_capabilities.document_formatting = false
   end
 end
 
-local function common_on_attach(client, _)
-  -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
-    vim.api.nvim_exec(
-      [[
-      hi LspReferenceRead cterm=bold ctermbg=red guibg=#464646
-      hi LspReferenceText cterm=bold ctermbg=red guibg=#464646
-      hi LspReferenceWrite cterm=bold ctermbg=red guibg=#464646
-    ]],
-      false
-    )
-  end
+local function common_on_attach(_, _)
+  -- Not used for now
 end
 
 function M.config()
@@ -135,7 +125,15 @@ function M.config()
     local diagnostics = params.diagnostics
 
     for i, v in ipairs(diagnostics) do
-      diagnostics[i].message = string.format("%s: %s", v.source, v.message)
+      local source = v.source
+      if source then
+        if string.find(source, "/") then
+          source = string.sub(v.source, string.find(v.source, "([%w-_]+)$"))
+        end
+        diagnostics[i].message = string.format("%s: %s", source, v.message)
+      else
+        diagnostics[i].message = string.format("%s", v.message)
+      end
 
       if vim.tbl_contains(vim.tbl_keys(v), "code") then
         diagnostics[i].message = diagnostics[i].message .. string.format(" [%s]", v.code)
