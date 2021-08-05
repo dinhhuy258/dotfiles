@@ -26,7 +26,7 @@ local highlights = {
   Ignore = { fg = "NONE", bg = "NONE" },
   Include = { fg = "#84a0c6" },
   IncSearch = { fg = "NONE" },
-  LineNr = { fg = "#444b71", bg = "#1e2132" },
+  LineNr = { fg = "#444b71", bg = "NONE" },
   MatchParen = { fg = "#ffffff", bg = "#3e445e" },
   ModeMsg = { fg = "#6b7089" },
   MoreMsg = { fg = "#b4be82" },
