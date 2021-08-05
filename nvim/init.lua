@@ -37,5 +37,6 @@ require("general.autocmds").define_default_autogroups()
 require "general.settings"
 require "general.mappings"
 
-require "themes.colorscheme"
 require "themes.lightline"
+
+vim.cmd "colorscheme iceberg"
