@@ -1,8 +1,4 @@
--- vim.cmd "colorscheme iceberg"
-vim.cmd "set termguicolors"
-
--- Tell vim what the background color looks like
-vim.o.background = "dark"
+vim.cmd "colorscheme iceberg"
 
 vim.cmd "highlight HighlightedYankRegion cterm=reverse gui=reverse"
 vim.cmd "highlight clear SignColumn"
