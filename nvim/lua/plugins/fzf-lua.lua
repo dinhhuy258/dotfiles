@@ -62,7 +62,7 @@ M.setup = function()
     },
     git = {
       prompt = "GitFiles❯ ",
-      cmd = "git -c color.status=always status --short --untracked-files=all",
+      cmd = "git ls-files --modified --others",
       git_icons = true, -- show git icons?
       file_icons = true, -- show file icons?
       color_icons = true, -- colorize file|git icons
