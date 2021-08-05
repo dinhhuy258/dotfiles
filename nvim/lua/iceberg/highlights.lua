@@ -39,7 +39,7 @@ local highlights = {
   Question = { fg = "#b4be82" },
   QuickFixLine = { fg = "#c6c8d1", bg = "#272c42" },
   Search = { fg = "#392313", bg = "#e4aa80" },
-  SignColumn = { fg = "#444b71", bg = "#1e2132" },
+  SignColumn = { fg = "NONE", bg = "NONE" },
   Special = { fg = "#b4be82" },
   SpecialKey = { fg = "#515e97" },
   SpellBad = { fg = "NONE", style = "underline" },

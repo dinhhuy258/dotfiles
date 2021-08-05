@@ -20,6 +20,11 @@ local default_autogroups = {
       "*",
       "lua require('vim.highlight').on_yank({ higroup = 'HighlightedYankRegion', timeout = 1000 })",
     },
+    {
+      "ColorScheme",
+      "*",
+      "highlight HighlightedYankRegion gui=reverse",
+    },
   },
   _general_lsp = {
     {
