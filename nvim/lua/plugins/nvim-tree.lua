@@ -92,7 +92,7 @@ M.setup = function()
     { key = "q", cb = tree_cb "close" },
     { key = "s", cb = tree_cb "toggle_selection" },
     { key = "S", cb = tree_cb "clear_selections" },
-    { key = "d", cb = tree_cb "batch_delete" },
+    { key = "d", cb = tree_cb "delete" },
     { key = ".", cb = tree_cb "toggle_hidden" },
   }
 
