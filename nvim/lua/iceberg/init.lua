@@ -21,10 +21,12 @@ end))
 
 local highlights = require "iceberg.highlights"
 local startify = require "iceberg.vim-startify"
+local gitsigns = require "iceberg.gitsigns"
 
 local skeletons = {
   highlights,
   startify,
+  gitsigns,
 }
 
 for _, skeleton in ipairs(skeletons) do
