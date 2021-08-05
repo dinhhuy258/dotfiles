@@ -1,4 +1,4 @@
-vim.cmd "colorscheme iceberg"
+-- vim.cmd "colorscheme iceberg"
 vim.cmd "set termguicolors"
 
 -- Tell vim what the background color looks like

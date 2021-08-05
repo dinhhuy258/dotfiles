@@ -26,8 +26,6 @@ return {
       require("plugins.nvim-tree").setup()
     end,
   },
-  -- Color scheme
-  { "cocopon/iceberg.vim" },
   -- Seamless navigation between tmux panes and vim splits
   { "christoomey/vim-tmux-navigator" },
   -- Highlighting
