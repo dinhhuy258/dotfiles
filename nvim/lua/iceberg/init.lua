@@ -20,15 +20,17 @@ async = vim.loop.new_async(vim.schedule_wrap(function()
 end))
 
 local highlights = require "iceberg.highlights"
+local lsp = require "iceberg.lsp"
 local startify = require "iceberg.vim-startify"
 local gitsigns = require "iceberg.gitsigns"
-local lsp = require "iceberg.lsp"
+local tree = require "iceberg.nvim-tree"
 
 local skeletons = {
   highlights,
+  lsp,
   startify,
   gitsigns,
-  lsp,
+  tree,
 }
 
 for _, skeleton in ipairs(skeletons) do
