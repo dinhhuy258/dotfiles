@@ -62,6 +62,8 @@ local highlights = {
   Visual = { fg = "NONE", bg = "#272c42" },
   VisualNOS = { fg = "NONE", bg = "#272c42" },
   WildMenu = { fg = "#17171b", bg = "#d4d5db" },
+  FloatBorder = { fg = "#eff0f4", bg = "NONE" },
+  NormalFloat = { fg = "#c6c8d1", bg = "#161821" },
 }
 
 return highlights

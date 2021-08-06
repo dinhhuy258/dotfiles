@@ -4,7 +4,7 @@ local tree = {
   NvimTreeIndentMarker = { fg = "#84a0c6" },
   NvimTreeFolderName = { fg = "#89b8c2" },
   NvimTreeOpenedFolderName = { fg = "#89b8c2", style = "italic" },
-  NvimTreeVertSplit = { fg = "None", bg = "None" },
+  NvimTreeVertSplit = { fg = "#eff0f4", bg = "None" },
   NvimTreeSpecialFile = { fg = "#e2a478" },
   NvimTreeImageFile = { fg = "#a093c7" },
   NvimTreeGitStaged = { fg = "#668e3d" },
