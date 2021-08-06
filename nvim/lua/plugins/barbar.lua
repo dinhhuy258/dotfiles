@@ -40,18 +40,6 @@ M.setup = function()
   utils.set_keymap("n", "<Leader>bb", ":BufferPin<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "<Leader>bp", ":BufferPick<CR>", { noremap = true, silent = true })
 
-  vim.api.nvim_command "hi BufferCurrent       guibg=none guifg=none"
-  vim.api.nvim_command "hi BufferCurrentMod    guibg=none guifg=none"
-  vim.api.nvim_command "hi BufferCurrentIndex  guibg=none guifg=none"
-  vim.api.nvim_command "hi BufferCurrentSign   guibg=none guifg=none"
-  vim.api.nvim_command "hi BufferCurrentTarget guibg=none guifg=none"
-
-  vim.api.nvim_command "hi BufferInactive      guibg=none guifg=#3e445e"
-  vim.api.nvim_command "hi BufferInactiveIndex guibg=none guifg=#3e445e"
-  vim.api.nvim_command "hi BufferInactiveSign  guibg=none guifg=#3e445e"
-  vim.api.nvim_command "hi BufferInactiveMod   guibg=none guifg=#3e445e"
-  vim.api.nvim_command "hi BufferTabpageFill   guibg=none guifg=#3e445e"
-
   -- Set barbar's options
   vim.g.bufferline = {
     -- Enable/disable animations
@@ -87,11 +75,11 @@ M.setup = function()
     icon_custom_colors = false,
 
     -- Configure icons on the bufferline.
-    icon_separator_active = '▎',
-    icon_separator_inactive = '▎',
-    icon_close_tab = '',
-    icon_close_tab_modified = '●',
-    icon_pinned = '車',
+    icon_separator_active = "▎",
+    icon_separator_inactive = "▎",
+    icon_close_tab = "",
+    icon_close_tab_modified = "●",
+    icon_pinned = "車",
 
     -- Sets the maximum padding width with which to surround each tab
     maximum_padding = 1,
@@ -108,13 +96,12 @@ M.setup = function()
     -- New buffer letters are assigned in this order. This order is
     -- optimal for the qwerty keyboard layout but might need adjustement
     -- for other layouts.
-    letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP',
+    letters = "asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP",
 
     -- Sets the name of unnamed buffers. By default format is "[Buffer X]"
     -- where X is the buffer number. But only a static string is accepted here.
     no_name_title = nil,
   }
-
 end
 
 return M
