@@ -173,4 +173,12 @@ return {
       require("plugins.nvim-comment").setup()
     end,
   },
+  -- Indent guides
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufRead",
+    config = function()
+      require("plugins.indent-blankline").setup()
+    end,
+  },
 }
