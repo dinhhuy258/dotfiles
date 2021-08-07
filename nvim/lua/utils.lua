@@ -28,11 +28,4 @@ function M.check_lsp_client_active(name)
   return false
 end
 
-function M.web_devicons_get_file_type_symbol(file_path)
-  local filename = vim.fn.fnamemodify(file_path, ":t")
-  local extension = vim.fn.fnamemodify(file_path, ":e")
-
-  return require("nvim-web-devicons").get_icon(filename, extension, { default = true })
-end
-
 return M

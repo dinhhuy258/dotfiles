@@ -2,7 +2,10 @@ local M = {}
 
 -- Currently I don't know how to call `utils.web_devicons_get_file_type_symbol` in Vim
 function web_devicons_get_file_type_symbol(file_path)
-  return require("utils").web_devicons_get_file_type_symbol(file_path)
+  local filename = vim.fn.fnamemodify(file_path, ":t")
+  local extension = vim.fn.fnamemodify(file_path, ":e")
+
+  return require("nvim-web-devicons").get_icon(filename, extension, { default = true })
 end
 
 M.setup = function()
