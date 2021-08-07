@@ -37,10 +37,7 @@ return {
       require("plugins.nvim-treesitter").setup()
     end,
   },
-  -- A light and configurable statusline/tabline plugin
-  { "itchyny/lightline.vim" },
-  -- Adds file type icons to Vim plugins such as: NERDTree, lightline, vim-startify...
-  { "ryanoasis/vim-devicons" },
+  -- Adds file type icons to Vim plugins such as: nvim-tree.lua, galaxyline.nvim, vim-startify...
   { "kyazdani42/nvim-web-devicons" },
   -- Fzf
   {

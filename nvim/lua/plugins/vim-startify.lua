@@ -1,5 +1,10 @@
 local M = {}
 
+-- Currently I don't know how to call `utils.web_devicons_get_file_type_symbol` in Vim
+function web_devicons_get_file_type_symbol(file_path)
+  return require("utils").web_devicons_get_file_type_symbol(file_path)
+end
+
 M.setup = function()
   vim.g.startify_custom_header = {
     "   *--------------------------------------------------*",
@@ -40,8 +45,8 @@ M.setup = function()
   vim.api.nvim_exec(
     [[
 
-      function! StartifyEntryFormat()
-        return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
+      function! StartifyEntryFormat() abort
+        return 'v:lua.web_devicons_get_file_type_symbol(absolute_path) . " " . entry_path'
       endfunction
 
     ]],
