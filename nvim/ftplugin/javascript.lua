@@ -1,1 +1,1 @@
-require("lsp.lsp-config").setup "javascript"
+require("lsp").setup "javascript"

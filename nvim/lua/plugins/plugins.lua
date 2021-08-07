@@ -15,6 +15,13 @@ return {
     run = ":UpdateRemotePlugins",
     event = "BufRead",
   },
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
+  },
+  { "folke/tokyonight.nvim" },
   -- Open git repository
   { "dinhhuy258/vim-git-browse" },
   -- Vim database

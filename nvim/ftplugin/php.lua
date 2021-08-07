@@ -1,1 +1,1 @@
-require("lsp.lsp-config").setup "php"
+require("lsp").setup "php"
