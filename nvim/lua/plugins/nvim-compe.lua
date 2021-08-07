@@ -59,19 +59,9 @@ M.setup = function()
     end
   end
 
-  utils.set_keymap(
-    "i",
-    "<Tab>",
-    'pumvisible() ? "<C-n>" : "<Tab>"',
-    { silent = true, noremap = true, expr = true }
-  )
+  utils.set_keymap("i", "<Tab>", 'pumvisible() ? "<C-n>" : "<Tab>"', { silent = true, noremap = true, expr = true })
 
-  utils.set_keymap(
-    "i",
-    "<S-Tab>",
-    'pumvisible() ? "<C-p>" : "<S-Tab>"',
-    { silent = true, noremap = true, expr = true }
-  )
+  utils.set_keymap("i", "<S-Tab>", 'pumvisible() ? "<C-p>" : "<S-Tab>"', { silent = true, noremap = true, expr = true })
 
   -- Use (s-)tab to:
   --- move to prev/next item in completion menuone
