@@ -165,4 +165,12 @@ return {
     "rafamadriz/friendly-snippets",
     event = "InsertCharPre",
   },
+  -- Comment
+  {
+    "terrortylor/nvim-comment",
+    event = "BufRead",
+    config = function()
+      require("plugins.nvim-comment").setup()
+    end,
+  },
 }
