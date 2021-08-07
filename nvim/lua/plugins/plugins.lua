@@ -105,7 +105,7 @@ return {
   -- Tabline plugin
   {
     "romgrk/barbar.nvim",
-    event = "BufRead",
+    event = "BufWinEnter",
     config = function()
       require("plugins.barbar").setup()
     end,
