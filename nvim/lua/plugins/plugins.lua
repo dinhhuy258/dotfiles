@@ -116,7 +116,10 @@ return {
     end,
   },
   -- Multi editor tool for defining base file handling and code style preferences
-  { "editorconfig/editorconfig-vim" },
+  {
+    "editorconfig/editorconfig-vim",
+    event = "BufRead",
+  },
   -- Modify variable name to snake_case, camelCase, UPPER_CASE...
   {
     "tpope/vim-abolish",
