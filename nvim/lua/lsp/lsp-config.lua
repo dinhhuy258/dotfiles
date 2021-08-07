@@ -25,7 +25,10 @@ local function common_on_init(client, _)
 end
 
 local function common_on_attach(_, _)
-  -- Not used for now
+  require("lsp_signature").on_attach {
+    hint_enable = false,
+    hi_parameter = "Underlined",
+  }
 end
 
 function M.config()
