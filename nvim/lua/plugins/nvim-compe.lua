@@ -59,14 +59,14 @@ M.setup = function()
     end
   end
 
-  vim.api.nvim_set_keymap(
+  utils.set_keymap(
     "i",
     "<Tab>",
     'pumvisible() ? "<C-n>" : "<Tab>"',
     { silent = true, noremap = true, expr = true }
   )
 
-  vim.api.nvim_set_keymap(
+  utils.set_keymap(
     "i",
     "<S-Tab>",
     'pumvisible() ? "<C-p>" : "<S-Tab>"',
