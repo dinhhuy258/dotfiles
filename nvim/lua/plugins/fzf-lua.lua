@@ -61,11 +61,13 @@ M.setup = function()
       },
     },
     git = {
-      prompt = "GitFiles❯ ",
-      cmd = "git ls-files --modified --others",
-      git_icons = true, -- show git icons?
-      file_icons = true, -- show file icons?
-      color_icons = true, -- colorize file|git icons
+      files = {
+        prompt = "GitFiles❯ ",
+        cmd = "git ls-files --modified --others --exclude-standard",
+        git_icons = true, -- show git icons?
+        file_icons = true, -- show file icons?
+        color_icons = true, -- colorize file|git icons
+      },
       icons = {
         ["M"] = { icon = "M", color = "yellow" },
         ["D"] = { icon = "D", color = "red" },
@@ -136,13 +138,6 @@ M.setup = function()
     loclist = {},
     helptags = {},
     manpages = {},
-    -- optional override of file extension icon colors
-    -- available colors (terminal):
-    --    clear, bold, black, red, green, yellow
-    --    blue, magenta, cyan, grey, dark_grey, white
-    file_icon_colors = {
-      ["lua"] = "blue",
-    },
   }
 
   local utils = require "utils"
