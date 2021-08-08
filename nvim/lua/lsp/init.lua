@@ -79,16 +79,20 @@ function M.config()
   )
 
   -- Lsp key mappings
-  -- utils.set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
   utils.set_keymap(
     "n",
     "gd",
-    "<CMD>lua require('fzf-lua').lsp_definitions({ jump_to_single_result = true })<CR>",
+    "<CMD>lua require('lsp.lsp-actions').definitions()<CR>",
     { noremap = true, silent = true }
   )
   utils.set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
   -- utils.set_keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
-  utils.set_keymap("n", "gr", "<CMD>lua require('fzf-lua').lsp_references()<CR>", { noremap = true, silent = true })
+  utils.set_keymap(
+    "n",
+    "gr",
+    "<CMD>lua require('fzf-lua.providers.lsp-custom').references()<CR>",
+    { noremap = true, silent = true }
+  )
   -- utils.set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", { noremap = true, silent = true })
   utils.set_keymap(
     "n",
