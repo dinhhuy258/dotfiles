@@ -3,6 +3,43 @@ local M = {}
 
 lsp_clients = {}
 
+local function add_lsp_buffer_keybindings(bufnr)
+  local opts = { noremap = true, silent = true }
+  utils.buf_set_keymap(bufnr, "n", "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "gd", "<CMD>lua require('lsp.lsp-actions').definitions()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "gD", "<CMD>lua require('lsp.lsp-actions').declarations()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "gr", "<CMD>lua require('lsp.lsp-actions').references()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "gi", "<CMD>lua require('lsp.lsp-actions').implementations()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "gy", "<CMD>lua require('lsp.lsp-actions').typedefs()<CR>", opts)
+
+  utils.buf_set_keymap(
+    bufnr,
+    "n",
+    "g[",
+    "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>",
+    opts
+  )
+  utils.buf_set_keymap(
+    bufnr,
+    "n",
+    "g]",
+    "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>",
+    opts
+  )
+  utils.buf_set_keymap(
+    bufnr,
+    "n",
+    "<Leader>cl",
+    "<CMD>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = 'single' })<CR>",
+    opts
+  )
+
+  utils.buf_set_keymap(bufnr, "n", "<Leader>co", "<CMD>lua require('fzf-lua').lsp_document_symbols()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "<Leader>cf", "<CMD>lua vim.lsp.buf.formatting()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
+end
+
 local function common_capabilities()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -24,7 +61,8 @@ local function common_on_init(client, _)
   end
 end
 
-local function common_on_attach(_, _)
+local function common_on_attach(_, bufnr)
+  add_lsp_buffer_keybindings(bufnr)
   require("lsp_signature").on_attach {
     hint_enable = false,
     hi_parameter = "Underlined",
@@ -76,28 +114,6 @@ function M.config()
   vim.fn.sign_define(
     "LspDiagnosticsSignInformation",
     { texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation" }
-  )
-
-  -- Lsp key mappings
-  local opts = { noremap = true, silent = true }
-  utils.set_keymap("n", "gd", "<CMD>lua require('lsp.lsp-actions').definitions()<CR>", opts)
-  utils.set_keymap("n", "gD", "<CMD>lua require('lsp.lsp-actions').declarations()<CR>", opts)
-  utils.set_keymap("n", "gr", "<CMD>lua require('lsp.lsp-actions').references()<CR>", opts)
-  utils.set_keymap("n", "gi", "<CMD>lua require('lsp.lsp-actions').implementations()<CR>", opts)
-  utils.set_keymap("n", "gy", "<CMD>lua require('lsp.lsp-actions').typedefs()<CR>", opts)
-
-  utils.set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
-  utils.set_keymap("n", "g[", "<CMD>lua vim.lsp.diagnostic.goto_prev({popup_opts = { border = 'single' }})<CR>", opts)
-  utils.set_keymap("n", "g]", "<CMD>lua vim.lsp.diagnostic.goto_next({popup_opts = { border = 'single' }})<CR>", opts)
-
-  utils.set_keymap("n", "co", "<CMD>lua require('fzf-lua').lsp_document_symbols()<CR>", opts)
-  utils.set_keymap("n", "ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
-  utils.set_keymap("n", "cf", "<CMD>lua vim.lsp.buf.formatting()<CR>", opts)
-  utils.set_keymap(
-    "n",
-    "cl",
-    "<CMD>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = 'single' })<CR>",
-    opts
   )
 
   require("lsp.lsp-handlers").setup()
