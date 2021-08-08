@@ -12,7 +12,6 @@ return {
   -- Local history in vim
   {
     "dinhhuy258/vim-local-history",
-    run = ":UpdateRemotePlugins",
     event = "BufRead",
   },
   -- Open git repository
