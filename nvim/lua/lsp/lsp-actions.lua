@@ -4,6 +4,24 @@ local core = require "fzf-lua.core"
 
 local M = {}
 
+local labels = {
+  ["textDocument/references"] = {
+    label = "References",
+  },
+  ["textDocument/definition"] = {
+    label = "Definitions",
+  },
+  ["goto_declaration"] = {
+    label = "Declarations",
+  },
+  ["textDocument/typeDefinition"] = {
+    label = "Type Definitions",
+  },
+  ["textDocument/implementation"] = {
+    label = "Implementations",
+  },
+}
+
 local function check_capabilities(feature)
   local lsp_clients = vim.lsp.buf_get_clients(0)
   if #lsp_clients == 0 then
@@ -21,9 +39,10 @@ local function check_capabilities(feature)
   return false
 end
 
-local function location_handler(_, _, lsp_results)
+local function location_handler(_, method, lsp_results)
+  local label = labels[method].label
   if lsp_results == nil or vim.tbl_isempty(lsp_results) then
-    utils.info "LSP: No resuls"
+    utils.info("LSP: No " .. label:lower() .. " found")
     return
   end
 
@@ -33,10 +52,9 @@ local function location_handler(_, _, lsp_results)
   end
 
   local cfg = config.globals.lsp
-
   local opts = config.normalize_opts({}, cfg)
   opts.cwd = vim.loop.cwd()
-  opts.prompt = cfg.prompt
+  opts.prompt = label .. cfg.prompt
   opts = core.set_fzf_line_args(opts)
 
   local lsp_items = {}
