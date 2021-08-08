@@ -196,4 +196,13 @@ return {
       require("plugins.indent-blankline").setup()
     end,
   },
+  -- Debugging
+  {
+    "mfussenegger/nvim-dap",
+    config = function()
+      require("plugins.nvim-dap").setup()
+    end,
+  },
+  -- Debugger management
+  { "Pocco81/DAPInstall.nvim" },
 }
