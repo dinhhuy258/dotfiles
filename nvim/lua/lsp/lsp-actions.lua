@@ -39,7 +39,12 @@ local function check_capabilities(feature)
   return false
 end
 
-local function location_handler(_, method, lsp_results)
+local function location_handler(err, method, lsp_results)
+  if err then
+    utils.err(err.message)
+    return
+  end
+
   local label = labels[method].label
   if lsp_results == nil or vim.tbl_isempty(lsp_results) then
     utils.info("LSP: No " .. label:lower() .. " found")

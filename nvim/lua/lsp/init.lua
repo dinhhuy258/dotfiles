@@ -29,7 +29,7 @@ local function add_lsp_buffer_keybindings(bufnr)
   utils.buf_set_keymap(
     bufnr,
     "n",
-    "<Leader>cl",
+    "gl",
     "<CMD>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = 'single' })<CR>",
     opts
   )
