@@ -51,6 +51,7 @@ return {
   -- Vim plugin for git
   {
     "tpope/vim-fugitive",
+    event = "BufRead",
     config = function()
       require("plugins.vim-fugitive").setup()
     end,
