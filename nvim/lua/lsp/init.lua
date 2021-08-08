@@ -12,20 +12,8 @@ local function add_lsp_buffer_keybindings(bufnr)
   utils.buf_set_keymap(bufnr, "n", "gi", "<CMD>lua require('lsp.lsp-actions').implementations()<CR>", opts)
   utils.buf_set_keymap(bufnr, "n", "gy", "<CMD>lua require('lsp.lsp-actions').typedefs()<CR>", opts)
 
-  utils.buf_set_keymap(
-    bufnr,
-    "n",
-    "g[",
-    "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>",
-    opts
-  )
-  utils.buf_set_keymap(
-    bufnr,
-    "n",
-    "g]",
-    "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>",
-    opts
-  )
+  utils.buf_set_keymap(bufnr, "n", "g[", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "g]", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
   utils.buf_set_keymap(
     bufnr,
     "n",
@@ -37,6 +25,7 @@ local function add_lsp_buffer_keybindings(bufnr)
   utils.buf_set_keymap(bufnr, "n", "<Leader>co", "<CMD>lua require('fzf-lua').lsp_document_symbols()<CR>", opts)
   utils.buf_set_keymap(bufnr, "n", "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
   utils.buf_set_keymap(bufnr, "n", "<Leader>cf", "<CMD>lua vim.lsp.buf.formatting()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "<Leader>cr", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
   utils.buf_set_keymap(bufnr, "n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
 end
 
