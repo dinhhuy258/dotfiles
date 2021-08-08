@@ -104,6 +104,9 @@ vim.o.guifont = "Hack Nerd Font"
 -- Enable mouse
 vim.o.mouse = "a"
 
+-- Enable cursorline
+vim.o.cursorline = true
+
 -- Session manager
 vim.g.session_directory = "~/.config/nvim/session"
 vim.g.session_autoload = "no"
