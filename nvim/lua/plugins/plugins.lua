@@ -38,6 +38,8 @@ return {
   },
   -- Adds file type icons to Vim plugins such as: nvim-tree.lua, galaxyline.nvim, vim-startify...
   { "kyazdani42/nvim-web-devicons" },
+  -- gitsigns, null-ls depend on this library
+  { "nvim-lua/plenary.nvim" },
   -- Fzf
   {
     "ibhagwan/fzf-lua",
@@ -60,9 +62,6 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
-    requires = {
-      "nvim-lua/plenary.nvim",
-    },
     config = function()
       require("plugins.gitsigns").setup()
     end,
