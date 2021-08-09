@@ -213,4 +213,12 @@ return {
       require("plugins.nvim-dap").setup()
     end,
   },
+  -- UI for nvim-dap
+  {
+    "rcarriga/nvim-dap-ui",
+    after = "nvim-dap",
+    config = function()
+      require("plugins.nvim-dap-ui").setup()
+    end,
+  },
 }
