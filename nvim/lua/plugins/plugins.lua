@@ -213,6 +213,4 @@ return {
       require("plugins.nvim-dap").setup()
     end,
   },
-  -- Debugger management
-  { "Pocco81/DAPInstall.nvim" },
 }
