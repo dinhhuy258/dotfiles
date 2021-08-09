@@ -25,6 +25,7 @@ local startify = require "iceberg.vim-startify"
 local gitsigns = require "iceberg.gitsigns"
 local tree = require "iceberg.nvim-tree"
 local barbar = require "iceberg.barbar"
+local easymotion = require "iceberg.vim-easymotion"
 
 local skeletons = {
   highlights,
@@ -33,6 +34,7 @@ local skeletons = {
   gitsigns,
   tree,
   barbar,
+  easymotion,
 }
 
 for _, skeleton in ipairs(skeletons) do
