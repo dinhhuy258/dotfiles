@@ -147,7 +147,15 @@ return {
   -- Setting LSP with json files
   { "tamago324/nlsp-settings.nvim" },
   -- Use Neovim as a language server to inject LSP diagnostics, code actions
-  { "jose-elias-alvarez/null-ls.nvim" },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      local status_ok, null_ls = pcall(require, "null-ls")
+      if status_ok then
+        null_ls.setup {}
+      end
+    end
+  },
   -- Lsp signature
   {
     "ray-x/lsp_signature.nvim",

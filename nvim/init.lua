@@ -32,12 +32,6 @@ packer:load { plugins }
 -- Load lsp config
 require("lsp").config()
 
-local null_status_ok, null_ls = pcall(require, "null-ls")
-if null_status_ok then
-  null_ls.config {}
-  require("lspconfig")["null-ls"].setup {}
-end
-
 require("general.autocmds").define_default_autogroups()
 
 require "general.settings"
