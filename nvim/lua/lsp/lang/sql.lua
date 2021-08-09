@@ -9,6 +9,7 @@ function M.config(_, _, _)
         args = {},
       },
     },
+    linters = {},
     lsp = {
       provider = "sqls",
       setup = {

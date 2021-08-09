@@ -9,6 +9,7 @@ function M.config(common_on_attach, _, common_on_init)
         args = {},
       },
     },
+    linters = {},
     lsp = {
       provider = "intelephense",
       setup = {

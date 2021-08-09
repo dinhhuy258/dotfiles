@@ -10,6 +10,7 @@ function M.config(common_on_attach, common_capabilities, common_on_init)
         stdin = true,
       },
     },
+    linters = {},
     lsp = {
       provider = "clangd",
       setup = {
