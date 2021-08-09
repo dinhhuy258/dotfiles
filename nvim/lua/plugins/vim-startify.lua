@@ -1,13 +1,5 @@
 local M = {}
 
--- Currently I don't know how to call `utils.web_devicons_get_file_type_symbol` in Vim
-function web_devicons_get_file_type_symbol(file_path)
-  local filename = vim.fn.fnamemodify(file_path, ":t")
-  local extension = vim.fn.fnamemodify(file_path, ":e")
-
-  return require("nvim-web-devicons").get_icon(filename, extension, { default = true })
-end
-
 M.setup = function()
   vim.g.startify_custom_header = {
     "   *--------------------------------------------------*",
@@ -44,17 +36,6 @@ M.setup = function()
   vim.g.startify_session_persistence = 1
   vim.g.startify_enable_special = 0
   vim.g.webdevicons_enable_startify = 1
-
-  vim.api.nvim_exec(
-    [[
-
-      function! StartifyEntryFormat() abort
-        return 'v:lua.web_devicons_get_file_type_symbol(absolute_path) . " " . entry_path'
-      endfunction
-
-    ]],
-    ""
-  )
 end
 
 return M
