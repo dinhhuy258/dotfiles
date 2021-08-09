@@ -15,7 +15,7 @@ local highlights = {
   Directory = { fg = "#89b8c2" },
   Error = { fg = "#e27878", bg = "#161821" },
   ErrorMsg = { fg = "#e27878", bg = "#161821" },
-  WarningMsg = { fg = "#e27878", bg = "#161821" },
+  WarningMsg = { fg = "#e2a478", bg = "#161821" },
   EndOfBuffer = { fg = "#242940" },
   NonText = { fg = "#242940" },
   Whitespace = { fg = "#242940" },
