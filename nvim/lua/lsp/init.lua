@@ -44,7 +44,7 @@ local function common_capabilities()
 end
 
 local function common_on_init(client, _)
-  local formatters = lsp_clients.lang[vim.bo.filetype].formatters
+  local formatters = lsp_clients[vim.bo.filetype].formatters
   if not vim.tbl_isempty(formatters) and formatters[1]["exe"] ~= nil and formatters[1].exe ~= "" then
     client.resolved_capabilities.document_formatting = false
   end
@@ -56,6 +56,7 @@ local function common_on_attach(_, bufnr)
     hint_enable = false,
     hi_parameter = "Underlined",
   }
+  require("lsp.null-ls").setup(vim.bo.filetype)
 end
 
 function M.config()

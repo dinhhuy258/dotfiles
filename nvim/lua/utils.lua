@@ -1,5 +1,11 @@
 local M = {}
 
+local function echo_multiline(msg)
+  for _, s in ipairs(vim.fn.split(msg, "\n")) do
+    vim.cmd("echom '" .. s:gsub("'", "''") .. "'")
+  end
+end
+
 function table.merge(dest, src)
   for k, v in pairs(src) do
     dest[k] = v
@@ -36,6 +42,24 @@ function M.check_lsp_client_active(name)
     end
   end
   return false
+end
+
+function M.info(msg)
+  vim.cmd "echohl Directory"
+  echo_multiline(msg)
+  vim.cmd "echohl None"
+end
+
+function M.warn(msg)
+  vim.cmd "echohl WarningMsg"
+  echo_multiline(msg)
+  vim.cmd "echohl None"
+end
+
+function M.err(msg)
+  vim.cmd "echohl ErrorMsg"
+  echo_multiline(msg)
+  vim.cmd "echohl None"
 end
 
 return M
