@@ -154,7 +154,7 @@ return {
       if status_ok then
         null_ls.setup {}
       end
-    end
+    end,
   },
   -- Lsp signature
   {
@@ -209,6 +209,7 @@ return {
   -- Debugging
   {
     "mfussenegger/nvim-dap",
+    event = "BufRead",
     config = function()
       require("plugins.nvim-dap").setup()
     end,
