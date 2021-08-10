@@ -1,4 +1,4 @@
-local utils = require "fzf-lua.utils"
+local utils = require "utils"
 local config = require "fzf-lua.config"
 local core = require "fzf-lua.core"
 
