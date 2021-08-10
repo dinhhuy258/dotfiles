@@ -1,29 +1,35 @@
 local utils = require "utils"
 
--- Change leader key to semicolon
-vim.g.mapleader = ";"
+local M = {}
 
--- Disable keys
-utils.set_keymap("n", "Q", "<Nop>", { noremap = true })
+function M.setup()
+  -- Change leader key to semicolon
+  vim.g.mapleader = ";"
 
--- Split
-utils.set_keymap("n", "<Leader>-", ":<C-u>split<CR>", { noremap = true, silent = false })
-utils.set_keymap("n", "<Leader>\\", ":<C-u>vsplit<CR>", { noremap = true, silent = false })
+  -- Disable keys
+  utils.set_keymap("n", "Q", "<Nop>")
 
--- Alternate way to save
-utils.set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = false })
-utils.set_keymap("i", "<C-s>", "<Esc>:w<CR>", { noremap = true, silent = false })
+  -- Split
+  utils.set_keymap("n", "<Leader>-", ":<C-u>split<CR>")
+  utils.set_keymap("n", "<Leader>\\", ":<C-u>vsplit<CR>")
 
--- Alternate way to quit
-utils.set_keymap("n", "<C-q>", ":wq!<CR>", { noremap = true, silent = false })
+  -- Alternate way to save
+  utils.set_keymap("n", "<C-s>", ":w<CR>", { silent = false })
+  utils.set_keymap("i", "<C-s>", "<Esc>:w<CR>", { silent = false })
 
--- Vim move
-utils.set_keymap("x", "<A-L>", ">gv", { noremap = true })
-utils.set_keymap("x", "<A-H>", "<gv", { noremap = true })
-utils.set_keymap("x", "<A-K>", ":move '<-2<CR>gv=gv", { noremap = true })
-utils.set_keymap("x", "<A-J>", ":move '>+1<CR>gv=gv", { noremap = true })
+  -- Alternate way to quit
+  utils.set_keymap("n", "<C-q>", ":wq!<CR>", { silent = false })
 
-utils.set_keymap("n", "<A-L>", ">>", { noremap = true })
-utils.set_keymap("n", "<A-H>", "<<", { noremap = true })
-utils.set_keymap("n", "<A-K>", ":move .-2<CR>", { noremap = true })
-utils.set_keymap("n", "<A-J>", ":move .+1<CR>", { noremap = true })
+  -- Vim move
+  utils.set_keymap("x", "<A-L>", ">gv")
+  utils.set_keymap("x", "<A-H>", "<gv")
+  utils.set_keymap("x", "<A-K>", ":move '<-2<CR>gv=gv")
+  utils.set_keymap("x", "<A-J>", ":move '>+1<CR>gv=gv")
+
+  utils.set_keymap("n", "<A-L>", ">>")
+  utils.set_keymap("n", "<A-H>", "<<")
+  utils.set_keymap("n", "<A-K>", ":move .-2<CR>")
+  utils.set_keymap("n", "<A-J>", ":move .+1<CR>")
+end
+
+return M
