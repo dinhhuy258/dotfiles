@@ -208,7 +208,7 @@ return {
   -- Debugging
   {
     "mfussenegger/nvim-dap",
-    event = "BufRead",
+    ft = { "go" },
     config = function()
       require("plugins.nvim-dap").setup()
     end,
@@ -218,7 +218,10 @@ return {
     "rcarriga/nvim-dap-ui",
     after = "nvim-dap",
     config = function()
-      require("plugins.nvim-dap-ui").setup()
+      local status_ok, dapui = pcall(require, "dapui")
+      if status_ok then
+        dapui.setup()
+      end
     end,
   },
 }
