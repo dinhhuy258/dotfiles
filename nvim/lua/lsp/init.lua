@@ -3,6 +3,16 @@ local M = {}
 
 lsp_clients = {}
 
+local function check_lsp_client_active(name)
+  local clients = vim.lsp.get_active_clients()
+  for _, client in pairs(clients) do
+    if client.name == name then
+      return true
+    end
+  end
+  return false
+end
+
 local function add_lsp_buffer_keybindings(bufnr)
   local opts = { noremap = true, silent = true }
   utils.buf_set_keymap(bufnr, "n", "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
@@ -112,7 +122,7 @@ end
 
 function M.setup(lang)
   local lsp = lsp_clients[lang].lsp
-  if require("utils").check_lsp_client_active(lsp.provider) then
+  if check_lsp_client_active(lsp.provider) then
     return
   end
 
