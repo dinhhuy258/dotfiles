@@ -20,6 +20,9 @@ function M.setup()
   -- Alternate way to quit
   utils.set_keymap("n", "<C-q>", ":wq!<CR>", { silent = false })
 
+  -- Close teminal
+  utils.set_keymap("t", "<C-c>", "<C-\\><C-n>:q!<CR>", { silent = false })
+
   -- Vim move
   utils.set_keymap("x", "<A-L>", ">gv")
   utils.set_keymap("x", "<A-H>", "<gv")
