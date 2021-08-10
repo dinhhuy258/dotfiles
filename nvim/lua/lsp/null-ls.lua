@@ -2,14 +2,21 @@ local M = {}
 
 local utils = require "utils"
 
-M.requested_providers = {}
+local requested_providers = {}
 
-local function register_failed_request(ft, provider, operation)
-  if not lsp_clients[ft][operation]._failed_requests then
-    lsp_clients[ft][operation]._failed_requests = {}
+local failed_providers = {
+  linters = {},
+  formatters = {},
+}
+
+local function register_failed_request(provider, operation)
+  if operation == "linters" then
+    utils.warn(string.format("Linter provider [%s] is not supported", provider))
+  else
+    utils.warn(string.format("Format provider [%s] is not supported", provider))
   end
 
-  table.insert(lsp_clients[ft][operation]._failed_requests, provider)
+  table.insert(failed_providers[operation], provider)
 end
 
 local function validate_provider_request(provider)
@@ -32,35 +39,45 @@ function M.setup(filetype)
 
   for _, formatter in pairs(lsp_clients[filetype].formatters) do
     local builtin_formatter = null_ls.builtins.formatting[formatter.exe]
-    if not vim.tbl_contains(M.requested_providers, builtin_formatter) then
-      local resolved_path = validate_provider_request(builtin_formatter)
-      if resolved_path then
-        builtin_formatter._opts.command = resolved_path
-        table.insert(M.requested_providers, builtin_formatter)
-        utils.info(string.format("Using format provider: [%s]", builtin_formatter.name))
-      else
-        -- mark it here to avoid re-doing the lookup again
-        register_failed_request(filetype, formatter.exe, "formatters")
-      end
+    if
+      vim.tbl_contains(requested_providers, builtin_formatter)
+      or vim.tbl_contains(failed_providers.formatters, formatter.exe)
+    then
+      return
+    end
+
+    local resolved_path = validate_provider_request(builtin_formatter)
+    if resolved_path then
+      builtin_formatter._opts.command = resolved_path
+      table.insert(requested_providers, builtin_formatter)
+      utils.info(string.format("Using format provider: [%s]", builtin_formatter.name))
+    else
+      -- mark it here to avoid re-doing the lookup again
+      register_failed_request(formatter.exe, "formatters")
     end
   end
 
   for _, linter in pairs(lsp_clients[filetype].linters) do
     local builtin_diagnoser = null_ls.builtins.diagnostics[linter.exe]
-    if not vim.tbl_contains(M.requested_providers, builtin_diagnoser) then
-      local resolved_path = validate_provider_request(builtin_diagnoser)
-      if resolved_path then
-        builtin_diagnoser._opts.command = resolved_path
-        table.insert(M.requested_providers, builtin_diagnoser)
-        utils.info(string.format("Using linter provider: [%s]", builtin_diagnoser.name))
-      else
-        -- mark it here to avoid re-doing the lookup again
-        register_failed_request(filetype, linter.exe, "linters")
-      end
+    if
+      vim.tbl_contains(requested_providers, builtin_diagnoser)
+      or vim.tbl_contains(failed_providers.linters, linter.exe)
+    then
+      return
+    end
+
+    local resolved_path = validate_provider_request(builtin_diagnoser)
+    if resolved_path then
+      builtin_diagnoser._opts.command = resolved_path
+      table.insert(requested_providers, builtin_diagnoser)
+      utils.info(string.format("Using linter provider: [%s]", builtin_diagnoser.name))
+    else
+      -- mark it here to avoid re-doing the lookup again
+      register_failed_request(linter.exe, "linters")
     end
   end
 
-  null_ls.register { sources = M.requested_providers }
+  null_ls.register { sources = requested_providers }
 end
 
 return M
