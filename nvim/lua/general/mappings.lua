@@ -27,15 +27,3 @@ utils.set_keymap("n", "<A-L>", ">>", { noremap = true })
 utils.set_keymap("n", "<A-H>", "<<", { noremap = true })
 utils.set_keymap("n", "<A-K>", ":move .-2<CR>", { noremap = true })
 utils.set_keymap("n", "<A-J>", ":move .+1<CR>", { noremap = true })
-
--- -- Abbreviations
-vim.cmd "cnoreabbrev W! w!"
-vim.cmd "cnoreabbrev Q! q!"
-vim.cmd "cnoreabbrev Qall! qall!"
-vim.cmd "cnoreabbrev Wq wq"
-vim.cmd "cnoreabbrev Wa wa"
-vim.cmd "cnoreabbrev wQ wq"
-vim.cmd "cnoreabbrev WQ wq"
-vim.cmd "cnoreabbrev W w"
-vim.cmd "cnoreabbrev Q q"
-vim.cmd "cnoreabbrev Qall qall"

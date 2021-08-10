@@ -7,9 +7,6 @@ M.setup = function()
     return
   end
 
-  -- Suggestion from nvim-compe
-  vim.o.completeopt = "menuone,noselect"
-
   compe.setup {
     enabled = true,
     autocomplete = true,

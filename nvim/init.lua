@@ -34,7 +34,23 @@ require("lsp").config()
 
 require("general.autocmds").define_default_autogroups()
 
-require "general.settings"
+require "general.options".setup()
 require "general.mappings"
 
+-- Abbreviations
+vim.cmd "cnoreabbrev W! w!"
+vim.cmd "cnoreabbrev Q! q!"
+vim.cmd "cnoreabbrev Qall! qall!"
+vim.cmd "cnoreabbrev Wq wq"
+vim.cmd "cnoreabbrev Wa wa"
+vim.cmd "cnoreabbrev wQ wq"
+vim.cmd "cnoreabbrev WQ wq"
+vim.cmd "cnoreabbrev W w"
+vim.cmd "cnoreabbrev Q q"
+vim.cmd "cnoreabbrev Qall qall"
+
 vim.cmd "colorscheme iceberg"
+
+-- Config variable for my plugins
+vim.g.huy_duong_workspace = 1
+
