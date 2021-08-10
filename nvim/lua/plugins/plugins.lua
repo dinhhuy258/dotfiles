@@ -10,10 +10,7 @@ return {
   -- Vim utilities
   { "dinhhuy258/vim-utilities" },
   -- Local history in vim
-  {
-    "dinhhuy258/vim-local-history",
-    event = "BufRead",
-  },
+  { "dinhhuy258/vim-local-history" },
   -- Open git repository
   { "dinhhuy258/vim-git-browse" },
   -- Vim database
