@@ -5,8 +5,14 @@ local utils = require "utils"
 local requested_providers = {}
 
 local failed_providers = {
-  linters = {},
-  formatters = {},
+  linters = {
+    nil,
+    "",
+  },
+  formatters = {
+    nil,
+    "",
+  },
 }
 
 local function register_failed_request(provider, operation)
