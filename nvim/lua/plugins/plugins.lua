@@ -5,7 +5,7 @@ return {
   {
     "dinhhuy258/vintellij",
     branch = "lsp",
-    event = "BufRead",
+    ft = { "kotlin" },
   },
   -- Vim utilities
   { "dinhhuy258/vim-utilities" },
