@@ -1,5 +1,5 @@
 local highlights = {
-  Normal = { fg = "#c6c8d1", bg = "#161821" },
+  Normal = { fg = "#c6c8d1", bg = "NONE" },
   ColorColumn = { fg = "NONE", bg = "#1e2132" },
   CursorColumn = { fg = "NONE", bg = "#1e2132" },
   CursorLine = { fg = "NONE", bg = "NONE" },
