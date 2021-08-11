@@ -7,7 +7,7 @@ local default_autogroups = {
     {
       "Filetype",
       "*",
-      "lua require('general.ftplugin').do_filetype(vim.fn.expand(\"<amatch>\"))",
+      "lua require('utils.ftplugin').do_filetype(vim.fn.expand(\"<amatch>\"))",
     },
     -- Stop newline continution of comments
     {
