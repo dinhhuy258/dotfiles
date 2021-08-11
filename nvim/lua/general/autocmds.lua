@@ -33,6 +33,10 @@ local default_autogroups = {
       "highlight HighlightedYankRegion gui=reverse",
     },
   },
+  _markdown = {
+    { "FileType", "markdown", "setlocal wrap" },
+    { "FileType", "markdown", "setlocal spell" },
+  },
   _general_lsp = {
     {
       "FileType",
