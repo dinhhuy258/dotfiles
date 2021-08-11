@@ -128,8 +128,6 @@ return {
       require("plugins.vim-submode").setup()
     end,
   },
-  -- File in ftplugin/*.lua or after/ftplugin/*.lua will now get automatically run at the correct time
-  { "tjdevries/astronauta.nvim" },
   -- LSP client
   { "neovim/nvim-lspconfig" },
   -- Provides the missing :LspInstall for nvim-lspconfig
