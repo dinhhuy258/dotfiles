@@ -31,7 +31,7 @@ local highlights = {
   ModeMsg = { fg = "#6b7089" },
   MoreMsg = { fg = "#b4be82" },
   Operator = { fg = "#84a0c6" },
-  Pmenu = { fg = "NONE", bg = "NONE" },
+  Pmenu = { fg = "NONE", bg = "#1e2132" },
   PmenuSbar = { fg = "NONE", bg = "NONE" },
   PmenuSel = { fg = "NONE", bg = "NONE", style = "reverse" },
   PmenuThumb = { fg = "NONE", bg = "#c6c8d1" },
