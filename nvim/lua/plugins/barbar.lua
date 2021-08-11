@@ -3,11 +3,11 @@ local M = {}
 M.setup = function()
   local utils = require "utils"
 
-  utils.set_keymap("n", "<Left>", ":BufferPrevious<CR>", { noremap = true, silent = true })
-  utils.set_keymap("n", "<Right>", ":BufferNext<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "<S-Left>", ":BufferPrevious<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "<S-Right>", ":BufferNext<CR>", { noremap = true, silent = true })
 
-  utils.set_keymap("n", "<S-Left>", ":BufferMovePrevious<CR>", { noremap = true, silent = true })
-  utils.set_keymap("n", "<S-Right>", ":BufferMoveNext<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "<Leader>[", ":BufferMovePrevious<CR>", { noremap = true, silent = true })
+  utils.set_keymap("n", "<Leader>]", ":BufferMoveNext<CR>", { noremap = true, silent = true })
 
   utils.set_keymap("n", "<Leader>1", ":BufferGoto 1<CR>", { noremap = true, silent = true })
   utils.set_keymap("n", "<Leader>2", ":BufferGoto 2<CR>", { noremap = true, silent = true })
@@ -38,7 +38,6 @@ M.setup = function()
   utils.set_keymap("i", "<Leader>x", "<ESC>:BufferCloseAllButCurrent<CR>", { noremap = true, silent = true })
 
   utils.set_keymap("n", "<Leader>bb", ":BufferPin<CR>", { noremap = true, silent = true })
-  utils.set_keymap("n", "<Leader>bp", ":BufferPick<CR>", { noremap = true, silent = true })
 
   -- Set barbar's options
   vim.g.bufferline = {
