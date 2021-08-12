@@ -33,6 +33,12 @@ return {
       require("plugins.nvim-treesitter").setup()
     end,
   },
+  -- Syntax highlighting for kotlin
+  -- TODO: Remove this plugin when highlighting in treesitter get better
+  {
+    "udalov/kotlin-vim",
+    ft = { "kotlin" },
+  },
   -- Adds file type icons to Vim plugins such as: nvim-tree.lua, galaxyline.nvim, vim-startify...
   { "kyazdani42/nvim-web-devicons" },
   -- gitsigns, null-ls depend on this library
