@@ -22,9 +22,13 @@ M.setup = function()
         set_jumps = true,
         goto_next_start = {
           ["mf"] = "@function.outer",
+          ["mc"] = "@class.outer",
+          ["ma"] = "@parameter.inner",
         },
         goto_previous_start = {
           ["mF"] = "@function.outer",
+          ["mC"] = "@class.outer",
+          ["mA"] = "@parameter.inner",
         },
       },
       swap = {
@@ -44,6 +48,7 @@ M.setup = function()
           ["if"] = "@function.inner",
           ["ac"] = "@class.outer",
           ["ic"] = "@class.inner",
+          ["ia"] = "@parameter.inner",
         },
       },
     },
