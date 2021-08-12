@@ -33,6 +33,8 @@ return {
       require("plugins.nvim-treesitter").setup()
     end,
   },
+  -- Textobjects
+  { "nvim-treesitter/nvim-treesitter-textobjects" },
   -- Syntax highlighting for kotlin
   -- TODO: Remove this plugin when highlighting in treesitter get better
   {

@@ -15,6 +15,38 @@ M.setup = function()
     indent = {
       enable = true,
     },
+    -- nvim-treesitter-textobjects
+    textobjects = {
+      move = {
+        enable = true,
+        set_jumps = true,
+        goto_next_start = {
+          ["mf"] = "@function.outer",
+        },
+        goto_previous_start = {
+          ["mF"] = "@function.outer",
+        },
+      },
+      swap = {
+        enable = true,
+        swap_next = {
+          ["<Leader>a"] = "@parameter.inner",
+        },
+        swap_previous = {
+          ["<Leader>A"] = "@parameter.inner",
+        },
+      },
+      select = {
+        enable = true,
+        lookahead = true,
+        keymaps = {
+          ["af"] = "@function.outer",
+          ["if"] = "@function.inner",
+          ["ac"] = "@class.outer",
+          ["ic"] = "@class.inner",
+        },
+      },
+    },
   }
 end
 
