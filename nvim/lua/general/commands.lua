@@ -3,6 +3,9 @@ local M = {}
 function M.setup()
   vim.cmd "colorscheme iceberg"
 
+  vim.cmd "command! FixWhitespace :%s/\\s\\+$//e"
+  vim.cmd "command! StartProfiling profile start ~/.profile.log | profile func * | profile file * | echo 'Profiling started'"
+
   -- Abbreviations
   vim.cmd "cnoreabbrev W! w!"
   vim.cmd "cnoreabbrev Q! q!"
