@@ -22,8 +22,13 @@ return {
       require("plugins.nvim-tree").setup()
     end,
   },
-  -- Seamless navigation between tmux panes and vim splits
-  { "christoomey/vim-tmux-navigator" },
+  -- Tmux integration for nvim
+  {
+    "aserowy/tmux.nvim",
+    config = function()
+      require("plugins.tmux").setup()
+    end,
+  },
   -- Highlighting
   {
     "nvim-treesitter/nvim-treesitter",
@@ -128,13 +133,6 @@ return {
   {
     "tpope/vim-abolish",
     event = "BufRead",
-  },
-  -- Define submodes to the built-in vim modes
-  {
-    "kana/vim-submode",
-    config = function()
-      require("plugins.vim-submode").setup()
-    end,
   },
   -- LSP client
   { "neovim/nvim-lspconfig" },

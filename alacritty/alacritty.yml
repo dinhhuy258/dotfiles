@@ -540,7 +540,7 @@ key_bindings:
 
   - { key: Key0,        mods: Command,                 action: ResetFontSize    }
   - { key: Equals,      mods: Command,                 action: IncreaseFontSize }
-  - { key: Plus,         mods: Command,                 action: IncreaseFontSize }
+  - { key: Plus,        mods: Command,                 action: IncreaseFontSize }
   - { key: Minus,       mods: Command,                 action: DecreaseFontSize }
   - { key: V,           mods: Command,                 action: Paste            }
   - { key: C,           mods: Command,                 action: Copy             }
@@ -554,8 +554,10 @@ key_bindings:
   - { key: K,           mods: Alt|Shift,               chars: "\x1bK"           }
   - { key: H,           mods: Alt|Shift,               chars: "\x1bH"           }
   - { key: L,           mods: Alt|Shift,               chars: "\x1bL"           }
-  - { key: U,           mods: Alt|Shift,               chars: "\x1bU"           }
-  - { key: D,           mods: Alt|Shift,               chars: "\x1bD"           }
+  - { key: J,           mods: Alt,                     chars: "\x1bj"           }
+  - { key: K,           mods: Alt,                     chars: "\x1bk"           }
+  - { key: H,           mods: Alt,                     chars: "\x1bh"           }
+  - { key: L,           mods: Alt,                     chars: "\x1bl"           }
   - { key: Space,       mods: Control,                 chars: "\x00"            }
 
 #debug:

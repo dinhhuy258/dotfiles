@@ -42,7 +42,8 @@ function M.setup(filetype)
     if
       vim.tbl_contains(requested_providers, builtin_formatter)
       or vim.tbl_contains(failed_providers.formatters, formatter.exe)
-      or formatter.exe == "" or formatter.exe == nil
+      or formatter.exe == ""
+      or formatter.exe == nil
     then
       return
     end
@@ -63,7 +64,8 @@ function M.setup(filetype)
     if
       vim.tbl_contains(requested_providers, builtin_diagnoser)
       or vim.tbl_contains(failed_providers.linters, linter.exe)
-      or linter.exe == "" or linter.exe == nil
+      or linter.exe == ""
+      or linter.exe == nil
     then
       return
     end
