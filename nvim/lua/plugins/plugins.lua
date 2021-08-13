@@ -8,7 +8,15 @@ return {
     ft = { "kotlin" },
   },
   -- Vim utilities
-  { "dinhhuy258/vim-utilities" },
+  {
+    "dinhhuy258/vim-utilities",
+    config = function()
+      local status_ok, utilities = pcall(require, "utilities")
+      if status_ok then
+        utilities.setup()
+      end
+    end,
+  },
   -- Local history in vim
   { "dinhhuy258/vim-local-history" },
   -- Open git repository
