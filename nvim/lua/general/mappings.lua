@@ -33,6 +33,11 @@ function M.setup()
   utils.set_keymap("n", "<A-H>", "<<")
   utils.set_keymap("n", "<A-K>", ":move .-2<CR>")
   utils.set_keymap("n", "<A-J>", ":move .+1<CR>")
+
+  -- Copy
+  utils.set_keymap("n", "cpf", ":let @+ = expand('%:p')<CR>", { silent = false })
+  utils.set_keymap("n", "cpr", ":let @+ = fnamemodify(expand('%'), ':~:.')<CR>", { silent = false })
+  utils.set_keymap("n", "cpg", ":let @+ = system('git rev-parse --abbrev-ref HEAD')<CR>", { silent = false })
 end
 
 return M
