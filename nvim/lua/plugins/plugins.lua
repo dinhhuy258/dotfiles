@@ -23,6 +23,14 @@ return {
   { "dinhhuy258/vim-git-browse" },
   -- Vim database
   { "dinhhuy258/vim-database" },
+  -- Go tools
+  {
+    "dinhhuy258/go-tools.nvim",
+    ft = { "go" },
+    config = function()
+      require("go-tools").setup()
+    end,
+  },
   -- File explorer
   {
     "dinhhuy258/nvim-tree.lua",
