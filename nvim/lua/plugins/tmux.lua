@@ -9,6 +9,9 @@ function M.setup()
   tmux.setup {
     copy_sync = {
       enable = false,
+      redirect_to_clipboard = false,
+      sync_clipboard = false,
+      sync_deletes = false,
     },
     navigation = {
       -- Enables default keybindings (C-hjkl) for normal mode
