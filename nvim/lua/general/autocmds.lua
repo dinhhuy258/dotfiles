@@ -32,6 +32,12 @@ local default_autogroups = {
       "*",
       "highlight HighlightedYankRegion gui=reverse",
     },
+    -- Exclude qf in the buffer list
+    {
+      "FileType",
+      "qf",
+      "set nobuflisted",
+    },
   },
   _markdown = {
     { "FileType", "markdown", "setlocal wrap" },
