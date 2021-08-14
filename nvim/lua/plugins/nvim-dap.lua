@@ -28,7 +28,7 @@ M.setup = function()
   utils.set_keymap("n", "<Leader>dn", "<CMD>lua require'dap'.step_over()<CR>", opts) -- Step over
   utils.set_keymap("n", "<Leader>db", "<CMD>lua require'dap'.step_back()<CR>", opts) -- Step back
   utils.set_keymap("n", "<Leader>di", "<CMD>lua require'dap'.step_into()<CR>", opts) -- Step into
-  utils.set_keymap("n", "<Leader>dO", "<CMD>lua require'dap'.step_out()<CR>", opts) -- Step out
+  utils.set_keymap("n", "<Leader>do", "<CMD>lua require'dap'.step_out()<CR>", opts) -- Step out
   utils.set_keymap("n", "<Leader>dp", "<CMD>lua require'dap'.pause.toggle()<CR>", opts) -- Pause
   utils.set_keymap("n", "<Leader>dc", "<CMD>lua require'dap'.continue()<CR>", opts) -- Continue
   utils.set_keymap("n", "<Leader>dr", "<CMD>lua require'dap'.session()<CR>", opts) -- Get session
