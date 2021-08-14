@@ -33,6 +33,16 @@ M.setup = function()
   utils.set_keymap("n", "<Leader>dc", "<CMD>lua require'dap'.continue()<CR>", opts) -- Continue
   utils.set_keymap("n", "<Leader>dr", "<CMD>lua require'dap'.session()<CR>", opts) -- Get session
   utils.set_keymap("n", "<Leader>dg", "<CMD>lua require'dap'.repl.toggle()<CR>", opts) -- Toggle repl
+
+  require("general.autocmds").define_augroups {
+    _nvim_dap = {
+      {
+        "FileType",
+        "dap-repl",
+        "set nobuflisted",
+      },
+    },
+  }
 end
 
 return M
