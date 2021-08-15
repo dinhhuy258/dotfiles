@@ -1,13 +1,13 @@
 #!/bin/zsh
 
 # Open fzf in tmux popup
-function fzfp() {
+function __fzfp() {
   fzf-tmux -p -w 70% -h 70%
 }
 
 # Open project under workspace folder
 function fprj() {
-  cd $WORKSPACE; ls -d */ | fzfp | {
+  cd $WORKSPACE; ls -d */ | __fzfp | {
     cd -;
     read result;
     if [ ! -z "$result" ]; then
@@ -21,7 +21,7 @@ function fprj() {
 # First param take local path to set of commands, i.e. ~/local/cmds
 function fcmd() {
   echo $1
-  local cmd=$(cat $1 | ${2-"fzfp"})
+  local cmd=$(cat $1 | ${2-"__fzfp"})
   if [ -n "$cmd" ]; then
     local escape=$(echo $cmd | sed 's/[]\/$*.^[]/\\&/g')
     echo -e "$cmd\n$(cat $1 | sed "s/$escape//g" | sed '/^$/d')" > $1
