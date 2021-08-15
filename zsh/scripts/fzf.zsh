@@ -1,11 +1,12 @@
 #!/bin/zsh
 
+# Open fzf in tmux popup
 function fzfp() {
   fzf-tmux -p -w 70% -h 70%
 }
 
 # Open project under workspace folder
-function fzf_workspace() {
+function fprj() {
   cd $WORKSPACE; ls -d */ | fzfp | {
     cd -;
     read result;
@@ -18,7 +19,7 @@ function fzf_workspace() {
 
 # Run frequently used commands
 # First param take local path to set of commands, i.e. ~/local/cmds
-function fzf_cmd() {
+function fcmd() {
   echo $1
   local cmd=$(cat $1 | ${2-"fzfp"})
   if [ -n "$cmd" ]; then
@@ -35,13 +36,13 @@ function fzf_cmd() {
 
 
 # Lauch application
-function fzf_app() {
+function fapp() {
   local app=$((ls /Applications; ls /System/Applications/; ls /System/Applications/Utilities) | cat | sed 's/.app//g' | fzf)
   open -a $app
 }
 
 # Close application
-function fzf_kill() {
+function fkill() {
   select_app=$(osascript -e 'tell application "System Events" to get name of (processes where background only is false)' | awk -F ', ' '{for(i=1;i<=NF;i++) printf "%s\n", $i}'  | fzf)
   if [ -n "$select_app" ]; then
     printf "${bold}Do you want to kill ${select_app}? (y/n)${reset}\n"
@@ -53,7 +54,7 @@ function fzf_kill() {
 }
 
 # Select password using fzf
-function fzf_pass() {
+function fpass() {
   local prompt='Search password: '
   local fzf_cmd="fzf --print-query --prompt=\"$prompt\""
 

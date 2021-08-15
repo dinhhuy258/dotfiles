@@ -202,8 +202,8 @@ zle -N edit-command-line
 
 # Key bindings
 bindkey '^ ' autosuggest-accept
-zle -N fzf_workspace
-bindkey '^w' fzf_workspace
+zle -N fprj
+bindkey '^w' fprj
 bindkey '^v' edit-command-line
 
 if [ -z "$IGNORE_GREETING_MESSAGE" ]
