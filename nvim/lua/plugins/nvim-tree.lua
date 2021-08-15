@@ -92,8 +92,6 @@ M.setup = function()
     { key = "s", cb = tree_cb "toggle_selection" },
     { key = "S", cb = tree_cb "clear_selections" },
     { key = "d", cb = tree_cb "delete" },
-    { key = "=", cb = tree_cb "bigger" },
-    { key = "-", cb = tree_cb "smaller" },
     { key = ".", cb = tree_cb "toggle_hidden" },
   }
 
