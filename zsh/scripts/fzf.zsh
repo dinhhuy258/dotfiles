@@ -56,7 +56,7 @@ function fkill() {
 # Select password using fzf
 function fpass() {
   local prompt='Search password: '
-  local fzf_cmd="fzf --print-query --prompt=\"$prompt\""
+  local fzf_cmd="${1-"__fzfp"} --print-query --prompt=\"$prompt\""
 
   if [ -n "$term" ]; then
     fzf_cmd="$fzf_cmd -q\"$term\""

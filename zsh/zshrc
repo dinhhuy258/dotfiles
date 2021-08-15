@@ -62,9 +62,13 @@ zle -N edit-command-line
 
 # Key bindings
 bindkey '^ ' autosuggest-accept
+bindkey '^v' edit-command-line
+
 zle -N fprj
 bindkey '^w' fprj
-bindkey '^v' edit-command-line
+
+zle -N fpass
+bindkey '^p' fpass
 
 if [ -z "$IGNORE_GREETING_MESSAGE" ]
 then
