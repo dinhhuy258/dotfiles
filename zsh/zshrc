@@ -374,8 +374,6 @@ ex=:\
 *.nix=:\
 "
 
-export DOTFILES="/Users/dinhhuy258/Workspace/dotfiles"
-
 for script in $DOTFILES/zsh/scripts/*; do
   source $script
 done
