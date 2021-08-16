@@ -30,6 +30,8 @@ return {
       require("plugins.nvim-tree").setup()
     end,
   },
+  -- Git
+  { "dinhhuy258/git.nvim" },
   -- Tmux integration for nvim
   {
     "aserowy/tmux.nvim",
