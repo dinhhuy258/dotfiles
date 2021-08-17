@@ -238,7 +238,7 @@ return {
   -- Go tools
   {
     "dinhhuy258/go-tools.nvim",
-    ft = { "go" },
+    after = { "nvim-dap" },
     config = function()
       require("go-tools").setup()
     end,
