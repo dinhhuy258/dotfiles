@@ -20,7 +20,15 @@ return {
   -- Local history in vim
   { "dinhhuy258/vim-local-history" },
   -- Open git repository
-  { "dinhhuy258/vim-git-browse" },
+  {
+    "dinhhuy258/vim-git-browse",
+    config = function()
+      local status_ok, git = pcall(require, "git")
+      if status_ok then
+        git.setup()
+      end
+    end,
+  },
   -- Vim database
   { "dinhhuy258/vim-database" },
   -- File explorer
@@ -71,12 +79,10 @@ return {
     end,
   },
   -- Vim plugin for git
+  -- TODO: Remove this plugin
   {
     "tpope/vim-fugitive",
     event = "BufRead",
-    config = function()
-      require("plugins.vim-fugitive").setup()
-    end,
   },
   -- Show git diff in the sign column
   {
