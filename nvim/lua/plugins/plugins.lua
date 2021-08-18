@@ -20,15 +20,7 @@ return {
   -- Local history in vim
   { "dinhhuy258/vim-local-history" },
   -- Open git repository
-  {
-    "dinhhuy258/vim-git-browse",
-    config = function()
-      local status_ok, git = pcall(require, "git")
-      if status_ok then
-        git.setup()
-      end
-    end,
-  },
+  { "dinhhuy258/vim-git-browse" },
   -- Vim database
   { "dinhhuy258/vim-database" },
   -- File explorer
@@ -39,7 +31,15 @@ return {
     end,
   },
   -- Git
-  { "dinhhuy258/git.nvim" },
+  {
+    "dinhhuy258/git.nvim",
+    config = function()
+      local status_ok, git = pcall(require, "git")
+      if status_ok then
+        git.setup()
+      end
+    end,
+  },
   -- Tmux integration for nvim
   {
     "aserowy/tmux.nvim",
@@ -77,12 +77,6 @@ return {
     config = function()
       require("plugins.fzf-lua").setup()
     end,
-  },
-  -- Vim plugin for git
-  -- TODO: Remove this plugin
-  {
-    "tpope/vim-fugitive",
-    event = "BufRead",
   },
   -- Show git diff in the sign column
   {
