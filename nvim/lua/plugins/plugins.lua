@@ -19,8 +19,6 @@ return {
   },
   -- Local history in vim
   { "dinhhuy258/vim-local-history" },
-  -- Open git repository
-  { "dinhhuy258/vim-git-browse" },
   -- Vim database
   { "dinhhuy258/vim-database" },
   -- File explorer
