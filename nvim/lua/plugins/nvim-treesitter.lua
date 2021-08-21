@@ -21,14 +21,14 @@ M.setup = function()
         enable = true,
         set_jumps = true,
         goto_next_start = {
-          ["mf"] = "@function.outer",
-          ["mc"] = "@class.outer",
-          ["ma"] = "@parameter.inner",
+          ["]f"] = "@function.outer",
+          ["]c"] = "@class.outer",
+          ["]a"] = "@parameter.inner",
         },
         goto_previous_start = {
-          ["mF"] = "@function.outer",
-          ["mC"] = "@class.outer",
-          ["mA"] = "@parameter.inner",
+          ["]F"] = "@function.outer",
+          ["]C"] = "@class.outer",
+          ["]A"] = "@parameter.inner",
         },
       },
       swap = {
