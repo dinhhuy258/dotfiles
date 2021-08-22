@@ -32,6 +32,10 @@ local function validate_provider_request(provider)
 end
 
 function M.setup(filetype)
+  if lsp_clients[filetype] == nil then
+   return
+  end
+
   local status_ok, null_ls = pcall(require, "null-ls")
   if not status_ok then
     return
