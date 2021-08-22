@@ -43,6 +43,11 @@ local default_autogroups = {
       "qf",
       "nnoremap <silent> <buffer> q :q<CR>",
     },
+    {
+      "FileType",
+      "help",
+      "nnoremap <silent> <buffer> q :q<CR>",
+    },
   },
   _markdown = {
     { "FileType", "markdown", "setlocal wrap" },
