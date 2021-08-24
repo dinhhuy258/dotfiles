@@ -241,4 +241,9 @@ return {
       require("go-tools").setup()
     end,
   },
+  -- Multiple cursors
+  {
+    "mg979/vim-visual-multi",
+    event = "BufRead",
+  },
 }
