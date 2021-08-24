@@ -26,9 +26,9 @@ M.setup = function()
           ["]a"] = "@parameter.inner",
         },
         goto_previous_start = {
-          ["[F"] = "@function.outer",
-          ["[C"] = "@class.outer",
-          ["[A"] = "@parameter.inner",
+          ["[f"] = "@function.outer",
+          ["[c"] = "@class.outer",
+          ["[a"] = "@parameter.inner",
         },
       },
       swap = {
