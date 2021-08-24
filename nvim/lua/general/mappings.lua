@@ -39,10 +39,6 @@ function M.setup()
   utils.set_keymap("n", "cpr", ":let @+ = fnamemodify(expand('%'), ':~:.')<CR>", { silent = false })
   utils.set_keymap("n", "cpg", ":let @+ = system('git rev-parse --abbrev-ref HEAD')<CR>", { silent = false })
 
-  -- Make yarn with capital Y behave like the other capital letters
-  -- TODO: Remove this config when it is the default behavior of Neovim
-  utils.set_keymap("n", "Y", "y$")
-
   -- Better navigation
   utils.set_keymap("n", "<Space>", "10j")
   utils.set_keymap("n", "<C-Space>", "10k")
