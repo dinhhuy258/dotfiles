@@ -33,7 +33,7 @@ end
 
 function M.setup(filetype)
   if lsp_clients[filetype] == nil then
-   return
+    return
   end
 
   local status_ok, null_ls = pcall(require, "null-ls")

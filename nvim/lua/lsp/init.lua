@@ -39,7 +39,7 @@ local function add_lsp_buffer_keybindings(bufnr)
   utils.buf_set_keymap(bufnr, "n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
 end
 
-local function common_capabilities()
+function M.common_capabilities()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   capabilities.textDocument.completion.completionItem.resolveSupport = {
@@ -53,14 +53,14 @@ local function common_capabilities()
   return capabilities
 end
 
-local function common_on_init(client, _)
+function M.common_on_init(client, _)
   local formatters = lsp_clients[vim.bo.filetype].formatters
   if not vim.tbl_isempty(formatters) and formatters[1]["exe"] ~= nil and formatters[1].exe ~= "" then
     client.resolved_capabilities.document_formatting = false
   end
 end
 
-local function common_on_attach(_, bufnr)
+function M.common_on_attach(_, bufnr)
   add_lsp_buffer_keybindings(bufnr)
   require("lsp_signature").on_attach {
     hint_enable = false,
@@ -117,7 +117,7 @@ function M.config()
   )
 
   require("lsp.lsp-handlers").setup()
-  require("lsp.lsp-clients").setup(common_on_attach, common_capabilities(), common_on_init)
+  require("lsp.lsp-clients").setup(M.common_on_attach, M.common_capabilities(), M.common_on_init)
 end
 
 function M.setup(lang)

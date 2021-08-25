@@ -6,6 +6,9 @@ return {
     "dinhhuy258/vintellij",
     branch = "lsp",
     ft = { "kotlin" },
+    config = function()
+      require("plugins.vintellij").setup()
+    end,
   },
   -- Vim utilities
   {
