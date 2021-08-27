@@ -241,7 +241,7 @@ return {
     "dinhhuy258/go-tools.nvim",
     after = { "nvim-dap" },
     config = function()
-      require("go-tools").setup()
+      require("plugins.go-tools").setup()
     end,
   },
   -- Multiple cursors
