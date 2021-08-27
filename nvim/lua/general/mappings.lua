@@ -42,6 +42,15 @@ function M.setup()
   -- Better navigation
   utils.set_keymap("n", "<Space>", "10j")
   utils.set_keymap("n", "<C-Space>", "10k")
+
+  -- Keep joinline cursor centerred
+  utils.set_keymap("n", "J", "mzJ`z")
+
+  -- Undo break points
+  utils.set_keymap("i", ",", ",<c-g>u")
+  utils.set_keymap("i", ".", ".<c-g>u")
+  utils.set_keymap("i", "!", "!<c-g>u")
+  utils.set_keymap("i", "?", "?<c-g>u")
 end
 
 return M
