@@ -1,7 +1,11 @@
 function fklfp() {
   pod=$(kubectl get pods --no-headers -o custom-columns=":metadata.name" | __fzfp)
   if [ -n "$pod" ]; then
-    kubectl logs -f pods/${pod}
+    if [ -z $1 ]; then
+      kubectl logs -f pods/${pod}
+    else
+      kubectl logs -f pods/${pod} -c $1
+    fi
   fi
 }
 
