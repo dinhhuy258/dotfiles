@@ -23,3 +23,13 @@ function fkdj() {
   fi
 }
 
+function fkpf() {
+  if [ -z $1 ]; then
+    echo "Please provide port"
+    return
+  fi
+
+  pod=$(kubectl get pods --no-headers -o custom-columns=":metadata.name" | __fzfp)
+
+  kubectl port-forward ${pod} $1
+}
