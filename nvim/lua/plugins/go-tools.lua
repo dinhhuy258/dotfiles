@@ -10,7 +10,16 @@ function M.setup()
   local lsp = require "lsp"
 
   go.setup()
-  go_lsp.setup(lsp.common_on_attach, lsp.common_capabilities(), lsp.common_on_init)
+  go_lsp.setup(function(_, bufnr)
+    lsp.common_on_attach(_, bufnr)
+    require("utils").buf_set_keymap(
+      bufnr,
+      "n",
+      "<Leader>cf",
+      "<CMD>lua require('go-tools.format').format()<CR>",
+      { noremap = true, silent = true }
+    )
+  end, lsp.common_capabilities(), lsp.common_on_init)
 end
 
 return M
