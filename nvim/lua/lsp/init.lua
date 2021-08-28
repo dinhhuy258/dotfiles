@@ -16,11 +16,11 @@ end
 local function add_lsp_buffer_keybindings(bufnr)
   local opts = { noremap = true, silent = true }
   utils.buf_set_keymap(bufnr, "n", "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "gd", "<CMD>lua require('lsp.lsp-actions').definitions()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "gD", "<CMD>lua require('lsp.lsp-actions').declarations()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "gr", "<CMD>lua require('lsp.lsp-actions').references()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "gi", "<CMD>lua require('lsp.lsp-actions').implementations()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "gy", "<CMD>lua require('lsp.lsp-actions').typedefs()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "gd", "<CMD>lua require('lsp.actions').definitions()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "gD", "<CMD>lua require('lsp.actions').declarations()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "gr", "<CMD>lua require('lsp.actions').references()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "gi", "<CMD>lua require('lsp.actions').implementations()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "gy", "<CMD>lua require('lsp.actions').typedefs()<CR>", opts)
 
   utils.buf_set_keymap(bufnr, "n", "g[", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
   utils.buf_set_keymap(bufnr, "n", "g]", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
@@ -116,8 +116,8 @@ function M.config()
     { texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation" }
   )
 
-  require("lsp.lsp-handlers").setup()
-  require("lsp.lsp-clients").setup(M.common_on_attach, M.common_capabilities(), M.common_on_init)
+  require("lsp.handlers").setup()
+  require("lsp.clients").setup(M.common_on_attach, M.common_capabilities(), M.common_on_init)
 end
 
 function M.setup(lang)
