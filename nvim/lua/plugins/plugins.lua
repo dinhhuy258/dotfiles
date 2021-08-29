@@ -198,7 +198,7 @@ return {
   },
   -- Set of preconfigured snippets for different languages.
   {
-    "rafamadriz/friendly-snippets",
+    "dinhhuy258/snippets",
     event = "InsertCharPre",
   },
   -- Comment
