@@ -19,9 +19,8 @@ M.setup = function()
       win_col = 0.50, -- window col position (0=left, 1=right)
       -- win_border    = false,           -- window border? or borderchars?
       win_border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-      window_on_create = function() -- nvim window options override
-        vim.cmd "set winhl=Normal:Normal"
-      end,
+      hl_normal = "Normal",
+      hl_border = "FloatBorder",
     },
     fzf_layout = "reverse", -- fzf '--layout='
     fzf_args = "", -- adv: fzf extra args, empty unless adv
