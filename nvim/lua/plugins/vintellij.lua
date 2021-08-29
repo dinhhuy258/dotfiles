@@ -8,7 +8,11 @@ function M.setup()
 
   local lsp = require "lsp"
 
-  vintellij.setup(lsp.common_on_attach, lsp.common_capabilities(), lsp.common_on_init)
+  local lib_dirs = {
+    "/Users/dinhhuy258/.gradle/",
+    "/Library/Java/JavaVirtualMachines",
+  }
+  vintellij.setup(lsp.common_on_attach, lsp.common_capabilities(), lsp.common_on_init, lib_dirs)
 end
 
 return M
