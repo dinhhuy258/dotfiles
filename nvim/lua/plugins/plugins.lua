@@ -177,16 +177,22 @@ return {
   },
   -- Completion
   {
-    "hrsh7th/nvim-compe",
+    "hrsh7th/nvim-cmp",
     event = "InsertEnter",
+    requires = {
+      { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
+      { "hrsh7th/cmp-vsnip", after = "nvim-cmp" },
+      { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+      { "hrsh7th/cmp-path", after = "nvim-cmp" },
+    },
     config = function()
-      require("plugins.nvim-compe").setup()
+      require("plugins.nvim-cmp").setup()
     end,
   },
   -- Autopair
   {
     "windwp/nvim-autopairs",
-    after = "nvim-compe",
+    after = "nvim-cmp",
     config = function()
       require("plugins.nvim-autopairs").setup()
     end,
