@@ -12,7 +12,14 @@ function M.setup()
     "/Users/dinhhuy258/.gradle/",
     "/Library/Java/JavaVirtualMachines",
   }
-  vintellij.setup(lsp.common_on_attach, lsp.common_capabilities(), lsp.common_on_init, lib_dirs)
+
+  vintellij.setup {
+    debug = true,
+    common_on_attach = lsp.common_on_attach,
+    common_capabilities = lsp.common_capabilities(),
+    common_on_init = lsp.common_on_init,
+    lib_dirs = lib_dirs,
+  }
 end
 
 return M
