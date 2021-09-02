@@ -1,12 +1,6 @@
 local M = {}
 
 function M.config(common_on_attach, common_capabilities, common_on_init)
-  local schemas = nil
-  local status_ok, jsonls_settings = pcall(require, "nlspsettings.jsonls")
-  if status_ok then
-    schemas = jsonls_settings.get_default_schemas()
-  end
-
   lsp_clients["json"] = {
     formatters = {
       {
@@ -29,17 +23,6 @@ function M.config(common_on_attach, common_capabilities, common_on_init)
         on_attach = common_on_attach,
         on_init = common_on_init,
         capabilities = common_capabilities,
-        settings = {
-          json = {
-            schemas = schemas,
-            --   = {
-            --   {
-            --     fileMatch = { "package.json" },
-            --     url = "https://json.schemastore.org/package.json",
-            --   },
-            -- },
-          },
-        },
         commands = {
           Format = {
             function()
