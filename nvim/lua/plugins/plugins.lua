@@ -173,6 +173,16 @@ return {
       require("lsp_signature").setup()
     end,
   },
+  -- Snippet
+  {
+    "hrsh7th/vim-vsnip",
+    event = "InsertEnter",
+  },
+  -- Set of preconfigured snippets for different languages.
+  {
+    "dinhhuy258/snippets",
+    after = "vim-vsnip",
+  },
   -- Completion
   {
     "hrsh7th/nvim-cmp",
@@ -194,16 +204,6 @@ return {
     config = function()
       require("plugins.nvim-autopairs").setup()
     end,
-  },
-  -- Snippet
-  {
-    "hrsh7th/vim-vsnip",
-    event = "InsertCharPre",
-  },
-  -- Set of preconfigured snippets for different languages.
-  {
-    "dinhhuy258/snippets",
-    event = "InsertCharPre",
   },
   -- Comment
   {
