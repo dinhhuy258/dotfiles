@@ -67,7 +67,7 @@ return {
   },
   -- Adds file type icons to Vim plugins such as: nvim-tree.lua, galaxyline.nvim, vim-startify...
   { "kyazdani42/nvim-web-devicons" },
-  -- gitsigns, null-ls depend on this library
+  -- gitsigns depend on this library
   { "nvim-lua/plenary.nvim" },
   -- Fzf
   {
@@ -153,16 +153,6 @@ return {
     event = "VimEnter",
     config = function()
       require("lspinstall").setup()
-    end,
-  },
-  -- Use Neovim as a language server to inject LSP diagnostics, code actions
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    config = function()
-      local status_ok, null_ls = pcall(require, "null-ls")
-      if status_ok then
-        null_ls.setup {}
-      end
     end,
   },
   -- Lsp signature

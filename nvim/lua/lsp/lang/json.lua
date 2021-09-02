@@ -2,15 +2,6 @@ local M = {}
 
 function M.config(common_on_attach, common_capabilities, common_on_init)
   lsp_clients["json"] = {
-    formatters = {
-      {
-        -- @usage can be json_tool or prettier or prettierd
-        exe = "",
-        args = {},
-        stdin = true,
-      },
-    },
-    linters = {},
     lsp = {
       provider = "jsonls",
       setup = {

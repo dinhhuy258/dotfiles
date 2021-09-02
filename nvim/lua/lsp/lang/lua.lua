@@ -2,14 +2,6 @@ local M = {}
 
 function M.config(common_on_attach, common_capabilities, common_on_init)
   lsp_clients["lua"] = {
-    formatters = {
-      {
-        -- @usage can be stylua or lua_format
-        exe = "stylua",
-        args = {},
-      },
-    },
-    linters = {},
     lsp = {
       provider = "sumneko_lua",
       setup = {

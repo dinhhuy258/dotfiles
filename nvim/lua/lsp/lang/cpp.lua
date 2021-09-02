@@ -2,15 +2,6 @@ local M = {}
 
 function M.config(common_on_attach, common_capabilities, common_on_init)
   lsp_clients["cpp"] = {
-    formatters = {
-      {
-        -- @usage can be clang_format or uncrustify
-        exe = "clang_format",
-        args = {},
-        stdin = true,
-      },
-    },
-    linters = {},
     lsp = {
       provider = "clangd",
       setup = {

@@ -2,14 +2,6 @@ local M = {}
 
 function M.config(common_on_attach, common_capabilities, common_on_init)
   lsp_clients["python"] = {
-    formatters = {
-      {
-        -- @usage can be black or yapf or isort
-        exe = "",
-        args = {},
-      },
-    },
-    linters = {},
     lsp = {
       provider = "pyright",
       setup = {

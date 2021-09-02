@@ -34,7 +34,11 @@ local function add_lsp_buffer_keybindings(bufnr)
 
   utils.buf_set_keymap(bufnr, "n", "<Leader>co", "<CMD>lua require('fzf-lua').lsp_document_symbols()<CR>", opts)
   utils.buf_set_keymap(bufnr, "n", "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "<Leader>cf", "<CMD>lua vim.lsp.buf.formatting()<CR>", opts)
+  if require("utilities.formatter").is_supported(vim.bo.filetype) then
+    utils.buf_set_keymap(bufnr, "n", "<Leader>cf", "<CMD>lua require('utilities.formatter').format()<CR>", opts)
+  else
+    utils.buf_set_keymap(bufnr, "n", "<Leader>cf", "<CMD>lua vim.lsp.buf.formatting()<CR>", opts)
+  end
   utils.buf_set_keymap(bufnr, "n", "<Leader>cr", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
   utils.buf_set_keymap(bufnr, "n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
 end
@@ -54,8 +58,7 @@ function M.common_capabilities()
 end
 
 function M.common_on_init(client, _)
-  local formatters = lsp_clients[vim.bo.filetype].formatters
-  if not vim.tbl_isempty(formatters) and formatters[1]["exe"] ~= nil and formatters[1].exe ~= "" then
+  if require("utilities.formatter").is_supported(vim.bo.filetype) then
     client.resolved_capabilities.document_formatting = false
   end
 end
@@ -66,7 +69,6 @@ function M.common_on_attach(_, bufnr)
     hint_enable = false,
     hi_parameter = "Underlined",
   }
-  require("lsp.null-ls").setup(vim.bo.filetype)
 end
 
 function M.config()

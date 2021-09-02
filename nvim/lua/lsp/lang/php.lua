@@ -2,14 +2,6 @@ local M = {}
 
 function M.config(common_on_attach, _, common_on_init)
   lsp_clients["php"] = {
-    formatters = {
-      {
-        -- @usage can be phpcbf
-        exe = "",
-        args = {},
-      },
-    },
-    linters = {},
     lsp = {
       provider = "intelephense",
       setup = {
