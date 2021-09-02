@@ -63,38 +63,24 @@ M.setup = function()
       files = {
         prompt = "GitFiles❯ ",
         cmd = "git ls-files --modified --others --exclude-standard",
+        previewer = "git_diff",
         git_icons = true, -- show git icons?
         file_icons = true, -- show file icons?
         color_icons = true, -- colorize file|git icons
+      },
+      branches = {
+        prompt = "Branches❯ ",
+        cmd = "git branch --all --color",
+        preview = "git log --graph --pretty=oneline --abbrev-commit --color {1}",
+        actions = {
+          ["default"] = actions.git_switch,
+        },
       },
       icons = {
         ["M"] = { icon = "M", color = "yellow" },
         ["D"] = { icon = "D", color = "red" },
         ["A"] = { icon = "A", color = "green" },
         ["?"] = { icon = "?", color = "magenta" },
-        -- ["M"]          = { icon = "★", color = "red" },
-        -- ["D"]          = { icon = "✗", color = "red" },
-        -- ["A"]          = { icon = "+", color = "green" },
-      },
-    },
-    grep = {
-      prompt = "Rg❯ ",
-      input_prompt = "Grep For❯ ",
-      -- cmd               = "rg --vimgrep",
-      rg_opts = "--hidden --column --line-number --no-heading "
-        .. "--color=always --smart-case -g '!{.git,node_modules}/*'",
-      git_icons = true, -- show git icons?
-      file_icons = true, -- show file icons?
-      color_icons = true, -- colorize file|git icons
-      actions = {
-        ["default"] = actions.file_edit,
-        ["ctrl-h"] = actions.file_split,
-        ["ctrl-v"] = actions.file_vsplit,
-        ["ctrl-t"] = actions.file_tabedit,
-        ["ctrl-q"] = actions.file_sel_to_qf,
-        ["ctrl-y"] = function(selected)
-          print(selected[2])
-        end,
       },
     },
     oldfiles = {
@@ -143,6 +129,7 @@ M.setup = function()
 
   utils.set_keymap("n", "<Leader>fr", ":lua require('fzf-lua').live_grep({ cmd = \"vimrg\" })<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>fg", ":lua require('fzf-lua').git_files()<CR>", { noremap = true })
+  utils.set_keymap("n", "<Leader>fc", ":lua require('fzf-lua').git_branches()<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>fb", ":lua require('fzf-lua').buffers()<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>fe", ":lua require('fzf-lua').oldfiles()<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>ff", ":lua require('fzf-lua').files()<CR>", { noremap = true })
