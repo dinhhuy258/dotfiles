@@ -65,6 +65,8 @@ local highlights = {
   WildMenu = { fg = "#17171b", bg = "#d4d5db" },
   FloatBorder = { fg = "#eff0f4", bg = "NONE" },
   NormalFloat = { fg = "#c6c8d1", bg = "#161821" },
+  StatusLine = { fg = "#161821", bg = "#c6c8d1", style = "reverse" },
+  StatusLineNC = { fg = "#161821", bg = "#c6c8d1", style = "reverse" },
 }
 
 return highlights
