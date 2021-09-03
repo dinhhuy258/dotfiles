@@ -42,7 +42,7 @@ local options = {
   background = "dark",
   termguicolors = true, -- Set term gui colors
   list = true,
-  listchars = "tab:▸\\ ,eol:¬", -- Strings to use in 'list' mode
+  listchars = "tab:,,eol:¬", -- Strings to use in 'list' mode
 }
 
 function M.setup()
