@@ -112,13 +112,6 @@ return {
       require("plugins.clever-f").setup()
     end,
   },
-  {
-    "glepnir/galaxyline.nvim",
-    event = "BufWinEnter",
-    config = function()
-      require("plugins.galaxyline").setup()
-    end,
-  },
   -- Tabline plugin
   {
     "romgrk/barbar.nvim",
