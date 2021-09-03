@@ -111,6 +111,8 @@ M.setup = function()
       file_icons = true,
       git_icons = false,
       lsp_icons = true,
+      async_or_timeout = false,
+      jump_to_single_result = true,
       severity = "hint",
       icons = {
         ["Error"] = { icon = "", color = "red" }, -- error

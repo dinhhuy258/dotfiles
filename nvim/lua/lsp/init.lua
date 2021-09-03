@@ -15,12 +15,14 @@ end
 
 local function add_lsp_buffer_keybindings(bufnr)
   local opts = { noremap = true, silent = true }
-  utils.buf_set_keymap(bufnr, "n", "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "gd", "<CMD>lua require('lsp.actions').definitions()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "gD", "<CMD>lua require('lsp.actions').declarations()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "gr", "<CMD>lua require('lsp.actions').references()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "gi", "<CMD>lua require('lsp.actions').implementations()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "gy", "<CMD>lua require('lsp.actions').typedefs()<CR>", opts)
+
+  utils.buf_set_keymap(bufnr, "n", "gd", "<CMD>lua require('fzf-lua').lsp_definitions()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "gD", "<CMD>lua require('fzf-lua').lsp_declarations()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "gr", "<CMD>lua require('fzf-lua').lsp_references()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "gi", "<CMD>lua require('fzf-lua').lsp_implementations()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "gy", "<CMD>lua require('fzf-lua').lsp_typedefs()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "<Leader>co", "<CMD>lua require('fzf-lua').lsp_document_symbols()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "<Leader>ca", "<CMD>lua require('fzf-lua').lsp_code_actions()<CR>", opts)
 
   utils.buf_set_keymap(bufnr, "n", "g[", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
   utils.buf_set_keymap(bufnr, "n", "g]", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
@@ -32,8 +34,6 @@ local function add_lsp_buffer_keybindings(bufnr)
     opts
   )
 
-  utils.buf_set_keymap(bufnr, "n", "<Leader>co", "<CMD>lua require('fzf-lua').lsp_document_symbols()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
   if require("utilities.formatter").is_supported(vim.bo.filetype) then
     utils.buf_set_keymap(bufnr, "n", "<Leader>cf", "<CMD>lua require('utilities.formatter').format()<CR>", opts)
   else
