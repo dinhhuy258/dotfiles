@@ -16,11 +16,41 @@ end
 local function add_lsp_buffer_keybindings(bufnr)
   local opts = { noremap = true, silent = true }
 
-  utils.buf_set_keymap(bufnr, "n", "gd", "<CMD>lua require('fzf-lua').lsp_definitions()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "gD", "<CMD>lua require('fzf-lua').lsp_declarations()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "gr", "<CMD>lua require('fzf-lua').lsp_references()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "gi", "<CMD>lua require('fzf-lua').lsp_implementations()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "gy", "<CMD>lua require('fzf-lua').lsp_typedefs()<CR>", opts)
+  utils.buf_set_keymap(
+    bufnr,
+    "n",
+    "gd",
+    "<CMD>lua require('fzf-lua').lsp_definitions({ jump_to_single_result = true })<CR>",
+    opts
+  )
+  utils.buf_set_keymap(
+    bufnr,
+    "n",
+    "gD",
+    "<CMD>lua require('fzf-lua').lsp_declarations({ jump_to_single_result = true })<CR>",
+    opts
+  )
+  utils.buf_set_keymap(
+    bufnr,
+    "n",
+    "gr",
+    "<CMD>lua require('fzf-lua').lsp_references({ jump_to_single_result = true })<CR>",
+    opts
+  )
+  utils.buf_set_keymap(
+    bufnr,
+    "n",
+    "gi",
+    "<CMD>lua require('fzf-lua').lsp_implementations({ jump_to_single_result = true })<CR>",
+    opts
+  )
+  utils.buf_set_keymap(
+    bufnr,
+    "n",
+    "gy",
+    "<CMD>lua require('fzf-lua').lsp_typedefs({ jump_to_single_result = true })<CR>",
+    opts
+  )
   utils.buf_set_keymap(bufnr, "n", "<Leader>co", "<CMD>lua require('fzf-lua').lsp_document_symbols()<CR>", opts)
   utils.buf_set_keymap(bufnr, "n", "<Leader>ca", "<CMD>lua require('fzf-lua').lsp_code_actions()<CR>", opts)
 
