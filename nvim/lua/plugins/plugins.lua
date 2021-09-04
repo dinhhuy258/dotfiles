@@ -5,7 +5,7 @@ return {
   {
     "dinhhuy258/vintellij",
     branch = "lsp",
-    ft = { "kotlin" },
+    ft = { "kotlin", "java" },
     config = function()
       require("plugins.vintellij").setup()
     end,
