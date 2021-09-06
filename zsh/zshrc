@@ -30,7 +30,6 @@ plugins=(
   vi-mode
   z
   fzf
-  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
