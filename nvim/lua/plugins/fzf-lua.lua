@@ -128,7 +128,7 @@ M.setup = function()
 
   local utils = require "utils"
 
-  utils.set_keymap("n", "<Leader>fr", ":lua require('fzf-lua').live_grep({ cmd = \"vimrg\" })<CR>", { noremap = true })
+  utils.set_keymap("n", "<Leader>fr", ":lua require('fzf-lua').live_grep({ cmd = \"vimrg\", continue_last_search = false })<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>fg", ":lua require('fzf-lua').git_files()<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>fc", ":lua require('fzf-lua').git_branches()<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>fb", ":lua require('fzf-lua').buffers()<CR>", { noremap = true })
