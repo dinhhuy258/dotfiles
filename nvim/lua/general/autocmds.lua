@@ -15,12 +15,6 @@ local default_autogroups = {
       "*",
       "setlocal formatoptions-=c formatoptions-=r formatoptions-=o",
     },
-    -- When a file has been detected to have been changed outside of Vim and it has not been changed inside of Vim, automatically read it again
-    {
-      "FocusGained, BufEnter",
-      "*",
-      ":checktime",
-    },
     -- Highlighting yarked region
     {
       "TextYankPost",
