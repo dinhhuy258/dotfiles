@@ -51,7 +51,7 @@ function klf() {
     container=$(__pick_container $resource)
 
     if [ -n "$container" ]; then
-      kubectl logs -f ${resource} -c $container
+      kubectl logs -f ${1}/${resource} -c $container
     fi
   fi
 }
