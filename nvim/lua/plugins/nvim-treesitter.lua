@@ -10,7 +10,6 @@ M.setup = function()
     ensure_installed = "maintained",
     highlight = {
       enable = true,
-      disable = { "kotlin" },
     },
     indent = {
       enable = true,

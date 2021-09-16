@@ -51,7 +51,6 @@ return {
   -- Highlighting
   {
     "nvim-treesitter/nvim-treesitter",
-    branch = "0.5-compat",
     run = ":TSUpdate",
     config = function()
       require("plugins.nvim-treesitter").setup()
@@ -59,12 +58,6 @@ return {
   },
   -- Textobjects
   { "nvim-treesitter/nvim-treesitter-textobjects" },
-  -- Syntax highlighting for kotlin
-  -- TODO: Remove this plugin when highlighting in treesitter get better
-  {
-    "udalov/kotlin-vim",
-    ft = { "kotlin" },
-  },
   -- Adds file type icons to Vim plugins such as: nvim-tree.lua, galaxyline.nvim, vim-startify...
   { "kyazdani42/nvim-web-devicons" },
   -- gitsigns depend on this library
