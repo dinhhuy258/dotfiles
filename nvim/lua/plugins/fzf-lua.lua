@@ -22,16 +22,37 @@ M.setup = function()
       hl_normal = "Normal",
       hl_border = "FloatBorder",
     },
+    keymap = {
+      -- These override the default tables completely
+      -- no need to set to `false` to disable a bind
+      -- delete or modify is sufficient
+      builtin = {
+        -- neovim `:tmap` mappings for the fzf win
+        ["<F2>"]        = "toggle-fullscreen",
+        -- Only valid with the 'builtin' previewer
+        ["<F3>"]        = "toggle-preview-wrap",
+        ["<F4>"]        = "toggle-preview",
+        ["<S-down>"]    = "preview-page-down",
+        ["<S-up>"]      = "preview-page-up",
+        ["<S-left>"]    = "preview-page-reset",
+      },
+      fzf = {
+        -- fzf '--bind=' options
+        ["ctrl-k"]      = "unix-line-discard",
+        ["ctrl-d"]      = "half-page-down",
+        ["ctrl-u"]      = "half-page-up",
+        ["ctrl-a"]      = "beginning-of-line",
+        ["ctrl-e"]      = "end-of-line",
+        ["alt-a"]       = "toggle-all",
+        -- Only valid with fzf previewers (bat/cat/git/etc)
+        ["f3"]          = "toggle-preview-wrap",
+        ["f4"]          = "toggle-preview",
+        ["shift-down"]  = "preview-page-down",
+        ["shift-up"]    = "preview-page-up",
+      },
+    },
     fzf_layout = "reverse", -- fzf '--layout='
     fzf_args = "", -- adv: fzf extra args, empty unless adv
-    fzf_binds = { -- fzf '--bind=' options
-      "ctrl-d:half-page-down",
-      "ctrl-u:half-page-up",
-      "ctrl-f:page-down",
-      "ctrl-b:page-up",
-      "ctrl-a:toggle-all",
-      "ctrl-l:clear-query",
-    },
     preview_cmd = "", -- 'head -n $FZF_PREVIEW_LINES',
     preview_border = "border", -- border|noborder
     preview_wrap = "nowrap", -- wrap|nowrap
