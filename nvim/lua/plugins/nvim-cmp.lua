@@ -67,8 +67,8 @@ M.setup = function()
       ['<C-c>'] = cmp.mapping.close(),
       ["<C-Space>"] = cmp.mapping.complete(),
       ["<Tab>"] = cmp.mapping(function(_)
-        if vim.fn.pumvisible() == 1 then
-          vim.fn.feedkeys(t "<C-n>", "n")
+        if cmp.visible() then
+          cmp.select_next_item()
         elseif vim.fn["vsnip#jumpable"](1) == 1 then
           vim.fn.feedkeys(keymap.t "<Plug>(vsnip-jump-next)", "")
         elseif check_back_space() then
@@ -81,8 +81,8 @@ M.setup = function()
         "s",
       }),
       ["<S-Tab>"] = cmp.mapping(function(_)
-        if vim.fn.pumvisible() == 1 then
-          vim.fn.feedkeys(t "<C-p>", "n")
+        if cmp.visible() then
+          cmp.select_prev_item()
         elseif vim.fn["vsnip#jumpable"](-1) == 1 then
           vim.fn.feedkeys(keymap.t "<Plug>(vsnip-jump-prev)", "")
         else
