@@ -183,10 +183,10 @@ return {
   },
   -- Comment
   {
-    "terrortylor/nvim-comment",
+    "numToStr/Comment.nvim",
     event = "BufRead",
     config = function()
-      require("plugins.nvim-comment").setup()
+      require("plugins.comment").setup()
     end,
   },
   -- Indent guides
