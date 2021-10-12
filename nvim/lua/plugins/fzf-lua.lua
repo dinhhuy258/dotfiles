@@ -28,27 +28,27 @@ M.setup = function()
       -- delete or modify is sufficient
       builtin = {
         -- neovim `:tmap` mappings for the fzf win
-        ["<F2>"]        = "toggle-fullscreen",
+        ["<F2>"] = "toggle-fullscreen",
         -- Only valid with the 'builtin' previewer
-        ["<F3>"]        = "toggle-preview-wrap",
-        ["<F4>"]        = "toggle-preview",
-        ["<S-down>"]    = "preview-page-down",
-        ["<S-up>"]      = "preview-page-up",
-        ["<S-left>"]    = "preview-page-reset",
+        ["<F3>"] = "toggle-preview-wrap",
+        ["<F4>"] = "toggle-preview",
+        ["<S-down>"] = "preview-page-down",
+        ["<S-up>"] = "preview-page-up",
+        ["<S-left>"] = "preview-page-reset",
       },
       fzf = {
         -- fzf '--bind=' options
-        ["ctrl-k"]      = "unix-line-discard",
-        ["ctrl-d"]      = "half-page-down",
-        ["ctrl-u"]      = "half-page-up",
-        ["ctrl-a"]      = "beginning-of-line",
-        ["ctrl-e"]      = "end-of-line",
-        ["alt-a"]       = "toggle-all",
+        ["ctrl-k"] = "unix-line-discard",
+        ["ctrl-d"] = "half-page-down",
+        ["ctrl-u"] = "half-page-up",
+        ["ctrl-a"] = "beginning-of-line",
+        ["ctrl-e"] = "end-of-line",
+        ["alt-a"] = "toggle-all",
         -- Only valid with fzf previewers (bat/cat/git/etc)
-        ["f3"]          = "toggle-preview-wrap",
-        ["f4"]          = "toggle-preview",
-        ["shift-down"]  = "preview-page-down",
-        ["shift-up"]    = "preview-page-up",
+        ["f3"] = "toggle-preview-wrap",
+        ["f4"] = "toggle-preview",
+        ["shift-down"] = "preview-page-down",
+        ["shift-up"] = "preview-page-up",
       },
     },
     fzf_layout = "reverse", -- fzf '--layout='
@@ -149,7 +149,12 @@ M.setup = function()
 
   local utils = require "utils"
 
-  utils.set_keymap("n", "<Leader>fr", ":lua require('fzf-lua').live_grep({ cmd = \"vimrg\", continue_last_search = false })<CR>", { noremap = true })
+  utils.set_keymap(
+    "n",
+    "<Leader>fr",
+    ":lua require('fzf-lua').live_grep({ cmd = \"vimrg\", continue_last_search = false })<CR>",
+    { noremap = true }
+  )
   utils.set_keymap("n", "<Leader>fg", ":lua require('fzf-lua').git_files()<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>fc", ":lua require('fzf-lua').git_branches()<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>fb", ":lua require('fzf-lua').buffers()<CR>", { noremap = true })

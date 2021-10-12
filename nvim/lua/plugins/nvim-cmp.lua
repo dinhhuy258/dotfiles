@@ -64,7 +64,7 @@ M.setup = function()
       default_behavior = types.cmp.ConfirmBehavior.Insert,
     },
     mapping = {
-      ['<C-c>'] = cmp.mapping.close(),
+      ["<C-c>"] = cmp.mapping.close(),
       ["<C-Space>"] = cmp.mapping.complete(),
       ["<Tab>"] = cmp.mapping(function(_)
         if cmp.visible() then
