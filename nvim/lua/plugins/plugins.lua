@@ -82,9 +82,9 @@ return {
   },
   -- Vim easy motion
   {
-    "easymotion/vim-easymotion",
+    "phaazon/hop.nvim",
     config = function()
-      require("plugins.vim-easymotion").setup()
+      require("plugins.hop").setup()
     end,
   },
   -- Vim surround
