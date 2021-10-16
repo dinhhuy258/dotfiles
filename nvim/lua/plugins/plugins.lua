@@ -135,11 +135,7 @@ return {
   { "neovim/nvim-lspconfig" },
   -- Provides the missing :LspInstall for nvim-lspconfig
   {
-    "kabouzeid/nvim-lspinstall",
-    event = "VimEnter",
-    config = function()
-      require("lspinstall").setup()
-    end,
+    "williamboman/nvim-lsp-installer",
   },
   -- Lsp signature
   {
