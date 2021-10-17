@@ -158,8 +158,20 @@ function M.setup(lang)
     return
   end
 
-  local lspconfig = require "lspconfig"
-  lspconfig[lsp.provider].setup(lsp.setup)
+  local status, lsp_installer = pcall(require, "nvim-lsp-installer")
+  if not status then
+    return
+  end
+
+  local ok, server = lsp_installer.get_server(lsp.provider)
+  if not ok then
+    return
+  end
+
+  if server:is_installed() then
+    server:setup(lsp.setup)
+    vim.cmd [[ do User LspAttachBuffers ]]
+  end
 end
 
 return M

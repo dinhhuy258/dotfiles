@@ -5,11 +5,6 @@ function M.config(common_on_attach, common_capabilities, common_on_init)
     lsp = {
       provider = "sumneko_lua",
       setup = {
-        cmd = {
-          vim.fn.stdpath "data" .. "/lspinstall/lua/sumneko-lua-language-server",
-          "-E",
-          vim.fn.stdpath "data" .. "/lspinstall/lua/main.lua",
-        },
         capabilities = common_capabilities,
         on_attach = common_on_attach,
         on_init = common_on_init,

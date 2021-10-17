@@ -5,10 +5,6 @@ function M.config(common_on_attach, _, common_on_init)
     lsp = {
       provider = "intelephense",
       setup = {
-        cmd = {
-          vim.fn.stdpath "data" .. "/lspinstall/php/node_modules/.bin/intelephense",
-          "--stdio",
-        },
         on_attach = common_on_attach,
         on_init = common_on_init,
         settings = {

@@ -5,12 +5,6 @@ function M.config(common_on_attach, common_capabilities, common_on_init)
     lsp = {
       provider = "jsonls",
       setup = {
-        cmd = {
-          "node",
-          vim.fn.stdpath "data"
-            .. "/lspinstall/json/vscode-json/json-language-features/server/dist/node/jsonServerMain.js",
-          "--stdio",
-        },
         on_attach = common_on_attach,
         on_init = common_on_init,
         capabilities = common_capabilities,
