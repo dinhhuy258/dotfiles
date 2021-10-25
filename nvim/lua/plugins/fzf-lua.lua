@@ -141,6 +141,22 @@ M.setup = function()
         ["Hint"] = { icon = "", color = "magenta" }, -- hint
       },
     },
+    grep = {
+      prompt = "Rg❯ ",
+      input_prompt = "Grep For❯ ",
+      -- cmd               = "rg --vimgrep",
+      rg_opts = "-F --hidden --column --line-number --no-heading "
+        .. "--color=always --smart-case -g '!{.git,node_modules}/*'",
+      git_icons = true, -- show git icons?
+      file_icons = true, -- show file icons?
+      color_icons = true, -- colorize file|git icons
+      -- 'true' enables file and git icons in 'live_grep'
+      -- degrades performance in large datasets, YMMV
+      experimental = false,
+      -- live_grep_glob options
+      glob_flag = "--iglob", -- for case sensitive globs use '--glob'
+      glob_separator = "%s>", -- query separator pattern (lua): ' >'
+    },
     -- placeholders for additional user customizations
     loclist = {},
     helptags = {},
@@ -149,12 +165,7 @@ M.setup = function()
 
   local utils = require "utils"
 
-  utils.set_keymap(
-    "n",
-    "<Leader>fr",
-    ":lua require('fzf-lua').live_grep({ cmd = \"vimrg\", continue_last_search = false })<CR>",
-    { noremap = true }
-  )
+  utils.set_keymap("n", "<Leader>fr", ":lua require('fzf-lua').live_grep_glob()<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>fg", ":lua require('fzf-lua').git_files()<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>fc", ":lua require('fzf-lua').git_branches()<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>fb", ":lua require('fzf-lua').buffers()<CR>", { noremap = true })
