@@ -3,11 +3,11 @@
 CWD=$(pwd)
 
 function installHomebrewCaskPackage() {
-  if brew cask list | grep $1 > /dev/null; then
+  if brew list --cask | grep $1 > /dev/null; then
     echo "$1 is already installed"
   else
     echo "Installing $1..."
-    brew cask install $1
+    brew install --cask $1
   fi
 }
 
