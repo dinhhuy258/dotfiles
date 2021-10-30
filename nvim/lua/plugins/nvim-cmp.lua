@@ -8,15 +8,14 @@ M.setup = function()
 
   local _, types = pcall(require, "cmp.types")
   local _, compare = pcall(require, "cmp.config.compare")
-  local _, keymap = pcall(require, "cmp.utils.keymap")
 
-  local check_back_space = function()
-    local col = vim.fn.col "." - 1
-    return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+  local feedkey = function(key, mode)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
   end
 
-  local t = function(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
+  local has_words_before = function()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
   end
 
   cmp.setup {
@@ -64,17 +63,19 @@ M.setup = function()
       default_behavior = types.cmp.ConfirmBehavior.Insert,
     },
     mapping = {
+      ["<CR>"] = cmp.mapping.confirm { select = true },
       ["<C-c>"] = cmp.mapping.close(),
       ["<C-Space>"] = cmp.mapping.complete(),
-      ["<Tab>"] = cmp.mapping(function(_)
+      ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
-        elseif vim.fn["vsnip#jumpable"](1) == 1 then
-          vim.fn.feedkeys(keymap.t "<Plug>(vsnip-jump-next)", "")
-        elseif check_back_space() then
-          vim.fn.feedkeys(t "<Tab>", "n")
+        elseif vim.fn["vsnip#available"](1) == 1 then
+          feedkey("<Plug>(vsnip-expand-or-jump)", "")
+        elseif has_words_before() then
+          cmp.complete()
         else
-          return t "<Tab>"
+          fallback()
+          -- return t "<Tab>"
         end
       end, {
         "i",
@@ -84,9 +85,7 @@ M.setup = function()
         if cmp.visible() then
           cmp.select_prev_item()
         elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-          vim.fn.feedkeys(keymap.t "<Plug>(vsnip-jump-prev)", "")
-        else
-          return t "<S-Tab>"
+          feedkey("<Plug>(vsnip-jump-prev)", "")
         end
       end, {
         "i",
