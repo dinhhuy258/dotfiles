@@ -220,4 +220,9 @@ return {
       require("plugins.go-tools").setup()
     end,
   },
+  -- Neovim plugin for GitHub Copilot
+  {
+    "github/copilot.vim",
+    event = "BufRead",
+  },
 }
