@@ -8,6 +8,7 @@ function M.config(common_on_attach, common_capabilities, common_on_init)
         on_attach = common_on_attach,
         on_init = common_on_init,
         capabilities = common_capabilities,
+        autostart = false,
         filetypes = { "yaml", "yml" },
         settings = {
           yaml = {
