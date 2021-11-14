@@ -5,7 +5,7 @@ function dexe() {
     return
   fi
 
-  docker exec -t $containerID sh 
+  docker exec -it $containerID sh
 }
 
 function dstop() {
@@ -15,7 +15,7 @@ function dstop() {
     return
   fi
 
-  docker stop $containerID 
+  docker stop $containerID
 }
 
 function dlogs() {
@@ -25,7 +25,7 @@ function dlogs() {
     return
   fi
 
-  docker logs -f $containerID 
+  docker logs -f $containerID
 }
 
 function drmi() {
