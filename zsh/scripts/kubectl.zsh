@@ -14,12 +14,12 @@ __pick_container() {
 }
 
 function kdes() {
+  resouce_name="$1"
   if [ -z $1 ]; then
-    echo "Please provide resource"
-    return
+    resouce_name="pod"
   fi
 
-  resource=$(kubectl get $1 --no-headers -o custom-columns=":metadata.name" | __fzfp)
+  resource=$(kubectl get $resouce_name --no-headers -o custom-columns=":metadata.name" | __fzfp)
 
   if [ -n "$resource" ]; then
     kubectl describe $1 ${resource}
@@ -27,12 +27,12 @@ function kdes() {
 }
 
 function kdel() {
+  resouce_name="$1"
   if [ -z $1 ]; then
-    echo "Please provide resource"
-    return
+    resouce_name="pod"
   fi
 
-  resource=$(kubectl get $1 --no-headers -o custom-columns=":metadata.name" | __fzfp)
+  resource=$(kubectl get $resouce_name --no-headers -o custom-columns=":metadata.name" | __fzfp)
 
   if [ -n "$resource" ]; then
     kubectl delete $1 $resource
@@ -40,12 +40,12 @@ function kdel() {
 }
 
 function klf() {
+  resouce_name="$1"
   if [ -z $1 ]; then
-    echo "Please provide resource"
-    return
+    resouce_name="pod"
   fi
 
-  resource=$(kubectl get $1 --no-headers -o custom-columns=":metadata.name" | __fzfp)
+  resource=$(kubectl get $resouce_name --no-headers -o custom-columns=":metadata.name" | __fzfp)
 
   if [ -n "$resource" ]; then
     container=$(__pick_container $resource)
