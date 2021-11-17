@@ -22,7 +22,7 @@ function kdes() {
   resource=$(kubectl get $resouce_name --no-headers -o custom-columns=":metadata.name" | __fzfp)
 
   if [ -n "$resource" ]; then
-    kubectl describe $1 ${resource}
+    kubectl describe ${resouce_name} ${resource}
   fi
 }
 
@@ -35,7 +35,7 @@ function kdel() {
   resource=$(kubectl get $resouce_name --no-headers -o custom-columns=":metadata.name" | __fzfp)
 
   if [ -n "$resource" ]; then
-    kubectl delete $1 $resource
+    kubectl delete ${resouce_name} $resource
   fi
 }
 
@@ -51,7 +51,7 @@ function klf() {
     container=$(__pick_container $resource)
 
     if [ -n "$container" ]; then
-      kubectl logs -f ${1}/${resource} -c $container
+      kubectl logs -f ${resouce_name}/${resource} -c $container
     fi
   fi
 }
