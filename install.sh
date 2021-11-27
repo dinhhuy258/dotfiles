@@ -31,6 +31,9 @@ if ! which brew >/dev/null; then
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "Installing brew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
 fi
 
@@ -112,7 +115,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   # Sync alacritty
   ln -sf $CWD/alacritty/alacritty.yml ~/.config/alacritty.yml
-  ln -sf $CWD/alacritty/alacritty-popup.yml ~/.config/alacritty-popup.yml
 
   # Sync tmux
   ln -sf $CWD/tmux/tmux.conf ~/.tmux.conf
