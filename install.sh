@@ -46,6 +46,7 @@ if which brew >/dev/null; then
     installHomebrewCaskPackage alacritty
     installHomebrewCaskPackage kitty
     installHomebrewCaskPackage karabiner-elements
+    installHomebrewCaskPackage evkey
     brew tap homebrew/cask-fonts
     installHomebrewCaskPackage font-fira-code-nerd-font
     installHomebrewPackage neovim
