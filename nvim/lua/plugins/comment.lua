@@ -61,7 +61,7 @@ M.setup = function()
   utils.set_keymap(
     "x",
     "<Leader>cl",
-    "<ESC><CMD>lua ___comment_gc(vim.fn.visualmode())<CR>",
+    "<ESC><CMD>lua require('Comment.api').gc(vim.fn.visualmode())<CR>",
     { noremap = true, silent = true }
   )
 end
