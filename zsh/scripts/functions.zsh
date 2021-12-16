@@ -4,7 +4,7 @@ function __close_all_apps() {
   apps=$(osascript -e 'tell application "System Events" to get name of (processes where background only is false)' | awk -F ', ' '{for(i=1;i<=NF;i++) printf "%s;", $i}')
   while [ "$apps" ] ;do
     app=${apps%%;*}
-    if [[ $app != 'alacritty' && $app != 'kitty' ]]
+    if [[ $app != 'alacritty' && $app != 'alacritty-popup' ]]
     then
       pkill -x echo $app
     fi

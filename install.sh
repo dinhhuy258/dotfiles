@@ -44,7 +44,6 @@ if which brew >/dev/null; then
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "Installing homebrew packages..."
     installHomebrewCaskPackage alacritty
-    installHomebrewCaskPackage kitty
     installHomebrewCaskPackage karabiner-elements
     installHomebrewCaskPackage evkey
     brew tap homebrew/cask-fonts
@@ -132,10 +131,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   # Sync lf
   rm -rf ~/.config/lf
   ln -sf $CWD/lf ~/.config/lf
-
-  # Sync kitty
-  rm -rf ~/.config/kitty
-  ln -sf $CWD/kitty ~/.config/kitty
 fi
 
 echo "All done!"
