@@ -1,0 +1,6 @@
+nvim -u NONE ~/.cmds
+ping google.com
+cal -y; read
+curl wttr.in; read
+shutdown
+reboot

@@ -131,6 +131,9 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   # Sync lf
   rm -rf ~/.config/lf
   ln -sf $CWD/lf ~/.config/lf
+
+  # Sync cmds
+  ln -sf $CWD/zsh/cmds ~/.cmds
 fi
 
 echo "All done!"
