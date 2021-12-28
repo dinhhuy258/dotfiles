@@ -52,7 +52,7 @@ local function add_lsp_buffer_keybindings(bufnr)
     opts
   )
   utils.buf_set_keymap(bufnr, "n", "<Leader>co", "<CMD>lua require('fzf-lua').lsp_document_symbols()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "<Leader>ca", "<CMD>lua require('fzf-lua').lsp_code_actions()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "<Leader>ca", "<CMD>CodeActionMenu<CR>", opts)
 
   utils.buf_set_keymap(bufnr, "n", "g[", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
   utils.buf_set_keymap(bufnr, "n", "g]", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>", opts)

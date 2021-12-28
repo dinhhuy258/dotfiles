@@ -134,9 +134,7 @@ return {
   -- LSP client
   { "neovim/nvim-lspconfig" },
   -- Provides the missing :LspInstall for nvim-lspconfig
-  {
-    "williamboman/nvim-lsp-installer",
-  },
+  { "williamboman/nvim-lsp-installer" },
   -- Lsp signature
   {
     "ray-x/lsp_signature.nvim",
@@ -145,6 +143,8 @@ return {
       require("lsp_signature").setup()
     end,
   },
+  -- Pop-up menu for code actions
+  { "weilbith/nvim-code-action-menu" },
   -- Snippet
   {
     "hrsh7th/vim-vsnip",
