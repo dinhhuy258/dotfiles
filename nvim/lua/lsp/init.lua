@@ -60,7 +60,7 @@ local function add_lsp_buffer_keybindings(bufnr)
     bufnr,
     "n",
     "gl",
-    "<CMD>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = 'single' })<CR>",
+    "<CMD>lua require('lsp').show_line_diagnostics()<CR>",
     opts
   )
 
@@ -150,6 +150,27 @@ function M.config()
 
   require("lsp.handlers").setup()
   require("lsp.clients").setup(M.common_on_attach, M.common_capabilities(), M.common_on_init)
+end
+
+function M.show_line_diagnostics()
+  local config = {
+    focusable = false,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+    scope = "line",
+    format = function(d)
+      local t = vim.deepcopy(d)
+      if d.code then
+        t.message = string.format("%s [%s]", t.message, t.code):gsub("1. ", "")
+      end
+      return t.message
+    end,
+  }
+
+  return vim.diagnostic.open_float(0, config)
 end
 
 function M.setup(lang)
