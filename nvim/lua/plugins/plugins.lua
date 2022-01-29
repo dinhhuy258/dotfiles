@@ -224,5 +224,8 @@ return {
   {
     "github/copilot.vim",
     event = "BufRead",
+    config = function()
+      require("plugins.copilot").setup()
+    end,
   },
 }
