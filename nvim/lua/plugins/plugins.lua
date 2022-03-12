@@ -177,6 +177,14 @@ return {
       require("plugins.nvim-autopairs").setup()
     end,
   },
+  -- Autopair
+  {
+    "windwp/nvim-ts-autotag",
+    event = "InsertEnter",
+    config = function()
+      require("plugins.nvim-ts-autotag").setup()
+    end,
+  },
   -- Comment
   {
     "numToStr/Comment.nvim",
