@@ -41,11 +41,9 @@ M.setup = function()
         vim.fn["vsnip#anonymous"](args.body)
       end,
     },
-    preselect = cmp.PreselectMode.Item,
-    documentation = {
-      type = cmp.DocumentationConfig,
-      border = "single",
-      winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
+    window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
     },
     sorting = {
       priority_weight = 2,
@@ -63,6 +61,10 @@ M.setup = function()
       default_behavior = types.cmp.ConfirmBehavior.Insert,
     },
     mapping = {
+      ["<C-k>"] = cmp.mapping.select_prev_item(),
+      ["<C-j>"] = cmp.mapping.select_next_item(),
+      ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<CR>"] = cmp.mapping.confirm { select = true },
       ["<C-c>"] = cmp.mapping.close(),
       ["<C-Space>"] = cmp.mapping.complete(),

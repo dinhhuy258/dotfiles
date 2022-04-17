@@ -7,7 +7,7 @@ M.setup = function()
   end
 
   treesitter_configs.setup {
-    ensure_installed = "maintained",
+    ensure_installed = "all",
     highlight = {
       enable = true,
     },
