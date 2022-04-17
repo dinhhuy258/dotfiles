@@ -61,8 +61,8 @@ M.setup = function()
       default_behavior = types.cmp.ConfirmBehavior.Insert,
     },
     mapping = {
-      ["<C-k>"] = cmp.mapping.select_prev_item(),
-      ["<C-j>"] = cmp.mapping.select_next_item(),
+      ["<up>"] = cmp.mapping.select_prev_item(),
+      ["<down>"] = cmp.mapping.select_next_item(),
       ["<C-d>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<CR>"] = cmp.mapping.confirm { select = true },
