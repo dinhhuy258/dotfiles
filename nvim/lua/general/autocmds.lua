@@ -2,13 +2,6 @@ local M = {}
 
 local default_autogroups = {
   _general_settings = {
-    -- File in ftplugin/*.lua or after/ftplugin/*.lua will now get automatically run at the correct time
-    -- TODO: Remove after neovim support this feature
-    {
-      "Filetype",
-      "*",
-      "lua require('utils.ftplugin').do_filetype(vim.fn.expand(\"<amatch>\"))",
-    },
     -- Stop newline continution of comments
     {
       "FileType",
