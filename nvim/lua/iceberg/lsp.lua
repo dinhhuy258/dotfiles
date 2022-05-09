@@ -1,4 +1,4 @@
-local gitsigns = {
+local lsp = {
   LspDiagnosticsUnderlineInformation = { fg = "#84a0c6", style = "underline" },
   LspDiagnosticsUnderlineHint = { fg = "#b4be82", style = "underline" },
   LspDiagnosticsUnderlineWarning = { fg = "#e2a478", style = "underline" },
@@ -15,4 +15,4 @@ local gitsigns = {
   LspDiagnosticsSignError = { fg = "#e27878" },
 }
 
-return gitsigns
+return lsp
