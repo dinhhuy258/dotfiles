@@ -56,13 +56,7 @@ local function add_lsp_buffer_keybindings(bufnr)
 
   utils.buf_set_keymap(bufnr, "n", "g[", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
   utils.buf_set_keymap(bufnr, "n", "g]", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
-  utils.buf_set_keymap(
-    bufnr,
-    "n",
-    "gl",
-    "<CMD>lua require('lsp').show_line_diagnostics()<CR>",
-    opts
-  )
+  utils.buf_set_keymap(bufnr, "n", "gl", "<CMD>lua require('lsp').show_line_diagnostics()<CR>", opts)
 
   if require("utilities.formatter").is_supported(vim.bo.filetype) then
     utils.buf_set_keymap(bufnr, "n", "<Leader>cf", "<CMD>lua require('utilities.formatter').format()<CR>", opts)
