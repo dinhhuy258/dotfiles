@@ -63,16 +63,13 @@ end
 
 function M.common_capabilities()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities.textDocument.completion.completionItem.resolveSupport = {
-    properties = {
-      "documentation",
-      "detail",
-      "additionalTextEdits",
-    },
-  }
 
-  return capabilities
+  local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+  if not cmp_nvim_lsp_ok then
+    return
+  end
+
+  return cmp_nvim_lsp.update_capabilities(capabilities)
 end
 
 function M.common_on_attach(_, bufnr)

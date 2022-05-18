@@ -13,8 +13,8 @@ function M.setup()
   end
 
   local servers = {
-    "clangd", -- c++
-    "tsserver", -- javascript
+    "clangd", -- c, c++
+    "tsserver", -- typescript, javascript
     "jsonls", -- json
     "sumneko_lua", -- lua
     "intelephense", -- php
