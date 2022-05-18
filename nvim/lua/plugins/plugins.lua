@@ -236,4 +236,11 @@ return {
       require("plugins.copilot").setup()
     end,
   },
+  -- Improve startup time for Neovim
+  {
+    "lewis6991/impatient.nvim",
+    config = function()
+      require("plugins.impatient").setup()
+    end,
+  },
 }
