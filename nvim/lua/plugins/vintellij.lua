@@ -6,7 +6,7 @@ function M.setup()
     return
   end
 
-  local lsp = require "lsp"
+  local handlers = require "lsp.handlers"
 
   local lib_dirs = {
     "/Users/dinhhuy258/.gradle/",
@@ -15,9 +15,9 @@ function M.setup()
 
   vintellij.setup {
     debug = true,
-    common_on_attach = lsp.common_on_attach,
-    common_capabilities = lsp.common_capabilities(),
-    common_on_init = lsp.common_on_init,
+    common_on_attach = handlers.common_on_attach,
+    common_capabilities = handlers.common_capabilities(),
+    common_on_init = handlers.common_on_init,
     lib_dirs = lib_dirs,
   }
 end
