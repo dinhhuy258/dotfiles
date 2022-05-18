@@ -33,7 +33,7 @@ local plugins = require "plugins.plugins"
 packer:load { plugins }
 
 -- Load lsp config
-require("lsp").config()
+require("lsp").setup()
 
 require("general.autocmds").define_default_autogroups()
 

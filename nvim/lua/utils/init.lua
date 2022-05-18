@@ -14,6 +14,14 @@ function table.merge(dest, src)
   return dest
 end
 
+function table.extend(dest, src)
+  for _, v in pairs(src) do
+    table.insert(dest, v)
+  end
+
+  return dest
+end
+
 function M.buf_set_keymap(buffer, mode, key, func_or_command, options)
   options = table.merge({
     noremap = true,
