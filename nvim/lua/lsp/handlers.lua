@@ -44,7 +44,13 @@ local function lsp_keybindings(bufnr)
 
   utils.buf_set_keymap(bufnr, "n", "g[", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
   utils.buf_set_keymap(bufnr, "n", "g]", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "gl", "<CMD>lua require('lsp').show_line_diagnostics()<CR>", opts)
+  utils.buf_set_keymap(
+    bufnr,
+    "n",
+    "gl",
+    "<CMD>lua vim.lsp.diagnostic.show_line_diagnostics({ border = 'rounded' })<CR>",
+    opts
+  )
 
   if require("utilities.formatter").is_supported(vim.bo.filetype) then
     utils.buf_set_keymap(bufnr, "n", "<Leader>cf", "<CMD>lua require('utilities.formatter').format()<CR>", opts)
@@ -79,27 +85,6 @@ function M.common_on_attach(_, bufnr)
     hint_enable = false,
     hi_parameter = "Underlined",
   }
-end
-
-function M.show_line_diagnostics()
-  local config = {
-    focusable = false,
-    style = "minimal",
-    border = "rounded",
-    source = "always",
-    header = "",
-    prefix = "",
-    scope = "line",
-    format = function(d)
-      local t = vim.deepcopy(d)
-      if d.code then
-        t.message = string.format("%s [%s]", t.message, t.code):gsub("1. ", "")
-      end
-      return t.message
-    end,
-  }
-
-  return vim.diagnostic.open_float(0, config)
 end
 
 function M.setup()
