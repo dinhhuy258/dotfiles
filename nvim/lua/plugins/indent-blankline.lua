@@ -14,6 +14,8 @@ M.setup = function()
     filetype_exclude = {
       "help",
       "terminal",
+      "startify",
+      "NvimTree",
     },
     buftype_exclude = {
       "terminal",
