@@ -8,6 +8,8 @@ M.setup = function()
 
   local _, types = pcall(require, "cmp.types")
   local _, compare = pcall(require, "cmp.config.compare")
+  local _, feedkeys = pcall(require, "cmp.utils.feedkeys")
+  local _, keymap = pcall(require, "cmp.utils.keymap")
 
   local feedkey = function(key, mode)
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
@@ -19,14 +21,52 @@ M.setup = function()
   end
 
   cmp.setup.cmdline("/", {
-    mapping = cmp.mapping.preset.cmdline(),
+    mapping = cmp.mapping.preset.cmdline {
+      ["<down>"] = {
+        c = function()
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            feedkeys.call(keymap.t "<C-z>", "n")
+          end
+        end,
+      },
+      ["<up>"] = {
+        c = function()
+          if cmp.visible() then
+            cmp.select_prev_item()
+          else
+            feedkeys.call(keymap.t "<C-z>", "n")
+          end
+        end,
+      },
+    },
     sources = {
       { name = "buffer" },
     },
   })
 
   cmp.setup.cmdline(":", {
-    mapping = cmp.mapping.preset.cmdline(),
+    mapping = cmp.mapping.preset.cmdline {
+      ["<down>"] = {
+        c = function()
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            feedkeys.call(keymap.t "<C-z>", "n")
+          end
+        end,
+      },
+      ["<up>"] = {
+        c = function()
+          if cmp.visible() then
+            cmp.select_prev_item()
+          else
+            feedkeys.call(keymap.t "<C-z>", "n")
+          end
+        end,
+      },
+    },
     sources = cmp.config.sources({
       { name = "path" },
     }, {
