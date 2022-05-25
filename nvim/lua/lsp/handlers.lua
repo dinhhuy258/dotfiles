@@ -59,10 +59,20 @@ local function lsp_keybindings(bufnr)
   end
   utils.buf_set_keymap(bufnr, "n", "<Leader>cr", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
   utils.buf_set_keymap(bufnr, "n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
+
+  if vim.bo.filetype == "go" then
+    utils.buf_set_keymap(
+      bufnr,
+      "n",
+      "<Leader>cf",
+      "<CMD>lua require('go-tools.format').format()<CR>",
+      { noremap = true, silent = true }
+    )
+  end
 end
 
 function M.common_on_init(client, _)
-  if require("utilities.formatter").is_supported(vim.bo.filetype) then
+  if require("utilities.formatter").is_supported(vim.bo.filetype) or vim.bo.filetype == "go" then
     client.resolved_capabilities.document_formatting = false
   end
 end
