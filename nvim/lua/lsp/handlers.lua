@@ -42,15 +42,21 @@ local function lsp_keybindings(bufnr)
   utils.buf_set_keymap(bufnr, "n", "<Leader>co", "<CMD>lua require('fzf-lua').lsp_document_symbols()<CR>", opts)
   utils.buf_set_keymap(bufnr, "n", "<Leader>ca", "<CMD>CodeActionMenu<CR>", opts)
 
-  utils.buf_set_keymap(bufnr, "n", "g[", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
-  utils.buf_set_keymap(bufnr, "n", "g]", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
   utils.buf_set_keymap(
     bufnr,
     "n",
-    "gl",
-    "<CMD>lua vim.lsp.diagnostic.show_line_diagnostics({ border = 'rounded' })<CR>",
+    "g[",
+    "<CMD>lua vim.diagnostic.goto_prev({ float = { border = 'rounded' } })<CR>",
     opts
   )
+  utils.buf_set_keymap(
+    bufnr,
+    "n",
+    "g]",
+    "<CMD>lua vim.diagnostic.goto_next({ float = { border = 'rounded' } })<CR>",
+    opts
+  )
+  utils.buf_set_keymap(bufnr, "n", "gl", "<CMD>lua vim.diagnostic.open_float({ border = 'rounded' })<CR>", opts)
 
   if require("utilities.formatter").is_supported(vim.bo.filetype) then
     utils.buf_set_keymap(bufnr, "n", "<Leader>cf", "<CMD>lua require('utilities.formatter').format()<CR>", opts)
@@ -154,9 +160,9 @@ function M.setup()
     border = "rounded",
   })
 
-  -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  --   border = "rounded",
-  -- })
+  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    border = "rounded",
+  })
 
   vim.lsp.protocol.CompletionItemKind = {
     "   (Text) ",
