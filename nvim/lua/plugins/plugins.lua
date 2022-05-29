@@ -60,7 +60,7 @@ return {
   { "nvim-treesitter/nvim-treesitter-textobjects" },
   -- Adds file type icons to Vim plugins such as: nvim-tree.lua, galaxyline.nvim, vim-startify...
   { "kyazdani42/nvim-web-devicons" },
-  -- gitsigns depend on this library
+  -- gitsigns, telescope depend on this library
   { "nvim-lua/plenary.nvim" },
   -- Fzf
   {
@@ -70,6 +70,13 @@ return {
     },
     config = function()
       require("plugins.fzf-lua").setup()
+    end,
+  },
+  -- Telescope
+  {
+    "nvim-telescope/telescope.nvim",
+    config = function()
+      require("plugins.telescope").setup()
     end,
   },
   -- Show git diff in the sign column
