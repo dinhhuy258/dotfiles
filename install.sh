@@ -56,7 +56,6 @@ if which brew >/dev/null; then
     installHomebrewPackage node
     installHomebrewPackage lazygit
     installHomebrewPackage urlview
-    installHomebrewPackage lf
     installHomebrewPackage tldr
     installHomebrewPackage pass
 
@@ -127,10 +126,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   # Sync karabiner config
   mkdir -p ~/.config/karabiner
   ln -sf $CWD/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
-
-  # Sync lf
-  rm -rf ~/.config/lf
-  ln -sf $CWD/lf ~/.config/lf
 
   # Sync cmds
   ln -sf $CWD/zsh/cmds ~/.cmds
