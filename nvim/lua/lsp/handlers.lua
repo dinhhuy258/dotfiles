@@ -39,7 +39,6 @@ local function lsp_keybindings(bufnr)
     "<CMD>lua require('fzf-lua').lsp_typedefs({ jump_to_single_result = true })<CR>",
     opts
   )
-  utils.buf_set_keymap(bufnr, "n", "<Leader>co", "<CMD>lua require('fzf-lua').lsp_document_symbols()<CR>", opts)
   utils.buf_set_keymap(bufnr, "n", "<Leader>ca", "<CMD>CodeActionMenu<CR>", opts)
 
   utils.buf_set_keymap(
