@@ -53,7 +53,6 @@ function M.setup()
     vim.opt[k] = v
   end
 
-  vim.cmd "colorscheme iceberg"
   vim.cmd "set shortmess+=c"
   vim.cmd "set iskeyword+=-" -- Treat dash separated words as a word text object
 end

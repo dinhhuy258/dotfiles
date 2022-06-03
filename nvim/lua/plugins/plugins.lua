@@ -1,6 +1,10 @@
 return {
   -- Packer can manage itself as an optional plugin
   { "wbthomason/packer.nvim" },
+  -- Colorscheme
+  {
+    "folke/tokyonight.nvim",
+  },
   -- Intellij as language server
   {
     "dinhhuy258/vintellij",

@@ -38,5 +38,6 @@ require("lsp").setup()
 require("general.autocmds").define_default_autogroups()
 
 require("general.options").setup()
+require("general.colorschema").setup()
 require("general.mappings").setup()
 require("general.commands").setup()
