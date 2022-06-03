@@ -20,6 +20,7 @@ local function barbarColorschema()
   highlight("BufferCurrent", { bg = "NONE" })
   highlight("BufferCurrentIndex", { bg = "NONE" })
   highlight("BufferCurrentSign", { bg = "NONE" })
+  highlight("BufferCurrentMod", { bg = "NONE" })
   highlight("BufferTabpageFill", { fg = "#c0caf5", bg = "NONE" })
 end
 
