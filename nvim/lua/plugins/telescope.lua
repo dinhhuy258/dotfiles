@@ -80,6 +80,7 @@ M.setup = function()
   utils.set_keymap("n", "<Leader>fc", ":lua require('telescope.builtin').git_branches()<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>fb", ":lua require('telescope.builtin').buffers()<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>ft", ":lua require('telescope.builtin').treesitter()<CR>", { noremap = true })
+  utils.set_keymap("n", "<Leader>fh", ":lua require('telescope.builtin').command_history()<CR>", { noremap = true })
 end
 
 return M
