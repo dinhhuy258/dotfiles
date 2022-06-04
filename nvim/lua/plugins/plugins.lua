@@ -118,10 +118,10 @@ return {
   },
   -- Tabline plugin
   {
-    "romgrk/barbar.nvim",
+    "akinsho/bufferline.nvim",
     event = "BufWinEnter",
     config = function()
-      require("plugins.barbar").setup()
+      require("plugins.bufferline").setup()
     end,
   },
   -- The fancy start screen

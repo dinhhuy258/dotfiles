@@ -16,14 +16,6 @@ local function highlight(group, properties)
   vim.api.nvim_command(cmd)
 end
 
-local function barbarColorschema()
-  highlight("BufferCurrent", { bg = "NONE" })
-  highlight("BufferCurrentIndex", { bg = "NONE" })
-  highlight("BufferCurrentSign", { bg = "NONE" })
-  highlight("BufferCurrentMod", { bg = "NONE" })
-  highlight("BufferTabpageFill", { fg = "#c0caf5", bg = "NONE" })
-end
-
 local function basicColorschema()
   highlight("CursorLine", { bg = "NONE" })
 end
@@ -34,7 +26,6 @@ function M.setup()
   vim.cmd [[colorscheme tokyonight]]
 
   basicColorschema()
-  barbarColorschema()
 end
 
 return M
