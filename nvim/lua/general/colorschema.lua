@@ -16,8 +16,14 @@ local function highlight(group, properties)
   vim.api.nvim_command(cmd)
 end
 
-local function basicColorschema()
+local function basicHighlights()
   highlight("CursorLine", { bg = "NONE" })
+  highlight("StatusLine", { bg = "NONE" })
+  highlight("StatusLineNC", { bg = "NONE" })
+end
+
+local function bufferLineHighlights()
+  highlight("BufferLineFill", { bg = "NONE" })
 end
 
 function M.setup()
@@ -25,7 +31,8 @@ function M.setup()
   vim.g.tokyonight_transparent = true
   vim.cmd [[colorscheme tokyonight]]
 
-  basicColorschema()
+  basicHighlights()
+  bufferLineHighlights()
 end
 
 return M
