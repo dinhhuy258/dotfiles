@@ -165,9 +165,7 @@ M.setup = function()
 
   local utils = require "utils"
 
-  utils.set_keymap("n", "<Leader>fr", ":lua require('fzf-lua').live_grep_glob()<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>fe", ":lua require('fzf-lua').oldfiles()<CR>", { noremap = true })
-  utils.set_keymap("n", "<Leader>ff", ":lua require('fzf-lua').files()<CR>", { noremap = true })
 end
 
 return M

@@ -76,6 +76,11 @@ return {
       require("plugins.fzf-lua").setup()
     end,
   },
+  -- FZF sorter for telescope written in c
+  {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'make',
+  },
   -- Telescope
   {
     "nvim-telescope/telescope.nvim",
