@@ -8,6 +8,7 @@ M.setup = function()
   local actions = require "telescope.actions"
 
   telescope.load_extension "fzf"
+  telescope.load_extension "ui-select"
 
   telescope.setup {
     defaults = {
@@ -98,6 +99,7 @@ M.setup = function()
         override_file_sorter = true, -- override the file sorter
         case_mode = "smart_case", -- or "ignore_case" or "respect_case"
       },
+      ["ui-select"] = {},
     },
   }
 

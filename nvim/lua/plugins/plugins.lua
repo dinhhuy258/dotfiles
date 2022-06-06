@@ -81,6 +81,10 @@ return {
     'nvim-telescope/telescope-fzf-native.nvim',
     run = 'make',
   },
+  -- Sets vim.ui.select to telescope
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+  },
   -- Telescope
   {
     "nvim-telescope/telescope.nvim",
@@ -159,8 +163,6 @@ return {
       require("lsp_signature").setup()
     end,
   },
-  -- Pop-up menu for code actions
-  { "weilbith/nvim-code-action-menu" },
   -- Snippet
   {
     "hrsh7th/vim-vsnip",
