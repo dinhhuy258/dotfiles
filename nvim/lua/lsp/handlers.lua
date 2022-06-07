@@ -8,35 +8,28 @@ local function lsp_keybindings(bufnr)
     bufnr,
     "n",
     "gd",
-    "<CMD>lua require('fzf-lua').lsp_definitions({ jump_to_single_result = true })<CR>",
-    opts
-  )
-  utils.buf_set_keymap(
-    bufnr,
-    "n",
-    "gD",
-    "<CMD>lua require('fzf-lua').lsp_declarations({ jump_to_single_result = true })<CR>",
+    "<CMD>lua require('telescope.builtin').lsp_definitions()<CR>",
     opts
   )
   utils.buf_set_keymap(
     bufnr,
     "n",
     "gr",
-    "<CMD>lua require('fzf-lua').lsp_references({ jump_to_single_result = true })<CR>",
+    "<CMD>lua require('telescope.builtin').lsp_references()<CR>",
     opts
   )
   utils.buf_set_keymap(
     bufnr,
     "n",
     "gi",
-    "<CMD>lua require('fzf-lua').lsp_implementations({ jump_to_single_result = true })<CR>",
+    "<CMD>lua require('telescope.builtin').lsp_implementations()<CR>",
     opts
   )
   utils.buf_set_keymap(
     bufnr,
     "n",
     "gy",
-    "<CMD>lua require('fzf-lua').lsp_typedefs({ jump_to_single_result = true })<CR>",
+    "<CMD>lua require('telescope.builtin').lsp_type_definitions()<CR>",
     opts
   )
   utils.buf_set_keymap(bufnr, "n", "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
