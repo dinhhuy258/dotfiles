@@ -30,6 +30,7 @@ M.setup = function()
       },
       mappings = {
         i = {
+          ["<esc>"] = actions.close,
           ["<C-c>"] = actions.close,
 
           ["<CR>"] = actions.select_default,
@@ -48,27 +49,6 @@ M.setup = function()
           ["<C-d>"] = actions.preview_scrolling_down,
 
           ["<C-?>"] = actions.which_key,
-        },
-
-        n = {
-          ["<esc>"] = actions.close,
-          ["<C-c>"] = actions.close,
-
-          ["<CR>"] = actions.select_default,
-          ["<C-h>"] = actions.select_horizontal,
-          ["<C-v>"] = actions.select_vertical,
-
-          ["j"] = actions.move_selection_next,
-          ["<Down>"] = actions.move_selection_next,
-          ["k"] = actions.move_selection_previous,
-          ["<Up>"] = actions.move_selection_previous,
-          ["gg"] = actions.move_to_top,
-          ["G"] = actions.move_to_bottom,
-
-          ["<C-u>"] = actions.preview_scrolling_up,
-          ["<C-d>"] = actions.preview_scrolling_down,
-
-          ["?"] = actions.which_key,
         },
       },
     },
@@ -112,6 +92,7 @@ M.setup = function()
   utils.set_keymap("n", "<Leader>fh", ":lua require('telescope.builtin').command_history()<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>ff", ":lua require('telescope.builtin').find_files()<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>fr", ":lua require('telescope.builtin').live_grep()<CR>", { noremap = true })
+  utils.set_keymap("n", "<Leader>f.", ":lua require('telescope.builtin').resume()<CR>", { noremap = true })
 end
 
 return M
