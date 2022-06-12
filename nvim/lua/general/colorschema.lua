@@ -22,8 +22,20 @@ local function basicHighlights()
   highlight("StatusLineNC", { bg = "NONE" })
 end
 
-local function bufferLineHighlights()
-  highlight("BufferLineFill", { bg = "NONE" })
+local function barbarHighlights()
+  highlight("BufferCurrent", { bg = "NONE" })
+  highlight("BufferCurrentIndex", { bg = "NONE" })
+  highlight("BufferCurrentMod", { bg = "NONE" })
+  highlight("BufferCurrentSign", { bg = "NONE" })
+  highlight("BufferCurrentTarget", { bg = "NONE" })
+
+  highlight("BufferInactive", { bg = "NONE" })
+  highlight("BufferInactiveIndex", { bg = "NONE" })
+  highlight("BufferInactiveMod", { bg = "NONE" })
+  highlight("BufferInactiveSign", { bg = "NONE" })
+  highlight("BufferInactiveTarget", { bg = "NONE" })
+
+  highlight("BufferTabpageFill", { fg = "#a9b1d6" })
 end
 
 function M.setup()
@@ -32,7 +44,7 @@ function M.setup()
   vim.cmd [[colorscheme tokyonight]]
 
   basicHighlights()
-  bufferLineHighlights()
+  barbarHighlights()
 end
 
 return M
