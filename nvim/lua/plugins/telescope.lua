@@ -7,7 +7,6 @@ M.setup = function()
 
   local actions = require "telescope.actions"
 
-  telescope.load_extension "fzf"
   telescope.load_extension "ui-select"
 
   telescope.setup {
@@ -73,12 +72,6 @@ M.setup = function()
       },
     },
     extensions = {
-      fzf = {
-        fuzzy = true, -- false will only do exact matching
-        override_generic_sorter = true, -- override the generic sorter
-        override_file_sorter = true, -- override the file sorter
-        case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-      },
       ["ui-select"] = {},
     },
   }
@@ -90,9 +83,6 @@ M.setup = function()
   utils.set_keymap("n", "<Leader>fb", ":lua require('telescope.builtin').buffers()<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>ft", ":lua require('telescope.builtin').treesitter()<CR>", { noremap = true })
   utils.set_keymap("n", "<Leader>fh", ":lua require('telescope.builtin').command_history()<CR>", { noremap = true })
-  utils.set_keymap("n", "<Leader>ff", ":lua require('telescope.builtin').find_files()<CR>", { noremap = true })
-  utils.set_keymap("n", "<Leader>fr", ":lua require('telescope.builtin').live_grep()<CR>", { noremap = true })
-  utils.set_keymap("n", "<Leader>f.", ":lua require('telescope.builtin').resume()<CR>", { noremap = true })
 end
 
 return M

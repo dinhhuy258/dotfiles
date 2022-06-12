@@ -66,10 +66,15 @@ return {
   { "kyazdani42/nvim-web-devicons" },
   -- gitsigns, telescope depend on this library
   { "nvim-lua/plenary.nvim" },
-  -- FZF sorter for telescope written in c
+  -- Fzf
   {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'make',
+    "ibhagwan/fzf-lua",
+    requires = {
+      { "vijaymarupudi/nvim-fzf" },
+    },
+    config = function()
+      require("plugins.fzf-lua").setup()
+    end,
   },
   -- Sets vim.ui.select to telescope
   {

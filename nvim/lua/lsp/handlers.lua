@@ -4,34 +4,10 @@ local M = {}
 local function lsp_keybindings(bufnr)
   local opts = { noremap = true, silent = true }
 
-  utils.buf_set_keymap(
-    bufnr,
-    "n",
-    "gd",
-    "<CMD>lua require('telescope.builtin').lsp_definitions()<CR>",
-    opts
-  )
-  utils.buf_set_keymap(
-    bufnr,
-    "n",
-    "gr",
-    "<CMD>lua require('telescope.builtin').lsp_references()<CR>",
-    opts
-  )
-  utils.buf_set_keymap(
-    bufnr,
-    "n",
-    "gi",
-    "<CMD>lua require('telescope.builtin').lsp_implementations()<CR>",
-    opts
-  )
-  utils.buf_set_keymap(
-    bufnr,
-    "n",
-    "gy",
-    "<CMD>lua require('telescope.builtin').lsp_type_definitions()<CR>",
-    opts
-  )
+  utils.buf_set_keymap(bufnr, "n", "gd", "<CMD>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "gr", "<CMD>lua require('telescope.builtin').lsp_references()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "gi", "<CMD>lua require('telescope.builtin').lsp_implementations()<CR>", opts)
+  utils.buf_set_keymap(bufnr, "n", "gy", "<CMD>lua require('telescope.builtin').lsp_type_definitions()<CR>", opts)
   utils.buf_set_keymap(bufnr, "n", "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
 
   utils.buf_set_keymap(
