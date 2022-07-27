@@ -256,4 +256,12 @@ return {
       require("plugins.impatient").setup()
     end,
   },
+  -- Docs generation
+  {
+    "danymat/neogen",
+    requires = "nvim-treesitter/nvim-treesitter",
+    config = function()
+        require('neogen').setup {}
+    end,
+  },
 }
