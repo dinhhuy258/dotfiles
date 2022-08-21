@@ -8,50 +8,47 @@ M.setup = function()
 
   comment.setup {
     ---Add a space b/w comment and the line
-    ---@type boolean
     padding = true,
-
-    ---Lines to be ignored while comment/uncomment.
-    ---Could be a regex string or a function that returns a regex string.
-    ---Example: Use '^$' to ignore empty lines
-    ---@type string|function
-    ignore = nil,
-
-    ---Whether to create basic (operator-pending) and extra mappings for NORMAL/VISUAL mode
-    ---@type table
-    mappings = {
-      ---operator-pending mapping
-      ---Includes `gcc`, `gcb`, `gc[count]{motion}` and `gb[count]{motion}`
-      basic = true,
-      ---extended mapping
-      ---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
-      extra = false,
-    },
-
-    ---LHS of line and block comment toggle mapping in NORMAL/VISUAL mode
-    ---@type table
+    ---Whether the cursor should stay at its position
+    sticky = true,
+    ---Lines to be ignored while (un)comment
+    ignore = "^$",
+    ---LHS of toggle mappings in NORMAL mode
     toggler = {
-      ---line-comment toggle
+      ---Line-comment toggle keymap
       line = "gcc",
-      ---block-comment toggle
+      ---Block-comment toggle keymap
       block = "gbc",
     },
-
-    -- -LHS of line and block comment operator-mode mapping in NORMAL/VISUAL mode
-    ---@type table
+    ---LHS of operator-pending mappings in NORMAL and VISUAL mode
     opleader = {
-      ---line-comment opfunc mapping
+      ---Line-comment keymap
       line = "gc",
-      ---block-comment opfunc mapping
+      ---Block-comment keymap
       block = "gb",
     },
-
-    ---Pre-hook, called before commenting the line
-    ---@type function|nil
+    ---LHS of extra mappings
+    extra = {
+      ---Add comment on the line above
+      above = "gcO",
+      ---Add comment on the line below
+      below = "gco",
+      ---Add comment at the end of line
+      eol = "gcA",
+    },
+    ---Enable keybindings
+    ---NOTE: If given `false` then the plugin won't create any mappings
+    mappings = {
+      ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
+      basic = true,
+      ---Extra mapping; `gco`, `gcO`, `gcA`
+      extra = true,
+      ---Extended mapping; `g>` `g<` `g>[count]{motion}` `g<[count]{motion}`
+      extended = false,
+    },
+    ---Function to call before (un)comment
     pre_hook = nil,
-
-    ---Post-hook, called after commenting is done
-    ---@type function|nil
+    ---Function to call after (un)comment
     post_hook = nil,
   }
 
@@ -60,13 +57,13 @@ M.setup = function()
   utils.set_keymap(
     "n",
     "<Leader>cl",
-    "<CMD>lua require('Comment.api').toggle_current_linewise()<CR>",
+    "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>",
     { noremap = true, silent = true }
   )
   utils.set_keymap(
     "x",
     "<Leader>cl",
-    "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
+    "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
     { noremap = true, silent = true }
   )
 end
