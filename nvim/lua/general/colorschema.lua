@@ -39,8 +39,16 @@ local function barbarHighlights()
 end
 
 function M.setup()
-  vim.g.tokyonight_style = "night"
-  vim.g.tokyonight_transparent = true
+  local status_ok, tokyonight = pcall(require, "tokyonight")
+  if not status_ok then
+    return
+  end
+
+  tokyonight.setup {
+    style = "night",
+    transparent = false,
+  }
+
   vim.cmd [[colorscheme tokyonight]]
 
   basicHighlights()
