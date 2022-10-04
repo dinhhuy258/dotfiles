@@ -47,7 +47,7 @@ end
 
 function M.common_on_init(client, _)
   if require("utilities.formatter").is_supported(vim.bo.filetype) or vim.bo.filetype == "go" then
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
   end
 end
 
