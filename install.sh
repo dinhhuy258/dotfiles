@@ -58,6 +58,7 @@ if which brew >/dev/null; then
     installHomebrewPackage urlview
     installHomebrewPackage tldr
     installHomebrewPackage pass
+    installHomebrewPackage derailed/k9s/k9s
 
     # Greeting message
     installHomebrewPackage cowsay
