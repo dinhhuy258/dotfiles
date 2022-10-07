@@ -82,14 +82,19 @@ M.setup = function()
       keyword_length = 1,
     },
     formatting = {
-      format = function(entry, vim_item)
-        vim_item.menu = ({
+      format = function(entry, item)
+        local menu_map = {
           vsnip = "[Vsnip]",
           nvim_lsp = "[LSP]",
+          nvim_lua = '[API]',
           buffer = "[Buffer]",
           path = "[Path]",
-        })[entry.source.name]
-        return vim_item
+        }
+
+        item.menu = menu_map[entry.source.name] or string.format('[%s]', entry.source.name)
+        item.kind = vim.lsp.protocol.CompletionItemKind[item.kind]
+
+        return item
       end,
     },
     snippet = {
@@ -157,10 +162,6 @@ M.setup = function()
       { name = "path" },
     },
   }
-
-  for index, value in ipairs(vim.lsp.protocol.CompletionItemKind) do
-    cmp.lsp.CompletionItemKind[index] = value
-  end
 end
 
 return M
