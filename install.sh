@@ -45,7 +45,7 @@ if which brew >/dev/null; then
     echo "Installing homebrew packages..."
     installHomebrewCaskPackage alacritty
     installHomebrewCaskPackage karabiner-elements
-    installHomebrewCaskPackage evkey
+    installHomebrewCaskPackage maccy
     brew tap homebrew/cask-fonts
     installHomebrewCaskPackage font-fira-code-nerd-font
     installHomebrewPackage neovim
