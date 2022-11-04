@@ -58,7 +58,10 @@ if which brew >/dev/null; then
     installHomebrewPackage urlview
     installHomebrewPackage tldr
     installHomebrewPackage pass
+    installHomebrewPackage jq
     installHomebrewPackage derailed/k9s/k9s
+    installHomebrewPackage koekeishiya/formulae/skhd
+    installHomebrewPackage koekeishiya/formulae/yabai
 
     # Greeting message
     installHomebrewPackage cowsay
@@ -88,21 +91,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi;
 
-read -p "Install skhd? (y/n) " -n 1;
-echo "";
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  if brew list | grep skhd > /dev/null; then
-    echo "skhd is already installed"
-  else
-    echo "Installing skhd..."
-    brew install koekeishiya/formulae/skhd
-    brew services start skhd
-  fi
-
-  # Sync skhd config
-  ln -sf $CWD/skhd/skhdrc ~/.skhdrc
-fi
-
 # Sync folders
 read -p "Sync folders? (y/n) " -n 1;
 echo "";
@@ -128,9 +116,20 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   mkdir -p ~/.config/karabiner
   ln -sf $CWD/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 
+  # Sync yabai config
+  mkdir -p ~/.config/yabai
+  ln -sf $CWD/yabai/yabairc ~/.config/yabai/yabairc
+
+  # Sync skhd config
+  mkdir -p ~/.config/skhd
+  ln -sf $CWD/skhd/skhdrc ~/.config/skhd/skhdrc
+
   # Sync cmds
   ln -sf $CWD/zsh/cmds ~/.cmds
 fi
+
+# brew services start skhd
+# brew services start yabai
 
 echo "All done!"
 

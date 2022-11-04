@@ -1,6 +1,8 @@
-nvim -u NONE ~/.cmds
-ping google.com
+launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+skhd --reload
 cal -y; read
+ping google.com
+nvim -u NONE ~/.cmds
 curl wttr.in; read
 shutdown
 reboot
