@@ -46,6 +46,7 @@ if which brew >/dev/null; then
     installHomebrewCaskPackage alacritty
     installHomebrewCaskPackage karabiner-elements
     installHomebrewCaskPackage maccy
+    installHomebrewCaskPackage hammerspoon
     brew tap homebrew/cask-fonts
     installHomebrewCaskPackage font-fira-code-nerd-font
     installHomebrewPackage neovim
@@ -62,6 +63,7 @@ if which brew >/dev/null; then
     installHomebrewPackage derailed/k9s/k9s
     installHomebrewPackage koekeishiya/formulae/skhd
     installHomebrewPackage koekeishiya/formulae/yabai
+    # Install stackline for yabai in https://github.com/AdamWagner/stackline
 
     # Greeting message
     installHomebrewPackage cowsay

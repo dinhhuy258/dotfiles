@@ -5,5 +5,25 @@ cmd + ctrl - f : open -a AlacrittyPopup --args --config-file=$HOME/.config/alacr
 cmd + ctrl - p : open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fpass"
 cmd + ctrl - j : open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "k9s"
 
-## toggle window fullscreen zoom
-ctrl + shift - f : yabai -m window --toggle zoom-fullscreen
+# focus window
+ctrl + alt - h : yabai -m window --focus west
+ctrl + alt - j : yabai -m window --focus south
+ctrl + alt - k : yabai -m window --focus north
+ctrl + alt - l : yabai -m window --focus east
+
+# float / unfloat window and center on screen
+ctrl + alt - t : yabai -m window --toggle float;\
+          yabai -m window --grid 4:4:1:1:2:2
+
+# rotate window tree
+ctrl + alt - r : yabai -m space --rotate 90
+
+# toggle window fullscreen zoom
+ctrl + alt - f : yabai -m window --toggle zoom-fullscreen
+
+# kill window
+ctrl + alt + shift - k : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
+
+# stack window
+ctrl + alt - s : yabai -m window --stack next
+ctrl + alt + shift - s : yabai -m space --layout $( [ "$(yabai -m query --spaces --space | jq -re .type)" = 'bsp' ] && echo 'stack' || echo 'bsp' )
