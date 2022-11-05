@@ -26,4 +26,4 @@ ctrl + alt + shift - k : $(yabai -m window $(yabai -m query --windows --window |
 
 # stack window
 ctrl + alt - s : yabai -m window --stack next
-ctrl + alt + shift - s : yabai -m space --layout $( [ "$(yabai -m query --spaces --space | jq -re .type)" = 'bsp' ] && echo 'stack' || echo 'bsp' )
+ctrl + alt + shift - s : /Users/dinhhuy258/Workspace/dotfiles/yabai/scripts/toggle_stack.sh
