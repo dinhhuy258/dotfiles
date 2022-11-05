@@ -35,7 +35,9 @@ yabai -m rule --add app="^Skype$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Zalo$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Slack$" sticky=on layer=above manage=off
 
-yabai -m rule --add title='^Archive Utility$' manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Dictionary$" manage=off
+yabai -m rule --add app="^Archive Utility$" manage=off
 yabai -m rule --add app="^Calendar$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^iTerm2$" manage=off

@@ -21,9 +21,25 @@ ctrl + alt - r : yabai -m space --rotate 90
 # toggle window fullscreen zoom
 ctrl + alt - f : yabai -m window --toggle zoom-fullscreen
 
-# kill window
-ctrl + alt + shift - k : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
-
 # stack window
 ctrl + alt - s : yabai -m window --stack next
 ctrl + alt + shift - s : /Users/dinhhuy258/Workspace/dotfiles/yabai/scripts/toggle_stack.sh
+
+# equalize size of windows
+ctrl + shift + alt - e : yabai -m space --balance
+
+# resize windows
+ctrl + shift + alt - h : yabai -m window --resize left:-50:0; \
+                         yabai -m window --resize right:-50:0
+ctrl + shift + alt - j : yabai -m window --resize bottom:0:50; \
+                         yabai -m window --resize top:0:50
+ctrl + shift + alt - k : yabai -m window --resize bottom:0:-50; \
+                         yabai -m window --resize top:0:-50
+ctrl + shift + alt - l : yabai -m window --resize right:50:0; \
+                         yabai -m window --resize left:50:0
+
+# kill window
+ctrl + alt + shift - return : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
+
+# reload yabai
+ctrl + shift + alt - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
