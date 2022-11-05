@@ -10,7 +10,6 @@
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
-## Change how yabai looks
 yabai -m config layout bsp
 yabai -m config top_padding 2
 yabai -m config bottom_padding 2
@@ -43,5 +42,7 @@ yabai -m rule --add app="^iTerm2$" manage=off
 yabai -m rule --add app="^Docker Desktop$" manage=off
 yabai -m rule --add app="^zoom.us$" manage=off
 yabai -m rule --add app="^Music$" manage=off
+
+yabai -m signal --add event=window_destroyed action="bash /Users/dinhhuy258/Workspace/dotfiles/yabai/scripts/window_focus_on_destroy.sh"
 
 echo "yabai configuration loaded.."
