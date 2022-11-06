@@ -41,6 +41,19 @@ function fapp() {
   open -a $app
 }
 
+# Focus application
+function fopen() {
+  select_app=$(osascript -e 'tell application "System Events" to get name of (processes where background only is false)' | awk -F ', ' '{for(i=1;i<=NF;i++) printf "%s\n", $i}'  | fzf)
+  if [ -n "$select_app" ]; then
+    # find solution to handle this case
+    if [[ "$select_app" = "VisualStudio" ]]; then
+      select_app="Visual Studio"
+    fi
+
+    open -a "${select_app}"
+  fi
+}
+
 # Close application
 function fkill() {
   select_app=$(osascript -e 'tell application "System Events" to get name of (processes where background only is false)' | awk -F ', ' '{for(i=1;i<=NF;i++) printf "%s\n", $i}'  | fzf)
