@@ -17,7 +17,6 @@ yabai -m config left_padding 2
 yabai -m config right_padding 2
 yabai -m config window_gap 1
 
-yabai -m config mouse_follows_focus          on 
 yabai -m config window_border                on 
 yabai -m config window_border_width          4
 yabai -m config active_window_border_color   0xff9ece6a
@@ -44,6 +43,8 @@ yabai -m rule --add app="^iTerm2$" manage=off
 yabai -m rule --add app="^Docker Desktop$" manage=off
 yabai -m rule --add app="^zoom.us$" manage=off
 yabai -m rule --add app="^Music$" manage=off
+yabai -m rule --add app="^IntelliJ IDEA$" manage=off
+yabai -m rule --add app="^IntelliJ IDEA$" title="( – )" manage=on
 
 yabai -m signal --add event=window_destroyed action="bash /Users/dinhhuy258/Workspace/dotfiles/yabai/scripts/window_focus_on_destroy.sh"
 
