@@ -45,8 +45,7 @@ if which brew >/dev/null; then
     echo "Installing homebrew packages..."
     installHomebrewCaskPackage alacritty
     installHomebrewCaskPackage karabiner-elements
-    installHomebrewCaskPackage maccy
-    installHomebrewCaskPackage hammerspoon
+    nstallHomebrewCaskPackage raycast
     brew tap homebrew/cask-fonts
     installHomebrewCaskPackage font-fira-code-nerd-font
     installHomebrewPackage neovim
@@ -60,10 +59,10 @@ if which brew >/dev/null; then
     installHomebrewPackage tldr
     installHomebrewPackage pass
     installHomebrewPackage jq
+    installHomebrewPackage lnav
     installHomebrewPackage derailed/k9s/k9s
     installHomebrewPackage koekeishiya/formulae/skhd
     installHomebrewPackage koekeishiya/formulae/yabai
-    # Install stackline for yabai in https://github.com/AdamWagner/stackline
 
     # Greeting message
     installHomebrewPackage cowsay
