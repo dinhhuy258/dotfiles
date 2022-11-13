@@ -31,9 +31,6 @@ if ! which brew >/dev/null; then
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "Installing brew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
-    eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
 fi
 
@@ -60,6 +57,7 @@ if which brew >/dev/null; then
     installHomebrewPackage pass
     installHomebrewPackage jq
     installHomebrewPackage lnav
+    installHomebrewPackage go
     installHomebrewPackage derailed/k9s/k9s
     installHomebrewPackage koekeishiya/formulae/skhd
     installHomebrewPackage koekeishiya/formulae/yabai
@@ -131,6 +129,8 @@ fi
 
 # brew services start skhd
 # brew services start yabai
+
+# go install github.com/dinhhuy258/fm@latest
 
 echo "All done!"
 
