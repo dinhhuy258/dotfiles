@@ -1,3 +1,4 @@
+say "test speaker"
 launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 skhd --reload
 cal -y; read
