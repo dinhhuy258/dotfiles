@@ -22,6 +22,7 @@ function M.setup()
     "sqls", -- sql
     "yamlls", -- yaml
     "gopls", -- go
+    "csharp_ls", -- C#
   }
   lsp_installer.setup {
     ensure_installed = servers,

@@ -52,6 +52,11 @@ function M.common_on_init(client, _)
 end
 
 function M.common_capabilities()
+  local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+  if status_ok then
+    return cmp_nvim_lsp.default_capabilities()
+  end
+
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   capabilities.textDocument.completion.completionItem.resolveSupport = {
@@ -62,12 +67,7 @@ function M.common_capabilities()
     },
   }
 
-  local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-  if not cmp_nvim_lsp_ok then
-    return capabilities
-  end
-
-  return cmp_nvim_lsp.update_capabilities(capabilities)
+  return capabilities
 end
 
 function M.common_on_attach(_, bufnr)
