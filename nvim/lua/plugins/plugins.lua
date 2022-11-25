@@ -149,7 +149,8 @@ return {
   -- LSP client
   { "neovim/nvim-lspconfig" },
   -- Provides the missing :LspInstall for nvim-lspconfig
-  { "williamboman/nvim-lsp-installer" },
+  { "williamboman/mason.nvim" },
+  { "williamboman/mason-lspconfig.nvim" },
   -- Lsp signature
   {
     "ray-x/lsp_signature.nvim",
