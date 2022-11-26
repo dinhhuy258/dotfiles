@@ -141,11 +141,6 @@ return {
     "editorconfig/editorconfig-vim",
     event = "BufRead",
   },
-  -- Modify variable name to snake_case, camelCase, UPPER_CASE...
-  {
-    "tpope/vim-abolish",
-    event = "BufRead",
-  },
   -- LSP client
   { "neovim/nvim-lspconfig" },
   -- Provides the missing :LspInstall for nvim-lspconfig
