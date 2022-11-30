@@ -237,14 +237,6 @@ return {
       require("plugins.go-tools").setup()
     end,
   },
-  -- Neovim plugin for GitHub Copilot
-  {
-    "github/copilot.vim",
-    event = "BufRead",
-    config = function()
-      require("plugins.copilot").setup()
-    end,
-  },
   -- Improve startup time for Neovim
   {
     "lewis6991/impatient.nvim",
