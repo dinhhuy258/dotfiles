@@ -34,6 +34,50 @@ M.setup = function()
     }),
   })
 
+  local kind_icons = {
+    Array = "",
+    Boolean = "蘒",
+    Class = "",
+    Color = "",
+    Constant = "",
+    Constructor = "",
+    Enum = "",
+    EnumMember = "",
+    Event = "",
+    Field = "",
+    File = "",
+    Folder = "",
+    Function = "",
+    Interface = "",
+    Key = "",
+    Keyword = "",
+    Method = "",
+    Module = "",
+    Namespace = "",
+    Null = "ﳠ",
+    Number = "",
+    Object = "",
+    Operator = "",
+    Package = "",
+    Property = "",
+    Reference = "",
+    Snippet = "",
+    String = "",
+    Struct = "",
+    Text = "",
+    TypeParameter = "",
+    Unit = "",
+    Value = "",
+    Variable = "",
+  }
+
+  local source_names = {
+    vsnip = "(Snippet)",
+    nvim_lsp = "(LSP)",
+    buffer = "(Buffer)",
+    path = "(Path)",
+  }
+
   cmp.setup {
     completion = {
       autocomplete = {
@@ -43,16 +87,8 @@ M.setup = function()
     },
     formatting = {
       format = function(entry, item)
-        local menu_map = {
-          vsnip = "[Vsnip]",
-          nvim_lsp = "[LSP]",
-          nvim_lua = '[API]',
-          buffer = "[Buffer]",
-          path = "[Path]",
-        }
-
-        item.menu = menu_map[entry.source.name] or string.format('[%s]', entry.source.name)
-        item.kind = vim.lsp.protocol.CompletionItemKind[item.kind]
+        item.menu = source_names[entry.source.name] or string.format("[%s]", entry.source.name)
+        item.kind = string.format("%s %s", kind_icons[item.kind], item.kind)
 
         return item
       end,
