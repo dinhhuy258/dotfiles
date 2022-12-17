@@ -30,9 +30,9 @@ return {
   { "dinhhuy258/vim-database" },
   -- File explorer
   {
-    "dinhhuy258/nvim-tree.lua",
+    "dinhhuy258/sfm.nvim",
     config = function()
-      require("plugins.nvim-tree").setup()
+      require("plugins.sfm").setup()
     end,
   },
   -- Git
@@ -251,5 +251,17 @@ return {
     config = function()
         require('neogen').setup {}
     end,
+  },
+  {
+    "akinsho/git-conflict.nvim",
+    config = function()
+      require("git-conflict").setup()
+    end,
+  },
+  {
+    "tpope/vim-fugitive",
+  },
+  {
+    "jreybert/vimagit",
   },
 }
