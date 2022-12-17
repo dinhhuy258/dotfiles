@@ -15,7 +15,7 @@ M.setup = function()
       "help",
       "terminal",
       "startify",
-      "NvimTree",
+      "sfm",
     },
     buftype_exclude = {
       "terminal",
