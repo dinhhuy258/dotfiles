@@ -31,6 +31,9 @@ return {
   -- File explorer
   {
     "dinhhuy258/sfm.nvim",
+    requires = {
+      { "dinhhuy258/sfm-bookmark.nvim" },
+    },
     config = function()
       require("plugins.sfm").setup()
     end,
@@ -249,7 +252,7 @@ return {
     "danymat/neogen",
     requires = "nvim-treesitter/nvim-treesitter",
     config = function()
-        require('neogen').setup {}
+      require("neogen").setup {}
     end,
   },
   {
