@@ -24,19 +24,19 @@ for _, plugin in pairs(disabled_built_ins) do
   vim.g["loaded_" .. plugin] = 1
 end
 
--- Config variable for my plugins
+-- config variable for my plugins
 vim.g.huy_duong_workspace = 1
 
--- Load plugins
-local packer = require("plugins.packer").init()
-local plugins = require "plugins.plugins"
-packer:load { plugins }
+-- change leader key to semicolon
+vim.g.mapleader = ";" -- make sure to set `mapleader` before lazy
 
--- Load lsp config
+-- load plugins
+require("plugins.lazy").init()
+
+-- load lsp config
 require("lsp").setup()
 
 require("general.autocmds").define_default_autogroups()
-
 require("general.options").setup()
 require("general.colorschema").setup()
 require("general.mappings").setup()
