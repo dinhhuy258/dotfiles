@@ -6,7 +6,7 @@ local function _load_plugins()
     -- colorscheme
     {
       "folke/tokyonight.nvim",
-      lazy = false, -- make sure we load this during startup if it is your main colorscheme
+      lazy = false, -- make sure to load this during startup
       priority = 1000, -- make sure to load this before all the other start plugins
     },
     -- intellij as language server
@@ -36,7 +36,8 @@ local function _load_plugins()
     {
       "dinhhuy258/sfm.nvim",
       dependencies = {
-        { "dinhhuy258/sfm-bookmark.nvim" },
+        "dinhhuy258/sfm-bookmark.nvim",
+        "dinhhuy258/sfm-filter.nvim",
       },
       config = function()
         require("plugins.sfm").setup()
@@ -77,7 +78,7 @@ local function _load_plugins()
     {
       "ibhagwan/fzf-lua",
       dependencies = {
-        { "vijaymarupudi/nvim-fzf" },
+        "vijaymarupudi/nvim-fzf",
       },
       config = function()
         require("plugins.fzf-lua").setup()
@@ -168,17 +169,19 @@ local function _load_plugins()
     },
     {
       "dinhhuy258/snippets",
-      dependencies = "vim-vsnip",
+      dependencies = {
+        "vim-vsnip",
+      },
     },
     -- auto completion
     {
       "hrsh7th/nvim-cmp",
       dependencies = {
-        { "hrsh7th/cmp-nvim-lsp", dependencies = "nvim-cmp" },
-        { "hrsh7th/cmp-vsnip", dependencies = "nvim-cmp" },
-        { "hrsh7th/cmp-buffer", dependencies = "nvim-cmp" },
-        { "hrsh7th/cmp-path", dependencies = "nvim-cmp" },
-        { "hrsh7th/cmp-cmdline", dependencies = "nvim-cmp" },
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-vsnip",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
       },
       event = "InsertEnter",
       config = function()
@@ -188,7 +191,9 @@ local function _load_plugins()
     -- autopair
     {
       "windwp/nvim-autopairs",
-      dependencies = { "nvim-cmp" },
+      dependencies = {
+        "nvim-cmp",
+      },
       config = function()
         require("plugins.nvim-autopairs").setup()
       end,
@@ -200,7 +205,7 @@ local function _load_plugins()
         require("plugins.nvim-ts-autotag").setup()
       end,
     },
-    -- Comment
+    -- comment
     {
       "numToStr/Comment.nvim",
       event = "BufRead",
@@ -227,7 +232,9 @@ local function _load_plugins()
     {
       "rcarriga/nvim-dap-ui",
       ft = { "go" },
-      dependencies = { "nvim-dap" },
+      dependencies = {
+        "nvim-dap",
+      },
       config = function()
         local status_ok, dapui = pcall(require, "dapui")
         if status_ok then
@@ -237,7 +244,9 @@ local function _load_plugins()
     },
     {
       "dinhhuy258/go-tools.nvim",
-      dependencies = { "nvim-dap" },
+      dependencies = {
+        "nvim-dap",
+      },
       ft = { "go" },
       config = function()
         require("plugins.go-tools").setup()
@@ -246,7 +255,9 @@ local function _load_plugins()
     -- docs generation
     {
       "danymat/neogen",
-      dependencies = { "nvim-treesitter/nvim-treesitter" },
+      dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+      },
       config = function()
         require("neogen").setup {}
       end,
