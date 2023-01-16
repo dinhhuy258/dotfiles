@@ -35,7 +35,7 @@ local function barbarHighlights()
   highlight("BufferInactiveSign", { bg = "NONE" })
   highlight("BufferInactiveTarget", { bg = "NONE" })
 
-  highlight("BufferTabpageFill", { fg = "#a9b1d6" })
+  highlight("BufferTabpageFill", { bg = "#1a1b26" })
 end
 
 function M.setup()
