@@ -38,6 +38,7 @@ local function _load_plugins()
       dependencies = {
         "dinhhuy258/sfm-bookmark.nvim",
         "dinhhuy258/sfm-filter.nvim",
+        "dinhhuy258/sfm-git.nvim",
       },
       config = function()
         require("plugins.sfm").setup()
