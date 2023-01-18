@@ -2,6 +2,7 @@ local M = {}
 
 M.setup = function()
   local sfm_explorer = require("sfm").setup {}
+  sfm_explorer:load_extension "sfm-fs"
   sfm_explorer:load_extension "sfm-bookmark"
   sfm_explorer:load_extension "sfm-filter"
   sfm_explorer:load_extension "sfm-git"
