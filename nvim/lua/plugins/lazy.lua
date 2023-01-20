@@ -271,21 +271,10 @@ local function _load_plugins(opts)
       end,
     },
     {
-      "sidebar-nvim/sidebar.nvim",
+      "nvim-treesitter/nvim-treesitter-context",
       config = function()
-        local sidebar = require "sidebar-nvim"
-        sidebar.setup { open = false }
-      end,
-    },
-    {
-      "nvim-tree/nvim-tree.lua",
-      config = function()
-        require("nvim-tree").setup {
-          modified = {
-            enable = true,
-            show_on_dirs = true,
-            show_on_open_dirs = true,
-          },
+        require("treesitter-context").setup {
+          separator = "-",
         }
       end,
     },

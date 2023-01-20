@@ -16,13 +16,13 @@ local function highlight(group, properties)
   vim.api.nvim_command(cmd)
 end
 
-local function basicHighlights()
+local function basic_highlights()
   highlight("CursorLine", { bg = "NONE" })
   highlight("StatusLine", { bg = "NONE" })
   highlight("StatusLineNC", { bg = "NONE" })
 end
 
-local function barbarHighlights()
+local function barbar_highlights()
   highlight("BufferCurrent", { bg = "NONE" })
   highlight("BufferCurrentIndex", { bg = "NONE" })
   highlight("BufferCurrentMod", { bg = "NONE" })
@@ -38,6 +38,10 @@ local function barbarHighlights()
   highlight("BufferTabpageFill", { bg = "#1a1b26" })
 end
 
+local function nvim_treesitter_context_highlights()
+  highlight("TreesitterContext", { bg = "#1a1b26" })
+end
+
 function M.setup()
   local status_ok, tokyonight = pcall(require, "tokyonight")
   if not status_ok then
@@ -51,8 +55,9 @@ function M.setup()
 
   vim.cmd [[colorscheme tokyonight]]
 
-  basicHighlights()
-  barbarHighlights()
+  basic_highlights()
+  barbar_highlights()
+  nvim_treesitter_context_highlights()
 end
 
 return M
