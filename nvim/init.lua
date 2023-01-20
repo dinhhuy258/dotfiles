@@ -30,6 +30,8 @@ vim.g.huy_duong_workspace = 1
 -- change leader key to semicolon
 vim.g.mapleader = ";" -- make sure to set `mapleader` before lazy
 
+require("utils.table")
+
 -- load plugins
 require("plugins.lazy").init()
 

@@ -270,6 +270,25 @@ local function _load_plugins(opts)
         require("project_nvim").setup {}
       end,
     },
+    {
+      "sidebar-nvim/sidebar.nvim",
+      config = function()
+        local sidebar = require "sidebar-nvim"
+        sidebar.setup { open = false }
+      end,
+    },
+    {
+      "nvim-tree/nvim-tree.lua",
+      config = function()
+        require("nvim-tree").setup {
+          modified = {
+            enable = true,
+            show_on_dirs = true,
+            show_on_open_dirs = true,
+          },
+        }
+      end,
+    },
   }, opts)
 end
 

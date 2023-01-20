@@ -1,3 +1,5 @@
+local keymap = require "utils.keymap"
+
 local M = {}
 
 M.setup = function()
@@ -87,11 +89,9 @@ M.setup = function()
     },
   }
 
-  local utils = require "utils"
-
-  utils.set_keymap("n", "<Leader>fr", ":lua require('fzf-lua').live_grep_glob()<CR>", { noremap = true })
-  utils.set_keymap("n", "<Leader>ff", ":lua require('fzf-lua').files()<CR>", { noremap = true })
-  utils.set_keymap("n", "<Leader>f.", ":lua require('fzf-lua').resume()<CR>", { noremap = true })
+  keymap.set("n", "<Leader>fr", ":lua require('fzf-lua').live_grep_glob()<CR>", { noremap = true })
+  keymap.set("n", "<Leader>ff", ":lua require('fzf-lua').files()<CR>", { noremap = true })
+  keymap.set("n", "<Leader>f.", ":lua require('fzf-lua').resume()<CR>", { noremap = true })
 end
 
 return M

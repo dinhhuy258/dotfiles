@@ -1,3 +1,5 @@
+local keymap = require "utils.keymap"
+
 local M = {}
 
 M.setup = function()
@@ -7,8 +9,7 @@ M.setup = function()
   sfm_explorer:load_extension "sfm-filter"
   sfm_explorer:load_extension "sfm-git"
 
-  local utils = require "utils"
-  utils.set_keymap("n", "<F1>", "<CMD>SFMToggle<CR>", { noremap = true, silent = true })
+  keymap.set("n", "<F1>", "<CMD>SFMToggle<CR>", { noremap = true, silent = true })
 end
 
 return M

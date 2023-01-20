@@ -1,3 +1,5 @@
+local keymap = require "utils.keymap"
+
 local M = {}
 
 M.setup = function()
@@ -52,15 +54,13 @@ M.setup = function()
     post_hook = nil,
   }
 
-  -- The line mapping config in normal node does not work well
-  local utils = require "utils"
-  utils.set_keymap(
+  keymap.set(
     "n",
     "<Leader>cl",
     "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>",
     { noremap = true, silent = true }
   )
-  utils.set_keymap(
+  keymap.set(
     "x",
     "<Leader>cl",
     "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
