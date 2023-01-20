@@ -1,8 +1,8 @@
 local plugin_loader = {}
 
 --- @private
-local function _load_plugins()
-  require("lazy").setup {
+local function _load_plugins(opts)
+  require("lazy").setup({
     -- colorscheme
     {
       "folke/tokyonight.nvim",
@@ -264,7 +264,13 @@ local function _load_plugins()
         require("neogen").setup {}
       end,
     },
-  }
+    {
+      "ahmedkhalf/project.nvim",
+      config = function()
+        require("project_nvim").setup {}
+      end,
+    },
+  }, opts)
 end
 
 function plugin_loader:init()
@@ -279,7 +285,14 @@ function plugin_loader:init()
   vim.opt.rtp:prepend(lazypath)
 
   -- load plugins
-  _load_plugins()
+  _load_plugins {
+    ui = {
+      border = "rounded",
+    },
+    install = {
+      missing = false,
+    },
+  }
 end
 
 return {
