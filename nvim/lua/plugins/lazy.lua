@@ -267,7 +267,7 @@ local function _load_plugins(opts)
     {
       "ahmedkhalf/project.nvim",
       config = function()
-        require("project_nvim").setup {}
+        require("plugins.project").setup()
       end,
     },
     {
