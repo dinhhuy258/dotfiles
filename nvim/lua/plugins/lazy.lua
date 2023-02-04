@@ -40,6 +40,7 @@ local function _load_plugins(opts)
         "dinhhuy258/sfm-bookmark.nvim",
         "dinhhuy258/sfm-filter.nvim",
         "dinhhuy258/sfm-git.nvim",
+        "dinhhuy258/sfm-telescope.nvim",
       },
       config = function()
         require("plugins.sfm").setup()
