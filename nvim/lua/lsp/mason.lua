@@ -7,7 +7,7 @@ function M.setup()
     "clangd", -- c, c++
     "tsserver", -- typescript, javascript
     "jsonls", -- json
-    "sumneko_lua", -- lua
+    "lua_ls", -- lua
     "intelephense", -- php
     "pyright", -- python
     "sqls", -- sql
