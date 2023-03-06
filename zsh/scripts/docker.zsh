@@ -8,7 +8,7 @@ function dexe() {
   docker exec -it $containerID sh
 }
 
-function dstop() {
+function ddel() {
   containerID=$(docker ps --format '{{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}' | __fzfp | awk '{print $1}')
 
   if [ -z "$containerID" ]; then
