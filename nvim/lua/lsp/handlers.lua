@@ -18,7 +18,7 @@ local function lsp_keybindings(bufnr)
   if require("utilities.formatter").is_supported(vim.bo.filetype) then
     keymap.buf_set(bufnr, "n", "<Leader>cf", "<CMD>lua require('utilities.formatter').format()<CR>", opts)
   else
-    keymap.buf_set(bufnr, "n", "<Leader>cf", "<CMD>lua vim.lsp.buf.formatting()<CR>", opts)
+    keymap.buf_set(bufnr, "n", "<Leader>cf", "<CMD>lua vim.lsp.buf.format()<CR>", opts)
   end
   keymap.buf_set(bufnr, "n", "<Leader>cr", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
   keymap.buf_set(bufnr, "n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)

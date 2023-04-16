@@ -10,7 +10,7 @@ function M.setup()
     "lua_ls", -- lua
     "intelephense", -- php
     "pyright", -- python
-    "sqls", -- sql
+    "sqlls", -- sql
     "yamlls", -- yaml
     "gopls", -- go
     "csharp_ls", -- C#
