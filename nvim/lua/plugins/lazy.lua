@@ -75,7 +75,7 @@ local function _load_plugins(opts)
     { "nvim-treesitter/nvim-treesitter-textobjects" },
     -- adds file type icons to Vim plugins such as: nvim-tree.lua, galaxyline.nvim, vim-startify...
     { "kyazdani42/nvim-web-devicons" },
-    -- gitsigns, telescope depend on this library
+    -- gitsigns, telescope... depend on this library
     { "nvim-lua/plenary.nvim" },
     -- fzf
     {
@@ -277,6 +277,20 @@ local function _load_plugins(opts)
         require("treesitter-context").setup {
           separator = "-",
         }
+      end,
+    },
+    {
+      "nvim-neotest/neotest",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
+
+        -- adapters
+        "olimorris/neotest-phpunit",
+        "nvim-neotest/neotest-go",
+      },
+      config = function()
+        require("plugins.neotest").setup()
       end,
     },
   }, opts)
