@@ -265,12 +265,14 @@ local function _load_plugins(opts)
         require("neogen").setup {}
       end,
     },
+    -- project management
     {
       "ahmedkhalf/project.nvim",
       config = function()
         require("plugins.project").setup()
       end,
     },
+    -- for interacting with tests within NeoVim
     {
       "nvim-treesitter/nvim-treesitter-context",
       config = function()
@@ -291,6 +293,14 @@ local function _load_plugins(opts)
       },
       config = function()
         require("plugins.neotest").setup()
+      end,
+    },
+    -- for dimming the highlights of unused functions, variables, parameters, and more
+    {
+      "zbirenbaum/neodim",
+      event = "LspAttach",
+      config = function()
+        require("plugins.neodim").setup()
       end,
     },
   }, opts)
