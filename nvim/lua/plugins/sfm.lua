@@ -16,6 +16,7 @@ M.setup = function()
   sfm_explorer:load_extension "sfm-filter"
   sfm_explorer:load_extension "sfm-git"
   sfm_explorer:load_extension "sfm-telescope"
+  sfm_explorer:load_extension "sfm-paste"
 
   keymap.set("n", "<F1>", "<CMD>SFMToggle<CR>", { noremap = true, silent = true })
 end

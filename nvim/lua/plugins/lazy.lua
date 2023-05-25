@@ -41,6 +41,7 @@ local function _load_plugins(opts)
         "dinhhuy258/sfm-filter.nvim",
         "dinhhuy258/sfm-git.nvim",
         "dinhhuy258/sfm-telescope.nvim",
+        "dinhhuy258/sfm-paste.nvim",
       },
       config = function()
         require("plugins.sfm").setup()
@@ -146,11 +147,6 @@ local function _load_plugins(opts)
       config = function()
         require("plugins.vim-startify").setup()
       end,
-    },
-    -- multi editor tool for defining base file handling and code style preferences
-    {
-      "editorconfig/editorconfig-vim",
-      event = "BufRead",
     },
     -- lsp client
     { "neovim/nvim-lspconfig" },
@@ -293,14 +289,6 @@ local function _load_plugins(opts)
       },
       config = function()
         require("plugins.neotest").setup()
-      end,
-    },
-    -- for dimming the highlights of unused functions, variables, parameters, and more
-    {
-      "zbirenbaum/neodim",
-      event = "LspAttach",
-      config = function()
-        require("plugins.neodim").setup()
       end,
     },
   }, opts)
