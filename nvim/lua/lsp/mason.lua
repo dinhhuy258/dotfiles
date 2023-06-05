@@ -13,7 +13,6 @@ function M.setup()
     "sqlls", -- sql
     "yamlls", -- yaml
     "gopls", -- go
-    "csharp_ls", -- C#
   }
 
   local settings = {
