@@ -19,6 +19,7 @@ M.setup = function()
   sfm_explorer:load_extension "sfm-paste"
 
   keymap.set("n", "<F1>", "<CMD>SFMToggle<CR>", { noremap = true, silent = true })
+  keymap.set("n", "fm", "<CMD>SFMToggle<CR>", { noremap = true, silent = true })
 end
 
 return M
