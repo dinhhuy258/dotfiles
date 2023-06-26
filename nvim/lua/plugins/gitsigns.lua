@@ -41,48 +41,87 @@ M.setup = function()
     },
     numhl = false,
     linehl = false,
-    keymaps = {
-      -- Default keymap options
-      noremap = true,
-      buffer = true,
+    on_attach = function(bufnr)
+      local gs = package.loaded.gitsigns
 
-      ["n ghn"] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'" },
-      ["n ghp"] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'" },
-      ["n ghu"] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-      ["v ghu"] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-      ["n ghv"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-      ["n ghl"] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
-    },
+      local function map(mode, l, r, opts)
+        opts = opts or {}
+        opts.buffer = bufnr
+        vim.keymap.set(mode, l, r, opts)
+      end
+
+      -- navigation
+      map("n", "ghn", function()
+        if vim.wo.diff then
+          return "ghn"
+        end
+        vim.schedule(function()
+          gs.next_hunk()
+        end)
+        return "<Ignore>"
+      end, { expr = true })
+
+      map("n", "ghp", function()
+        if vim.wo.diff then
+          return "ghp"
+        end
+        vim.schedule(function()
+          gs.prev_hunk()
+        end)
+        return "<Ignore>"
+      end, { expr = true })
+
+      map("n", "ghu", gs.reset_hunk)
+      map("v", "ghu", function()
+        gs.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
+      end)
+      map("n", "ghU", gs.reset_buffer)
+
+      map("n", "ghs", gs.stage_hunk)
+      map("v", "ghs", function()
+        gs.stage_hunk { vim.fn.line ".", vim.fn.line "v" }
+      end)
+      map("n", "ghS", gs.stage_buffer)
+
+      map("n", "ghl", function()
+        gs.blame_line { full = false }
+      end)
+
+      map("n", "ghd", gs.diffthis)
+      map("n", "ghD", function()
+        gs.diffthis "~"
+      end)
+    end,
     signcolumn = true,
-      word_diff = false,
-      attach_to_untracked = true,
-      current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-      current_line_blame_opts = {
-        virt_text = true,
-        virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
-        delay = 1000,
-        ignore_whitespace = false,
-      },
-      current_line_blame_formatter_opts = {
-        relative_time = false,
-      },
-      max_file_length = 40000,
-      preview_config = {
-        -- Options passed to nvim_open_win
-        border = "rounded",
-        style = "minimal",
-        relative = "cursor",
-        row = 0,
-        col = 1,
-      },
-      watch_gitdir = {
-        interval = 1000,
-        follow_files = true,
-      },
-      sign_priority = 6,
-      update_debounce = 200,
-      status_formatter = nil, -- Use default
-      yadm = { enable = false },
+    word_diff = false,
+    attach_to_untracked = true,
+    current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+    current_line_blame_opts = {
+      virt_text = true,
+      virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+      delay = 1000,
+      ignore_whitespace = false,
+    },
+    current_line_blame_formatter_opts = {
+      relative_time = false,
+    },
+    max_file_length = 40000,
+    preview_config = {
+      -- Options passed to nvim_open_win
+      border = "rounded",
+      style = "minimal",
+      relative = "cursor",
+      row = 0,
+      col = 1,
+    },
+    watch_gitdir = {
+      interval = 1000,
+      follow_files = true,
+    },
+    sign_priority = 6,
+    update_debounce = 200,
+    status_formatter = nil, -- Use default
+    yadm = { enable = false },
   }
 end
 
