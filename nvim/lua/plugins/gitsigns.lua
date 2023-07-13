@@ -71,6 +71,7 @@ M.setup = function()
         return "<Ignore>"
       end, { expr = true })
 
+      map("n", "ghv", gs.preview_hunk)
       map("n", "ghu", gs.reset_hunk)
       map("v", "ghu", function()
         gs.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
