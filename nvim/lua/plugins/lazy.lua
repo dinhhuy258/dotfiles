@@ -291,6 +291,14 @@ local function _load_plugins(opts)
         require("plugins.neotest").setup()
       end,
     },
+    -- copilot
+    {
+      "github/copilot.vim",
+      event = "BufRead",
+      config = function()
+        require("plugins.copilot").setup()
+      end,
+    },
   }, opts)
 end
 
