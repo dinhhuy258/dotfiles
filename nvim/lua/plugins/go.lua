@@ -1,3 +1,5 @@
+local keymap = require "utils.keymap"
+
 local M = {}
 
 function M.setup()
@@ -5,6 +7,8 @@ function M.setup()
   if not go_ok then
     return
   end
+
+  keymap.set("n", "<Leader>dq", "<CMD>GoDebugStop<CR>", { noremap = false })
 
   go.setup()
 end
