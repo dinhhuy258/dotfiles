@@ -235,20 +235,17 @@ local function _load_plugins(opts)
         "nvim-dap",
       },
       config = function()
-        local status_ok, dapui = pcall(require, "dapui")
-        if status_ok then
-          dapui.setup()
-        end
+        require("plugins.nvim-dap-ui").setup()
       end,
     },
     {
-      "dinhhuy258/go-tools.nvim",
+      "dinhhuy258/go.nvim",
       dependencies = {
         "nvim-dap",
       },
       ft = { "go" },
       config = function()
-        require("plugins.go-tools").setup()
+        require("plugins.go").setup()
       end,
     },
     -- docs generation

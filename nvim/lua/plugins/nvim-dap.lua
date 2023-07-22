@@ -12,7 +12,7 @@ M.setup = function()
 
   vim.fn.sign_define("DapBreakpoint", {
     text = "󰃤",
-    texthl = "LspDiagnosticsSignError",
+    texthl = "DiagnosticSignError",
     linehl = "",
     numhl = "",
   })
