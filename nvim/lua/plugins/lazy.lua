@@ -242,6 +242,7 @@ local function _load_plugins(opts)
       "dinhhuy258/go.nvim",
       dependencies = {
         "nvim-dap",
+        "nvim-dap-ui",
       },
       ft = { "go" },
       config = function()
