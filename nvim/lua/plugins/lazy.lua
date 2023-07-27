@@ -74,6 +74,8 @@ local function _load_plugins(opts)
     },
     -- textobjects
     { "nvim-treesitter/nvim-treesitter-textobjects" },
+    -- wisely add "end" in Ruby, Vimscript, Lua, etc
+    { "RRethy/nvim-treesitter-endwise" },
     -- adds file type icons to Vim plugins such as: nvim-tree.lua, galaxyline.nvim, vim-startify...
     { "kyazdani42/nvim-web-devicons" },
     -- gitsigns, telescope... depend on this library

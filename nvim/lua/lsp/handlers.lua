@@ -28,7 +28,7 @@ local function lsp_keybindings(bufnr)
       bufnr,
       "n",
       "<Leader>cf",
-      "<CMD>lua require('go-tools.format').format()<CR>",
+      "<CMD>lua require('go.format').format()<CR>",
       { noremap = true, silent = true }
     )
   end

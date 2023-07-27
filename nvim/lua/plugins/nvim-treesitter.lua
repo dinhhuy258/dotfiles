@@ -14,6 +14,9 @@ M.setup = function()
     indent = {
       enable = true,
     },
+    endwise = {
+      enable = true,
+    },
     -- nvim-treesitter-textobjects
     textobjects = {
       move = {
