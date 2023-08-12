@@ -3,15 +3,17 @@ local keymap = require "utils.keymap"
 local M = {}
 
 M.setup = function()
-  local sfm_explorer = require("sfm").setup {}
-  sfm_explorer:load_extension("sfm-fs", {
+  local sfm_explorer = require("sfm").setup {
     view = {
       render_selection_in_sign = true,
     },
-    icons = {
-      selection = "*",
+    renderer = {
+      icons = {
+        selection = "*",
+      },
     },
-  })
+  }
+
   sfm_explorer:load_extension "sfm-bookmark"
   sfm_explorer:load_extension "sfm-filter"
   sfm_explorer:load_extension "sfm-git"
