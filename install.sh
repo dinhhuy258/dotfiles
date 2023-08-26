@@ -61,6 +61,7 @@ if which brew >/dev/null; then
     installHomebrewPackage derailed/k9s/k9s
     installHomebrewPackage koekeishiya/formulae/skhd
     installHomebrewPackage koekeishiya/formulae/yabai
+    installHomebrewPackage starship
 
     # Greeting message
     installHomebrewPackage cowsay
@@ -125,6 +126,9 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   # Sync cmds
   ln -sf $CWD/zsh/cmds ~/.cmds
+
+  # Sync starship
+  ln -sf $CWD/starship/starship.toml ~/.config/starship.toml
 fi
 
 # brew services start skhd

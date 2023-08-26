@@ -73,3 +73,5 @@ if [ -z "$IGNORE_GREETING_MESSAGE" ]
 then
   gretting_message
 fi
+
+eval "$(starship init zsh)"
