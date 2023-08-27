@@ -62,6 +62,7 @@ if which brew >/dev/null; then
     installHomebrewPackage koekeishiya/formulae/skhd
     installHomebrewPackage koekeishiya/formulae/yabai
     installHomebrewPackage starship
+    installHomebrewPackage neofetch
 
     # Greeting message
     installHomebrewPackage cowsay
@@ -129,6 +130,9 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   # Sync starship
   ln -sf $CWD/starship/starship.toml ~/.config/starship.toml
+
+  # Sync neofetch
+  ln -sf $CWD/neofetch ~/.config/neofetch/
 fi
 
 # brew services start skhd

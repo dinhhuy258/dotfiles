@@ -28,12 +28,6 @@ function shutdown() {
 }
 
 function gretting_message() {
-  e_bold "Host name: $(hostname), User: $(whoami)"
-  e_success "On $(sw_vers -productName)$(sw_vers -productVersion), build version: $(sw_vers -buildVersion)"
-  e_success "Shell: $(zsh --version)"
-  e_success "Terminal color: $TERM"
-  e_success "Uptime: $(uptime | sed 's/.*up \([^,]*\), .*/\1/')"
-
-  echo "Hello Huy Duong.\n\nHave a good day!" | cowsay | lolcat
+  neofetch --ascii "$(echo "Hello Huy Duong.\n\nHave a good day" | cowsay)" | lolcat
 }
 
