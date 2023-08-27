@@ -129,10 +129,12 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   ln -sf $CWD/zsh/cmds ~/.cmds
 
   # Sync starship
+  mkdir -p ~/.config/starship
   ln -sf $CWD/starship/starship.toml ~/.config/starship.toml
 
   # Sync neofetch
-  ln -sf $CWD/neofetch ~/.config/neofetch/
+  mkdir -p ~/.config/neofetch
+  ln -sf $CWD/neofetch/config.conf ~/.config/neofetch/config.conf
 fi
 
 # brew services start skhd
