@@ -5,11 +5,23 @@ local M = {}
 M.setup = function()
   local sfm_explorer = require("sfm").setup {
     view = {
-      render_selection_in_sign = true,
+      selection_render_method = "sign",
     },
     renderer = {
       icons = {
         selection = "*",
+      },
+    },
+    mappings = {
+      list = {
+        {
+          key = "<C-v>",
+          action = nil,
+        },
+        {
+          key = "<C-h>",
+          action = nil,
+        },
       },
     },
   }
