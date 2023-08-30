@@ -23,7 +23,10 @@ symbol = " "
 read_only = " 󰌾"
 
 [docker_context]
-symbol = " "
+disabled = true
+
+[php]
+symbol = " "
 
 [elixir]
 symbol = " "
