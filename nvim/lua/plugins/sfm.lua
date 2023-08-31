@@ -22,6 +22,14 @@ M.setup = function()
           key = "<C-h>",
           action = nil,
         },
+        {
+          key = "V",
+          action = "vsplit",
+        },
+        {
+          key = "H",
+          action = "split",
+        },
       },
     },
   }
