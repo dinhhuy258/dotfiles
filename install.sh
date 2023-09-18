@@ -63,6 +63,9 @@ if which brew >/dev/null; then
     installHomebrewPackage koekeishiya/formulae/yabai
     installHomebrewPackage starship
     installHomebrewPackage neofetch
+    brew tap FelixKratz/formulae
+    installHomebrewPackage sketchybar
+    brew install --cask sf-symbols # sketchybar's font
 
     # Greeting message
     installHomebrewPackage cowsay
@@ -135,10 +138,14 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   # Sync neofetch
   mkdir -p ~/.config/neofetch
   ln -sf $CWD/neofetch/config.conf ~/.config/neofetch/config.conf
+
+  # Sync sketchybar config
+  ln -sf $CWD/sketchybar ~/.config/sketchybar
 fi
 
 # brew services start skhd
 # brew services start yabai
+# brew services start sketchybar
 
 # go install github.com/dinhhuy258/fm@latest
 

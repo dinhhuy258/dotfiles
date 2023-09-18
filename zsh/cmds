@@ -1,7 +1,7 @@
+yabai --restart-service
 say "test speaker"
-launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
-skhd --reload
 cal -y; read
+skhd --reload
 ping google.com
 nvim -u NONE ~/.cmds
 curl wttr.in; read

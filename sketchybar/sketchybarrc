@@ -1,0 +1,88 @@
+#!/usr/bin/env sh
+
+# Colors
+BAR_COLOR=0xff1a1b26 # background
+ICON_COLOR=0xffa9b1d6 # white
+LABEL_COLOR=0xffa9b1d6 # white
+POPUP_BACKGROUND_COLOR=0xff15161E # black
+POPUP_BORDER_COLOR=0xff9ece6a # green
+SHADOW_COLOR=0xff15161E # black
+
+ITEM_DIR="$HOME/.config/sketchybar/items" # Directory where the items are configured
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins" # Directory where all the plugin scripts are stored
+
+FONT="SF Pro" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
+
+PADDINGS=3 # All paddings use this value (icon, label, background and bar paddings)
+SEGMENT_SPACING=13 # The spacing between segments
+
+POPUP_BORDER_WIDTH=2
+POPUP_CORNER_RADIUS=3
+
+SHADOW=on
+SHADOW_DISTANCE=3
+SHADOW_ANGLE=35
+
+# Setting up the general bar appearance and default values
+sketchybar --bar     height=32                                           \
+                     corner_radius=0                                     \
+                     border_width=0                                      \
+                     margin=-200                                         \
+                     blur_radius=0                                       \
+                     position=top                                        \
+                     padding_left=4                                      \
+                     padding_right=4                                     \
+                     color=$BAR_COLOR                                    \
+                     topmost=off                                         \
+                     font_smoothing=off                                  \
+                     y_offset=-32                                        \
+                     shadow=off                                          \
+                     notch_width=0                                       \
+                                                                         \
+           --default drawing=on                                          \
+                     updates=when_shown                                  \
+                     label.font="$FONT:Semibold:13.0"                    \
+                     icon.font="$FONT:Bold:14.0"                         \
+                     icon.color=$ICON_COLOR                              \
+                     label.color=$LABEL_COLOR                            \
+                     icon.padding_left=$PADDINGS                         \
+                     icon.padding_right=$PADDINGS                        \
+                     label.padding_left=$PADDINGS                        \
+                     label.padding_right=$PADDINGS                       \
+                     background.padding_right=$PADDINGS                  \
+                     background.padding_left=$PADDINGS                   \
+                     popup.background.border_width=$POPUP_BORDER_WIDTH   \
+                     popup.background.corner_radius=$POPUP_CORNER_RADIUS \
+                     popup.background.border_color=$POPUP_BORDER_COLOR   \
+                     popup.background.color=$POPUP_BACKGROUND_COLOR      \
+                     popup.background.shadow.drawing=$SHADOW             \
+                     icon.shadow.color=$SHADOW_COLOR                     \
+                     icon.shadow.distance=$SHADOW_DISTANCE               \
+                     icon.shadow.angle=$SHADOW_ANGLE                     \
+                     icon.shadow.drawing=$SHADOW                         \
+                     label.shadow.color=$SHADOW_COLOR                    \
+                     label.shadow.distance=$SHADOW_DISTANCE              \
+                     label.shadow.angle=$SHADOW_ANGLE                    \
+                     label.shadow.drawing=$SHADOW
+
+
+# Template for the segment labels, i.e. space name, active app, date, ...
+sketchybar --add item           label_template left                          \
+           --set label_template icon.drawing=off                             \
+                                label.font="$FONT:Black:12.0"                \
+                                label.padding_right=5                        \
+                                click_script="$PLUGIN_DIR/toggle_bracket.sh" \
+                                background.padding_left=$SEGMENT_SPACING     \
+                                background.padding_right=0                   \
+                                drawing=off
+
+source "$ITEM_DIR/apple.sh"
+source "$ITEM_DIR/date_time.sh"
+
+############## FINALIZING THE SETUP ##############
+sketchybar --update
+
+############## Animation ########################
+sketchybar --animate sin 30 --bar y_offset=0 notch_width=200 margin=0 shadow=on
+
+echo "sketchybar configuation loaded.."
