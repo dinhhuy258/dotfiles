@@ -46,7 +46,7 @@ yabai -m rule --add app="^Music$" manage=off
 yabai -m rule --add app="^IntelliJ IDEA$" manage=off
 yabai -m rule --add app="^IntelliJ IDEA$" title="( – )" manage=on
 
-yabai -m signal --add event=window_destroyed action="bash /Users/dinhhuy258/Workspace/dotfiles/yabai/scripts/window_focus_on_destroy.sh"
+yabai -m signal --add event=window_destroyed action="bash $HOME/Workspace/dotfiles/yabai/scripts/window_focus_on_destroy.sh"
 yabai -m config external_bar all:35:0
 
 echo "yabai configuration loaded.."
