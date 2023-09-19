@@ -66,7 +66,6 @@ if which brew >/dev/null; then
     brew tap FelixKratz/formulae
     installHomebrewPackage sketchybar
     installHomebrewPackage svim
-    brew install --cask sf-symbols # sketchybar's font
 
     # Greeting message
     installHomebrewPackage cowsay

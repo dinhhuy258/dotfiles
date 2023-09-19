@@ -1,17 +1,27 @@
 #!/usr/bin/env sh
 
 # Colors
-BAR_COLOR=0xff1a1b26 # background
-ICON_COLOR=0xffa9b1d6 # white
-LABEL_COLOR=0xffa9b1d6 # white
-POPUP_BACKGROUND_COLOR=0xff15161E # black
-POPUP_BORDER_COLOR=0xff9ece6a # green
-SHADOW_COLOR=0xff15161E # black
+BACKGROUND=0xff1a1b26
+FOREGROUND=0xffc0caf5
+BLACK=0xff15161E
+RED=0xfff7768e
+GREEN=0xff9ece6a
+YELLOW=0xffe0af68
+BLUE=0xff7aa2f7
+MAGENTA=0xffbb9af7
+CYAN=0xff7dcfff
+WHITE=0xffa9b1d6
 
-ITEM_DIR="$HOME/.config/sketchybar/items" # Directory where the items are configured
+BAR_COLOR=$BACKGROUND
+ICON_COLOR=$WHITE
+LABEL_COLOR=$WHITE
+POPUP_BACKGROUND_COLOR=$BLACK
+POPUP_BORDER_COLOR=$GREEN
+SHADOW_COLOR=$BLACK
+
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins" # Directory where all the plugin scripts are stored
 
-FONT="SF Pro" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
+FONT="FiraCode Nerd Font" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
 
 PADDINGS=3 # All paddings use this value (icon, label, background and bar paddings)
 SEGMENT_SPACING=13 # The spacing between segments
@@ -41,7 +51,7 @@ sketchybar --bar     height=32                                           \
                                                                          \
            --default drawing=on                                          \
                      updates=when_shown                                  \
-                     label.font="$FONT:Semibold:13.0"                    \
+                     label.font="$FONT:Regular:13.0"                     \
                      icon.font="$FONT:Bold:14.0"                         \
                      icon.color=$ICON_COLOR                              \
                      label.color=$LABEL_COLOR                            \
@@ -65,19 +75,28 @@ sketchybar --bar     height=32                                           \
                      label.shadow.angle=$SHADOW_ANGLE                    \
                      label.shadow.drawing=$SHADOW
 
+sketchybar --add       item               apple.logo left             \
+           --set       apple.logo         icon=                      \
+                                          label.drawing=off
 
-# Template for the segment labels, i.e. space name, active app, date, ...
-sketchybar --add item           label_template left                          \
-           --set label_template icon.drawing=off                             \
-                                label.font="$FONT:Black:12.0"                \
-                                label.padding_right=5                        \
-                                click_script="$PLUGIN_DIR/toggle_bracket.sh" \
-                                background.padding_left=$SEGMENT_SPACING     \
-                                background.padding_right=0                   \
-                                drawing=off
+sketchybar --add item time right                   \
+           --set time update_freq=10               \
+                      script="$PLUGIN_DIR/time.sh" \
+                      icon=""                     \
+                      icon.y_offset=0              \
+           --add item date right                   \
+           --set date update_freq=10               \
+                      script="$PLUGIN_DIR/date.sh" \
+                      icon=""                     \
+                      icon.y_offset=0
 
-source "$ITEM_DIR/apple.sh"
-source "$ITEM_DIR/date_time.sh"
+sketchybar --add       item    battery right                   \
+           --set       battery script="$PLUGIN_DIR/battery.sh" \
+                               icon.font="$FONT:BOLD:13.0"     \
+                               icon.y_offset=0                 \
+                               update_freq=120                 \
+                               associated_display=1            \
+           --subscribe battery system_woke power_source_change
 
 ############## FINALIZING THE SETUP ##############
 sketchybar --update
