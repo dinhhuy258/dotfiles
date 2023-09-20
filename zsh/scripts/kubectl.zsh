@@ -98,3 +98,13 @@ function kexe() {
 
   kubectl exec -it $pod -c $container -- ${1:-"sh"}
 }
+
+function kctx() {
+  ctx=$(kubectl config get-contexts --no-headers -o=name | __fzfp)
+
+  if [ -z "$ctx" ]; then
+    return
+  fi
+
+  kubectl config use-context $ctx
+}
