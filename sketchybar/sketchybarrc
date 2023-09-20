@@ -98,6 +98,14 @@ sketchybar --add       item    battery right                   \
                                associated_display=1            \
            --subscribe battery system_woke power_source_change
 
+sketchybar --add event input_source_change AppleSelectedInputSourcesChangedNotification
+sketchybar --add       item         input_source right                   \
+           --set       input_source script="$PLUGIN_DIR/input_source.sh" \
+                                    icon.font="$FONT:BOLD:16.0"          \
+                                    icon.y_offset=-1                     \
+                                    label.drawing=off                    \
+           --subscribe input_source input_source_change
+
 ############## FINALIZING THE SETUP ##############
 sketchybar --update
 
