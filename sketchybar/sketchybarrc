@@ -39,7 +39,7 @@ sketchybar --bar     height=32                                           \
                      border_width=0                                      \
                      margin=-200                                         \
                      blur_radius=0                                       \
-                     position=top                                        \
+                     position=bottom                                     \
                      padding_left=4                                      \
                      padding_right=4                                     \
                      color=$BAR_COLOR                                    \
@@ -95,7 +95,6 @@ sketchybar --add       item    battery right                   \
                                icon.font="$FONT:BOLD:13.0"     \
                                icon.y_offset=0                 \
                                update_freq=120                 \
-                               associated_display=1            \
            --subscribe battery system_woke power_source_change
 
 sketchybar --add       item    volume right                    \

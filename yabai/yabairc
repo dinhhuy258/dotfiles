@@ -16,6 +16,9 @@ yabai -m config bottom_padding 2
 yabai -m config left_padding 2
 yabai -m config right_padding 2
 yabai -m config window_gap 1
+yabai -m config window_shadow off
+# add 0 padding to the top and 50 padding to bottom of all spaces regardless of the display it belongs to
+yabai -m config external_bar all:0:50
 
 yabai -m config window_border                on 
 yabai -m config window_border_width          4
@@ -47,6 +50,5 @@ yabai -m rule --add app="^IntelliJ IDEA$" manage=off
 yabai -m rule --add app="^IntelliJ IDEA$" title="( – )" manage=on
 
 yabai -m signal --add event=window_destroyed action="bash $HOME/Workspace/dotfiles/yabai/scripts/window_focus_on_destroy.sh"
-yabai -m config external_bar all:35:0
 
 echo "yabai configuration loaded.."
