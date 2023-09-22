@@ -77,22 +77,46 @@ sketchybar --bar     height=32                                           \
 
 sketchybar --add       item               apple.logo left             \
            --set       apple.logo         icon=                      \
-                                          label.drawing=off
+                                          label.drawing=off           \
+                                          icon.font="$FONT:BOLD:16.0" \
+                                          icon.y_offset=2
+
+sketchybar --add event input_source_change AppleSelectedInputSourcesChangedNotification
+sketchybar --add       item         input_source left                    \
+           --set       input_source script="$PLUGIN_DIR/input_source.sh" \
+                                    icon.font="$FONT:BOLD:18.0"          \
+                                    icon.y_offset=0                      \
+                                    label.drawing=off                    \
+           --subscribe input_source input_source_change
+
+sketchybar  --add      item  slack left                    \
+            --set      slack                               \
+                             update_freq=180               \
+                             script="$PLUGIN_DIR/slack.sh" \
+                             icon.font="$FONT:BOLD:16.0"   \
+           --subscribe slack system_woke
+
+sketchybar --add       item        application center                                \
+           --set       application script="sketchybar --set \$NAME label=\"\$INFO\"" \
+                                   label.font="$FONT:BOLD:14.0"   \
+           --subscribe application front_app_switched
 
 sketchybar --add item time right                   \
            --set time update_freq=10               \
                       script="$PLUGIN_DIR/time.sh" \
                       icon=""                     \
+                      icon.font="$FONT:BOLD:16.0"  \
                       icon.y_offset=0              \
            --add item date right                   \
            --set date update_freq=10               \
                       script="$PLUGIN_DIR/date.sh" \
+                      icon.font="$FONT:BOLD:13.0"  \
                       icon=""                     \
                       icon.y_offset=0
 
 sketchybar --add       item    battery right                   \
            --set       battery script="$PLUGIN_DIR/battery.sh" \
-                               icon.font="$FONT:BOLD:13.0"     \
+                               icon.font="$FONT:BOLD:16.0"     \
                                icon.y_offset=0                 \
                                update_freq=120                 \
            --subscribe battery system_woke power_source_change
@@ -100,16 +124,12 @@ sketchybar --add       item    battery right                   \
 sketchybar --add       item    volume right                    \
            --set       volume  script="$PLUGIN_DIR/volume.sh"  \
                                icon.font="$FONT:BOLD:16.0"     \
-                               icon.y_offset=-1                \
            --subscribe volume volume_change
 
-sketchybar --add event input_source_change AppleSelectedInputSourcesChangedNotification
-sketchybar --add       item         input_source right                   \
-           --set       input_source script="$PLUGIN_DIR/input_source.sh" \
-                                    icon.font="$FONT:BOLD:16.0"          \
-                                    icon.y_offset=-1                     \
-                                    label.drawing=off                    \
-           --subscribe input_source input_source_change
+sketchybar --add       item    wifi right                     \
+           --set       wifi    script="$PLUGIN_DIR/wifi.sh"   \
+                               icon.font="$FONT:BOLD:16.0"    \
+           --subscribe wifi    wifi_change
 
 ############## FINALIZING THE SETUP ##############
 sketchybar --update

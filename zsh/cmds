@@ -1,6 +1,6 @@
-yabai --restart-service
 say "test speaker"
-cal -y; read
+yabai --restart-service
+calcurse
 skhd --reload
 ping google.com
 nvim -u NONE ~/.cmds
