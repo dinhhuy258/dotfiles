@@ -1,26 +1,30 @@
 local M = {}
 
 M.setup = function()
-  local status_ok, indent_blankline = pcall(require, "indent_blankline")
+  local status_ok, ibl = pcall(require, "ibl")
   if not status_ok then
     return
   end
 
-  indent_blankline.setup {
-    use_treesitter = true,
-    show_current_context = false,
-    show_first_indent_level = true,
-    show_trailing_blankline_indent = false,
-    filetype_exclude = {
-      "help",
-      "terminal",
-      "startify",
-      "sfm",
+  ibl.setup {
+    scope = {
+      enabled = false,
     },
-    buftype_exclude = {
-      "terminal",
+    exclude = {
+      filetype = {
+        "help",
+        "terminal",
+        "startify",
+        "sfm",
+      },
+      buftype = {
+        "terminal",
+      },
     },
-    char = "▏",
+    indent = {
+      char = "▏",
+      tab_char = "▏",
+    },
   }
 end
 

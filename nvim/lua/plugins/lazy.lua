@@ -217,6 +217,7 @@ local function _load_plugins(opts)
     {
       "lukas-reineke/indent-blankline.nvim",
       event = "BufRead",
+      main = "ibl",
       config = function()
         require("plugins.indent-blankline").setup()
       end,
