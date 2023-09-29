@@ -14,6 +14,10 @@ M.setup = function()
     indent = {
       enable = true,
     },
+    -- windwp/nvim-ts-autotag
+    autotag = {
+      enable = true,
+    },
     -- nvim-treesitter-endwise
     endwise = {
       enable = true,

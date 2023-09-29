@@ -72,6 +72,7 @@ local function _load_plugins(opts)
         "nvim-treesitter/nvim-treesitter-textobjects",
         "RRethy/nvim-treesitter-endwise",
         "nvim-treesitter/nvim-treesitter-context",
+        "windwp/nvim-ts-autotag",
       },
       config = function()
         require("plugins.nvim-treesitter").setup()
