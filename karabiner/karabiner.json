@@ -640,7 +640,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "mouse_slower_move_speed",
+                      "name": "mouse_min_speed",
                       "value": 1
                     }
                   }
@@ -648,7 +648,7 @@
                 "to_after_key_up": [
                   {
                     "set_variable": {
-                      "name": "mouse_slower_move_speed",
+                      "name": "mouse_min_speed",
                       "value": 0
                     }
                   }
@@ -670,7 +670,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "mouse_faster_move_speed",
+                      "name": "mouse_medium_speed",
                       "value": 1
                     }
                   }
@@ -678,7 +678,7 @@
                 "to_after_key_up": [
                   {
                     "set_variable": {
-                      "name": "mouse_faster_move_speed",
+                      "name": "mouse_medium_speed",
                       "value": 0
                     }
                   }
@@ -700,7 +700,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "mouse_move_max_speed",
+                      "name": "mouse_max_speed",
                       "value": 1
                     }
                   }
@@ -708,7 +708,7 @@
                 "to_after_key_up": [
                   {
                     "set_variable": {
-                      "name": "mouse_move_max_speed",
+                      "name": "mouse_max_speed",
                       "value": 0
                     }
                   }
@@ -718,7 +718,7 @@
               {
                 "conditions": [
                   {
-                    "name": "mouse_move_max_speed",
+                    "name": "mouse_max_speed",
                     "type": "variable_if",
                     "value": 1
                   }
@@ -746,7 +746,7 @@
               {
                 "conditions": [
                   {
-                    "name": "mouse_faster_move_speed",
+                    "name": "mouse_medium_speed",
                     "type": "variable_if",
                     "value": 1
                   }
@@ -775,7 +775,7 @@
               {
                 "conditions": [
                   {
-                    "name": "mouse_slower_move_speed",
+                    "name": "mouse_min_speed",
                     "type": "variable_if",
                     "value": 1
                   }
@@ -826,7 +826,7 @@
               {
                 "conditions": [
                   {
-                    "name": "mouse_move_max_speed",
+                    "name": "mouse_max_speed",
                     "type": "variable_if",
                     "value": 1
                   }
@@ -854,7 +854,7 @@
               {
                 "conditions": [
                   {
-                    "name": "mouse_faster_move_speed",
+                    "name": "mouse_medium_speed",
                     "type": "variable_if",
                     "value": 1
                   }
@@ -883,7 +883,7 @@
               {
                 "conditions": [
                   {
-                    "name": "mouse_slower_move_speed",
+                    "name": "mouse_min_speed",
                     "type": "variable_if",
                     "value": 1
                   }
@@ -934,7 +934,7 @@
               {
                 "conditions": [
                   {
-                    "name": "mouse_move_max_speed",
+                    "name": "mouse_max_speed",
                     "type": "variable_if",
                     "value": 1
                   }
@@ -962,7 +962,7 @@
               {
                 "conditions": [
                   {
-                    "name": "mouse_faster_move_speed",
+                    "name": "mouse_medium_speed",
                     "type": "variable_if",
                     "value": 1
                   }
@@ -991,7 +991,7 @@
               {
                 "conditions": [
                   {
-                    "name": "mouse_slower_move_speed",
+                    "name": "mouse_min_speed",
                     "type": "variable_if",
                     "value": 1
                   }
@@ -1042,7 +1042,7 @@
               {
                 "conditions": [
                   {
-                    "name": "mouse_move_max_speed",
+                    "name": "mouse_max_speed",
                     "type": "variable_if",
                     "value": 1
                   }
@@ -1070,7 +1070,7 @@
               {
                 "conditions": [
                   {
-                    "name": "mouse_faster_move_speed",
+                    "name": "mouse_medium_speed",
                     "type": "variable_if",
                     "value": 1
                   }
@@ -1099,7 +1099,7 @@
               {
                 "conditions": [
                   {
-                    "name": "mouse_slower_move_speed",
+                    "name": "mouse_min_speed",
                     "type": "variable_if",
                     "value": 1
                   }
