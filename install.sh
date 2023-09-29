@@ -65,7 +65,6 @@ if which brew >/dev/null; then
     installHomebrewPackage neofetch
     brew tap FelixKratz/formulae
     installHomebrewPackage sketchybar
-    installHomebrewPackage svim
 
     # Greeting message
     installHomebrewPackage cowsay

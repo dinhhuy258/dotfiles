@@ -14,8 +14,14 @@ M.setup = function()
     indent = {
       enable = true,
     },
+    -- nvim-treesitter-endwise
     endwise = {
       enable = true,
+    },
+    -- nvim-ts-context-commentstring
+    context_commentstring = {
+      enable = true,
+      enable_autocmd = false,
     },
     -- nvim-treesitter-textobjects
     textobjects = {
@@ -54,6 +60,15 @@ M.setup = function()
         },
       },
     },
+  }
+
+  local treesitter_context_status_ok, treesitter_context = pcall(require, "treesitter-context")
+  if not treesitter_context_status_ok then
+    return
+  end
+
+  treesitter_context.setup {
+    separator = "-",
   }
 end
 

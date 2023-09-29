@@ -67,14 +67,16 @@ local function _load_plugins(opts)
     {
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
+      dependencies = {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        "RRethy/nvim-treesitter-endwise",
+        "nvim-treesitter/nvim-treesitter-context",
+      },
       config = function()
         require("plugins.nvim-treesitter").setup()
       end,
     },
-    -- textobjects
-    { "nvim-treesitter/nvim-treesitter-textobjects" },
-    -- wisely add "end" in Ruby, Vimscript, Lua, etc
-    { "RRethy/nvim-treesitter-endwise" },
     -- adds file type icons to Vim plugins such as: nvim-tree.lua, galaxyline.nvim, vim-startify...
     { "kyazdani42/nvim-web-devicons" },
     -- gitsigns, telescope... depend on this library
@@ -209,6 +211,9 @@ local function _load_plugins(opts)
     {
       "numToStr/Comment.nvim",
       event = "BufRead",
+      dependencies = {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+      },
       config = function()
         require("plugins.comment").setup()
       end,
@@ -269,14 +274,6 @@ local function _load_plugins(opts)
       end,
     },
     -- for interacting with tests within NeoVim
-    {
-      "nvim-treesitter/nvim-treesitter-context",
-      config = function()
-        require("treesitter-context").setup {
-          separator = "-",
-        }
-      end,
-    },
     {
       "nvim-neotest/neotest",
       dependencies = {
