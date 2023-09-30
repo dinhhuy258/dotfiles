@@ -1,4 +1,5 @@
 local keymappings = require "keymappings"
+local icons = require "icons"
 
 local M = {}
 
@@ -18,8 +19,8 @@ M.setup = function()
     defaults = {
       entry_prefix = "  ",
       initial_mode = "insert",
-      prompt_prefix = " ",
-      selection_caret = " ",
+      prompt_prefix = icons.telescope.prompt_prefix,
+      selection_caret = icons.telescope.selection_caret,
       path_display = { "smart" },
       scroll_strategy = "limit",
       selection_strategy = "reset",

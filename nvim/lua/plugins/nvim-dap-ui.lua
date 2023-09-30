@@ -1,3 +1,5 @@
+local icons = require "icons"
+
 local M = {}
 
 M.setup = function()
@@ -16,15 +18,15 @@ M.setup = function()
       element = "repl",
       enabled = true,
       icons = {
-        disconnect = "",
-        pause = "",
-        play = "",
-        run_last = "",
-        step_back = "",
-        step_into = "",
-        step_out = "",
-        step_over = "",
-        terminate = "",
+        disconnect = icons.dap.disconnect,
+        pause = icons.dap.pause,
+        play = icons.dap.play,
+        run_last = icons.dap.run_last,
+        step_back = icons.dap.step_back,
+        step_into = icons.dap.step_into,
+        step_out = icons.dap.step_out,
+        step_over = icons.dap.step_over,
+        terminate = icons.dap.terminate,
       },
     },
     element_mappings = {},
@@ -37,9 +39,9 @@ M.setup = function()
     },
     force_buffers = true,
     icons = {
-      collapsed = "",
-      current_frame = "",
-      expanded = "",
+      collapsed = icons.dap.collapsed,
+      current_frame = icons.dap.current_frame,
+      expanded = icons.dap.expanded,
     },
     layouts = {
       {

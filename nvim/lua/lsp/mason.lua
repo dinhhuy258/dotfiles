@@ -1,4 +1,5 @@
 local handlers = require "lsp.handlers"
+local icons = require "icons"
 
 local M = {}
 
@@ -15,20 +16,18 @@ function M.setup()
     "gopls", -- go
   }
 
-  local settings = {
+  require("mason").setup {
     ui = {
       border = "none",
       icons = {
-        package_installed = "◍",
-        package_pending = "◍",
-        package_uninstalled = "◍",
+        package_installed = icons.mason.package_installed,
+        package_pending = icons.mason.package_pending,
+        package_uninstalled = icons.mason.package_uninstalled,
       },
     },
     log_level = vim.log.levels.INFO,
     max_concurrent_installers = 4,
   }
-
-  require("mason").setup(settings)
   require("mason-lspconfig").setup {
     ensure_installed = servers,
     automatic_installation = true,

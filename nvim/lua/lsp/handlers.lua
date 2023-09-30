@@ -1,4 +1,5 @@
 local keymappings = require "keymappings"
+local icons = require "icons"
 
 local M = {}
 
@@ -64,10 +65,10 @@ end
 
 function M.setup()
   local signs = {
-    { name = "DiagnosticSignError", text = "󰅚" },
-    { name = "DiagnosticSignWarn", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
-    { name = "DiagnosticSignInfo", text = "󰌶" },
+    { name = "DiagnosticSignError", text = icons.diagnostics.error },
+    { name = "DiagnosticSignWarn", text = icons.diagnostics.warning },
+    { name = "DiagnosticSignHint", text = icons.diagnostics.hint },
+    { name = "DiagnosticSignInfo", text = icons.diagnostics.info },
   }
 
   for _, sign in ipairs(signs) do

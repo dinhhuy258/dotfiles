@@ -1,3 +1,5 @@
+local icons = require "icons"
+
 local M = {}
 
 M.setup = function()
@@ -34,43 +36,6 @@ M.setup = function()
     }),
   })
 
-  local kind_icons = {
-    Array = "",
-    Boolean = "",
-    Class = "",
-    Color = "",
-    Constant = "",
-    Constructor = "",
-    Enum = "",
-    EnumMember = "",
-    Event = "",
-    Field = "",
-    File = "",
-    Folder = "󰉋",
-    Function = "",
-    Interface = "",
-    Key = "",
-    Keyword = "",
-    Method = "",
-    Module = "",
-    Namespace = "",
-    Null = "󰟢",
-    Number = "",
-    Object = "",
-    Operator = "",
-    Package = "",
-    Property = "",
-    Reference = "",
-    Snippet = "",
-    String = "",
-    Struct = "",
-    Text = "",
-    TypeParameter = "",
-    Unit = "",
-    Value = "",
-    Variable = "",
-  }
-
   local source_names = {
     vsnip = "(Snippet)",
     nvim_lsp = "(LSP)",
@@ -88,7 +53,7 @@ M.setup = function()
     formatting = {
       format = function(entry, item)
         item.menu = source_names[entry.source.name] or string.format("[%s]", entry.source.name)
-        item.kind = string.format("%s %s", kind_icons[item.kind], item.kind)
+        item.kind = string.format("%s %s", icons.kind[item.kind], item.kind)
 
         return item
       end,

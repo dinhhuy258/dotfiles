@@ -1,3 +1,5 @@
+local icons = require "icons"
+
 local M = {}
 
 M.setup = function()
@@ -22,8 +24,8 @@ M.setup = function()
       },
     },
     indent = {
-      char = "▏",
-      tab_char = "▏",
+      char = icons.ibl.char,
+      tab_char = icons.ibl.tab_char,
     },
   }
 end

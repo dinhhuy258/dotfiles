@@ -1,4 +1,5 @@
 local keymappings = require "keymappings"
+local icons = require "icons"
 
 local M = {}
 
@@ -11,7 +12,7 @@ M.setup = function()
   end
 
   vim.fn.sign_define("DapBreakpoint", {
-    text = "󰃤",
+    text = icons.dap.breakpoint,
     texthl = "DiagnosticSignError",
     linehl = "",
     numhl = "",

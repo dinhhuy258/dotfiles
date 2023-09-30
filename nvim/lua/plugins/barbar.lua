@@ -1,4 +1,5 @@
 local keymappings = require "keymappings"
+local icons = require "icons"
 
 local M = {}
 
@@ -79,7 +80,7 @@ M.setup = function()
       -- Configure the base icons on the bufferline.
       buffer_index = true,
       buffer_number = false,
-      button = "󰅖",
+      button = icons.barbar.active_button,
       -- Enables / disables diagnostic symbols
       diagnostics = {
         [vim.diagnostic.severity.ERROR] = { enabled = false },
@@ -95,18 +96,18 @@ M.setup = function()
         -- Requires `nvim-web-devicons` if `true`
         enabled = true,
       },
-      separator = { left = "▎", right = "" },
+      separator = { left = icons.barbar.separator_left, right = "" },
 
       -- Configure the icons on the bufferline when modified or pinned.
       -- Supports all the base icon options.
-      modified = { button = "●" },
-      pinned = { button = "󰐃" },
+      modified = { button = icons.barbar.modified_button },
+      pinned = { button = icons.barbar.pinned_button },
 
       -- Configure the icons on the bufferline based on the visibility of a buffer.
       -- Supports all the base icon options, plus `modified` and `pinned`.
       alternate = { filetype = { enabled = false } },
       current = { buffer_index = true },
-      inactive = { button = "×" },
+      inactive = { button = icons.barbar.inactive_button },
       visible = { modified = { buffer_number = false } },
     },
 

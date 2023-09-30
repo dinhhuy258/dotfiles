@@ -1,4 +1,5 @@
 local keymappings = require "keymappings"
+local icons = require "icons"
 
 local M = {}
 
@@ -20,7 +21,7 @@ M.setup = function()
       win_row = 0.30, -- window row position (0=top, 1=bottom)
       win_col = 0.50, -- window col position (0=left, 1=right)
       -- win_border    = false,           -- window border? or borderchars?
-      win_border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      win_border = icons.fzf.win_border,
       hl_normal = "Normal",
       hl_border = "FloatBorder",
     },
