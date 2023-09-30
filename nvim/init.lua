@@ -33,7 +33,7 @@ vim.g.mapleader = ";" -- make sure to set `mapleader` before lazy
 require "utils.table"
 
 -- load plugins
-require("plugins.lazy").init()
+require("plugin_loader").init()
 
 -- load lsp config
 require("lsp").setup()
