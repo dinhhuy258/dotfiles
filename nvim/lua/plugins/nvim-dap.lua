@@ -35,7 +35,7 @@ M.setup = function()
   keymappings.set("n", "<Leader>dr", "<CMD>lua require'dap'.session()<CR>", opts) -- Get session
   keymappings.set("n", "<Leader>dg", "<CMD>lua require'dap'.repl.toggle()<CR>", opts) -- Toggle repl
 
-  require("general.autocmds").define_augroups {
+  require("autocmds").define_augroups {
     _nvim_dap = {
       {
         "FileType",
