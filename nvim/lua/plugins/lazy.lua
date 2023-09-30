@@ -191,6 +191,7 @@ local function _load_plugins(opts)
         require("plugins.nvim-cmp").setup()
       end,
     },
+    { "folke/neodev.nvim" },
     -- autopair
     {
       "windwp/nvim-autopairs",
