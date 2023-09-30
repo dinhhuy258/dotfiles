@@ -1,3 +1,5 @@
+local keymappings = require "keymappings"
+
 local M = {}
 
 M.setup = function()
@@ -47,7 +49,8 @@ M.setup = function()
       local function map(mode, l, r, opts)
         opts = opts or {}
         opts.buffer = bufnr
-        vim.keymap.set(mode, l, r, opts)
+
+        keymappings.set(mode, l, r, opts)
       end
 
       -- navigation

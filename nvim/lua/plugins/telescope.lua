@@ -1,4 +1,4 @@
-local keymap = require "utils.keymap"
+local keymappings = require "keymappings"
 
 local M = {}
 
@@ -81,12 +81,12 @@ M.setup = function()
     },
   }
 
-  keymap.set("n", "<Leader>fg", ":lua require('telescope.builtin').git_status()<CR>", { noremap = true })
-  keymap.set("n", "<Leader>fc", ":lua require('telescope.builtin').git_branches()<CR>", { noremap = true })
-  keymap.set("n", "<Leader>fb", ":lua require('telescope.builtin').buffers()<CR>", { noremap = true })
-  keymap.set("n", "<Leader>ft", ":lua require('telescope.builtin').treesitter()<CR>", { noremap = true })
-  keymap.set("n", "<Leader>fh", ":lua require('telescope.builtin').command_history()<CR>", { noremap = true })
-  keymap.set("n", "<Leader>fw", ":lua require'telescope'.extensions.projects.projects{}<CR>", { noremap = true })
+  keymappings.set("n", "<Leader>fg", ":lua require('telescope.builtin').git_status()<CR>", { noremap = true })
+  keymappings.set("n", "<Leader>fc", ":lua require('telescope.builtin').git_branches()<CR>", { noremap = true })
+  keymappings.set("n", "<Leader>fb", ":lua require('telescope.builtin').buffers()<CR>", { noremap = true })
+  keymappings.set("n", "<Leader>ft", ":lua require('telescope.builtin').treesitter()<CR>", { noremap = true })
+  keymappings.set("n", "<Leader>fh", ":lua require('telescope.builtin').command_history()<CR>", { noremap = true })
+  keymappings.set("n", "<Leader>fw", ":lua require'telescope'.extensions.projects.projects{}<CR>", { noremap = true })
 end
 
 return M

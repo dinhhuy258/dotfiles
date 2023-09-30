@@ -1,4 +1,4 @@
-local keymap = require "utils.keymap"
+local keymappings = require "keymappings"
 
 local M = {}
 
@@ -8,7 +8,7 @@ function M.setup()
     return
   end
 
-  keymap.set("n", "<Leader>dq", "<CMD>GoDebugStop<CR>", { noremap = false })
+  keymappings.set("n", "<Leader>dq", "<CMD>GoDebugStop<CR>", { noremap = false })
 
   go.setup()
 end

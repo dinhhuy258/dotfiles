@@ -1,4 +1,4 @@
-local keymap = require "utils.keymap"
+local keymappings = require "keymappings"
 
 local M = {}
 
@@ -21,19 +21,19 @@ M.setup = function()
 
   local opts = { noremap = false }
 
-  keymap.set("n", "<Leader>ds", "<CMD>lua require'dap'.continue()<CR>", opts) -- Start
-  keymap.set("n", "<Leader>dq", "<CMD>lua require'dap'.close()<CR>", opts) -- Quit
-  keymap.set("n", "<Leader>dd", "<CMD>lua require'dap'.disconnect()<CR>", opts) -- Disconnect
-  keymap.set("n", "<Leader>dt", "<CMD>lua require'dap'.toggle_breakpoint()<CR>", opts) -- Toogle breakpoint
-  keymap.set("n", "<Leader>dC", "<CMD>lua require'dap'.run_to_cursor()<CR>", opts) -- Run to cursor
-  keymap.set("n", "<Leader>dn", "<CMD>lua require'dap'.step_over()<CR>", opts) -- Step over
-  keymap.set("n", "<Leader>db", "<CMD>lua require'dap'.step_back()<CR>", opts) -- Step back
-  keymap.set("n", "<Leader>di", "<CMD>lua require'dap'.step_into()<CR>", opts) -- Step into
-  keymap.set("n", "<Leader>do", "<CMD>lua require'dap'.step_out()<CR>", opts) -- Step out
-  keymap.set("n", "<Leader>dp", "<CMD>lua require'dap'.pause.toggle()<CR>", opts) -- Pause
-  keymap.set("n", "<Leader>dc", "<CMD>lua require'dap'.continue()<CR>", opts) -- Continue
-  keymap.set("n", "<Leader>dr", "<CMD>lua require'dap'.session()<CR>", opts) -- Get session
-  keymap.set("n", "<Leader>dg", "<CMD>lua require'dap'.repl.toggle()<CR>", opts) -- Toggle repl
+  keymappings.set("n", "<Leader>ds", "<CMD>lua require'dap'.continue()<CR>", opts) -- Start
+  keymappings.set("n", "<Leader>dq", "<CMD>lua require'dap'.close()<CR>", opts) -- Quit
+  keymappings.set("n", "<Leader>dd", "<CMD>lua require'dap'.disconnect()<CR>", opts) -- Disconnect
+  keymappings.set("n", "<Leader>dt", "<CMD>lua require'dap'.toggle_breakpoint()<CR>", opts) -- Toogle breakpoint
+  keymappings.set("n", "<Leader>dC", "<CMD>lua require'dap'.run_to_cursor()<CR>", opts) -- Run to cursor
+  keymappings.set("n", "<Leader>dn", "<CMD>lua require'dap'.step_over()<CR>", opts) -- Step over
+  keymappings.set("n", "<Leader>db", "<CMD>lua require'dap'.step_back()<CR>", opts) -- Step back
+  keymappings.set("n", "<Leader>di", "<CMD>lua require'dap'.step_into()<CR>", opts) -- Step into
+  keymappings.set("n", "<Leader>do", "<CMD>lua require'dap'.step_out()<CR>", opts) -- Step out
+  keymappings.set("n", "<Leader>dp", "<CMD>lua require'dap'.pause.toggle()<CR>", opts) -- Pause
+  keymappings.set("n", "<Leader>dc", "<CMD>lua require'dap'.continue()<CR>", opts) -- Continue
+  keymappings.set("n", "<Leader>dr", "<CMD>lua require'dap'.session()<CR>", opts) -- Get session
+  keymappings.set("n", "<Leader>dg", "<CMD>lua require'dap'.repl.toggle()<CR>", opts) -- Toggle repl
 
   require("general.autocmds").define_augroups {
     _nvim_dap = {

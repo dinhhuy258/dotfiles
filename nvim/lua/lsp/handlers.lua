@@ -1,36 +1,30 @@
-local keymap = require "utils.keymap"
+local keymappings = require "keymappings"
 
 local M = {}
 
 local function lsp_keybindings(bufnr)
-  local opts = { noremap = true, silent = true }
+  local opts = { buffer = bufnr }
 
-  keymap.buf_set(bufnr, "n", "gd", "<CMD>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
-  keymap.buf_set(bufnr, "n", "gr", "<CMD>lua require('telescope.builtin').lsp_references()<CR>", opts)
-  keymap.buf_set(bufnr, "n", "gi", "<CMD>lua require('telescope.builtin').lsp_implementations()<CR>", opts)
-  keymap.buf_set(bufnr, "n", "gy", "<CMD>lua require('telescope.builtin').lsp_type_definitions()<CR>", opts)
-  keymap.buf_set(bufnr, "n", "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
+  keymappings.set("n", "gd", "<CMD>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
+  keymappings.set("n", "gr", "<CMD>lua require('telescope.builtin').lsp_references()<CR>", opts)
+  keymappings.set("n", "gi", "<CMD>lua require('telescope.builtin').lsp_implementations()<CR>", opts)
+  keymappings.set("n", "gy", "<CMD>lua require('telescope.builtin').lsp_type_definitions()<CR>", opts)
+  keymappings.set("n", "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
 
-  keymap.buf_set(bufnr, "n", "g[", "<CMD>lua vim.diagnostic.goto_prev({ float = { border = 'rounded' } })<CR>", opts)
-  keymap.buf_set(bufnr, "n", "g]", "<CMD>lua vim.diagnostic.goto_next({ float = { border = 'rounded' } })<CR>", opts)
-  keymap.buf_set(bufnr, "n", "gl", "<CMD>lua vim.diagnostic.open_float({ border = 'rounded' })<CR>", opts)
+  keymappings.set("n", "g[", "<CMD>lua vim.diagnostic.goto_prev({ float = { border = 'rounded' } })<CR>", opts)
+  keymappings.set("n", "g]", "<CMD>lua vim.diagnostic.goto_next({ float = { border = 'rounded' } })<CR>", opts)
+  keymappings.set("n", "gl", "<CMD>lua vim.diagnostic.open_float({ border = 'rounded' })<CR>", opts)
 
   if require("utilities.formatter").is_supported(vim.bo.filetype) then
-    keymap.buf_set(bufnr, "n", "<Leader>cf", "<CMD>lua require('utilities.formatter').format()<CR>", opts)
+    keymappings.set("n", "<Leader>cf", "<CMD>lua require('utilities.formatter').format()<CR>", opts)
   else
-    keymap.buf_set(bufnr, "n", "<Leader>cf", "<CMD>lua vim.lsp.buf.format()<CR>", opts)
+    keymappings.set("n", "<Leader>cf", "<CMD>lua vim.lsp.buf.format()<CR>", opts)
   end
-  keymap.buf_set(bufnr, "n", "<Leader>cr", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
-  keymap.buf_set(bufnr, "n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
+  keymappings.set("n", "<Leader>cr", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
+  keymappings.set("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
 
   if vim.bo.filetype == "go" then
-    keymap.buf_set(
-      bufnr,
-      "n",
-      "<Leader>cf",
-      "<CMD>lua require('go.format').format()<CR>",
-      { noremap = true, silent = true }
-    )
+    keymappings.set("n", "<Leader>cf", "<CMD>lua require('go.format').format()<CR>", { noremap = true, silent = true })
   end
 end
 

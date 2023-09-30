@@ -30,7 +30,7 @@ vim.g.huy_duong_workspace = 1
 -- change leader key to semicolon
 vim.g.mapleader = ";" -- make sure to set `mapleader` before lazy
 
-require("utils.table")
+require "utils.table"
 
 -- load plugins
 require("plugins.lazy").init()
@@ -38,8 +38,8 @@ require("plugins.lazy").init()
 -- load lsp config
 require("lsp").setup()
 
-require("general.autocmds").define_default_autogroups()
-require("general.options").setup()
-require("general.colorschema").setup()
-require("general.mappings").setup()
-require("general.commands").setup()
+require("autocmds").define_default_autogroups()
+require("options").setup()
+require("colorschema").setup()
+require("keymappings").setup()
+require("commands").setup()

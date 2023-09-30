@@ -201,13 +201,6 @@ local function _load_plugins(opts)
         require("plugins.nvim-autopairs").setup()
       end,
     },
-    {
-      "windwp/nvim-ts-autotag",
-      event = "InsertEnter",
-      config = function()
-        require("plugins.nvim-ts-autotag").setup()
-      end,
-    },
     -- comment
     {
       "numToStr/Comment.nvim",

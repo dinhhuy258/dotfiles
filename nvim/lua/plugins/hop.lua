@@ -1,4 +1,4 @@
-local keymap = require "utils.keymap"
+local keymappings = require "keymappings"
 
 local M = {}
 
@@ -10,8 +10,8 @@ M.setup = function()
 
   hop.setup { keys = "etovxqpdygfblzhckisuran" }
 
-  keymap.set("n", "<Leader><Leader>", ":HopChar1<CR>", { noremap = false })
-  keymap.set("n", "<Leader>l", ":HopLine<CR>", { noremap = false })
+  keymappings.set("n", "<Leader><Leader>", ":HopChar1<CR>", { noremap = false })
+  keymappings.set("n", "<Leader>l", ":HopLine<CR>", { noremap = false })
 end
 
 return M

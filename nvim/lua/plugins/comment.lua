@@ -1,4 +1,4 @@
-local keymap = require "utils.keymap"
+local keymappings = require "keymappings"
 
 local M = {}
 
@@ -49,18 +49,18 @@ M.setup = function()
       extended = false,
     },
     ---Function to call before (un)comment
-    pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+    pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
     ---Function to call after (un)comment
     post_hook = nil,
   }
 
-  keymap.set(
+  keymappings.set(
     "n",
     "<Leader>cl",
     "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>",
     { noremap = true, silent = true }
   )
-  keymap.set(
+  keymappings.set(
     "x",
     "<Leader>cl",
     "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
