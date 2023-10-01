@@ -49,7 +49,7 @@ function M.setup()
 end
 
 function M.set(mode, lhs, rhs, opts)
-  opts = table.merge({
+  opts = vim.tbl_extend("force", {
     noremap = true,
     silent = true,
     expr = false,

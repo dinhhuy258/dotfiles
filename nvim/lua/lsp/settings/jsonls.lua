@@ -171,7 +171,7 @@ local schemas = {
 return {
   settings = {
     json = {
-      schemas = table.extend(schemas, default_schemas),
+      schemas = vim.tbl_extend("force", default_schemas, schemas),
     },
   },
   setup = {

@@ -49,10 +49,6 @@ local default_autogroups = {
   },
 }
 
-function M.define_default_autogroups()
-  M.define_augroups(default_autogroups)
-end
-
 function M.define_augroups(definitions)
   -- Create autocommand groups based on the passed definitions
   --
@@ -73,6 +69,10 @@ function M.define_augroups(definitions)
 
     vim.cmd "augroup END"
   end
+end
+
+function M.setup()
+  M.define_augroups(default_autogroups)
 end
 
 return M
