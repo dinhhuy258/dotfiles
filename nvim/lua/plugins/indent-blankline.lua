@@ -13,13 +13,13 @@ M.setup = function()
       enabled = false,
     },
     exclude = {
-      filetype = {
+      filetypes = {
         "help",
         "terminal",
         "startify",
         "sfm",
       },
-      buftype = {
+      buftypes = {
         "terminal",
       },
     },
