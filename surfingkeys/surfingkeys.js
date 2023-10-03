@@ -37,6 +37,7 @@ api.mapkey('ofb', 'open facebook', goto('https://facebook.com'));
 api.unmap('oy');
 api.mapkey('oyt', 'open youtube', goto('https://youtube.com'));
 api.mapkey('otl', 'open youtube', goto('https://translate.google.com'));
+api.mapkey('olc', 'open leetcode', goto('https://leetcode.com/problemset/all/'));
 
 // set theme
 settings.theme = `

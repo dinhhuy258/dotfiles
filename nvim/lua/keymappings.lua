@@ -4,6 +4,9 @@ function M.setup()
   -- disable keys
   M.set("n", "Q", "<Nop>")
 
+  -- map jj in insert mode to escape
+  M.set("i", "jj", "<Esc>")
+
   -- split
   M.set("n", "<Leader>-", ":<C-u>split<CR>")
   M.set("n", "<Leader>\\", ":<C-u>vsplit<CR>")

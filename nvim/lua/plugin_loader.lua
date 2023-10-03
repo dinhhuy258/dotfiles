@@ -285,7 +285,7 @@ local function _load_plugins(opts)
     },
     -- copilot
     {
-      "github/copilot.vim",
+      "zbirenbaum/copilot.lua",
       event = "BufRead",
       config = function()
         require("plugins.copilot").setup()

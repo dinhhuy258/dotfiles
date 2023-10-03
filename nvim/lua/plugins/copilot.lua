@@ -1,11 +1,20 @@
-local keymappings = require "keymappings"
-
 local M = {}
 
 M.setup = function()
-  vim.g.copilot_no_tab_map = true
-
-  keymappings.set("i", "<C-j>", 'copilot#Accept("<CR>")', { noremap = true, silent = true, expr = true })
+  require("copilot").setup {
+    suggestion = {
+      enabled = true,
+      auto_trigger = true,
+      debounce = 75,
+      keymap = {
+        accept = "<C-j>",
+        accept_word = false,
+        accept_line = false,
+        next = "<C-k>",
+        prev = "<C-l>",
+      },
+    },
+  }
 end
 
 return M
