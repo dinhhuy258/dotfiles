@@ -1,78 +1,77 @@
 local M = {}
 
-local default_autogroups = {
-  _general_settings = {
-    -- Stop newline continution of comments
-    {
-      "FileType",
-      "*",
-      "setlocal formatoptions-=c formatoptions-=r formatoptions-=o",
-    },
-    -- Highlighting yarked region
-    {
-      "TextYankPost",
-      "*",
-      "lua require('vim.highlight').on_yank({ higroup = 'HighlightedYankRegion', timeout = 1000 })",
-    },
-    {
-      "ColorScheme",
-      "*",
-      "highlight HighlightedYankRegion gui=reverse",
-    },
-    -- Exclude qf in the buffer list
-    {
-      "FileType",
-      "qf",
-      "set nobuflisted",
-    },
-    {
-      "FileType",
-      "qf",
-      "nnoremap <silent> <buffer> q :q<CR>",
-    },
-    {
-      "FileType",
-      "help",
-      "nnoremap <silent> <buffer> q :q<CR>",
-    },
-  },
-  _markdown = {
-    { "FileType", "markdown", "setlocal wrap" },
-    { "FileType", "markdown", "setlocal spell" },
-  },
-  _general_lsp = {
-    {
-      "FileType",
-      "lspinfo",
-      "nnoremap <silent> <buffer> q :q<CR>",
-    },
-  },
-}
-
-function M.define_augroups(definitions)
-  -- Create autocommand groups based on the passed definitions
-  --
-  -- The key will be the name of the group, and each definition
-  -- within the group should have:
-  --    1. Trigger
-  --    2. Pattern
-  --    3. Text
-  -- just like how they would normally be defined from Vim itself
-  for group_name, definition in pairs(definitions) do
-    vim.cmd("augroup " .. group_name)
-    vim.cmd "autocmd!"
-
-    for _, def in pairs(definition) do
-      local command = table.concat(vim.tbl_flatten { "autocmd", def }, " ")
-      vim.cmd(command)
-    end
-
-    vim.cmd "augroup END"
-  end
+local function augroup(name)
+  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 
 function M.setup()
-  M.define_augroups(default_autogroups)
+  -- Check if we need to reload the file when it changed
+  vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+    group = augroup "checktime",
+    command = "checktime",
+  })
+
+  -- Highlight on yank
+  vim.api.nvim_create_autocmd("TextYankPost", {
+    group = augroup "highlight_yank",
+    callback = function()
+      vim.highlight.on_yank { higroup = "Search", timeout = 200 }
+    end,
+  })
+
+  -- Go to last loc when opening a buffer
+  vim.api.nvim_create_autocmd("BufReadPost", {
+    group = augroup "last_loc",
+    callback = function()
+      local exclude = { "gitcommit" }
+      local buf = vim.api.nvim_get_current_buf()
+      if vim.tbl_contains(exclude, vim.bo[buf].filetype) then
+        return
+      end
+      local mark = vim.api.nvim_buf_get_mark(buf, '"')
+      local lcount = vim.api.nvim_buf_line_count(buf)
+      if mark[1] > 0 and mark[1] <= lcount then
+        pcall(vim.api.nvim_win_set_cursor, 0, mark)
+      end
+    end,
+  })
+
+  -- Close some filetypes with <q>
+  vim.api.nvim_create_autocmd("FileType", {
+    group = augroup "close_with_q",
+    pattern = {
+      "help",
+      "lspinfo",
+      "qf",
+      "checkhealth",
+    },
+    callback = function(event)
+      vim.bo[event.buf].buflisted = false
+      vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+    end,
+  })
+
+  -- Wrap and check for spell in text filetypes
+  vim.api.nvim_create_autocmd("FileType", {
+    group = augroup "wrap_spell",
+    pattern = { "gitcommit", "markdown" },
+    callback = function()
+      vim.opt_local.wrap = true
+      vim.opt_local.spell = true
+    end,
+  })
+
+  -- Set nobuflisted for some filetypes
+  vim.api.nvim_create_autocmd("FileType", {
+    group = augroup "_filetype_nobuflisted",
+    pattern = {
+      "qf",
+      "dap-repl", -- nvim-dap
+    },
+    callback = function()
+      vim.bo.buflisted = false
+    end,
+  })
 end
 
 return M

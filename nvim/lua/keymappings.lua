@@ -47,8 +47,21 @@ function M.setup()
   -- undo break points
   M.set("i", ",", ",<c-g>u")
   M.set("i", ".", ".<c-g>u")
+  M.set("i", ";", ";<c-g>u")
   M.set("i", "!", "!<c-g>u")
   M.set("i", "?", "?<c-g>u")
+
+  -- better up/down
+  M.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+  M.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+
+  -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
+  M.set("n", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+  M.set("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+  M.set("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+  M.set("n", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+  M.set("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+  M.set("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 end
 
 function M.set(mode, lhs, rhs, opts)

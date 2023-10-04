@@ -38,6 +38,7 @@ M.setup = function()
       enabled = true,
       expand = true,
       patterns = {
+        { "*.php", { "$(capture)Interface.php" } },
         { "*.c", { "$(capture).h" } },
         { "*.cc", { "$(capture).hpp", "$(capture).h", "$(capture).hxx" } },
         { "*.cpp", { "$(capture).hpp", "$(capture).h", "$(capture).hxx" } },
@@ -46,6 +47,28 @@ M.setup = function()
         { ".env", { "*.env", ".env.*", ".envrc", "env.d.ts" } },
         { ".gitignore", { ".gitattributes", ".gitmodules", ".gitmessage", ".mailmap", ".git-blame*" } },
         { "composer.json", { ".php*.cache", "composer.lock", "phpunit.xml*", "psalm*.xml" } },
+        {
+          "readme*",
+          {
+            "authors",
+            "backers*",
+            "changelog*",
+            "citation*",
+            "code_of_conduct*",
+            "codeowners",
+            "contributing*",
+            "contributors",
+            "copying*",
+            "credits",
+            "governance.md",
+            "history.md",
+            "license*",
+            "maintainers",
+            "readme*",
+            "security.md",
+            "sponsors*",
+          },
+        },
         {
           "artisan",
           {
