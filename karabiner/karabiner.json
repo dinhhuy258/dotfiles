@@ -40,6 +40,30 @@
             ]
           },
           {
+            "description": "Change left_command + j to esc",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "escape"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Quickly open Google Chrome (left_command + right_command + B)",
             "manipulators": [
               {
