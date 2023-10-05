@@ -152,11 +152,17 @@ local function _load_plugins(opts)
         require("plugins.vim-startify").setup()
       end,
     },
-    -- lsp client
-    { "neovim/nvim-lspconfig" },
     -- manage lsp servers
-    { "williamboman/mason.nvim" },
-    { "williamboman/mason-lspconfig.nvim" },
+    {
+      "williamboman/mason.nvim",
+      dependencies = {
+        "neovim/nvim-lspconfig",
+        "williamboman/mason-lspconfig.nvim",
+      },
+      config = function()
+        require("plugins.mason").setup()
+      end,
+    },
     -- lsp signature
     {
       "ray-x/lsp_signature.nvim",
