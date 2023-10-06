@@ -297,6 +297,8 @@ local function _load_plugins(opts)
         require("plugins.copilot").setup()
       end,
     },
+    -- easily interact with tmux from vim
+    { "preservim/vimux" },
   }, opts)
 end
 

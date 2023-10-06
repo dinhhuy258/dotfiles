@@ -36,8 +36,12 @@ require("plugin_loader").init()
 -- load lsp config
 require("lsp").setup()
 
+-- load config
 require("config.autocmds").setup()
 require("config.options").setup()
 require("config.colorschema").setup()
 require("config.keymaps").setup()
 require("config.commands").setup()
+
+-- load core
+require("core.tasks").setup()
