@@ -1,4 +1,4 @@
-local keymappings = require "keymappings"
+local keymaps = require "config.keymaps"
 local bdelete = require("barbar.bbye").bdelete
 local event = require "sfm.event"
 
@@ -134,8 +134,8 @@ M.setup = function()
     bdelete(false, bufnr)
   end)
 
-  keymappings.set("n", "<F1>", "<CMD>SFMToggle<CR>", { noremap = true, silent = true })
-  keymappings.set("n", "fm", "<CMD>SFMToggle<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<F1>", "<CMD>SFMToggle<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "fm", "<CMD>SFMToggle<CR>", { noremap = true, silent = true })
 end
 
 return M

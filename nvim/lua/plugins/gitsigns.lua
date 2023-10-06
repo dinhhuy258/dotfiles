@@ -1,4 +1,4 @@
-local keymappings = require "keymappings"
+local keymaps = require "config.keymaps"
 
 local M = {}
 
@@ -50,7 +50,7 @@ M.setup = function()
         opts = opts or {}
         opts.buffer = bufnr
 
-        keymappings.set(mode, l, r, opts)
+        keymaps.set(mode, l, r, opts)
       end
 
       -- navigation

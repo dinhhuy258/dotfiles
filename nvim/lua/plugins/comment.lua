@@ -1,4 +1,4 @@
-local keymappings = require "keymappings"
+local keymaps = require "config.keymaps"
 
 local M = {}
 
@@ -54,13 +54,13 @@ M.setup = function()
     post_hook = nil,
   }
 
-  keymappings.set(
+  keymaps.set(
     "n",
     "<Leader>cl",
     "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>",
     { noremap = true, silent = true }
   )
-  keymappings.set(
+  keymaps.set(
     "x",
     "<Leader>cl",
     "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",

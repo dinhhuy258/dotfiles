@@ -1,3 +1,5 @@
+local float_input = require "core.float_input"
+
 local M = {}
 
 function M.setup()

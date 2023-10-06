@@ -1,4 +1,4 @@
-local keymappings = require "keymappings"
+local keymaps = require "config.keymaps"
 
 local M = {}
 
@@ -16,9 +16,9 @@ M.setup = function()
   }
 
   -- setup keymap
-  keymappings.set("n", "<Leader>tr", ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>', { noremap = true })
-  keymappings.set("n", "<Leader>tn", ':lua require("neotest").run.run()<CR>', { noremap = true })
-  keymappings.set("n", "<Leader>to", ':lua require("neotest").output.open({ enter = true })<CR>', { noremap = true })
+  keymaps.set("n", "<Leader>tr", ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>', { noremap = true })
+  keymaps.set("n", "<Leader>tn", ':lua require("neotest").run.run()<CR>', { noremap = true })
+  keymaps.set("n", "<Leader>to", ':lua require("neotest").output.open({ enter = true })<CR>', { noremap = true })
 end
 
 return M

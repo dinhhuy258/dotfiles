@@ -36,8 +36,8 @@ require("plugin_loader").init()
 -- load lsp config
 require("lsp").setup()
 
-require("autocmds").setup()
-require("options").setup()
-require("colorschema").setup()
-require("keymappings").setup()
-require("commands").setup()
+require("config.autocmds").setup()
+require("config.options").setup()
+require("config.colorschema").setup()
+require("config.keymaps").setup()
+require("config.commands").setup()

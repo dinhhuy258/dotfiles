@@ -1,44 +1,44 @@
-local keymappings = require "keymappings"
+local keymaps = require "config.keymaps"
 local icons = require "icons"
 
 local M = {}
 
 M.setup = function()
-  keymappings.set("n", "<S-Left>", ":BufferPrevious<CR>", { noremap = true, silent = true })
-  keymappings.set("n", "<S-Right>", ":BufferNext<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<S-Left>", ":BufferPrevious<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<S-Right>", ":BufferNext<CR>", { noremap = true, silent = true })
 
-  keymappings.set("n", "<Leader>[", ":BufferMovePrevious<CR>", { noremap = true, silent = true })
-  keymappings.set("n", "<Leader>]", ":BufferMoveNext<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>[", ":BufferMovePrevious<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>]", ":BufferMoveNext<CR>", { noremap = true, silent = true })
 
-  keymappings.set("n", "<Leader>1", ":BufferGoto 1<CR>", { noremap = true, silent = true })
-  keymappings.set("n", "<Leader>2", ":BufferGoto 2<CR>", { noremap = true, silent = true })
-  keymappings.set("n", "<Leader>3", ":BufferGoto 3<CR>", { noremap = true, silent = true })
-  keymappings.set("n", "<Leader>4", ":BufferGoto 4<CR>", { noremap = true, silent = true })
-  keymappings.set("n", "<Leader>5", ":BufferGoto 5<CR>", { noremap = true, silent = true })
-  keymappings.set("n", "<Leader>6", ":BufferGoto 6<CR>", { noremap = true, silent = true })
-  keymappings.set("n", "<Leader>7", ":BufferGoto 7<CR>", { noremap = true, silent = true })
-  keymappings.set("n", "<Leader>8", ":BufferGoto 8<CR>", { noremap = true, silent = true })
-  keymappings.set("n", "<Leader>9", ":BufferGoto 9<CR>", { noremap = true, silent = true })
-  keymappings.set("n", "<Leader>0", ":BufferLast<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>1", ":BufferGoto 1<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>2", ":BufferGoto 2<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>3", ":BufferGoto 3<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>4", ":BufferGoto 4<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>5", ":BufferGoto 5<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>6", ":BufferGoto 6<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>7", ":BufferGoto 7<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>8", ":BufferGoto 8<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>9", ":BufferGoto 9<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>0", ":BufferLast<CR>", { noremap = true, silent = true })
 
-  keymappings.set("i", "<Leader>1", "<ESC>:BufferGoto 1<CR>", { noremap = true, silent = true })
-  keymappings.set("i", "<Leader>2", "<ESC>:BufferGoto 2<CR>", { noremap = true, silent = true })
-  keymappings.set("i", "<Leader>3", "<ESC>:BufferGoto 3<CR>", { noremap = true, silent = true })
-  keymappings.set("i", "<Leader>4", "<ESC>:BufferGoto 4<CR>", { noremap = true, silent = true })
-  keymappings.set("i", "<Leader>5", "<ESC>:BufferGoto 5<CR>", { noremap = true, silent = true })
-  keymappings.set("i", "<Leader>6", "<ESC>:BufferGoto 6<CR>", { noremap = true, silent = true })
-  keymappings.set("i", "<Leader>7", "<ESC>:BufferGoto 7<CR>", { noremap = true, silent = true })
-  keymappings.set("i", "<Leader>8", "<ESC>:BufferGoto 8<CR>", { noremap = true, silent = true })
-  keymappings.set("i", "<Leader>9", "<ESC>:BufferGoto 9<CR>", { noremap = true, silent = true })
-  keymappings.set("i", "<Leader>0", "<ESC>:BufferLast<CR>", { noremap = true, silent = true })
+  keymaps.set("i", "<Leader>1", "<ESC>:BufferGoto 1<CR>", { noremap = true, silent = true })
+  keymaps.set("i", "<Leader>2", "<ESC>:BufferGoto 2<CR>", { noremap = true, silent = true })
+  keymaps.set("i", "<Leader>3", "<ESC>:BufferGoto 3<CR>", { noremap = true, silent = true })
+  keymaps.set("i", "<Leader>4", "<ESC>:BufferGoto 4<CR>", { noremap = true, silent = true })
+  keymaps.set("i", "<Leader>5", "<ESC>:BufferGoto 5<CR>", { noremap = true, silent = true })
+  keymaps.set("i", "<Leader>6", "<ESC>:BufferGoto 6<CR>", { noremap = true, silent = true })
+  keymaps.set("i", "<Leader>7", "<ESC>:BufferGoto 7<CR>", { noremap = true, silent = true })
+  keymaps.set("i", "<Leader>8", "<ESC>:BufferGoto 8<CR>", { noremap = true, silent = true })
+  keymaps.set("i", "<Leader>9", "<ESC>:BufferGoto 9<CR>", { noremap = true, silent = true })
+  keymaps.set("i", "<Leader>0", "<ESC>:BufferLast<CR>", { noremap = true, silent = true })
 
-  keymappings.set("n", "<Leader>w", ":BufferClose<CR>", { noremap = true, silent = true })
-  keymappings.set("n", "<Leader>x", ":BufferCloseAllButCurrent<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>w", ":BufferClose<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>x", ":BufferCloseAllButCurrent<CR>", { noremap = true, silent = true })
 
-  keymappings.set("i", "<Leader>w", "<ESC>:BufferClose<CR>", { noremap = true, silent = true })
-  keymappings.set("i", "<Leader>x", "<ESC>:BufferCloseAllButCurrent<CR>", { noremap = true, silent = true })
+  keymaps.set("i", "<Leader>w", "<ESC>:BufferClose<CR>", { noremap = true, silent = true })
+  keymaps.set("i", "<Leader>x", "<ESC>:BufferCloseAllButCurrent<CR>", { noremap = true, silent = true })
 
-  keymappings.set("n", "<Leader>bb", ":BufferPin<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>bb", ":BufferPin<CR>", { noremap = true, silent = true })
 
   -- Set barbar's options
   require("barbar").setup {
