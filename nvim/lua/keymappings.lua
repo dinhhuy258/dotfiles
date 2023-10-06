@@ -62,6 +62,9 @@ function M.setup()
   M.set("n", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
   M.set("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
   M.set("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+
+  -- allow to search in selection mode
+  M.set({ "x" }, "/", "<Esc>/\\%V")
 end
 
 function M.set(mode, lhs, rhs, opts)
