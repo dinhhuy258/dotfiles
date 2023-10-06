@@ -58,6 +58,7 @@ if which brew >/dev/null; then
     installHomebrewPackage jq
     installHomebrewPackage lnav
     installHomebrewPackage go
+    installHomebrewPackage task
     installHomebrewPackage derailed/k9s/k9s
     installHomebrewPackage koekeishiya/formulae/skhd
     installHomebrewPackage koekeishiya/formulae/yabai
@@ -140,6 +141,10 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   # Sync sketchybar config
   ln -sf $CWD/sketchybar ~/.config/sketchybar
+
+  # Sync task config
+  mkdir -p ~/.config/task
+  ln -sf $CWD/task/taskrc ~/.config/task/taskrc
 fi
 
 # brew services start skhd

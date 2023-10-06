@@ -96,6 +96,12 @@ sketchybar  --add      item  slack left                    \
                              icon.font="$FONT:BOLD:16.0"   \
            --subscribe slack system_woke
 
+sketchybar --add item task left                         \
+           --set task      script="$PLUGIN_DIR/task.sh" \
+                           update_freq=120              \
+                           background.border_width=0    \
+                           icon.font="$FONT:BOLD:16.0"
+
 sketchybar --add       item        application center                                \
            --set       application script="sketchybar --set \$NAME label=\"\$INFO\"" \
                                    label.font="$FONT:BOLD:14.0"   \

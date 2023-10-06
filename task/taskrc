@@ -1,0 +1,5 @@
+# Files
+data.location=~/.task
+
+# From taskrc man page https://linux.die.net/man/5/taskrc
+weekstart=monday
