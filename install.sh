@@ -150,7 +150,6 @@ fi
 # brew services start skhd
 # brew services start yabai
 # brew services start sketchybar
-# brew services start svim
 
 # go install github.com/dinhhuy258/fm@latest
 

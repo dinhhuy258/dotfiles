@@ -3,3 +3,8 @@ data.location=~/.task
 
 # From taskrc man page https://linux.die.net/man/5/taskrc
 weekstart=monday
+dateformat=d/m/Y
+dateformat.report=d/m/Y
+dateformat.holiday=DMY
+dateformat.annotation=d/m/Y
+report.X.dateformat=d/m/Y
