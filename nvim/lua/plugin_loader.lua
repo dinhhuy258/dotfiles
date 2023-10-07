@@ -299,6 +299,19 @@ local function _load_plugins(opts)
     },
     -- easily interact with tmux from vim
     { "preservim/vimux" },
+    -- peek file
+    {
+      "nacro90/numb.nvim",
+      config = function()
+        require("numb").setup()
+      end,
+    },
+    {
+      "echasnovski/mini.cursorword",
+      config = function()
+        require("plugins.cursorword").setup()
+      end,
+    },
   }, opts)
 end
 
