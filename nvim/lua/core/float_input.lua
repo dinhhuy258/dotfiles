@@ -52,6 +52,7 @@ function M.input(on_confirm, opts)
     vim.api.nvim_win_close(window, true)
   end, { buffer = buffer })
   vim.keymap.set({ "n", "i" }, "<c-c>", function()
+    vim.cmd "stopinsert"
     vim.api.nvim_win_close(window, true)
   end, { buffer = buffer })
 end
