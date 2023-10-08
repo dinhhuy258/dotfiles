@@ -13,7 +13,7 @@ function M.setup()
     pattern = {
       "sfm",
       "VimDatabase",
-      "git.nvim"
+      "git.nvim",
     },
     callback = function()
       vim.b.minicursorword_disable = true

@@ -45,3 +45,7 @@ require("config.commands").setup()
 
 -- load core
 require("core.tasks").setup()
+require("core.open").setup()
+require("core.nohlsearch").setup()
+require("core.statusline").setup()
+require("core.cutlass").setup()

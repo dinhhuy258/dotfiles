@@ -79,4 +79,25 @@ return {
     Value = "",
     Variable = "",
   },
+  statusline = {
+    filetype = {
+      sfm = "󰙅",
+      fzf = "",
+      VimDatabase = "",
+      ["git.nvim"] = "",
+      diff = "",
+      floaterm = "",
+      startify = "",
+      help = "󰗚",
+    },
+    buftype = {
+      terminal = "",
+    },
+    git = {
+      branch = "󰊢",
+    },
+    file = {
+      default = "",
+    },
+  },
 }

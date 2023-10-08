@@ -1,3 +1,4 @@
+local navbuddy = require "nvim-navbuddy"
 local keymaps = require "config.keymaps"
 local icons = require "icons"
 
@@ -54,13 +55,15 @@ function M.common_capabilities()
   return capabilities
 end
 
-function M.common_on_attach(_, bufnr)
+function M.common_on_attach(client, bufnr)
   lsp_keybindings(bufnr)
 
   require("lsp_signature").on_attach {
     hint_enable = false,
     hi_parameter = "Underlined",
   }
+
+  navbuddy.attach(client, bufnr)
 end
 
 function M.setup()

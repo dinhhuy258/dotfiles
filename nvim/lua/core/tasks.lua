@@ -3,8 +3,8 @@ local action_state = require "telescope.actions.state"
 local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
 local conf = require("telescope.config").values
-
 local keymaps = require "config.keymaps"
+
 local M = {}
 
 local go_tasks = {
@@ -108,6 +108,8 @@ function M.setup()
   end)
 
   keymaps.set("n", "<leader>r.", ":VimuxRunLastCommand<CR>")
+
+  keymaps.set("n", "<leader>rq", ":VimuxInterruptRunner<CR>")
 
   keymaps.set("n", "<leader>rt", function()
     -- get current file type
