@@ -48,13 +48,25 @@ pass init <fingerprint>
 **Create new password**
 
 ```sh
-pass insert personal/dotfile
+pass insert <pass-name>
 ```
 
 **Edit a password**
 
 ```sh
-pass edit personal/dotfile
+pass edit <pass-name>
+```
+
+**Delete a password**
+
+```sh
+pass edit [--recursive -r] [--force -f] <pass-name>
+```
+
+**Rename existing password**
+
+```sh
+pass mv [--force -f] <old-path> <new-path>
 ```
 
 **Managing your password-store with git**
