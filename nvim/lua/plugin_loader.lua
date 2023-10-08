@@ -312,6 +312,21 @@ local function _load_plugins(opts)
         require("plugins.cursorword").setup()
       end,
     },
+    {
+      "SmiteshP/nvim-navbuddy",
+      dependencies = {
+        "SmiteshP/nvim-navic",
+        "MunifTanjim/nui.nvim",
+      },
+      opts = {
+        lsp = {
+          auto_attach = true,
+        },
+      },
+      config = function()
+        require("plugins.nvim-navbuddy").setup()
+      end,
+    },
   }, opts)
 end
 
