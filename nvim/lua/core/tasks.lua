@@ -53,6 +53,14 @@ local common_tasks = {
     title = "󰱽 Search config file",
     command = 'Telescope find_files search_dirs={"~/.config"}',
   },
+  {
+    title = "󰅙 Interupt current vimux job",
+    command = "VimuxInterruptRunner",
+  },
+  {
+    title = "󰅙 Close vimux pannel",
+    command = "VimuxCloseRunner",
+  },
 }
 
 local file_type_tasks = {
@@ -110,6 +118,8 @@ function M.setup()
   keymaps.set("n", "<leader>r.", ":VimuxRunLastCommand<CR>")
 
   keymaps.set("n", "<leader>rq", ":VimuxInterruptRunner<CR>")
+
+  keymaps.set("n", "<leader>c", ":VimuxCloseRunner<CR>")
 
   keymaps.set("n", "<leader>rt", function()
     -- get current file type
