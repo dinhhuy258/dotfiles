@@ -33,23 +33,23 @@ M.setup = function()
         enable = true,
         set_jumps = true,
         goto_next_start = {
-          ["gf"] = "@function.outer",
-          ["gc"] = "@class.outer",
-          ["gp"] = "@parameter.inner",
+          ["gcf"] = "@function.outer",
+          ["gcc"] = "@class.outer",
+          ["gcp"] = "@parameter.inner",
         },
         goto_previous_start = {
-          ["gF"] = "@function.outer",
-          ["gC"] = "@class.outer",
-          ["gP"] = "@parameter.inner",
+          ["gcF"] = "@function.outer",
+          ["gcC"] = "@class.outer",
+          ["gcP"] = "@parameter.inner",
         },
       },
       swap = {
         enable = true,
         swap_next = {
-          ["<Leader>p"] = "@parameter.inner",
+          ["swa"] = "@parameter.inner",
         },
         swap_previous = {
-          ["<Leader>P"] = "@parameter.inner",
+          ["swA"] = "@parameter.inner",
         },
       },
       select = {
