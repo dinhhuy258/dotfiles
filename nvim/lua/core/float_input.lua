@@ -1,3 +1,5 @@
+local keymaps = require "config.keymaps"
+
 local M = {}
 
 function M.input(on_confirm, opts)
@@ -34,7 +36,7 @@ function M.input(on_confirm, opts)
   vim.api.nvim_win_set_cursor(window, { 1, vim.str_utfindex(default) + 1 })
 
   -- enter to confirm
-  vim.keymap.set({ "n", "i", "v" }, "<cr>", function()
+  keymaps.set({ "n", "i", "v" }, "<cr>", function()
     local lines = vim.api.nvim_buf_get_lines(buffer, 0, 1, false)
     if lines[1] ~= default and on_confirm then
       on_confirm(lines[1])
@@ -45,13 +47,13 @@ function M.input(on_confirm, opts)
   end, { buffer = buffer })
 
   -- ctr-c, esc or q to close
-  vim.keymap.set("n", "<esc>", function()
+  keymaps.set("n", "<esc>", function()
     vim.api.nvim_win_close(window, true)
   end, { buffer = buffer })
-  vim.keymap.set("n", "q", function()
+  keymaps.set("n", "q", function()
     vim.api.nvim_win_close(window, true)
   end, { buffer = buffer })
-  vim.keymap.set({ "n", "i" }, "<c-c>", function()
+  keymaps.set({ "n", "i" }, "<c-c>", function()
     vim.cmd "stopinsert"
     vim.api.nvim_win_close(window, true)
   end, { buffer = buffer })

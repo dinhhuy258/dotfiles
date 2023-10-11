@@ -327,6 +327,9 @@ local function _load_plugins(opts)
         require("plugins.nvim-navbuddy").setup()
       end,
     },
+    {
+      "tpope/vim-abolish",
+    },
   }, opts)
 end
 
