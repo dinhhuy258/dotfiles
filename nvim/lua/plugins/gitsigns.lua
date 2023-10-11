@@ -64,9 +64,9 @@ M.setup = function()
         return "<Ignore>"
       end, { expr = true })
 
-      map("n", "ghp", function()
+      map("n", "ghN", function()
         if vim.wo.diff then
-          return "ghp"
+          return "ghN"
         end
         vim.schedule(function()
           gs.prev_hunk()

@@ -13,12 +13,12 @@ local function lsp_keybindings(bufnr)
   keymaps.set("n", "gy", "<CMD>lua require('telescope.builtin').lsp_type_definitions()<CR>", opts)
   keymaps.set("n", "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
 
-  keymaps.set("n", "g[", "<CMD>lua vim.diagnostic.goto_prev({ float = { border = 'rounded' } })<CR>", opts)
-  keymaps.set("n", "g]", "<CMD>lua vim.diagnostic.goto_next({ float = { border = 'rounded' } })<CR>", opts)
-  keymaps.set("n", "gl", "<CMD>lua vim.diagnostic.open_float({ border = 'rounded' })<CR>", opts)
+  keymaps.set("n", "ggN", "<CMD>lua vim.diagnostic.goto_prev({ float = { border = 'rounded' } })<CR>", opts)
+  keymaps.set("n", "ggn", "<CMD>lua vim.diagnostic.goto_next({ float = { border = 'rounded' } })<CR>", opts)
+  keymaps.set("n", "ggo", "<CMD>lua vim.diagnostic.open_float({ border = 'rounded' })<CR>", opts)
 
-  if require("utilities.formatter").is_supported(vim.bo.filetype) then
-    keymaps.set("n", "<Leader>cf", "<CMD>lua require('utilities.formatter').format()<CR>", opts)
+  if require("core.formatter").is_supported(vim.bo.filetype) then
+    keymaps.set("n", "<Leader>cf", "<CMD>lua require('core.formatter').format()<CR>", opts)
   else
     keymaps.set("n", "<Leader>cf", "<CMD>lua vim.lsp.buf.format()<CR>", opts)
   end
@@ -31,7 +31,7 @@ local function lsp_keybindings(bufnr)
 end
 
 function M.common_on_init(client, _)
-  if require("utilities.formatter").is_supported(vim.bo.filetype) or vim.bo.filetype == "go" then
+  if require("core.formatter").is_supported(vim.bo.filetype) or vim.bo.filetype == "go" then
     client.server_capabilities.document_formatting = false
   end
 end

@@ -33,23 +33,23 @@ M.setup = function()
         enable = true,
         set_jumps = true,
         goto_next_start = {
-          ["]f"] = "@function.outer",
-          ["]c"] = "@class.outer",
-          ["]a"] = "@parameter.inner",
+          ["gf"] = "@function.outer",
+          ["gc"] = "@class.outer",
+          ["gp"] = "@parameter.inner",
         },
         goto_previous_start = {
-          ["[f"] = "@function.outer",
-          ["[c"] = "@class.outer",
-          ["[a"] = "@parameter.inner",
+          ["gF"] = "@function.outer",
+          ["gC"] = "@class.outer",
+          ["gP"] = "@parameter.inner",
         },
       },
       swap = {
         enable = true,
         swap_next = {
-          ["<Leader>a"] = "@parameter.inner",
+          ["<Leader>p"] = "@parameter.inner",
         },
         swap_previous = {
-          ["<Leader>A"] = "@parameter.inner",
+          ["<Leader>P"] = "@parameter.inner",
         },
       },
       select = {
@@ -60,7 +60,7 @@ M.setup = function()
           ["if"] = "@function.inner",
           ["ac"] = "@class.outer",
           ["ic"] = "@class.inner",
-          ["ia"] = "@parameter.inner",
+          ["ip"] = "@parameter.inner",
         },
       },
     },
