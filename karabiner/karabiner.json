@@ -1463,7 +1463,7 @@
             "key_code": "caps_lock"
           },
           "to": {
-            "key_code": "escape"
+            "key_code": "left_control"
           }
         },
         {
