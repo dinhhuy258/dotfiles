@@ -1,0 +1,75 @@
+{
+  ;; to obtain the app id: `osascript -e 'id of app "application_name"'`
+  :applications {
+    :chrome ["^com\\.google\\.Chrome$"]
+    :alacritty ["^org\\.alacritty$"]
+  }
+
+  :templates {
+    :launch "open -a \"%s\""
+  }
+
+  :simlayers {
+    :launch-mode {:key :quote}
+    :mouse-mode {:key :f :modi {:mandatory [:left_control]}}
+  }
+
+  :simlayer-threshold 500
+
+  :main
+  [
+    {:des "Change key functions" :rules [
+      [:!Ck :delete_or_backspace] ;; change left_command + k to backspace
+      [:!Cj :escape] ;; change left_command + j to esc
+    ]}
+
+    {:des "Launcher applications" :rules [
+      [:t [:launch "Alacritty"] :launch-mode]
+      [:b [:launch "Google Chrome"] :launch-mode]
+      [:i [:launch "IntelliJ IDEA"] :launch-mode]
+      [:z [:launch "Zalo"] :launch-mode]
+      [:f [:launch "Finder"] :launch-mode]
+      [:c [:launch "Visual Studio Code"] :launch-mode]
+      [:p [:launch "Postman"] :launch-mode]
+      [:s [:launch "Slack"] :launch-mode]
+      [:k [:launch "Skype"] :launch-mode]
+    ]}
+
+    ;; super duper mode with s+d
+    {:des "SuperDuper <- S+D" :rules [[{:sim [:s :d]
+                                        :simo {:interrupt true
+                                               :dorder :insensitive
+                                               :uorder :insensitive
+                                               :afterup {:set ["superduper-mode" 0]}}} {:set ["superduper-mode" 1]}]
+      [:##h :left_arrow :superduper-mode]
+      [:##j :down_arrow :superduper-mode]
+      [:##k :up_arrow :superduper-mode]
+      [:##l :right_arrow :superduper-mode]
+
+      [:##a :left_option :superduper-mode]
+      [:##spacebar :left_shift :superduper-mode]
+      [:##f :left_command :superduper-mode]
+
+      [:##i :!CSopen_bracket [:superduper-mode :chrome]]
+      [:##o :!CSclose_bracket [:superduper-mode :chrome]]
+
+      [:##i [:!Tf :h] [:superduper-mode :alacritty]]
+      [:##o [:!Tf :l] [:superduper-mode :alacritty]]
+    ]}
+
+    {:des "Mouse" :rules
+      [:mouse-mode
+        [:##k {:mkey {:y -3072}}]
+        [:##j {:mkey {:y 3072}}]
+        [:##l {:mkey {:x 3072}}]
+        [:##h {:mkey {:x -3072}}]
+        [:##spacebar {:pkey :button1}]
+        [:##return_or_enter {:pkey :button2}]
+        [:##i {:mkey {:vwheel -50}}]
+        [:##u {:mkey {:vwheel 50}}]
+        [:##y {:mkey {:hwheel 50}}]
+        [:##o {:mkey {:hwheel -50}}]
+      ]
+    }
+  ]
+}
