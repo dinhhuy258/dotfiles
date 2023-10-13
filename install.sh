@@ -45,6 +45,8 @@ if which brew >/dev/null; then
     installHomebrewCaskPackage raycast
     brew tap homebrew/cask-fonts
     installHomebrewCaskPackage font-fira-code-nerd-font
+    # config karabiner helper
+    installHomebrewPackage yqrashawn/goku/goku
     installHomebrewPackage neovim
     installHomebrewPackage tmux
     installHomebrewPackage fzf
@@ -117,8 +119,9 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   ln -sf $CWD/zsh/zshrc ~/.zshrc
 
   # Sync karabiner config
-  mkdir -p ~/.config/karabiner
-  ln -sf $CWD/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+  # mkdir -p ~/.config/karabiner
+  # ln -sf $CWD/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+  ln -sf $CWD/karabiner/karabiner.edn ~/.config/karabiner.edn
 
   # Sync yabai config
   mkdir -p ~/.config/yabai
@@ -150,8 +153,6 @@ fi
 # brew services start skhd
 # brew services start yabai
 # brew services start sketchybar
-
 # go install github.com/dinhhuy258/fm@latest
 
 echo "All done!"
-

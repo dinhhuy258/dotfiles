@@ -11,7 +11,6 @@
 
   :simlayers {
     :launch-mode {:key :quote}
-    :mouse-mode {:key :f :modi {:mandatory [:left_control]}}
   }
 
   :simlayer-threshold 500
@@ -21,6 +20,20 @@
     {:des "Change key functions" :rules [
       [:!Ck :delete_or_backspace] ;; change left_command + k to backspace
       [:!Cj :escape] ;; change left_command + j to esc
+      [:caps_lock :left_control] ;; map caps_lock to left_control
+
+      [:up_arrow :vk_none]
+      [:down_arrow :vk_none]
+      [:left_arrow :vk_none]
+      [:right_arrow :vk_none]
+      [:delete_or_backspace :vk_none]
+      [:escape :vk_none]
+      [:page_up :vk_none]
+      [:page_down :vk_none]
+      [:insert :vk_none]
+      [:delete_forward :vk_none]
+      [:home :vk_none]
+      [:end :vk_none]
     ]}
 
     {:des "Launcher applications" :rules [
@@ -35,7 +48,6 @@
       [:k [:launch "Skype"] :launch-mode]
     ]}
 
-    ;; super duper mode with s+d
     {:des "SuperDuper <- S+D" :rules [[{:sim [:s :d]
                                         :simo {:interrupt true
                                                :dorder :insensitive
@@ -57,19 +69,48 @@
       [:##o [:!Tf :l] [:superduper-mode :alacritty]]
     ]}
 
-    {:des "Mouse" :rules
-      [:mouse-mode
-        [:##k {:mkey {:y -3072}}]
-        [:##j {:mkey {:y 3072}}]
-        [:##l {:mkey {:x 3072}}]
-        [:##h {:mkey {:x -3072}}]
-        [:##spacebar {:pkey :button1}]
-        [:##return_or_enter {:pkey :button2}]
-        [:##i {:mkey {:vwheel -50}}]
-        [:##u {:mkey {:vwheel 50}}]
-        [:##y {:mkey {:hwheel 50}}]
-        [:##o {:mkey {:hwheel -50}}]
-      ]
-    }
+    {:des "Mouse mode" :rules [
+      [{:sim [:d :f]
+        :simo {:interrupt true
+               :dorder :insensitive
+               :uorder :insensitive
+               :afterup [{:set ["mouse_mode" 0]} {:set ["mouse_mode_scroll" 0]}]}} [{:set ["mouse_mode" 1]}]]
+
+      [:##s {:set ["mouse_mode_scroll" 1]} :mouse_mode {:afterup {:set ["mouse_mode_scroll" 0]}}]
+
+      [:##j {:mkey {:vwheel 60}} [:mouse_mode :mouse_mode_scroll]]
+      [:##k {:mkey {:vwheel -60}} [:mouse_mode :mouse_mode_scroll]]
+      [:##h {:mkey {:hwheel 60}} [:mouse_mode :mouse_mode_scroll]]
+      [:##l {:mkey {:hwheel -60}} [:mouse_mode :mouse_mode_scroll]]
+
+      [:##w {:mkey {:speed 5.0}} :mouse_mode]
+      [:##a {:mkey {:speed 3.0}} :mouse_mode]
+      [:##q {:mkey {:speed 0.5}} :mouse_mode]
+
+      [:##j {:mkey {:y 1200}} :mouse_mode]
+      [:##k {:mkey {:y -1200}} :mouse_mode]
+      [:##h {:mkey {:x -1200}} :mouse_mode]
+      [:##l {:mkey {:x 1200}} :mouse_mode]
+
+      [:##spacebar {:pkey :button1} :mouse_mode]
+      [:##return_or_enter {:pkey :button2} :mouse_mode]
+    ]}
   ]
 }
+
+;; code won't read cheatsheet section
+;; ! stand for mandatory
+;; # stand for optional
+;; C T O S for left command control optional shift
+;; F for fn
+;; need to prefix C T O S F with ! or #
+:cheatsheet {:!Ca "command a" ;; mandatory left_command
+            :!Ta "control a" ;; mandatory left_control
+            :!Oa "option a"
+            :!Sa "shift a"
+            :#Sa "shift a" ;; keycode a, optional left_shift
+            :!CTOa "command control option a"
+            :!Cspacebar "command space"
+            :!Fa "fn a"
+            :##a "keycode a optional any"
+            :!!a "mandatory hyper(control command option shift) a "}}
