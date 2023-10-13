@@ -76,16 +76,14 @@
                :uorder :insensitive
                :afterup [{:set ["mouse_mode" 0]} {:set ["mouse_mode_scroll" 0]}]}} [{:set ["mouse_mode" 1]}]]
 
-      [:##s {:set ["mouse_mode_scroll" 1]} :mouse_mode {:afterup {:set ["mouse_mode_scroll" 0]}}]
-
-      [:##j {:mkey {:vwheel 60}} [:mouse_mode :mouse_mode_scroll]]
-      [:##k {:mkey {:vwheel -60}} [:mouse_mode :mouse_mode_scroll]]
-      [:##h {:mkey {:hwheel 60}} [:mouse_mode :mouse_mode_scroll]]
-      [:##l {:mkey {:hwheel -60}} [:mouse_mode :mouse_mode_scroll]]
+      [:##u {:mkey {:vwheel 60}} :mouse_mode]
+      [:##i {:mkey {:vwheel -60}} :mouse_mode]
+      [:##y {:mkey {:hwheel 60}} :mouse_mode]
+      [:##o {:mkey {:hwheel -60}} :mouse_mode]
 
       [:##w {:mkey {:speed 5.0}} :mouse_mode]
-      [:##a {:mkey {:speed 3.0}} :mouse_mode]
-      [:##q {:mkey {:speed 0.5}} :mouse_mode]
+      [:##s {:mkey {:speed 3.0}} :mouse_mode]
+      [:##a {:mkey {:speed 0.5}} :mouse_mode]
 
       [:##j {:mkey {:y 1200}} :mouse_mode]
       [:##k {:mkey {:y -1200}} :mouse_mode]
