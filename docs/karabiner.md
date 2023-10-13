@@ -16,3 +16,5 @@ To convert the `karabiner.edn` file to the `karabiner.json` file that Karabiner 
 ```sh
 goku
 ```
+
+**Note:** Make sure to create `Default` profile in Karabiner before using `goku`.

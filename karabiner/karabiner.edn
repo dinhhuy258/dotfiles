@@ -17,7 +17,7 @@
 
   :main
   [
-    {:des "Change key functions" :rules [
+    {:des "Key mappings" :rules [
       [:!Ck :delete_or_backspace] ;; change left_command + k to backspace
       [:!Cj :escape] ;; change left_command + j to esc
       [:caps_lock :left_control] ;; map caps_lock to left_control
@@ -36,7 +36,7 @@
       [:end :vk_none]
     ]}
 
-    {:des "Launcher applications" :rules [
+    {:des "Launch applications" :rules [
       [:t [:launch "Alacritty"] :launch-mode]
       [:b [:launch "Google Chrome"] :launch-mode]
       [:i [:launch "IntelliJ IDEA"] :launch-mode]
@@ -48,15 +48,16 @@
       [:k [:launch "Skype"] :launch-mode]
     ]}
 
-    {:des "SuperDuper <- S+D" :rules [[{:sim [:s :d]
-                                        :simo {:interrupt true
-                                               :dorder :insensitive
-                                               :uorder :insensitive
-                                               :afterup {:set ["superduper-mode" 0]}}} {:set ["superduper-mode" 1]}]
+    {:des "SuperDuper <- S+D" :rules [
+      [{:sim [:s :d]
+        :simo {:interrupt true
+               :dorder :insensitive
+               :uorder :insensitive
+               :afterup {:set ["superduper-mode" 0]}}} {:set ["superduper-mode" 1]}]
+
       [:##h :left_arrow :superduper-mode]
       [:##j :down_arrow :superduper-mode]
-      [:##k :up_arrow :superduper-mode]
-      [:##l :right_arrow :superduper-mode]
+      [:##k :up_arrow :superduper-mode] [:##l :right_arrow :superduper-mode]
 
       [:##a :left_option :superduper-mode]
       [:##spacebar :left_shift :superduper-mode]
@@ -94,21 +95,23 @@
       [:##return_or_enter {:pkey :button2} :mouse_mode]
     ]}
   ]
-}
 
-;; code won't read cheatsheet section
-;; ! stand for mandatory
-;; # stand for optional
-;; C T O S for left command control optional shift
-;; F for fn
-;; need to prefix C T O S F with ! or #
-:cheatsheet {:!Ca "command a" ;; mandatory left_command
-            :!Ta "control a" ;; mandatory left_control
-            :!Oa "option a"
-            :!Sa "shift a"
-            :#Sa "shift a" ;; keycode a, optional left_shift
-            :!CTOa "command control option a"
-            :!Cspacebar "command space"
-            :!Fa "fn a"
-            :##a "keycode a optional any"
-            :!!a "mandatory hyper(control command option shift) a "}}
+  ;; code won't read cheatsheet section
+  ;; ! stand for mandatory
+  ;; # stand for optional
+  ;; C T O S for left command control optional shift
+  ;; F for fn
+  ;; need to prefix C T O S F with ! or #
+  :cheatsheet {
+    :!Ca "command a" ;; mandatory left_command
+    :!Ta "control a" ;; mandatory left_control
+    :!Oa "option a"
+    :!Sa "shift a"
+    :#Sa "shift a" ;; keycode a, optional left_shift
+    :!CTOa "command control option a"
+    :!Cspacebar "command space"
+    :!Fa "fn a"
+    :##a "keycode a optional any"
+    :!!a "mandatory hyper(control command option shift) a "
+  }
+}
