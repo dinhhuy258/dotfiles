@@ -77,15 +77,27 @@ else
   echo "Homebrew not installed! Skipping package installation..."
 fi
 
-# Install zsh
-read -p "Install zsh? (y/n) " -n 1;
+# Install fish
+read -p "Install fish? (y/n) " -n 1;
 echo "";
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-  echo "Installing zsh..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  echo "Installing fish..."
+  installHomebrewPackage install fish
 
-  echo "Installing antigen..."
-  curl -L git.io/antigen > $HOME/.oh-my-zsh/antigen.zsh
+  # Set fish as default shell
+  if ! grep -q "/opt/homebrew/bin/fish" /etc/shells; then
+    echo "Adding fish to /etc/shells..."
+    echo "/opt/homebrew/bin/fish" | sudo tee -a /etc/shells
+  fi
+
+  if [[ $SHELL != "/opt/homebrew/bin/fish" ]]; then
+    echo "Setting fish as default shell..."
+    chsh -s /opt/homebrew/bin/fish
+  fi
+
+  # Install fisher
+  # The below command must be run under fish shell
+  # curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 fi
 
 # Install tmux plugins
@@ -114,13 +126,17 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   # Sync tmux
   ln -sf $CWD/tmux/tmux.conf ~/.tmux.conf
 
+  # Sync fish
+  mkdir -p ~/.config/fish
+  ln -sf $CWD/fish/config.fish ~/.config/fish/config.fish
+  ln -sf $CWD/fish/env.fish ~/.config/fish/env.fish
+  ln -sf $CWD/fish/fish_plugins ~/.config/fish/fish_plugins
+
   # Sync zsh
   ln -sf $CWD/zsh/zshrc.local ~/.zshrc.local
   ln -sf $CWD/zsh/zshrc ~/.zshrc
 
   # Sync karabiner config
-  # mkdir -p ~/.config/karabiner
-  # ln -sf $CWD/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
   ln -sf $CWD/karabiner/karabiner.edn ~/.config/karabiner.edn
 
   # Sync yabai config
