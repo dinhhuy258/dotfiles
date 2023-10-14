@@ -13,9 +13,9 @@ local function lsp_keybindings(bufnr)
   keymaps.set("n", "gy", "<CMD>lua require('telescope.builtin').lsp_type_definitions()<CR>", opts)
   keymaps.set("n", "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
 
-  keymaps.set("n", "ggN", "<CMD>lua vim.diagnostic.goto_prev({ float = { border = 'rounded' } })<CR>", opts)
-  keymaps.set("n", "ggn", "<CMD>lua vim.diagnostic.goto_next({ float = { border = 'rounded' } })<CR>", opts)
-  keymaps.set("n", "ggo", "<CMD>lua vim.diagnostic.open_float({ border = 'rounded' })<CR>", opts)
+  keymaps.set("n", "gnN", "<CMD>lua vim.diagnostic.goto_prev({ float = { border = 'rounded' } })<CR>", opts)
+  keymaps.set("n", "gnn", "<CMD>lua vim.diagnostic.goto_next({ float = { border = 'rounded' } })<CR>", opts)
+  keymaps.set("n", "gno", "<CMD>lua vim.diagnostic.open_float({ border = 'rounded' })<CR>", opts)
 
   if require("core.formatter").is_supported(vim.bo.filetype) then
     keymaps.set("n", "<Leader>cf", "<CMD>lua require('core.formatter').format()<CR>", opts)

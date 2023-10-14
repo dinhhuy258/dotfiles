@@ -3,19 +3,24 @@ local icons = require "icons"
 local M = {}
 
 M.setup = function()
-  local status_ok, cmp = pcall(require, "cmp")
-  if not status_ok then
+  local cmp_ok, cmp = pcall(require, "cmp")
+  if not cmp_ok then
     return
   end
+
+  local luasnip_ok, luasnip = pcall(require, "luasnip")
+  if not luasnip_ok then
+    return
+  end
+
+  -- load VS Code style snippets from a plugin rafamadriz/friendly-snippets
+  require("luasnip.loaders.from_vscode").lazy_load()
 
   local _, types = pcall(require, "cmp.types")
   local _, compare = pcall(require, "cmp.config.compare")
 
-  local feedkey = function(key, mode)
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-  end
-
   local has_words_before = function()
+    unpack = unpack or table.unpack
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
   end
@@ -37,7 +42,7 @@ M.setup = function()
   })
 
   local source_names = {
-    vsnip = "(Snippet)",
+    luasnip = "(Snippet)",
     nvim_lsp = "(LSP)",
     buffer = "(Buffer)",
     path = "(Path)",
@@ -93,23 +98,24 @@ M.setup = function()
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
-        elseif vim.fn["vsnip#available"](1) == 1 then
-          feedkey("<Plug>(vsnip-expand-or-jump)", "")
+        elseif luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
         elseif has_words_before() then
           cmp.complete()
         else
           fallback()
-          -- return t "<Tab>"
         end
       end, {
         "i",
         "s",
       }),
-      ["<S-Tab>"] = cmp.mapping(function(_)
+      ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
-        elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-          feedkey("<Plug>(vsnip-jump-prev)", "")
+        elseif luasnip.jumpable(-1) then
+          luasnip.jump(-1)
+        else
+          fallback()
         end
       end, {
         "i",
@@ -117,7 +123,7 @@ M.setup = function()
       }),
     },
     sources = {
-      { name = "vsnip" },
+      { name = "luasnip" },
       { name = "nvim_lsp" },
       { name = "buffer" },
       { name = "path" },

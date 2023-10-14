@@ -161,21 +161,22 @@ local function _load_plugins(opts)
         require("lsp_signature").setup()
       end,
     },
-    -- snippet
-    {
-      "hrsh7th/vim-vsnip",
-      event = "InsertEnter",
-    },
-    {
-      "dinhhuy258/snippets",
-      dependencies = {
-        "vim-vsnip",
-      },
-    },
     -- auto completion
     {
       "hrsh7th/nvim-cmp",
       dependencies = {
+        -- snippet
+        {
+          dependencies = {
+            "rafamadriz/friendly-snippets",
+            "saadparwaiz1/cmp_luasnip",
+          },
+          "L3MON4D3/LuaSnip",
+          build = "make install_jsregexp",
+          config = function()
+            require("lsp_signature").setup()
+          end,
+        },
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-vsnip",
         "hrsh7th/cmp-buffer",

@@ -7,11 +7,11 @@ M.setup = function()
       auto_trigger = true,
       debounce = 75,
       keymap = {
-        accept = "<Right>",
+        accept = "<C-j>",
         accept_word = false,
         accept_line = false,
-        next = "<Up>",
-        prev = "<Down>",
+        next = "<C-k>",
+        prev = "<C-l>",
       },
     },
   }
