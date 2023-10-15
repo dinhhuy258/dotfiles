@@ -65,7 +65,7 @@ M.setup = function()
     },
     snippet = {
       expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body)
+        require('luasnip').lsp_expand(args.body)
       end,
     },
     window = {
