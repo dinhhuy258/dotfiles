@@ -258,13 +258,6 @@ local function _load_plugins(opts)
         require("neogen").setup {}
       end,
     },
-    -- project management
-    {
-      "ahmedkhalf/project.nvim",
-      config = function()
-        require("plugins.project").setup()
-      end,
-    },
     -- for interacting with tests within NeoVim
     {
       "nvim-neotest/neotest",

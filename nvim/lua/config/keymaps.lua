@@ -65,6 +65,10 @@ function M.setup()
 
   -- allow to search in selection mode
   M.set({ "x" }, "/", "<Esc>/\\%V")
+
+  -- better navigation in insert mode
+  M.set({ "i" }, "<A-Right>", "<Esc>ea")
+  M.set({ "i" }, "<A-Left>", "<Esc>bi")
 end
 
 function M.set(mode, lhs, rhs, opts)

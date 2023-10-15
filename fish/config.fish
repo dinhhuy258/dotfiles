@@ -20,7 +20,7 @@ set -x LC_ALL en_US.UTF-8
 
 # bind control + v to edit_command_buffer
 bind \cv edit_command_buffer
-bind \cw 'fzf_worskpace; commandline -f repaint'
+bind \ce 'fzf_worskpace; commandline -f repaint'
 
 if not set -q TMUX
   set -g TMUX tmux new-session -d -s base
