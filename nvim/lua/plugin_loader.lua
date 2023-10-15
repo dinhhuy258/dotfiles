@@ -68,6 +68,14 @@ local function _load_plugins(opts)
         require("plugins.nvim-treesitter").setup()
       end,
     },
+    -- formating
+    {
+      "stevearc/conform.nvim",
+      event = { "BufReadPre", "BufNewFile" },
+      config = function()
+        require("plugins.conform").setup()
+      end,
+    },
     -- adds file type icons to Vim plugins such as: nvim-tree.lua, galaxyline.nvim, vim-startify...
     { "kyazdani42/nvim-web-devicons" },
     -- gitsigns, telescope... depend on this library
@@ -148,6 +156,7 @@ local function _load_plugins(opts)
       dependencies = {
         "neovim/nvim-lspconfig",
         "williamboman/mason-lspconfig.nvim",
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
       },
       config = function()
         require("plugins.mason").setup()

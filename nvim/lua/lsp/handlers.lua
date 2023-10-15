@@ -17,11 +17,6 @@ local function lsp_keybindings(bufnr)
   keymaps.set("n", "gnn", "<CMD>lua vim.diagnostic.goto_next({ float = { border = 'rounded' } })<CR>", opts)
   keymaps.set("n", "gno", "<CMD>lua vim.diagnostic.open_float({ border = 'rounded' })<CR>", opts)
 
-  if require("core.formatter").is_supported(vim.bo.filetype) then
-    keymaps.set("n", "<Leader>cf", "<CMD>lua require('core.formatter').format()<CR>", opts)
-  else
-    keymaps.set("n", "<Leader>cf", "<CMD>lua vim.lsp.buf.format()<CR>", opts)
-  end
   keymaps.set("n", "<Leader>cr", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
   keymaps.set("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
 
@@ -31,7 +26,7 @@ local function lsp_keybindings(bufnr)
 end
 
 function M.common_on_init(client, _)
-  if require("core.formatter").is_supported(vim.bo.filetype) or vim.bo.filetype == "go" then
+  if vim.bo.filetype == "go" then
     client.server_capabilities.document_formatting = false
   end
 end

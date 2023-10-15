@@ -31,6 +31,21 @@ function M.setup()
     ensure_installed = servers,
     automatic_installation = true,
   }
+
+  local mason_tool_installer_ok, mason_tool_installer = pcall(require, "mason-tool-installer")
+  if not mason_tool_installer_ok then
+    return
+  end
+
+  mason_tool_installer.setup {
+    ensure_installed = {
+      "prettier",
+      "stylua",
+      "isort",
+      "black",
+      "clang-format",
+    },
+  }
 end
 
 return M
