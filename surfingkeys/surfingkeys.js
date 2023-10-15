@@ -2,14 +2,6 @@
 api.map('F', 'C');
 api.unmap('C');
 
-// Remap search google
-api.map('/', 'og');
-api.unmap('og');
-
-// Remap open from history
-api.map('h', 'oh');
-api.unmap('oh')
-
 // History Back/Forward
 api.map('H', 'S');
 api.map('L', 'D');
@@ -38,6 +30,15 @@ api.unmap('oy');
 api.mapkey('oyt', 'open youtube', goto('https://youtube.com'));
 api.mapkey('otl', 'open youtube', goto('https://translate.google.com'));
 api.mapkey('olc', 'open leetcode', goto('https://leetcode.com/problemset/all/'));
+
+// Remap open bookmark
+api.unmap('ob')
+api.map('ob', 'b');
+api.unmap('b')
+
+// Remap search google
+api.map('o/', 'og');
+api.unmap('og');
 
 // set theme
 settings.theme = `
