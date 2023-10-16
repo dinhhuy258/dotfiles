@@ -280,7 +280,17 @@ local function _load_plugins(opts)
       "Wansmer/treesj",
       dependencies = { "nvim-treesitter/nvim-treesitter" },
       config = function()
-        require("plugins.reesj").setup()
+        require("plugins.treesj").setup()
+      end,
+    },
+    {
+      "ThePrimeagen/harpoon",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope.nvim",
+      },
+      config = function()
+        require("plugins.harpoon").setup()
       end,
     },
     -- for interacting with tests within NeoVim

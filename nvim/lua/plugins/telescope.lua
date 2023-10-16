@@ -13,6 +13,7 @@ M.setup = function()
 
   telescope.load_extension "ui-select"
   telescope.load_extension "sfm-telescope"
+  telescope.load_extension('harpoon')
 
   telescope.setup {
     defaults = {
