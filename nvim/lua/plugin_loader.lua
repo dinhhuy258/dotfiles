@@ -275,6 +275,14 @@ local function _load_plugins(opts)
         require("neogen").setup {}
       end,
     },
+    -- spliting/ joining blocks of code
+    {
+      "Wansmer/treesj",
+      dependencies = { "nvim-treesitter/nvim-treesitter" },
+      config = function()
+        require("plugins.reesj").setup()
+      end,
+    },
     -- for interacting with tests within NeoVim
     {
       "nvim-neotest/neotest",
