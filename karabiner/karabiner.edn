@@ -5,6 +5,10 @@
     :alacritty ["^org\\.alacritty$"]
   }
 
+  :devices {
+    :filco [{:vendor_id 1204 :product_id 4621}]
+  }
+
   :templates {
     :launch "open -a \"%s\""
   }
@@ -21,6 +25,9 @@
       [:!Ck :delete_or_backspace] ;; change left_command + k to backspace
       [:!Cj :escape] ;; change left_command + j to esc
       [:caps_lock :left_control] ;; map caps_lock to left_control
+
+      [:left_command :left_option :filco]
+      [:left_option :left_command :filco]
 
       [:up_arrow :vk_none]
       [:down_arrow :vk_none]
