@@ -126,8 +126,11 @@ local function _load_plugins(opts)
     },
     -- vim surround
     {
-      "tpope/vim-surround",
+      "kylechui/nvim-surround",
       event = "BufRead",
+      config = function()
+        require("nvim-surround").setup()
+      end,
     },
     -- enable repeating supported plugins map with .
     {

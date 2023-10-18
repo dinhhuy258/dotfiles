@@ -6,7 +6,7 @@
   }
 
   :devices {
-    :filco [{:vendor_id 1204 :product_id 4621}]
+    :filco [{:vendor_id 2652 :product_id 34050}]
   }
 
   :templates {
@@ -84,7 +84,7 @@
                :uorder :insensitive
                :afterup [{:set ["mouse_mode" 0]} {:set ["mouse_mode_scroll" 0]}]}} [{:set ["mouse_mode" 1]}]]
 
-      [:##u {:mkey {:vwheel 60}} :mouse_mode]
+      [:##u {:mkey {:vwheel 50}} :mouse_mode]
       [:##i {:mkey {:vwheel -60}} :mouse_mode]
       [:##y {:mkey {:hwheel 60}} :mouse_mode]
       [:##o {:mkey {:hwheel -60}} :mouse_mode]

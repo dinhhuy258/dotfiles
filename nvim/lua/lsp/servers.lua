@@ -3,7 +3,7 @@ local servers = {
   "tsserver", -- typescript, javascript
   "jsonls", -- json
   "lua_ls", -- lua
-  "intelephense", -- php
+  "phpactor", -- php
   "pyright", -- python
   "sqlls", -- sql
   "yamlls", -- yaml
