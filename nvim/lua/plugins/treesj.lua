@@ -10,6 +10,7 @@ M.setup = function()
 
   treesj.setup {
     use_default_keymaps = false,
+    max_join_length = 9999,
   }
 
   keymaps.set("n", "<Leader>jj", function()

@@ -347,6 +347,16 @@ local function _load_plugins(opts)
       end,
     },
     {
+      "utilyre/barbecue.nvim",
+      dependencies = {
+        "SmiteshP/nvim-navic",
+        "kyazdani42/nvim-web-devicons",
+      },
+      config = function()
+        require("barbecue").setup()
+      end,
+    },
+    {
       "tpope/vim-abolish",
     },
   }, opts)
