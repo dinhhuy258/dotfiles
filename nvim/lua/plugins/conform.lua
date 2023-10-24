@@ -23,6 +23,7 @@ M.setup = function()
       lua = { "stylua" },
       python = { "isort", "black" },
       cpp = { "clang_format" },
+      php = { "pint" }
     },
   }
 

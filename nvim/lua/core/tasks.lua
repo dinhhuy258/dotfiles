@@ -9,11 +9,6 @@ local M = {}
 
 local go_tasks = {
   {
-    title = "󰱧 Go mod tidy",
-    command = "go mod tidy",
-    type = "vimux",
-  },
-  {
     title = " Start go server",
     command = "make up",
     type = "vimux",
@@ -26,6 +21,11 @@ local go_tasks = {
   {
     title = "󰍉 Run go test",
     command = "make test",
+    type = "vimux",
+  },
+  {
+    title = "󰱧 Go mod tidy",
+    command = "go mod tidy",
     type = "vimux",
   },
 }

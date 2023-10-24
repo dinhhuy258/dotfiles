@@ -44,6 +44,7 @@ function M.setup()
       "isort",
       "black",
       "clang-format",
+      "pint",
       "golangci-lint",
       "pylint",
       "eslint_d",
