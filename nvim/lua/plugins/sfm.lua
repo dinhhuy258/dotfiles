@@ -134,6 +134,12 @@ M.setup = function()
     bdelete(false, bufnr)
   end)
 
+  sfm_explorer:subscribe(event.EntryRenamed, function(payload)
+    local from_path = payload["from_path"]
+    local bufnr = vim.fn.bufnr(from_path, true)
+    bdelete(false, bufnr)
+  end)
+
   keymaps.set("n", "<F1>", "<CMD>SFMToggle<CR>", { noremap = true, silent = true })
   keymaps.set("n", "fm", "<CMD>SFMToggle<CR>", { noremap = true, silent = true })
 end
