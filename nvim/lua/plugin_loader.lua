@@ -63,6 +63,7 @@ local function _load_plugins(opts)
         "RRethy/nvim-treesitter-endwise",
         "nvim-treesitter/nvim-treesitter-context",
         "windwp/nvim-ts-autotag",
+        "RRethy/nvim-treesitter-textsubjects",
       },
       config = function()
         require("plugins.nvim-treesitter").setup()

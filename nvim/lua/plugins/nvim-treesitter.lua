@@ -28,6 +28,16 @@ M.setup = function()
       enable_autocmd = false,
     },
     -- nvim-treesitter-textobjects
+    textsubjects = {
+      enable = true,
+      prev_selection = ",", -- (Optional) keymap to select the previous selection
+      keymaps = {
+        ["."] = "textsubjects-smart",
+        [";"] = "textsubjects-container-outer",
+        ["i;"] = { "textsubjects-container-inner", desc = "Select inside containers (classes, functions, etc.)" },
+      },
+    },
+    -- nvim-treesitter-textobjects
     textobjects = {
       move = {
         enable = true,
@@ -35,21 +45,21 @@ M.setup = function()
         goto_next_start = {
           ["gcf"] = "@function.outer",
           ["gcc"] = "@class.outer",
-          ["gcp"] = "@parameter.inner",
+          ["gca"] = "@parameter.inner",
         },
         goto_previous_start = {
           ["gcF"] = "@function.outer",
           ["gcC"] = "@class.outer",
-          ["gcP"] = "@parameter.inner",
+          ["gcA"] = "@parameter.inner",
         },
       },
       swap = {
         enable = true,
         swap_next = {
-          ["swa"] = "@parameter.inner",
+          ["<leader>a"] = "@parameter.inner",
         },
         swap_previous = {
-          ["swA"] = "@parameter.inner",
+          ["<leader>A"] = "@parameter.inner",
         },
       },
       select = {
@@ -60,7 +70,8 @@ M.setup = function()
           ["if"] = "@function.inner",
           ["ac"] = "@class.outer",
           ["ic"] = "@class.inner",
-          ["ip"] = "@parameter.inner",
+          ["ia"] = "@parameter.inner",
+          ["aa"] = "@parameter.outer",
         },
       },
     },
