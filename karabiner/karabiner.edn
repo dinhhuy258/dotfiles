@@ -50,9 +50,9 @@
       [:z [:launch "Zalo"] :launch-mode]
       [:f [:launch "Finder"] :launch-mode]
       [:c [:launch "Visual Studio Code"] :launch-mode]
-      [:p [:launch "Postman"] :launch-mode]
+      [:a [:launch "Postman"] :launch-mode]
       [:s [:launch "Slack"] :launch-mode]
-      [:k [:launch "Skype"] :launch-mode]
+      [:d [:launch "Skype"] :launch-mode]
     ]}
 
     {:des "SuperDuper <- S+D" :rules [
