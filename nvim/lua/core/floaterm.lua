@@ -122,9 +122,6 @@ function M.toggle_floaterm()
 end
 
 function M.setup()
-  keymaps.set({ "n", "t" }, "<Leader>tt", function()
-    M.toggle_floaterm()
-  end)
   keymaps.set("n", "<Leader>tg", function()
     M.new_floaterm "lazygit"
   end)
