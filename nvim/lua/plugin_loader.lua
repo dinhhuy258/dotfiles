@@ -61,7 +61,6 @@ local function _load_plugins(opts)
         "JoosepAlviste/nvim-ts-context-commentstring",
         "nvim-treesitter/nvim-treesitter-textobjects",
         "RRethy/nvim-treesitter-endwise",
-        "nvim-treesitter/nvim-treesitter-context",
         "windwp/nvim-ts-autotag",
         "RRethy/nvim-treesitter-textsubjects",
       },

@@ -43,6 +43,7 @@ M.setup = function()
         { "*.cc", { "$(capture).hpp", "$(capture).h", "$(capture).hxx" } },
         { "*.cpp", { "$(capture).hpp", "$(capture).h", "$(capture).hxx" } },
         { "go.mod", { "go.sum" } },
+        { "*.up.sql", { "$(capture).down.sql" } },
         { "*.go", { "$(capture)_test.go" } },
         { ".env", { "*.env", ".env.*", ".envrc", "env.d.ts" } },
         { ".gitignore", { ".gitattributes", ".gitmodules", ".gitmessage", ".mailmap", ".git-blame*" } },
