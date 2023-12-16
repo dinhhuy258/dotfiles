@@ -22,11 +22,6 @@ M.setup = function()
     endwise = {
       enable = true,
     },
-    -- nvim-ts-context-commentstring
-    context_commentstring = {
-      enable = true,
-      enable_autocmd = false,
-    },
     -- nvim-treesitter-textobjects
     textsubjects = {
       enable = true,
@@ -76,6 +71,14 @@ M.setup = function()
       },
     },
   }
+
+  local ts_context_commentstring_ok, ts_context_commentstring = pcall(require, "ts_context_commentstring")
+  if not ts_context_commentstring_ok then
+    return
+  end
+
+  ts_context_commentstring.setup {}
+  vim.g.skip_ts_context_commentstring_module = true
 end
 
 return M
