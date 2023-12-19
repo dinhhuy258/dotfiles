@@ -19,3 +19,4 @@ defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 ## Keyboard settings
 
 - Change input source: `Ctr+'`
+- Disable all screenshot shortcuts

@@ -22,8 +22,6 @@
   :main
   [
     {:des "Key mappings" :rules [
-      [:!Ck :delete_or_backspace] ;; change left_command + k to backspace
-      [:!Cj :escape] ;; change left_command + j to esc
       [:caps_lock :left_control] ;; map caps_lock to left_control
 
       [:left_command :left_option :filco]
@@ -33,8 +31,6 @@
       [:down_arrow :vk_none]
       [:left_arrow :vk_none]
       [:right_arrow :vk_none]
-      [:delete_or_backspace :vk_none]
-      [:escape :vk_none]
       [:page_up :vk_none]
       [:page_down :vk_none]
       [:insert :vk_none]
