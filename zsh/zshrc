@@ -23,6 +23,7 @@ ZSH_THEME="flazz"
 # Add wisely, as too many plugins slow down shell startup.
 source $ZSH/antigen.zsh
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle djui/alias-tips
 antigen apply
 
 plugins=(
@@ -60,7 +61,6 @@ autoload -z edit-command-line
 zle -N edit-command-line
 
 # Key bindings
-bindkey '^ ' autosuggest-accept
 bindkey '^v' edit-command-line
 
 zle -N fprj
@@ -69,9 +69,11 @@ bindkey '^ ' fprj
 zle -N fpass
 bindkey '^p' fpass
 
-# Navigation
+# see `man bash` to define more key bindings
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
+bindkey "^i" kill-line
+bindkey "^y" kill-whole-line
 
 if [ -z "$IGNORE_GREETING_MESSAGE" ]
 then
