@@ -99,16 +99,11 @@ function kexe() {
   kubectl exec -it $pod -c $container -- ${1:-"sh"}
 }
 
-function kgctx() {
-  kubectl config current-context
-}
-
 function kctx() {
-  ctx=$(kubectl config get-contexts --no-headers -o=name | __fzfp)
-
-  if [ -z "$ctx" ]; then
-    return
+  if [ -z $1 ] || [ $1 != "set" ]; then
+    kubectl config current-context
+  else
+    ctx=$(kubectl config get-contexts --no-headers -o=name | __fzfp)
+    kubectl config use-context $ctx
   fi
-
-  kubectl config use-context $ctx
 }
