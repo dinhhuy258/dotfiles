@@ -71,6 +71,7 @@ if which brew >/dev/null; then
     brew tap FelixKratz/formulae
     installHomebrewPackage sketchybar
     installHomebrewPackage asdf
+    installHomebrewPackage thefuck
 
     # Greeting message
     installHomebrewPackage cowsay

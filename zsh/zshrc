@@ -33,6 +33,7 @@ plugins=(
   z
   fzf
   asdf
+  thefuck
 )
 
 source $ZSH/oh-my-zsh.sh
