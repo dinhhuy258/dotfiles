@@ -53,7 +53,8 @@ if which brew >/dev/null; then
     installHomebrewPackage fzf
     installHomebrewPackage ripgrep
     installHomebrewPackage fd
-    installHomebrewPackage node
+    # consider using asdf for managing node version
+    # installHomebrewPackage node
     installHomebrewPackage lazygit
     installHomebrewPackage urlview
     installHomebrewPackage tldr
@@ -69,6 +70,7 @@ if which brew >/dev/null; then
     installHomebrewPackage neofetch
     brew tap FelixKratz/formulae
     installHomebrewPackage sketchybar
+    installHomebrewPackage asdf
 
     # Greeting message
     installHomebrewPackage cowsay

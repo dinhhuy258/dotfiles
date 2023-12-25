@@ -23,6 +23,7 @@ ZSH_THEME="flazz"
 # Add wisely, as too many plugins slow down shell startup.
 source $ZSH/antigen.zsh
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle djui/alias-tips
 antigen apply
 
@@ -31,6 +32,7 @@ plugins=(
   vi-mode
   z
   fzf
+  asdf
 )
 
 source $ZSH/oh-my-zsh.sh
