@@ -362,6 +362,9 @@ local function _load_plugins(opts)
     {
       "tpope/vim-abolish",
     },
+    {
+      "tpope/vim-rails",
+    },
   }, opts)
 end
 

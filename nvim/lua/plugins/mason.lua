@@ -48,6 +48,7 @@ function M.setup()
       "golangci-lint",
       "pylint",
       "eslint_d",
+      "rubocop",
     },
   }
 end

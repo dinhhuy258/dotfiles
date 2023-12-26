@@ -13,6 +13,7 @@ M.setup = function()
     typescriptreact = { "eslint_d" },
     python = { "pylint" },
     go = { "golangcilint" },
+    ruby = { "rubocop" },
   }
 
   local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

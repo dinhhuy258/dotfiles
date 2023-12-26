@@ -22,7 +22,8 @@ M.setup = function()
     endwise = {
       enable = true,
     },
-    -- nvim-treesitter-textobjects
+    -- nvim-treesitter-textsubjects
+    -- using in visual mode
     textsubjects = {
       enable = true,
       prev_selection = ",", -- (Optional) keymap to select the previous selection
