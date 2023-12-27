@@ -24,7 +24,7 @@ ZSH_THEME="flazz"
 source $ZSH/antigen.zsh
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle djui/alias-tips
+antigen bundle MichaelAquilina/zsh-you-should-use
 antigen apply
 
 plugins=(
@@ -47,6 +47,9 @@ export LC_ALL=en_US.UTF-8
 
 export EDITOR=nvim
 export VISUAL="$EDITOR"
+
+# Enable hardcore mode in you-should-use
+export YSU_HARDCORE=1
 
 # Aliases
 alias vim=nvim
