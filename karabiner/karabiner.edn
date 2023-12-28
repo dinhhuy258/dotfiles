@@ -5,10 +5,6 @@
     :alacritty ["^org\\.alacritty$"]
   }
 
-  :devices {
-    :filco [{:vendor_id 2652 :product_id 34050}]
-  }
-
   :templates {
     :launch "open -a \"%s\""
   }
@@ -24,8 +20,17 @@
     {:des "Key mappings" :rules [
       [:caps_lock :left_control] ;; map caps_lock to left_control
 
-      [:left_command :left_option :filco]
-      [:left_option :left_command :filco]
+      [[:a :semicolon] :!Cgrave_accent_and_tilde]
+      [[:f :j] :!Ctab]
+
+      [[:tab :r] :!Cr [:chrome]]
+      [[:tab :w] :!Cw [:chrome]]
+      [[:tab :t] :!Ct [:chrome]]
+      [[:tab :f] :!Cf [:chrome]]
+      [[:tab :a] :!Ca [:chrome]]
+      [[:left_shift :tab :t] :!CSt [:chrome]]
+      [[:tab :l] :!Cl [:chrome]]
+      [[:left_shift :tab :n] :!CSn [:chrome]]
 
       [:up_arrow :vk_none]
       [:down_arrow :vk_none]
