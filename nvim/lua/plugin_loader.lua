@@ -40,10 +40,7 @@ local function _load_plugins(opts)
     {
       "dinhhuy258/git.nvim",
       config = function()
-        local status_ok, git = pcall(require, "git")
-        if status_ok then
-          git.setup()
-        end
+        require("plugins.git").setup()
       end,
     },
     -- tmux integration for nvim
