@@ -1,0 +1,12 @@
+# Mac
+.DS_Store
+
+# Editor
+.*.sw[a-z]
+*~
+.#*
+.idea
+.vscode
+
+# ENV
+.env

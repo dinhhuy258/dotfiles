@@ -72,6 +72,7 @@ if which brew >/dev/null; then
     installHomebrewPackage sketchybar
     installHomebrewPackage asdf
     installHomebrewPackage thefuck
+    installHomebrewPackage git-delta
 
     # Greeting message
     installHomebrewPackage cowsay
@@ -150,6 +151,10 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   # Sync task config
   mkdir -p ~/.config/task
   ln -sf $CWD/task/taskrc ~/.config/task/taskrc
+
+  # Sync git
+  ln -sf $CWD/git/gitconfig ~/.gitconfig
+  ln -sf $CWD/git/gitignore ~/.gitignore
 fi
 
 # brew services start skhd

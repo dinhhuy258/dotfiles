@@ -1,0 +1,43 @@
+[user]
+	email = huy.duongdinh@gmail.com
+	name = Huy Duong
+
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+
+[core]
+	pager = delta
+	# don't consider trailing space change as a cause for merge conflicts
+  whitespace = -trailing-space
+	# global ignore file
+	excludesFile = ~/.gitignore
+	
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true # use n and N to move between diff sections
+	light = false # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
+
+[push]
+	# default push should only push the current branch to its push target, regardless of its remote name
+	default = upstream
+	# when pushing, also push tags whose commit-ishs are now reachable upstream
+	followTags = true
+
+[fetch]
+	# https://dillionmegida.com/p/delete-outdated-branches/#git-fetch---prune
+	prune = true
+
+[status]
+	short = true
+
+[alias]
+	delete-local-merged = "!git fetch && git branch --merged | egrep -v 'master|main|dev|develop'  | xargs git branch -d"
+	empty = "!git commit --allow-empty"
