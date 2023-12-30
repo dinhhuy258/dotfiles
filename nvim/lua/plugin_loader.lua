@@ -59,7 +59,6 @@ local function _load_plugins(opts)
         "nvim-treesitter/nvim-treesitter-textobjects",
         "RRethy/nvim-treesitter-endwise",
         "windwp/nvim-ts-autotag",
-        "RRethy/nvim-treesitter-textsubjects",
       },
       config = function()
         require("plugins.nvim-treesitter").setup()
@@ -273,6 +272,14 @@ local function _load_plugins(opts)
       },
       config = function()
         require("neogen").setup {}
+      end,
+    },
+    {
+      "sustech-data/wildfire.nvim",
+      event = "VeryLazy",
+      dependencies = { "nvim-treesitter/nvim-treesitter" },
+      config = function()
+        require("wildfire").setup()
       end,
     },
     -- spliting/ joining blocks of code
