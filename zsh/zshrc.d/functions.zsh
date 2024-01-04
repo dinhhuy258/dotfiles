@@ -30,4 +30,3 @@ function shutdown() {
 function gretting_message() {
   neofetch --ascii "$(echo "Hello Huy Duong.\n\nHave a good day" | cowsay)" | lolcat
 }
-

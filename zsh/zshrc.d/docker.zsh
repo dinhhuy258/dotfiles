@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 function dexe() {
   containerID=$(docker ps --format '{{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}' | __fzfp | awk '{print $1}')
 

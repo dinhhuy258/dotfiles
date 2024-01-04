@@ -94,4 +94,3 @@ function fpass() {
 
   pass show "$passfile" --clip || return
 }
-

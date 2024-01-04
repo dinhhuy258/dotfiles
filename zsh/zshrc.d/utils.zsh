@@ -32,4 +32,3 @@ function e_bold() {
 function e_note() {
   printf "${underline}${bold}${blue}Note:${reset}  ${blue}%s${reset}\n" "$@"
 }
-
