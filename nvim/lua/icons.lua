@@ -100,4 +100,19 @@ return {
       default = "",
     },
   },
+  fillchars = {
+    foldopen = "",
+    foldclose = "",
+    foldsep = " ",
+    eob = " ",
+    fold = " ",
+  },
+  listchars = {
+    tab = "» ",
+    eol = "¬",
+    extends = "›",
+    precedes = "‹",
+    nbsp = "␣",
+    trail = "·",
+  },
 }

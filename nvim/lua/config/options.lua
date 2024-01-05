@@ -1,3 +1,5 @@
+local icons = require "icons"
+
 local M = {}
 
 local options = {
@@ -10,7 +12,6 @@ local options = {
   expandtab = true, -- Convert tabs to spaces
   smartindent = true, -- Do smart autoindenting when starting a new line
   autoindent = true, -- Copy indent from current line when starting a new line (typing <CR> in Insert mode or when using the "o" or "O" command)
-  foldenable = false, -- Disable folding
   wrap = false, -- Display long lines as just one line
   scrolloff = 4, -- Minimal number of screen lines to keep above and below the cursor
   sidescrolloff = 4, -- The minimal number of screen columns to keep to the left and to the right of the cursor
@@ -20,7 +21,7 @@ local options = {
   smartcase = true, -- Override the 'ignorecase' option if the search pattern contains upper case characters
   number = true, -- Dislay line numbers
   numberwidth = 2, -- Set number column width to 2 (default 4)
-  relativenumber = false, -- Disable relative number
+  relativenumber = true, -- Disable relative number
   laststatus = 2, -- Always show status line (2 = always)
   showtabline = 2, -- Always show tabs (2 = always)
   hidden = true, -- Required to keep multiple buffers open multiple buffers
@@ -42,9 +43,24 @@ local options = {
   background = "dark",
   termguicolors = true, -- Set term gui colors
   list = true,
-  listchars = { -- Strings to use in 'list' mode
-    tab = " ",
-    eol = "¬",
+  foldenable = true,
+  foldcolumn = "1",
+  foldlevel = 99,
+  foldlevelstart = 99,
+  fillchars = {
+    eob = icons.fillchars.eob,
+    fold = icons.fillchars.fold,
+    foldopen = icons.fillchars.foldopen,
+    foldsep = icons.fillchars.foldsep,
+    foldclose = icons.fillchars.foldclose,
+  },
+  listchars = {
+    tab = icons.listchars.tab,
+    eol = icons.listchars.eol,
+    extends = icons.listchars.extends,
+    precedes = icons.listchars.precedes,
+    nbsp = icons.listchars.nbsp,
+    trail = icons.listchars.trail,
   },
 }
 

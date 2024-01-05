@@ -369,6 +369,24 @@ local function _load_plugins(opts)
     {
       "tpope/vim-rails",
     },
+    {
+      "max397574/better-escape.nvim",
+      config = function()
+        require("better_escape").setup()
+      end,
+    },
+    {
+      "kevinhwang91/nvim-ufo",
+      dependencies = {
+        "kevinhwang91/promise-async",
+        {
+          "luukvbaal/statuscol.nvim",
+        },
+      },
+      config = function()
+        require("plugins.nvim-ufo").setup()
+      end,
+    },
   }, opts)
 end
 
