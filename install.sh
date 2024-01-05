@@ -134,9 +134,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   mkdir -p ~/.config/skhd
   ln -sf $CWD/skhd/skhdrc ~/.config/skhd/skhdrc
 
-  # Sync cmds
-  ln -sf $CWD/zsh/cmds ~/.cmds
-
   # Sync starship
   mkdir -p ~/.config/starship
   ln -sf $CWD/starship/starship.toml ~/.config/starship.toml
@@ -155,6 +152,21 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   # Sync git
   ln -sf $CWD/git/gitconfig ~/.gitconfig
   ln -sf $CWD/git/gitignore ~/.gitignore
+fi
+
+# Create cmds file
+read -p "Create cmds file? (y/n) " -n 1;
+echo "";
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  echo "Creating cmds file..."
+
+  touch ~/.cmds
+  echo 'say "test speaker"' > ~/.cmds
+  echo 'yabai --restart-service' >> ~/.cmds
+  echo 'calcurse' >> ~/.cmds
+  echo 'skhd --reload' >> ~/.cmds
+  echo 'ping google.com' >> ~/.cmds
+  echo 'nvim -u NONE ~/.cmds' >> ~/.cmds
 fi
 
 # brew services start skhd

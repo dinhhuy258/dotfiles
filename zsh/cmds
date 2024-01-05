@@ -1,9 +1,0 @@
-say "test speaker"
-yabai --restart-service
-calcurse
-skhd --reload
-ping google.com
-nvim -u NONE ~/.cmds
-curl wttr.in; read
-shutdown
-reboot

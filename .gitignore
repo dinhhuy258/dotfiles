@@ -3,3 +3,6 @@ nvim/plugged
 nvim/session
 
 .DS_Store
+
+lazy-lock.json
+zshrc.local

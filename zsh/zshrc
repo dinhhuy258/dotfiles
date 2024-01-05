@@ -38,15 +38,16 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Use ~/.zshrc.local for your own customisation
 source "${HOME}/.zshrc.local"
 
-# Source files in folder zshrc.d
 for cfg in $DOTFILES/zsh/zshrc.d/*; do
   source $cfg
 done
 
-# Env
+for fn in $DOTFILES/zsh/functions/*; do
+  source $fn
+done
+
 export PATH=$PATH:$(go env GOPATH)/bin
 
 export LANG=en_US.UTF-8
@@ -56,27 +57,9 @@ export LC_ALL=en_US.UTF-8
 export EDITOR=nvim
 export VISUAL="$EDITOR"
 
-autoload -z edit-command-line
-zle -N edit-command-line
-
-# Key bindings
-bindkey '^v' edit-command-line
-
-zle -N fprj
-bindkey '^ ' fprj
-
-zle -N fpass
-bindkey '^p' fpass
-
-# see `man bash` to define more key bindings
-bindkey "^[[1;3C" forward-word
-bindkey "^[[1;3D" backward-word
-bindkey "^i" kill-line
-bindkey "^y" kill-whole-line
-
 if [ -z "$IGNORE_GREETING_MESSAGE" ]
 then
-  gretting_message
+  neofetch --ascii "$(echo "Hello Huy Duong.\n\nHave a good day" | cowsay)" | lolcat
 fi
 
 eval "$(starship init zsh)"
