@@ -7,6 +7,45 @@ local keymaps = require "config.keymaps"
 
 local M = {}
 
+local git_tasks = {
+  {
+    title = "󰊢 Checkout main branch",
+    command = "gcm",
+    type = "vimux",
+  },
+  {
+    title = "󰊢 Checkout dev branch",
+    command = "gcd",
+    type = "vimux",
+  },
+  {
+    title = "󰊢 Create branch",
+    command = "gcb",
+    prompt = "Branch name:",
+    type = "input",
+  },
+  {
+    title = "󰊢 Git pull",
+    command = "ggl",
+    type = "vimux",
+  },
+  {
+    title = "󰊢 Git push",
+    command = "ggp",
+    type = "vimux",
+  },
+  {
+    title = "󰊢 Git force push",
+    command = "ggf",
+    type = "vimux",
+  },
+  {
+    title = "󰊢 Git delete local merged branches",
+    command = "gdlm",
+    type = "vimux",
+  },
+}
+
 local go_tasks = {
   {
     title = " Start go server",
@@ -94,6 +133,18 @@ local function run_tasks(tasks, opts)
             local type = selection_value.type
             if type == "vimux" then
               vim.cmd("VimuxRunCommand " .. '"' .. command .. '"')
+            elseif type == "input" then
+              local prompt = "Input:"
+              if selection_value.prompt then
+                prompt = selection_value.prompt
+              end
+
+              require("core.float_input").input(function(input)
+                local cmd = command .. " " .. input
+                vim.cmd("VimuxRunCommand " .. '"' .. cmd .. '"')
+              end, {
+                prompt = prompt,
+              })
             else
               vim.cmd(command)
             end
@@ -131,6 +182,10 @@ function M.setup()
 
   keymaps.set("n", "<leader>rc", function()
     run_tasks(common_tasks, require("telescope.themes").get_dropdown {})
+  end)
+
+  keymaps.set("n", "<leader>rg", function()
+    run_tasks(git_tasks, require("telescope.themes").get_dropdown {})
   end)
 
   keymaps.set("n", "<leader>ra", function()
