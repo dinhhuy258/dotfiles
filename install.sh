@@ -1,177 +1,216 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-CWD=$(pwd)
+cd "$(dirname "$0")/.."
+DOTFILES=$(pwd -P)
 
-function installHomebrewCaskPackage() {
-  if brew list --cask | grep $1 > /dev/null; then
-    echo "$1 is already installed"
-  else
-    echo "Installing $1..."
-    brew install --cask $1
+set -e
+
+echo ''
+
+info() {
+  printf "\r  [ \033[00;34m..\033[0m ] %s\n" "$1"
+}
+
+user() {
+  printf "\r  [ \033[0;33m??\033[0m ] %s\n" "$1"
+}
+
+success() {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
+}
+
+fail() {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"
+  echo ''
+  exit
+}
+
+link_file() {
+  local src=$1 dst=$2
+
+  local overwrite=
+  local backup=
+  local skip=
+  local action=
+
+  if [ -f "$dst" ] || [ -d "$dst" ] || [ -L "$dst" ]; then
+
+    if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]; then
+
+      # ignoring exit 1 from readlink in case where file already exists
+      # shellcheck disable=SC2155
+      local currentSrc="$(readlink "$dst")"
+
+      if [ "$currentSrc" == "$src" ]; then
+
+        skip=true
+
+      else
+
+        user "File already exists: $dst ($(basename "$src")), what do you want to do?\n\
+        [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
+        read -n 1 action </dev/tty
+
+        case "$action" in
+        o)
+          overwrite=true
+          ;;
+        O)
+          overwrite_all=true
+          ;;
+        b)
+          backup=true
+          ;;
+        B)
+          backup_all=true
+          ;;
+        s)
+          skip=true
+          ;;
+        S)
+          skip_all=true
+          ;;
+        *) ;;
+        esac
+
+      fi
+
+    fi
+
+    overwrite=${overwrite:-$overwrite_all}
+    backup=${backup:-$backup_all}
+    skip=${skip:-$skip_all}
+
+    if [ "$overwrite" == "true" ]; then
+      rm -rf "$dst"
+      success "removed $dst"
+    fi
+
+    if [ "$backup" == "true" ]; then
+      mv "$dst" "${dst}.backup"
+      success "moved $dst to ${dst}.backup"
+    fi
+
+    if [ "$skip" == "true" ]; then
+      success "skipped $src"
+    fi
+  fi
+
+  if [ "$skip" != "true" ]; then # "false" or empty
+    ln -s "$1" "$2"
+    success "linked $1 to $2"
   fi
 }
 
-function installHomebrewPackage() {
-  if brew list | grep $1 > /dev/null; then
-    echo "$1 is already installed"
-  else
-    echo "Installing $1..."
-    brew install $1
-  fi
-}
-
-# Init and update git submodules
-echo "Init and update git submodules..."
-git submodule update --init --recursive
-
-# Install homebrew
-if ! which brew >/dev/null; then
-  read -p "Install brew? (y/n) " -n 1;
-  echo "";
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo "Installing brew..."
+install_homebrew() {
+  if ! which brew >/dev/null; then
+    info "Installing homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  else
+    info "Updating homebrew"
+    brew update
+    brew upgrade
   fi
-fi
 
-# Install homebrew packages
-if which brew >/dev/null; then
-  read -p "Install homebrew packages? (y/n) " -n 1
-  echo ""
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo "Installing homebrew packages..."
-    installHomebrewCaskPackage alacritty
-    installHomebrewCaskPackage karabiner-elements
-    installHomebrewCaskPackage raycast
-    brew tap homebrew/cask-fonts
-    installHomebrewCaskPackage font-fira-code-nerd-font
-    installHomebrewCaskPackage shottr
-    # config karabiner helper
-    installHomebrewPackage yqrashawn/goku/goku
-    installHomebrewPackage neovim
-    installHomebrewPackage tmux
-    installHomebrewPackage fzf
-    installHomebrewPackage ripgrep
-    installHomebrewPackage fd
-    # consider using asdf for managing node version
-    # installHomebrewPackage node
-    installHomebrewPackage lazygit
-    installHomebrewPackage urlview
-    installHomebrewPackage tldr
-    installHomebrewPackage pass
-    installHomebrewPackage jq
-    installHomebrewPackage lnav
-    installHomebrewPackage go
-    installHomebrewPackage task
-    installHomebrewPackage derailed/k9s/k9s
-    installHomebrewPackage koekeishiya/formulae/skhd
-    installHomebrewPackage koekeishiya/formulae/yabai
-    installHomebrewPackage starship
-    installHomebrewPackage neofetch
-    brew tap FelixKratz/formulae
-    installHomebrewPackage sketchybar
-    installHomebrewPackage asdf
-    installHomebrewPackage thefuck
-    installHomebrewPackage git-delta
+  info "Installing homebrew packages"
+  brew bundle --file "$DOTFILES/brew/Brewfile"
+}
 
-    # Greeting message
-    installHomebrewPackage cowsay
-    installHomebrewPackage lolcat
+install_zsh() {
+  if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    info "Installing oh-my-zsh"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   fi
-else
-  echo "Homebrew not installed! Skipping package installation..."
-fi
 
-# Install zsh
-read -p "Install zsh? (y/n) " -n 1;
-echo "";
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  echo "Installing zsh..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  if [ ! -f "$HOME/.oh-my-zsh/antigen.zsh" ]; then
+    info "Installing antigen"
+    curl -L git.io/antigen >"$HOME/.oh-my-zsh/antigen.zsh"
+  fi
+}
 
-  echo "Installing antigen..."
-  curl -L git.io/antigen > $HOME/.oh-my-zsh/antigen.zsh
-fi
+install_tmux_plugin_manager() {
+  if [ ! -d "$HOME/.tmux/plugins" ]; then
+    info "Installing tmux plugin manager"
+    mkdir -p "$HOME/.tmux/plugins"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  fi
+}
 
-# Install tmux plugins
-read -p "Install tmux plugins? (y/n) " -n 1;
-echo "";
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  echo "Installing tmux plugins..."
-  mkdir -p ~/.tmux/plugins
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi;
+install_dotfiles() {
+  info 'Installing dotfiles'
 
-# Sync folders
-read -p "Sync folders? (y/n) " -n 1;
-echo "";
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  echo "Syncing folders..."
-  # Sync nvim
-  mkdir -p ~/.config
-  rm -rf ~/.config/nvim
-  ln -sf $CWD/nvim ~/.config/nvim
+  local overwrite_all=false backup_all=false skip_all=false
 
-  # Sync alacritty
-  ln -sf $CWD/alacritty/alacritty.yml ~/.config/alacritty.yml
-  ln -sf $CWD/alacritty/alacritty-popup.yml ~/.config/alacritty-popup.yml
+  mkdir -p "$HOME/.config"
 
-  # Sync tmux
-  ln -sf $CWD/tmux/tmux.conf ~/.tmux.conf
+  # nvim
+  mkdir -p "$HOME/.config/nvim"
+  link_file "$DOTFILES/nvim" "$HOME/.config/nvim"
 
-  # Sync zsh
-  ln -sf $CWD/zsh/zshrc.local ~/.zshrc.local
-  ln -sf $CWD/zsh/zshrc ~/.zshrc
+  # alacritty
+  link_file "$DOTFILES/alacritty/alacritty.toml" "$HOME/.config/alacritty.toml"
+  link_file "$DOTFILES/alacritty/alacritty-popup.yml" "$HOME/.config/alacritty-popup.yml"
 
-  # Sync karabiner config
-  ln -sf $CWD/karabiner/karabiner.edn ~/.config/karabiner.edn
+  # tmux
+  link_file "$DOTFILES/tmux/tmux.conf" "$HOME/.tmux.conf"
 
-  # Sync yabai config
-  mkdir -p ~/.config/yabai
-  ln -sf $CWD/yabai/yabairc ~/.config/yabai/yabairc
+  # zsh
+  link_file "$DOTFILES/zsh/zshrc.local" "$HOME/.zshrc.local"
+  link_file "$DOTFILES/zsh/zshrc" "$HOME/.zshrc"
 
-  # Sync skhd config
-  mkdir -p ~/.config/skhd
-  ln -sf $CWD/skhd/skhdrc ~/.config/skhd/skhdrc
+  # karabiner
+  link_file "$DOTFILES/karabiner/karabiner.edn" "$HOME/.config/karabiner.edn"
 
-  # Sync starship
-  mkdir -p ~/.config/starship
-  ln -sf $CWD/starship/starship.toml ~/.config/starship.toml
+  # yabai
+  mkdir -p "$HOME/.config/yabai"
+  link_file "$DOTFILES/yabai/yabairc" "$HOME/.config/yabai/yabairc"
 
-  # Sync neofetch
-  mkdir -p ~/.config/neofetch
-  ln -sf $CWD/neofetch/config.conf ~/.config/neofetch/config.conf
+  # skhd
+  mkdir -p "$HOME/.config/skhd"
+  link_file "$DOTFILES/skhd/skhdrc" "$HOME/.config/skhd/skhdrc"
 
-  # Sync sketchybar config
-  ln -sf $CWD/sketchybar ~/.config/sketchybar
+  # starship
+  link_file "$DOTFILES/starship/starship.toml" "$HOME/.config/starship.toml"
 
-  # Sync task config
-  mkdir -p ~/.config/task
-  ln -sf $CWD/task/taskrc ~/.config/task/taskrc
+  # neofetch
+  mkdir -p "$HOME/.config/neofetch"
+  link_file "$DOTFILES/neofetch/config.conf" "$HOME/.config/neofetch/config.conf"
 
-  # Sync git
-  ln -sf $CWD/git/gitconfig ~/.gitconfig
-  ln -sf $CWD/git/gitignore ~/.gitignore
-fi
+  # sketchybar
+  link_file "$DOTFILES/sketchybar" "$HOME/.config/sketchybar"
 
-# Create cmds file
-read -p "Create cmds file? (y/n) " -n 1;
-echo "";
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  echo "Creating cmds file..."
+  # taskwarrior
+  mkdir -p "$HOME/.config/task"
+  link_file "$DOTFILES/task/taskrc" "$HOME/.config/task/taskrc"
 
-  touch ~/.cmds
-  echo 'say "test speaker"' > ~/.cmds
-  echo 'yabai --restart-service' >> ~/.cmds
-  echo 'calcurse' >> ~/.cmds
-  echo 'skhd --reload' >> ~/.cmds
-  echo 'ping google.com' >> ~/.cmds
-  echo 'nvim -u NONE ~/.cmds' >> ~/.cmds
-fi
+  # git
+  link_file "$DOTFILES/git/gitconfig" "$HOME/.gitconfig"
+  link_file "$DOTFILES/git/gitignore" "$HOME/.gitignore"
+}
+
+create_cmds_file() {
+  info "Creating cmds file"
+
+  touch "$HOME/.cmds"
+  {
+    echo 'say "test speaker"'
+    echo 'yabai --restart-service'
+    echo 'calcurse'
+    echo 'skhd --reload'
+    echo 'ping google.com'
+    echo 'nvim -u NONE ~/.cmds'
+  } >"$HOME/.cmds"
+}
+
+install_homebrew
+install_zsh
+install_tmux_plugin_manager
+install_dotfiles
+create_cmds_file
+
+success 'All installed!'
 
 # brew services start skhd
 # brew services start yabai
 # brew services start sketchybar
 # go install github.com/dinhhuy258/fm@latest
-
-echo "All done!"

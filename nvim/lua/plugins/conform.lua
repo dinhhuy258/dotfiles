@@ -23,8 +23,13 @@ M.setup = function()
       lua = { "stylua" },
       python = { "isort", "black" },
       cpp = { "clang_format" },
-      php = { "pint" }
+      php = { "pint" },
+      sh = { "shfmt" },
     },
+  }
+
+  conform.formatters.shfmt = {
+    prepend_args = { "-i", "2" },
   }
 
   keymaps.set({ "n", "v" }, "<Leader>cf", function()

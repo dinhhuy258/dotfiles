@@ -10,6 +10,7 @@ local servers = {
   "gopls", -- go
   "solargraph", -- ruby
   "ruby_ls", -- ruby
+  "bashls" -- bash
 }
 
 return servers

@@ -49,6 +49,8 @@ function M.setup()
       "pylint",
       "eslint_d",
       "rubocop",
+      "shfmt",
+      "shellcheck",
     },
   }
 end
