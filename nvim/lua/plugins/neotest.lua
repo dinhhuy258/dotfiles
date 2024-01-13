@@ -12,6 +12,7 @@ M.setup = function()
     adapters = {
       require "neotest-phpunit",
       require "neotest-go",
+      require("neotest-rspec")
     },
   }
 
@@ -32,12 +33,15 @@ M.setup = function()
   keymaps.set("n", "<Leader>tq", ':lua require("neotest").run.stop()<CR>', { noremap = true })
   -- open output window
   keymaps.set("n", "<Leader>to", ':lua require("neotest").output.open({ enter = true })<CR>', { noremap = true })
+  -- open output summary
+  keymaps.set("n", "<Leader>ts", ':lua require("neotest").summary.toggle()<CR>', { noremap = true })
 
   local group = vim.api.nvim_create_augroup("dotfiles_neotest_close_with_q", { clear = true })
   vim.api.nvim_create_autocmd("FileType", {
     group = group,
     pattern = {
       "neotest-output",
+      "neotest-summary",
     },
     callback = function(event)
       vim.bo[event.buf].buflisted = false

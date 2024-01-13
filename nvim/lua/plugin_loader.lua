@@ -310,6 +310,7 @@ local function _load_plugins(opts)
         -- adapters
         "olimorris/neotest-phpunit",
         "nvim-neotest/neotest-go",
+        "olimorris/neotest-rspec",
       },
       config = function()
         require("plugins.neotest").setup()
@@ -407,7 +408,7 @@ function plugin_loader:init()
       border = "rounded",
     },
     install = {
-      missing = false,
+      missing = true,
     },
   }
 end
