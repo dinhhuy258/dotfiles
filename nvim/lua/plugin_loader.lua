@@ -238,19 +238,16 @@ local function _load_plugins(opts)
     -- go
     {
       "mfussenegger/nvim-dap",
-      ft = { "go" },
-      config = function()
-        require("plugins.nvim-dap").setup()
-      end,
-    },
-    {
-      "rcarriga/nvim-dap-ui",
-      ft = { "go" },
+      ft = {
+        "go",
+        "ruby",
+      },
       dependencies = {
-        "nvim-dap",
+        "rcarriga/nvim-dap-ui",
+        "suketa/nvim-dap-ruby",
       },
       config = function()
-        require("plugins.nvim-dap-ui").setup()
+        require("plugins.nvim-dap").setup()
       end,
     },
     {
