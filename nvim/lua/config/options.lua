@@ -43,6 +43,7 @@ local options = {
   background = "dark",
   termguicolors = true, -- Set term gui colors
   list = true,
+  colorcolumn = "+0",
   foldenable = true,
   foldcolumn = "1",
   foldlevel = 99,
