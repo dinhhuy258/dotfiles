@@ -241,6 +241,7 @@ local function _load_plugins(opts)
       ft = {
         "go",
         "ruby",
+        "php",
       },
       dependencies = {
         "rcarriga/nvim-dap-ui",

@@ -3,6 +3,30 @@ local icons = require "icons"
 
 local M = {}
 
+local function setup_dap_php()
+  local dap_status_ok, dap = pcall(require, "dap")
+  if not dap_status_ok then
+    return
+  end
+
+  dap.adapters.php = {
+    type = "executable",
+    command = vim.fn.exepath('php-debug-adapter'),
+  }
+
+  dap.configurations.php = {
+    {
+      type = "php",
+      request = "launch",
+      name = "Listen for Xdebug",
+      port = 9003,
+      pathMappings = {
+        ["/var/www/html"] = "${workspaceFolder}",
+      },
+    },
+  }
+end
+
 local function setup_dap_ruby()
   local status_ok, dap_ruby = pcall(require, "dap-ruby")
   if not status_ok then
@@ -159,6 +183,7 @@ M.setup = function()
   setup_dap()
   setup_dap_ui()
   setup_dap_ruby()
+  setup_dap_php()
 end
 
 return M

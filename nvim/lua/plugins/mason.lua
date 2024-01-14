@@ -51,6 +51,8 @@ function M.setup()
       "rubocop",
       "shfmt",
       "shellcheck",
+      -- Debuggers
+      "php-debug-adapter",
     },
   }
 end
