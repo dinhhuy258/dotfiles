@@ -70,7 +70,7 @@ local function setup_dap_ui()
           },
         },
         position = "right",
-        size = 40,
+        size = 100,
       },
       {
         elements = { {
@@ -78,7 +78,7 @@ local function setup_dap_ui()
           size = 1,
         } },
         position = "bottom",
-        size = 10,
+        size = 15,
       },
     },
     mappings = {
@@ -95,15 +95,16 @@ local function setup_dap_ui()
     },
   }
 
-  dap.listeners.after.event_initialized["dapui_config"] = function()
+  dap.listeners.before.attach.dapui_config = function()
     dapui.open()
   end
-
-  dap.listeners.before.event_terminated["dapui_config"] = function()
+  dap.listeners.before.launch.dapui_config = function()
+    dapui.open()
+  end
+  dap.listeners.before.event_terminated.dapui_config = function()
     dapui.close()
   end
-
-  dap.listeners.before.event_exited["dapui_config"] = function()
+  dap.listeners.before.event_exited.dapui_config = function()
     dapui.close()
   end
 end
@@ -127,8 +128,20 @@ local function setup_dap()
 
   local opts = { noremap = false }
 
-  keymaps.set("n", "<Leader>ds", "<CMD>lua require'dap'.continue()<CR>", opts) -- Start
-  keymaps.set("n", "<Leader>dq", "<CMD>lua require'dap'.close()<CR>", opts) -- Quit
+  keymaps.set("n", "<Leader>ds", function()
+    -- start the debuggere
+    dap.continue()
+  end, opts) -- Start
+  keymaps.set("n", "<Leader>dq", function()
+    dap.close()
+
+    local dap_ui_status_ok, dapui = pcall(require, "dapui")
+    if not dap_ui_status_ok then
+      return
+    end
+
+    dapui.close()
+  end, opts) -- Quit
   keymaps.set("n", "<Leader>dd", "<CMD>lua require'dap'.disconnect()<CR>", opts) -- Disconnect
   keymaps.set("n", "<Leader>dt", "<CMD>lua require'dap'.toggle_breakpoint()<CR>", opts) -- Toogle breakpoint
   keymaps.set("n", "<Leader>dC", "<CMD>lua require'dap'.run_to_cursor()<CR>", opts) -- Run to cursor
