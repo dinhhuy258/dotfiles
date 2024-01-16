@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "$0")/.."
 DOTFILES=$(pwd -P)
 
 set -e
@@ -210,7 +209,7 @@ create_cmds_file
 
 success 'All installed!'
 
-# brew services start skhd
-# brew services start yabai
+# skhd --start-service
+# yabai --start-service
 # brew services start sketchybar
 # go install github.com/dinhhuy258/fm@latest
