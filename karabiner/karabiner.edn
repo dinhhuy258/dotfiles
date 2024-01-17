@@ -47,7 +47,7 @@
     {:des "Launch applications" :rules [
       [:t [:launch "Alacritty"] :launch-mode]
       [:b [:launch "Google Chrome"] :launch-mode]
-      [:i [:launch "IntelliJ IDEA"] :launch-mode]
+      [:r [:launch "IntelliJ IDEA"] :launch-mode]
       [:z [:launch "Zalo"] :launch-mode]
       [:f [:launch "Finder"] :launch-mode]
       [:c [:launch "Visual Studio Code"] :launch-mode]
