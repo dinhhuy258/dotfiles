@@ -62,4 +62,5 @@ then
   neofetch --ascii "$(echo "Hello Huy Duong.\n\nHave a good day" | cowsay)" | lolcat
 fi
 
+eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(starship init zsh)"
