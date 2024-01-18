@@ -5,8 +5,9 @@ I'm now creating a instance of Alacritty specifically for popup action. The issu
 ## How to build Alacritty Popup
 
 1. Clone [this](https://github.com/dinhhuy258/alacritty) repository. 
-2. Run `make app`
-3. The binary that is produced by the aforementioned command might not be functional. We must make a small change.
+2. Checkout branch `git checkout origin/v0.9.0`
+3. Run `make app`
+4. The binary that is produced by the aforementioned command might not be functional. We must make a small change.
 
 - Go to `AlacrittyPopup/Contents/MacOS/`
 - Rename `alacritty` to `alacritty-popup`

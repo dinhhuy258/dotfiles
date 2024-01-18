@@ -8,6 +8,7 @@ cask 'slack'
 cask 'skype'
 cask 'zalo'
 cask 'visual-studio-code'
+cask 'orbstack'
 tap 'homebrew/cask-fonts'
 cask 'font-fira-code-nerd-font'
 

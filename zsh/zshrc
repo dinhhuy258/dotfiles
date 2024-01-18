@@ -28,6 +28,7 @@ antigen bundle MichaelAquilina/zsh-you-should-use
 antigen apply
 
 plugins=(
+  brew
   git
   vi-mode
   z

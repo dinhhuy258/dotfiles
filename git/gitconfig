@@ -2,9 +2,6 @@
 	email = huy.duongdinh@gmail.com
 	name = Huy Duong
 
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
-
 [core]
 	pager = delta
 	# don't consider trailing space change as a cause for merge conflicts
