@@ -60,7 +60,7 @@ pass edit <pass-name>
 **Delete a password**
 
 ```sh
-pass edit [--recursive -r] [--force -f] <pass-name>
+pass rm <pass-name>
 ```
 
 **Rename existing password**
@@ -74,7 +74,16 @@ pass mv [--force -f] <old-path> <new-path>
 ```sh
 pass git init
 pass git remote add origin user@server:~/.password-store
-git pass add .
-git pass push
+pass git add .
+pass git pull
+pass git push
 ...
+```
+
+**Using existing password-store repository**
+
+```sh
+cd ~
+git clone git@github.com:dinhhuy258/password-store.git
+mv password-store .password-store
 ```
