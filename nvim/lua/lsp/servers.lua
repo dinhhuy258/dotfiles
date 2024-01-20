@@ -8,8 +8,6 @@ local servers = {
   "sqlls", -- sql
   "yamlls", -- yaml
   "gopls", -- go
-  "solargraph", -- ruby
-  "ruby_ls", -- ruby
   "bashls" -- bash
 }
 
