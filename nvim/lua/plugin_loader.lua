@@ -13,7 +13,7 @@ local function _load_plugins(opts)
     {
       "dinhhuy258/vintellij",
       branch = "lsp",
-      ft = { "kotlin", "java" },
+      ft = { "kotlin", "java", "ruby" },
       config = function()
         require("plugins.vintellij").setup()
       end,
@@ -367,6 +367,9 @@ local function _load_plugins(opts)
     },
     {
       "tpope/vim-rails",
+      ft = {
+        "ruby",
+      },
     },
     {
       "max397574/better-escape.nvim",
