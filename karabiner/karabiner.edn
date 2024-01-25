@@ -20,9 +20,6 @@
     {:des "Key mappings" :rules [
       [:caps_lock :left_control] ;; map caps_lock to left_control
 
-      [[:a :semicolon] :!Cgrave_accent_and_tilde]
-      [[:f :j] :!Ctab]
-
       [[:tab :r] :!Cr [:chrome]]
       [[:tab :w] :!Cw [:chrome]]
       [[:tab :t] :!Ct [:chrome]]
@@ -31,6 +28,7 @@
       [[:left_shift :tab :t] :!CSt [:chrome]]
       [[:tab :l] :!Cl [:chrome]]
       [[:left_shift :tab :n] :!CSn [:chrome]]
+      [[:tab :x] :!Cx [:chrome]]
 
       [:up_arrow :vk_none]
       [:down_arrow :vk_none]
