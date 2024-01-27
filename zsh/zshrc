@@ -30,7 +30,6 @@ antigen apply
 plugins=(
   brew
   git
-  dotenv
   vi-mode
   z
   fzf
