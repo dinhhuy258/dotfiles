@@ -300,18 +300,12 @@ local function _load_plugins(opts)
     },
     -- for interacting with tests within NeoVim
     {
-      "nvim-neotest/neotest",
+      "vim-test/vim-test",
       dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-treesitter/nvim-treesitter",
-
-        -- adapters
-        "olimorris/neotest-phpunit",
-        "nvim-neotest/neotest-go",
-        "olimorris/neotest-rspec",
+        "preservim/vimux",
       },
       config = function()
-        require("plugins.neotest").setup()
+        require("plugins.vim-test").setup()
       end,
     },
     -- copilot
