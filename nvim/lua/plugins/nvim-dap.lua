@@ -170,7 +170,7 @@ local function setup_dap()
   keymaps.set("n", "<Leader>dt", "<CMD>lua require'dap'.toggle_breakpoint()<CR>", opts) -- Toogle breakpoint
   keymaps.set("n", "<Leader>dC", "<CMD>lua require'dap'.run_to_cursor()<CR>", opts) -- Run to cursor
   keymaps.set("n", "<Leader>dn", "<CMD>lua require'dap'.step_over()<CR>", opts) -- Step over
-  keymaps.set("n", "<Leader>dB", "<CMD>lua require'dap'.step_back()<CR>", opts) -- Step back
+  keymaps.set("n", "<Leader>db", "<CMD>lua require'dap'.step_back()<CR>", opts) -- Step back
   keymaps.set("n", "<Leader>di", "<CMD>lua require'dap'.step_into()<CR>", opts) -- Step into
   keymaps.set("n", "<Leader>do", "<CMD>lua require'dap'.step_out()<CR>", opts) -- Step out
   keymaps.set("n", "<Leader>dp", "<CMD>lua require'dap'.pause.toggle()<CR>", opts) -- Pause
