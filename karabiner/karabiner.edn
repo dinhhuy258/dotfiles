@@ -9,84 +9,45 @@
     :launch "open -a \"%s\""
   }
 
-  :simlayers {
-    :launch-mode {:key :quote}
-  }
-
   :simlayer-threshold 500
 
   :main
   [
     {:des "Key mappings" :rules [
       [:caps_lock :left_control] ;; map caps_lock to left_control
+    ]}
 
-      [[:tab :r] :!Cr [:chrome]]
-      [[:tab :w] :!Cw [:chrome]]
-      [[:tab :t] :!Ct [:chrome]]
-      [[:tab :f] :!Cf [:chrome]]
-      [[:tab :a] :!Ca [:chrome]]
-      [[:left_shift :tab :t] :!CSt [:chrome]]
-      [[:tab :l] :!Cl [:chrome]]
-      [[:left_shift :tab :n] :!CSn [:chrome]]
-      [[:tab :x] :!Cx [:chrome]]
+    {:des "Navigation" :rules [
+      [:f11 :!CSopen_bracket :chrome]
+      [:f12 :!CSclose_bracket :chrome]
 
-      [:up_arrow :vk_none]
-      [:down_arrow :vk_none]
-      [:left_arrow :vk_none]
-      [:right_arrow :vk_none]
-      [:page_up :vk_none]
-      [:page_down :vk_none]
-      [:insert :vk_none]
-      [:delete_forward :vk_none]
-      [:home :vk_none]
-      [:end :vk_none]
+      [:f11 [:!Tf :h] :alacritty]
+      [:f12 [:!Tf :l] :alacritty]
     ]}
 
     {:des "Launch applications" :rules [
-      [:t [:launch "Alacritty"] :launch-mode]
-      [:b [:launch "Google Chrome"] :launch-mode]
-      [:r [:launch "IntelliJ IDEA"] :launch-mode]
-      [:z [:launch "Zalo"] :launch-mode]
-      [:f [:launch "Finder"] :launch-mode]
-      [:c [:launch "Visual Studio Code"] :launch-mode]
-      [:a [:launch "Postman"] :launch-mode]
-      [:s [:launch "Slack"] :launch-mode]
-      [:d [:launch "Skype"] :launch-mode]
-    ]}
-
-    {:des "SuperDuper <- S+D" :rules [
-      [{:sim [:s :d]
-        :simo {:interrupt true
-               :dorder :insensitive
-               :uorder :insensitive
-               :afterup {:set ["superduper-mode" 0]}}} {:set ["superduper-mode" 1]}]
-
-      [:##h :left_arrow :superduper-mode]
-      [:##j :down_arrow :superduper-mode]
-      [:##k :up_arrow :superduper-mode] [:##l :right_arrow :superduper-mode]
-
-      [:##a :left_option :superduper-mode]
-      [:##spacebar :left_shift :superduper-mode]
-      [:##f :left_command :superduper-mode]
-
-      [:##i :!CSopen_bracket [:superduper-mode :chrome]]
-      [:##o :!CSclose_bracket [:superduper-mode :chrome]]
-
-      [:##i [:!Tf :h] [:superduper-mode :alacritty]]
-      [:##o [:!Tf :l] [:superduper-mode :alacritty]]
+      [:!!t [:launch "Alacritty"]]
+      [:!!b [:launch "Google Chrome"]]
+      [:!!r [:launch "IntelliJ IDEA"]]
+      [:!!z [:launch "Zalo"]]
+      [:!!f [:launch "Finder"]]
+      [:!!c [:launch "Visual Studio Code"]]
+      [:!!a [:launch "Postman"]]
+      [:!!s [:launch "Slack"]]
+      [:!!d [:launch "Skype"]]
     ]}
 
     {:des "Mouse mode" :rules [
-      [{:sim [:d :f]
+      [{:sim [:f13]
         :simo {:interrupt true
                :dorder :insensitive
                :uorder :insensitive
                :afterup [{:set ["mouse_mode" 0]} {:set ["mouse_mode_scroll" 0]}]}} [{:set ["mouse_mode" 1]}]]
 
-      [:##u {:mkey {:vwheel 50}} :mouse_mode]
-      [:##i {:mkey {:vwheel -60}} :mouse_mode]
-      [:##y {:mkey {:hwheel 60}} :mouse_mode]
-      [:##o {:mkey {:hwheel -60}} :mouse_mode]
+      [:##m {:mkey {:vwheel 50}} :mouse_mode]
+      [:##comma {:mkey {:vwheel -60}} :mouse_moder
+      [:##n {:mkey {:hwheel 60}} :mouse_mode]
+      [:##period {:mkey {:hwheel -60}} :mouse_mode]
 
       [:##w {:mkey {:speed 5.0}} :mouse_mode]
       [:##s {:mkey {:speed 3.0}} :mouse_mode]
