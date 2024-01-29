@@ -44,8 +44,8 @@
                :uorder :insensitive
                :afterup [{:set ["mouse_mode" 0]} {:set ["mouse_mode_scroll" 0]}]}} [{:set ["mouse_mode" 1]}]]
 
-      [:##m {:mkey {:vwheel 50}} :mouse_mode]
-      [:##comma {:mkey {:vwheel -60}} :mouse_moder
+      [:##m {:mkey {:vwheel 60}} :mouse_mode]
+      [:##comma {:mkey {:vwheel -60}} :mouse_mode]
       [:##n {:mkey {:hwheel 60}} :mouse_mode]
       [:##period {:mkey {:hwheel -60}} :mouse_mode]
 
