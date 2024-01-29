@@ -9,11 +9,12 @@ M.setup = function()
     return
   end
 
+  local lga_actions = require "telescope-live-grep-args.actions"
   local actions = require "telescope.actions"
 
   telescope.load_extension "ui-select"
   telescope.load_extension "sfm-telescope"
-  telescope.load_extension('harpoon')
+  telescope.load_extension "harpoon"
 
   telescope.setup {
     defaults = {
@@ -31,6 +32,7 @@ M.setup = function()
         vertical = {
           prompt_position = "top",
           mirror = true,
+          width = 0.5,
         },
       },
       mappings = {
@@ -79,6 +81,15 @@ M.setup = function()
     },
     extensions = {
       ["ui-select"] = {},
+      live_grep_args = {
+        auto_quoting = true,
+        mappings = {
+          i = {
+            ["<C-k>"] = lga_actions.quote_prompt(),
+            ["<C-i>"] = lga_actions.quote_prompt { postfix = " --iglob " },
+          },
+        },
+      },
     },
   }
 
@@ -87,7 +98,7 @@ M.setup = function()
   keymaps.set("n", "<Leader>fb", ":lua require('telescope.builtin').buffers()<CR>", { noremap = true })
   keymaps.set("n", "<Leader>ft", ":lua require('telescope.builtin').treesitter()<CR>", { noremap = true })
   keymaps.set("n", "<Leader>fh", ":lua require('telescope.builtin').command_history()<CR>", { noremap = true })
-  keymaps.set("n", "<Leader>fw", ":lua require'telescope'.extensions.projects.projects{}<CR>", { noremap = true })
+  keymaps.set("n", "<leader>fr", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 end
 
 return M

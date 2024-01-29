@@ -94,13 +94,13 @@ local function _load_plugins(opts)
         require("plugins.fzf-lua").setup()
       end,
     },
-    -- sets vim.ui.select to telescope
-    {
-      "nvim-telescope/telescope-ui-select.nvim",
-    },
     -- telescope
     {
       "nvim-telescope/telescope.nvim",
+      dependencies = {
+        "nvim-telescope/telescope-ui-select.nvim",
+        "nvim-telescope/telescope-live-grep-args.nvim",
+      },
       config = function()
         require("plugins.telescope").setup()
       end,

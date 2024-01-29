@@ -90,7 +90,6 @@ M.setup = function()
     },
   }
 
-  keymaps.set("n", "<Leader>fr", ":lua require('fzf-lua').live_grep_glob()<CR>", { noremap = true })
   keymaps.set("n", "<Leader>ff", ":lua require('fzf-lua').files()<CR>", { noremap = true })
   keymaps.set("n", "<Leader>f.", ":lua require('fzf-lua').resume()<CR>", { noremap = true })
 end
