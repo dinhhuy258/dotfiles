@@ -18,11 +18,11 @@
     ]}
 
     {:des "Navigation" :rules [
-      [:f11 :!CSopen_bracket :chrome]
-      [:f12 :!CSclose_bracket :chrome]
+      [:f23 :!CSopen_bracket :chrome]
+      [:f24 :!CSclose_bracket :chrome]
 
-      [:f11 [:!Tf :h] :alacritty]
-      [:f12 [:!Tf :l] :alacritty]
+      [:f23 [:!Tf :h] :alacritty]
+      [:f24 [:!Tf :l] :alacritty]
     ]}
 
     {:des "Launch applications" :rules [
