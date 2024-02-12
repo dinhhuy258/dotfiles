@@ -37,29 +37,26 @@
       [:!!d [:launch "Skype"]]
     ]}
 
-    {:des "Mouse mode" :rules [
-      [{:sim [:f13]
-        :simo {:interrupt true
-               :dorder :insensitive
-               :uorder :insensitive
-               :afterup [{:set ["mouse_mode" 0]} {:set ["mouse_mode_scroll" 0]}]}} [{:set ["mouse_mode" 1]}]]
+    {:des "Mouse" :rules [
+      [:f23 :!CSopen_bracket :chrome]
+      [:f24 :!CSclose_bracket :chrome]
 
-      [:##m {:mkey {:vwheel 60}} :mouse_mode]
-      [:##comma {:mkey {:vwheel -60}} :mouse_mode]
-      [:##n {:mkey {:hwheel 60}} :mouse_mode]
-      [:##period {:mkey {:hwheel -60}} :mouse_mode]
+      [:f23 [:!Tf :h] :alacritty]
+      [:f24 [:!Tf :l] :alacritty]
 
-      [:##w {:mkey {:speed 5.0}} :mouse_mode]
-      [:##s {:mkey {:speed 3.0}} :mouse_mode]
-      [:##a {:mkey {:speed 0.5}} :mouse_mode]
+      [:!Cf24 {:mkey {:x -1200}}]
+      [:!Cf23 {:mkey {:y 1200}}]
+      [:!Cf22 {:mkey {:y -1200}}]
+      [:!Cf21 {:mkey {:x 1200}}]
 
-      [:##j {:mkey {:y 1200}} :mouse_mode]
-      [:##k {:mkey {:y -1200}} :mouse_mode]
-      [:##h {:mkey {:x -1200}} :mouse_mode]
-      [:##l {:mkey {:x 1200}} :mouse_mode]
+      [:!Cf20 {:mkey {:hwheel 60}}]
+      [:!Cf19 {:mkey {:vwheel 60}}]
+      [:!Cf18 {:mkey {:vwheel -60}}]
+      [:!Cf17 {:mkey {:hwheel -60}}]
 
-      [:##spacebar {:pkey :button1} :mouse_mode]
-      [:##return_or_enter {:pkey :button2} :mouse_mode]
+      [:!Cf16 {:mkey {:speed 3.0}}]
+      [:!Cf15 {:mkey {:speed 0.5}}]
+      [:!Cf14 {:mkey {:speed 5.0}}]
     ]}
   ]
 
