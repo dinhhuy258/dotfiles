@@ -1,0 +1,23 @@
+#!/bin/zsh
+
+# Search google
+
+function sgg() {
+  local gg_url="https://www.google.com/search?q="
+
+  echo -n "Search google: "
+  read search
+
+  if [ ! -z "$search" ]; then
+    # if search goes in the query string ==> space as +, otherwise %20
+    # see https://stackoverflow.com/questions/1634271/url-encoding-the-space-character-or-20
+    local param="-P"
+    [[ "$gg_url" == *\?*= ]] && param=""
+
+    # build search url:
+    # join arguments passed with '+', then append to search engine URL
+    url="${gg_url}$(omz_urlencode $search)"
+
+    open_command "$url"
+  fi
+}
