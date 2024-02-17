@@ -2,6 +2,7 @@
   ;; to obtain the app id: `osascript -e 'id of app "application_name"'`
   :applications {
     :chrome ["^com\\.google\\.Chrome$"]
+    :firefox ["^org\\.mozilla\\.firefox$"]
     :alacritty ["^org\\.alacritty$"]
   }
 
@@ -21,6 +22,9 @@
       [:f23 :!CSopen_bracket :chrome]
       [:f24 :!CSclose_bracket :chrome]
 
+      [:f23 :!Tpage_up :firefox]
+      [:f24 :!Tpage_down :firefox]
+
       [:f23 [:!Tf :h] :alacritty]
       [:f24 [:!Tf :l] :alacritty]
     ]}
@@ -28,6 +32,7 @@
     {:des "Launch applications" :rules [
       [:!!t [:launch "Alacritty"]]
       [:!!b [:launch "Google Chrome"]]
+      [:!!v [:launch "Firefox"]]
       [:!!r [:launch "IntelliJ IDEA"]]
       [:!!z [:launch "Zalo"]]
       [:!!f [:launch "Finder"]]

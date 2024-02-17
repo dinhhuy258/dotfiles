@@ -1,4 +1,5 @@
 cask 'google-chrome'
+cast 'firefox'
 cask 'alacritty'
 cask 'karabiner-elements'
 cask 'raycast'
