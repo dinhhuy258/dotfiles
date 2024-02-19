@@ -18,6 +18,13 @@ local function _load_plugins(opts)
         require("plugins.vintellij").setup()
       end,
     },
+    {
+      "mfussenegger/nvim-jdtls",
+      ft = "java",
+      config = function ()
+        require("plugins.jdtls").setup()
+      end
+    },
     -- local history in vim
     { "dinhhuy258/vim-local-history" },
     -- vim database

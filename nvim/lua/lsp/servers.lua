@@ -8,7 +8,8 @@ local servers = {
   "sqlls", -- sql
   "yamlls", -- yaml
   "gopls", -- go
-  "bashls" -- bash
+  "bashls", -- bash
+  "terraformls", -- terraform
 }
 
 return servers
