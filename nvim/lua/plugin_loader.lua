@@ -390,6 +390,9 @@ local function _load_plugins(opts)
         require("plugins.nvim-ufo").setup()
       end,
     },
+    {
+      "vimwiki/vimwiki",
+    },
   }, opts)
 end
 
