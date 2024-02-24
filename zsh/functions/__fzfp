@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+# Open fzf in tmux popup
+function __fzfp() {
+  fzf-tmux -p -w 70% -h 70%
+}

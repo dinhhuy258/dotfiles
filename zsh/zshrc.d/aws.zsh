@@ -25,7 +25,7 @@ function asr() {
   local -a available_regions
   available_regions=($(_aws_regions))
 
-  if [[ -z "${available_regions[@]}" ]]; then
+  if [ -z "${available_regions[@]}" ]; then
     e_error "You must specify a AWS profile."
 
     return
@@ -58,6 +58,11 @@ function aow() {
   e_arrow "Generating aws login url..."
   login_url=`aws-console --url`
   encoded_url="${login_url//&/%26}"
+  if [ -z "${encoded_url}" ]; then
+    e_error "AWS token is expired."
+
+    return
+  fi
   container_name=$AWS_PROFILE
   firefox "ext+container:name=${container_name}&url=${encoded_url}"
 

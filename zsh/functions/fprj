@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+# Open project under workspace folder
+function fprj() {
+  cd $WORKSPACE; ls -d */ | __fzfp | {
+    cd -;
+    read result;
+    if [ ! -z "$result" ]; then
+      cd $WORKSPACE/$result
+    fi
+  }
+  zle && zle reset-prompt
+}
