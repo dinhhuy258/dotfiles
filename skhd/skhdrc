@@ -6,6 +6,8 @@ cmd + alt + ctrl - p : open -a AlacrittyPopup --args --config-file=$HOME/.config
 cmd + alt + ctrl - o : open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fopen"
 cmd + alt + ctrl - j : open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "k9s"
 cmd + alt + ctrl - s : open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "sgg"
+cmd + alt + ctrl - w : open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "aow"
+cmd + alt + ctrl - n : open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "vim ~/Workspace/neorg/index.norg"
 
 # focus window
 ctrl + alt - h : yabai -m window --focus west

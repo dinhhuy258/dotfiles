@@ -79,19 +79,9 @@ M.setup = function()
         end,
       },
     },
-    grep = {
-      prompt = "Rg❯ ",
-      input_prompt = "Grep For❯ ",
-      -- cmd               = "rg --vimgrep",
-      rg_opts = "-F --hidden --column --line-number --no-heading "
-        .. "--color=always --smart-case -g '!{.git,node_modules}/*'",
-      glob_flag = "--iglob", -- for case sensitive globs use '--glob'
-      glob_separator = "%s>%s", -- query separator pattern (lua): ' > '
-    },
   }
 
   keymaps.set("n", "<Leader>ff", ":lua require('fzf-lua').files()<CR>", { noremap = true })
-  keymaps.set("n", "<Leader>f.", ":lua require('fzf-lua').resume()<CR>", { noremap = true })
 end
 
 return M

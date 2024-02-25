@@ -391,7 +391,11 @@ local function _load_plugins(opts)
       end,
     },
     {
-      "vimwiki/vimwiki",
+      "nvim-neorg/neorg",
+      build = ":Neorg sync-parsers",
+      config = function()
+        require("plugins.neorg").setup()
+      end,
     },
   }, opts)
 end
