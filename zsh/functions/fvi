@@ -3,7 +3,7 @@
 # Open file in vim using fzf.
 
 function fvi() {
-  ls -l -- *(D.) | __fzfp | {
+  ls -- *(D.) | __fzfp | {
     read result;
     if [ ! -z "$result" ]; then
       vi $result
