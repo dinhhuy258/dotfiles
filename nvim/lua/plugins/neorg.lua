@@ -15,7 +15,7 @@ M.setup = function()
       ["core.dirman"] = { -- Manages Neorg workspaces
         config = {
           workspaces = {
-            notes = "~/Workspace/neorg",
+            notes = "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/notes",
           },
           default_workspace = "notes",
         },
