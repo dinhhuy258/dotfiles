@@ -43,12 +43,6 @@
     ]}
 
     {:des "Mouse" :rules [
-      [:f23 :!CSopen_bracket :chrome]
-      [:f24 :!CSclose_bracket :chrome]
-
-      [:f23 [:!Tf :h] :alacritty]
-      [:f24 [:!Tf :l] :alacritty]
-
       [:!Cf24 {:mkey {:x -1200}}]
       [:!Cf23 {:mkey {:y 1200}}]
       [:!Cf22 {:mkey {:y -1200}}]
