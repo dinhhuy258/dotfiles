@@ -33,7 +33,7 @@ plugins=(
   vi-mode
   z
   fzf
-  asdf
+  mise
   thefuck
 )
 
@@ -48,8 +48,6 @@ done
 for fn in $DOTFILES/zsh/functions/*; do
   source $fn
 done
-
-export PATH=$PATH:$(go env GOPATH)/bin
 
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
