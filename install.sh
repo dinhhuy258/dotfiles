@@ -185,6 +185,9 @@ install_dotfiles() {
   # git
   link_file "$DOTFILES/git/gitconfig" "$HOME/.gitconfig"
   link_file "$DOTFILES/git/gitignore" "$HOME/.gitignore"
+
+  # mise
+  link_file "$DOTFILES/mise/config.toml" "$HOME/.config/mise/config.toml"
 }
 
 create_cmds_file() {
