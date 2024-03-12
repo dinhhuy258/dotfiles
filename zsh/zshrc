@@ -25,6 +25,7 @@ source $ZSH/antigen.zsh
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle MichaelAquilina/zsh-you-should-use
+antigen bundle Aloxaf/fzf-tab
 antigen apply
 
 plugins=(
@@ -61,4 +62,5 @@ then
   neofetch --ascii "$(echo "Hello Huy Duong.\n\nHave a good day" | cowsay)" | lolcat
 fi
 
+enable-fzf-tab
 eval "$(starship init zsh)"
