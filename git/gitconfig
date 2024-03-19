@@ -1,6 +1,6 @@
 [user]
-	email = huy.duongdinh@gmail.com
-	name = Huy Duong
+	email = henry.duong@intelematics.com
+	name = henryduong258
 
 [core]
 	pager = delta
@@ -38,3 +38,8 @@
 [alias]
 	delete-local-merged = "!git fetch && git branch --merged | egrep -v 'master|main|dev|develop'  | xargs git branch -d"
 	empty = "!git commit --allow-empty"
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
