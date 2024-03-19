@@ -18,3 +18,9 @@ goku
 ```
 
 **Note:** Make sure to create `Default` profile in Karabiner before using `goku`.
+
+## Troubleshooting
+
+1. Why isn't Karabiner working with my custom keyboard?
+
+Please ensure that you have checked the box for `Modify events` under `Devices` -> your device.
