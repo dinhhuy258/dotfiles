@@ -5,7 +5,7 @@
 [core]
 	pager = delta
 	# don't consider trailing space change as a cause for merge conflicts
-  whitespace = -trailing-space
+	whitespace = -trailing-space
 	# global ignore file
 	excludesFile = ~/.gitignore
 	
