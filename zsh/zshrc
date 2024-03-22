@@ -62,5 +62,9 @@ then
   neofetch --ascii "$(echo "Hello Huy Duong.\n\nHave a good day" | cowsay)" | lolcat
 fi
 
+# fzf-tab
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 enable-fzf-tab
+
+# starship
 eval "$(starship init zsh)"
