@@ -68,3 +68,6 @@ enable-fzf-tab
 
 # starship
 eval "$(starship init zsh)"
+
+# prevent exit shell when pressing ctrl+d
+set -o ignoreeof
