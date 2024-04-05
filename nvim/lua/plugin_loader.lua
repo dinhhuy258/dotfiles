@@ -21,9 +21,9 @@ local function _load_plugins(opts)
     {
       "mfussenegger/nvim-jdtls",
       ft = "java",
-      config = function ()
+      config = function()
         require("plugins.jdtls").setup()
-      end
+      end,
     },
     -- local history in vim
     { "dinhhuy258/vim-local-history" },
@@ -390,9 +390,16 @@ local function _load_plugins(opts)
         require("plugins.nvim-ufo").setup()
       end,
     },
+    -- require for neorg
+    {
+      "vhyrro/luarocks.nvim",
+      priority = 1000,
+      config = true,
+    },
     {
       "nvim-neorg/neorg",
-      build = ":Neorg sync-parsers",
+      dependencies = { "luarocks.nvim" },
+      lazy = false,
       config = function()
         require("plugins.neorg").setup()
       end,
