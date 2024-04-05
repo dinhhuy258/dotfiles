@@ -24,18 +24,18 @@ yabai -m config window_border                on
 yabai -m config window_border_width          4
 yabai -m config active_window_border_color   0xff9ece6a
 
-yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Karabiner-Elements$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Karabiner-EventViewer$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
-yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Activity Monitor$" sticky=on layer=above manage=off
-yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Alacritty Popup$" sticky=on layer=above manage=off
+yabai -m rule --add app="^System Preferences$" sticky=on manage=off
+yabai -m rule --add app="^Karabiner-Elements$" sticky=on manage=off
+yabai -m rule --add app="^Karabiner-EventViewer$" sticky=on manage=off
+yabai -m rule --add app="^Finder$" sticky=on manage=off
+yabai -m rule --add app="^System Preferences$" sticky=on manage=off
+yabai -m rule --add app="^Activity Monitor$" sticky=on manage=off
+yabai -m rule --add app="^System Information$" sticky=on manage=off
+yabai -m rule --add app="^Alacritty Popup$" sticky=on manage=off
 
-yabai -m rule --add app="^Skype$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Zalo$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Slack$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Skype$" sticky=on manage=off
+yabai -m rule --add app="^Zalo$" sticky=on manage=off
+yabai -m rule --add app="^Slack$" sticky=on manage=off
 
 yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Dictionary$" manage=off
