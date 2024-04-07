@@ -17,8 +17,6 @@ yabai -m config left_padding 2
 yabai -m config right_padding 2
 yabai -m config window_gap 1
 yabai -m config window_shadow off
-# add 0 padding to the top and 50 padding to bottom of all spaces regardless of the display it belongs to
-yabai -m config external_bar all:0:50
 
 yabai -m config window_border                on 
 yabai -m config window_border_width          4
