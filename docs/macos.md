@@ -20,3 +20,16 @@ defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 
 - Change input source: `hyper+tab`
 - Disable all screenshot shortcuts
+
+## Dock settings
+
+- Go to `Desktop & Dock`
+- Update `Position on screen` to `Left`
+- Enable `Automatically hide and show the Dock`
+
+## Menu bar settings
+
+- Go to `Control Center`
+- `Bluetooth` set `Show in Menu Bar`
+- Set `Automatically hide and show the menu bar` to `Always`
+

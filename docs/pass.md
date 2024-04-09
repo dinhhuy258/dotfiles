@@ -30,6 +30,10 @@ gpg --edit-key <fingerprint>
 
 For a comprehensive list of supported commands in the edit-key mode, refer to the [official documentation](https://www.gnupg.org/gph/en/manual/r899.html).
 
+- trust
+- expire
+- key 1
+
 **Safeguard your keypair by exporting it and storing it securely**
 
 ```sh

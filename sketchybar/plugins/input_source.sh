@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 INPUT_SOURCE=$(defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | grep 'KeyboardLayout Name' | sed -E 's/^.+ = \"?([^\"]+)\"?;$/\1/')
-if [ $INPUT_SOURCE = "ABC" ]; then
+if [ $INPUT_SOURCE = "ABC" ] || [ $INPUT_SOURCE = "Australian" ]; then
   ICON="󰬌"
 else
   ICON="󰬝"

@@ -204,11 +204,11 @@ create_cmds_file() {
   } >"$HOME/.cmds"
 }
 
-install_homebrew
 install_zsh
 install_tmux_plugin_manager
 install_dotfiles
 create_cmds_file
+install_homebrew
 
 success 'All installed!'
 
