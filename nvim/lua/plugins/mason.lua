@@ -41,18 +41,19 @@ function M.setup()
     ensure_installed = {
       "prettier",
       "stylua",
-      "isort",
-      "black",
+      "isort", -- python
+      "black", -- python
       "clang-format",
-      "pint",
+      -- "pint", -- php
       "golangci-lint",
       "pylint",
       "eslint_d",
-      "rubocop",
+      -- "rubocop", -- ruby
+      -- "jdtls",
       "shfmt",
       "shellcheck",
       -- Debuggers
-      "php-debug-adapter",
+      -- "php-debug-adapter",
     },
   }
 end
