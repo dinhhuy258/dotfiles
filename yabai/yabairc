@@ -24,30 +24,23 @@ yabai -m config window_border                on
 yabai -m config window_border_width          4
 yabai -m config active_window_border_color   0xff9ece6a
 
-yabai -m rule --add app="^System Preferences$" sticky=on manage=off
-yabai -m rule --add app="^Karabiner-Elements$" sticky=on manage=off
-yabai -m rule --add app="^Karabiner-EventViewer$" sticky=on manage=off
-yabai -m rule --add app="^Finder$" sticky=on manage=off
-yabai -m rule --add app="^System Preferences$" sticky=on manage=off
-yabai -m rule --add app="^Activity Monitor$" sticky=on manage=off
-yabai -m rule --add app="^System Information$" sticky=on manage=off
-yabai -m rule --add app="^Alacritty Popup$" sticky=on manage=off
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^System Information$" manage=off
+yabai -m rule --add app="^Alacritty Popup$" manage=off
 
-yabai -m rule --add app="^Skype$" sticky=on manage=off
-yabai -m rule --add app="^Zalo$" sticky=on manage=off
-yabai -m rule --add app="^Slack$" sticky=on manage=off
+yabai -m rule --add app="^Skype$" manage=off
+yabai -m rule --add app="^Zalo$" manage=off
+yabai -m rule --add app="^Slack$" manage=off
 
 yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Dictionary$" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
 yabai -m rule --add app="^Calendar$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
-yabai -m rule --add app="^iTerm2$" manage=off
-yabai -m rule --add app="^Docker Desktop$" manage=off
-yabai -m rule --add app="^zoom.us$" manage=off
-yabai -m rule --add app="^Music$" manage=off
-yabai -m rule --add app="^IntelliJ IDEA$" manage=off
-yabai -m rule --add app="^IntelliJ IDEA$" title="( – )" manage=on
 
 yabai -m signal --add event=window_destroyed action="bash $HOME/Workspace/dotfiles/yabai/scripts/window_focus_on_destroy.sh"
 
