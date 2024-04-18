@@ -138,7 +138,6 @@ save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [shell]
-args = ["-l", "-c", "tmux attach || tmux"]
 program = "/bin/zsh"
 
 [window]
