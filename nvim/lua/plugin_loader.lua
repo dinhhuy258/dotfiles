@@ -404,6 +404,10 @@ local function _load_plugins(opts)
         require("plugins.neorg").setup()
       end,
     },
+    {
+      "b0o/schemastore.nvim",
+      lazy = true,
+    },
   }, opts)
 end
 
