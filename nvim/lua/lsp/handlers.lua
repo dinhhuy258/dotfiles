@@ -19,6 +19,9 @@ local function lsp_keybindings(bufnr)
 
   keymaps.set("n", "<Leader>cr", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
   keymaps.set("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
+  keymaps.set("n", "<Leader>hh", function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+  end, opts)
 
   if vim.bo.filetype == "go" then
     keymaps.set("n", "<Leader>cf", "<CMD>lua require('go.format').format()<CR>", { noremap = true, silent = true })

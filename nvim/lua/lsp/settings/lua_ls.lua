@@ -55,6 +55,7 @@ return {
         globals = { "vim", "reload" },
       },
       workspace = default_workspace,
+      hint = { enable = true }
     },
   },
 }
