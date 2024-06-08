@@ -211,7 +211,21 @@ local function _load_plugins(opts)
         require("plugins.nvim-cmp").setup()
       end,
     },
-    { "folke/neodev.nvim" },
+    {
+      "folke/lazydev.nvim",
+      ft = "lua",
+      opts = {
+        library = {
+          -- Load luvit types when the `vim.uv` word is found
+          { path = "luvit-meta/library", words = { "vim%.uv" } },
+        },
+      },
+    },
+    -- lazydev dependencies
+    {
+      "Bilal2453/luvit-meta",
+      lazy = true,
+    },
     -- autopair
     {
       "windwp/nvim-autopairs",
