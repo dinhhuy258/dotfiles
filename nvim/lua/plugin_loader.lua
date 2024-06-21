@@ -309,16 +309,6 @@ local function _load_plugins(opts)
         require("plugins.treesj").setup()
       end,
     },
-    {
-      "ThePrimeagen/harpoon",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope.nvim",
-      },
-      config = function()
-        require("plugins.harpoon").setup()
-      end,
-    },
     -- for interacting with tests within NeoVim
     {
       "vim-test/vim-test",
