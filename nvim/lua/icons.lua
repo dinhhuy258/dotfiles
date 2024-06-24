@@ -108,6 +108,9 @@ return {
     changedelete = "~",
     untracked = "┆",
   },
+  nvim_ufo = {
+    fold_suffix = "󰁂",
+  },
   fillchars = {
     foldopen = "",
     foldclose = "",
