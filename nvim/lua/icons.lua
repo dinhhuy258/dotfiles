@@ -100,6 +100,14 @@ return {
       default = "",
     },
   },
+  gitsigns = {
+    add = "│",
+    change = "│",
+    delete = "_",
+    topdelete = "‾",
+    changedelete = "~",
+    untracked = "┆",
+  },
   fillchars = {
     foldopen = "",
     foldclose = "",

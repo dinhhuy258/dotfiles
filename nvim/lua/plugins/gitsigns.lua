@@ -1,4 +1,5 @@
 local keymaps = require "config.keymaps"
+local icons = require "icons"
 
 local M = {}
 
@@ -11,34 +12,22 @@ M.setup = function()
   gitsigns.setup {
     signs = {
       add = {
-        hl = "GitSignsAdd",
-        text = "│",
-        numhl = "GitSignsAddNr",
-        linehl = "GitSignsAddLn",
+        text = icons.gitsigns.add,
       },
       change = {
-        hl = "GitSignsChange",
-        text = "│",
-        numhl = "GitSignsChangeNr",
-        linehl = "GitSignsChangeLn",
+        text = icons.gitsigns.change,
       },
       delete = {
-        hl = "GitSignsDelete",
-        text = "_",
-        numhl = "GitSignsDeleteNr",
-        linehl = "GitSignsDeleteLn",
+        text = icons.gitsigns.delete,
       },
       topdelete = {
-        hl = "GitSignsDelete",
-        text = "‾",
-        numhl = "GitSignsDeleteNr",
-        linehl = "GitSignsDeleteLn",
+        text = icons.gitsigns.topdelete,
       },
       changedelete = {
-        hl = "GitSignsChange",
-        text = "~",
-        numhl = "GitSignsChangeNr",
-        linehl = "GitSignsChangeLn",
+        text = icons.gitsigns.changedelete,
+      },
+      untracked = {
+        text = icons.gitsigns.untracked,
       },
     },
     numhl = false,
@@ -106,9 +95,6 @@ M.setup = function()
       delay = 1000,
       ignore_whitespace = false,
     },
-    current_line_blame_formatter_opts = {
-      relative_time = false,
-    },
     max_file_length = 40000,
     preview_config = {
       -- Options passed to nvim_open_win
@@ -125,7 +111,6 @@ M.setup = function()
     sign_priority = 6,
     update_debounce = 200,
     status_formatter = nil, -- Use default
-    yadm = { enable = false },
   }
 end
 
