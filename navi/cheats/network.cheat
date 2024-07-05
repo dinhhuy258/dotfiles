@@ -1,0 +1,19 @@
+% network
+
+# Find the process running on a given port
+lsof -i :<port>
+
+# Kill a process running on a given port
+lsof -i :<port> \
+   | awk '{l=$2} END {print l}' \
+   | xargs kill
+
+# Find local IP address
+ifconfig \
+  | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' \
+  | grep -Eo '([0-9]*\.){3}[0-9]*' \
+  | grep -v '127.0.0.1' \
+  | tail -n1
+
+# Find public IP address
+dig +short myip.opendns.com @resolver1.opendns.com

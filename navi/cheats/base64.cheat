@@ -1,0 +1,7 @@
+% base64
+
+# Encode
+echo -n <plain_text> | base64
+
+# Decode
+echo -n <base64_text> | base64 --decode
