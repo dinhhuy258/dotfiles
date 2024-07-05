@@ -2,6 +2,8 @@ nvim/autoload
 nvim/plugged
 nvim/session
 
+navi/cheats/.*
+
 .DS_Store
 
 lazy-lock.json
