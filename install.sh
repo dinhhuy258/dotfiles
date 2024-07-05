@@ -186,6 +186,9 @@ install_dotfiles() {
   link_file "$DOTFILES/git/gitconfig" "$HOME/.gitconfig"
   link_file "$DOTFILES/git/gitignore" "$HOME/.gitignore"
 
+  # navi
+  link_file "$DOTFILES/navi" "$HOME/.local/share/navi"
+
   # mise
   link_file "$DOTFILES/mise/config.toml" "$HOME/.config/mise/config.toml"
 }

@@ -1,0 +1,7 @@
+% git
+
+# Set git user name
+git config user.name <name>
+
+# Set git user email
+git config user.email <email>
