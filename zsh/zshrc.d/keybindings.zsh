@@ -14,3 +14,7 @@ bindkey "^i" kill-line
 bindkey "^y" kill-whole-line
 
 bindkey '\t' complete-word
+
+# navi
+eval "$(navi widget zsh)"
+bindkey "^g" navi_widget
