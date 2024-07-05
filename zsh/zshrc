@@ -76,5 +76,8 @@ enable-fzf-tab
 # starship
 eval "$(starship init zsh)"
 
+# navi
+eval "$(navi widget zsh)"
+
 # prevent exit shell when pressing ctrl+d
 set -o ignoreeof
