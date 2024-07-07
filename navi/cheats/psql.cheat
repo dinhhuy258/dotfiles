@@ -1,0 +1,19 @@
+% psql
+
+# Connect to the PostgreSQL database server
+psql -h <host> -p <port> -U <username> <database>
+
+# List all databases
+\l
+
+# Connect to a specific database
+\c <database_name>
+
+# List all tables in the current database
+\dt
+
+# Get detailed information on a table.
+\d+ <table_name>
+
+$ host: echo 'localhost' --- --fzf-overrides '--no-select-1'
+$ port: echo '5432' --- --fzf-overrides '--no-select-1'
