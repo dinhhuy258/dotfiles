@@ -25,6 +25,8 @@ M.setup = function()
       cpp = { "clang_format" },
       php = { "pint" },
       sh = { "shfmt" },
+      hcl = { "terragrunt_hclfmt" },
+      tf = { "terraform_fmt" },
     },
   }
 
