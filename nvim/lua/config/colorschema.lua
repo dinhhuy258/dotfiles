@@ -14,9 +14,6 @@ function M.setup()
       highlights.StatusLine.bg = colors.none
       highlights.StatusLineNC.bg = colors.none
 
-      -- tree sitter context
-      highlights.TreesitterContext.bg = colors.none
-
       -- barbar
       highlights.BufferCurrent.bg = colors.none
       highlights.BufferCurrentIndex.bg = colors.none
