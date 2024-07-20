@@ -412,6 +412,12 @@ local function _load_plugins(opts)
       "b0o/schemastore.nvim",
       lazy = true,
     },
+    {
+      "rgroli/other.nvim",
+      config = function()
+        require("plugins.other").setup()
+      end,
+    }
   }, opts)
 end
 
