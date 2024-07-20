@@ -35,6 +35,16 @@ function M.setup()
         pattern = "/tests/Feature/(.*)ControllerTest.php$",
         target = "/app/Http/Controllers/*/%1Controller.php",
       },
+      {
+        context = "service/respository interface",
+        pattern = "(.*).php$",
+        target = "%1Interface.php",
+      },
+      {
+        context = "service/respository implementation",
+        pattern = "(.*)Interface.php$",
+        target = "%1.php",
+      },
     },
   }
 end
