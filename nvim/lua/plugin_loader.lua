@@ -298,7 +298,9 @@ local function _load_plugins(opts)
       event = "VeryLazy",
       dependencies = { "nvim-treesitter/nvim-treesitter" },
       config = function()
-        require("wildfire").setup()
+        require("wildfire").setup {
+          filetype_exclude = { "norg" },
+        }
       end,
     },
     -- spliting/ joining blocks of code
@@ -417,7 +419,7 @@ local function _load_plugins(opts)
       config = function()
         require("plugins.other").setup()
       end,
-    }
+    },
   }, opts)
 end
 
