@@ -420,6 +420,13 @@ local function _load_plugins(opts)
         require("plugins.other").setup()
       end,
     },
+    {
+      "folke/drop.nvim",
+      event = "VimEnter",
+      config = function()
+        require("plugins.drop").setup()
+      end,
+    },
   }, opts)
 end
 
