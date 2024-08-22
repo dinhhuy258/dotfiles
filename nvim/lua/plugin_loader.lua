@@ -379,12 +379,6 @@ local function _load_plugins(opts)
       },
     },
     {
-      "max397574/better-escape.nvim",
-      config = function()
-        require("better_escape").setup()
-      end,
-    },
-    {
       "kevinhwang91/nvim-ufo",
       dependencies = {
         "kevinhwang91/promise-async",
