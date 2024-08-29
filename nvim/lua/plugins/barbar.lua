@@ -21,22 +21,8 @@ M.setup = function()
   keymaps.set("n", "<Leader>9", ":BufferGoto 9<CR>", { noremap = true, silent = true })
   keymaps.set("n", "<Leader>0", ":BufferLast<CR>", { noremap = true, silent = true })
 
-  keymaps.set("i", "<Leader>1", "<ESC>:BufferGoto 1<CR>", { noremap = true, silent = true })
-  keymaps.set("i", "<Leader>2", "<ESC>:BufferGoto 2<CR>", { noremap = true, silent = true })
-  keymaps.set("i", "<Leader>3", "<ESC>:BufferGoto 3<CR>", { noremap = true, silent = true })
-  keymaps.set("i", "<Leader>4", "<ESC>:BufferGoto 4<CR>", { noremap = true, silent = true })
-  keymaps.set("i", "<Leader>5", "<ESC>:BufferGoto 5<CR>", { noremap = true, silent = true })
-  keymaps.set("i", "<Leader>6", "<ESC>:BufferGoto 6<CR>", { noremap = true, silent = true })
-  keymaps.set("i", "<Leader>7", "<ESC>:BufferGoto 7<CR>", { noremap = true, silent = true })
-  keymaps.set("i", "<Leader>8", "<ESC>:BufferGoto 8<CR>", { noremap = true, silent = true })
-  keymaps.set("i", "<Leader>9", "<ESC>:BufferGoto 9<CR>", { noremap = true, silent = true })
-  keymaps.set("i", "<Leader>0", "<ESC>:BufferLast<CR>", { noremap = true, silent = true })
-
   keymaps.set("n", "<Leader>w", ":BufferClose<CR>", { noremap = true, silent = true })
   keymaps.set("n", "<Leader>x", ":BufferCloseAllButCurrent<CR>", { noremap = true, silent = true })
-
-  keymaps.set("i", "<Leader>w", "<ESC>:BufferClose<CR>", { noremap = true, silent = true })
-  keymaps.set("i", "<Leader>x", "<ESC>:BufferCloseAllButCurrent<CR>", { noremap = true, silent = true })
 
   keymaps.set("n", "<Leader>bb", ":BufferPin<CR>", { noremap = true, silent = true })
 
