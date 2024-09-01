@@ -1,3 +1,7 @@
+// Unmap close tab and re-open tab
+api.unmap('x');
+api.unmap('X');
+
 // Remap open link
 api.map('F', 'C');
 api.unmap('C');
