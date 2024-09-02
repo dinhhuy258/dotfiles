@@ -27,8 +27,8 @@ end
 -- config variable for my plugins
 vim.g.huy_duong_workspace = 1
 
--- change leader key to backspace
-vim.g.mapleader = vim.api.nvim_replace_termcodes('<BS>', false, false, true)
+-- change leader key to semicolon
+vim.g.mapleader = ";" -- make sure to set `mapleader` before lazy
 
 -- load plugins
 require("plugin_loader").init()
