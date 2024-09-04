@@ -40,6 +40,7 @@
       [:!!a [:launch "Postman"]]
       [:!!s [:launch "Slack"]]
       [:!!d [:launch "Skype"]]
+      [:!!n [:launch "Notes"]]
     ]}
 
     {:des "Mouse" :rules [
