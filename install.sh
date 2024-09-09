@@ -219,3 +219,4 @@ success 'All installed!'
 # yabai --start-service
 # brew services start sketchybar
 # go install github.com/dinhhuy258/fm@latest
+# curl -L https://github.com/rvaiya/warpd/releases/download/v1.3.5/warpd-1.3.5-osx.tar.gz |  sudo tar xzvfC - / && launchctl load /Library/LaunchAgents/com.warpd.warpd.plist
