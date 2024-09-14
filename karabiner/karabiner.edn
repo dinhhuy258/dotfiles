@@ -44,19 +44,18 @@
     ]}
 
     {:des "Mouse" :rules [
-      [:!Cf24 {:mkey {:x -1200}}]
-      [:!Cf23 {:mkey {:y 1200}}]
-      [:!Cf22 {:mkey {:y -1200}}]
-      [:!Cf21 {:mkey {:x 1200}}]
+      [:!Cf24 {:mkey {:x -3600}}]
+      [:!Cf23 {:mkey {:y 3600}}]
+      [:!Cf22 {:mkey {:y -3600}}]
+      [:!Cf21 {:mkey {:x 3600}}]
 
       [:!Cf20 {:mkey {:hwheel 60}}]
       [:!Cf19 {:mkey {:vwheel 60}}]
       [:!Cf18 {:mkey {:vwheel -60}}]
       [:!Cf17 {:mkey {:hwheel -60}}]
 
-      [:!Cf16 {:mkey {:speed 3.0}}]
-      [:!Cf15 {:mkey {:speed 0.5}}]
-      [:!Cf14 {:mkey {:speed 5.0}}]
+      [:!Cf16 {:mkey {:speed 2.0}}]
+      [:!Cf15 {:mkey {:speed 0.3}}]
 
       [:!Cf13 {:pkey :button1}]
     ]}
