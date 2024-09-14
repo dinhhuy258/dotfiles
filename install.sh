@@ -204,6 +204,7 @@ create_cmds_file() {
     echo 'skhd --reload'
     echo 'ping google.com'
     echo 'nvim -u NONE ~/.cmds'
+    echo 'brew services restart sketchybar'
   } >"$HOME/.cmds"
 }
 
