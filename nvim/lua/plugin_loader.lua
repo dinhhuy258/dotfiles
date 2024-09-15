@@ -293,16 +293,6 @@ local function _load_plugins(opts)
         require("neogen").setup {}
       end,
     },
-    {
-      "sustech-data/wildfire.nvim",
-      event = "VeryLazy",
-      dependencies = { "nvim-treesitter/nvim-treesitter" },
-      config = function()
-        require("wildfire").setup {
-          filetype_exclude = { "norg" },
-        }
-      end,
-    },
     -- spliting/ joining blocks of code
     {
       "Wansmer/treesj",
