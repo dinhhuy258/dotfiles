@@ -1,6 +1,6 @@
 local servers = {
   "clangd", -- c, c++
-  "tsserver", -- typescript, javascript
+  "ts_ls", -- typescript, javascript
   "jsonls", -- json
   "lua_ls", -- lua
   "phpactor", -- php
