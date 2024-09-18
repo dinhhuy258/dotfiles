@@ -3,6 +3,8 @@
 
 # Inserts a blank line between shell prompts
 add_newline = true
+# Timeout for commands executed by starship (in milliseconds).
+command_timeout = 1000
 
 [aws]
 symbol = "  "
