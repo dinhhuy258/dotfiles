@@ -7,7 +7,10 @@ git config user.name
 git config user.email
 
 # Set git user name
-git config user.name <name>
+git config user.name "<default_user_name>"
 
 # Set git user email
-git config user.email <email>
+git config user.email "<default_user_email>"
+
+$ default_user_name: echo 'Huy Duong'
+$ default_user_email: echo 'huy.duongdinh@gmail.com'
