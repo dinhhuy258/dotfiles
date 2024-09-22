@@ -1,0 +1,8 @@
+% ssh
+
+# Copy a file from a remote host to the local host
+scp <user>@<host>:<remote_file_path> <local_file_path>
+
+# Copy a file from the local host to a remote host
+scp <local_file_path> <user>@<host>:<remote_file_path>
+
