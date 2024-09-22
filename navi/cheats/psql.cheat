@@ -16,10 +16,10 @@ psql -h <host> -p <port> -U <username> <database>
 \d+ <table_name>
 
 # Export database
-pg_dump -U <username> <database> > <db_export_file>
+pg_dump -h <host> -p <port> -U <username> <database> > <db_export_file>
 
 # Import database
-psql -U <username> <database> < <db_export_file>
+psql -h <host> -p <port> -U <username> <database> < <db_export_file>
 
 $ host: echo 'localhost' --- --fzf-overrides '--no-select-1'
 $ port: echo '5432' --- --fzf-overrides '--no-select-1'
