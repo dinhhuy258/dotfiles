@@ -42,3 +42,4 @@ brew 'ffmpeg'
 brew 'cowsay'
 brew 'lolcat'
 tap 'beeftornado/rmtree'
+brew pngpaste
