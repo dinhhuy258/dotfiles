@@ -5,7 +5,7 @@ local keymaps = require "config.keymaps"
 local M = {}
 
 local image_name = "imgur.png"
-local imgur_client_id = vim.env.IMGUR_CLIENT_ID
+local imgur_access_token = vim.env.IMGUR_ACCESS_TOKEN
 
 local function has_clipboard_img()
   local handle = io.popen "pngpaste -b 2>&1"
@@ -91,11 +91,11 @@ function M.paste_image()
         --fail \
         --request POST \
         --form "image=@-" \
-        --header "Authorization: Client-ID %s" \
+        --header "Authorization: Bearer %s" \
         "https://api.imgur.com/3/upload" \
       | jq --raw-output .data.link
   ]],
-    imgur_client_id
+    imgur_access_token
   )
 
   local url = nil
