@@ -205,6 +205,7 @@ create_cmds_file() {
     echo 'ping google.com'
     echo 'nvim -u NONE ~/.cmds'
     echo 'brew services restart sketchybar'
+    echo 'bash ~/Workspace/dotfiles/yabai/scripts/toggle_stack.sh'
   } >"$HOME/.cmds"
 }
 
