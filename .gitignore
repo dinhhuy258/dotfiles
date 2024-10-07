@@ -2,7 +2,6 @@ nvim/autoload
 nvim/plugged
 nvim/session
 
-navi/cheats/.*
 navi/*.log
 
 .DS_Store
@@ -11,3 +10,6 @@ lazy-lock.json
 zshrc.local
 
 Brewfile.lock.json
+
+.*
+!/.gitignore
