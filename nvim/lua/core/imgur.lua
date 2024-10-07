@@ -22,13 +22,13 @@ end
 local function compress_image()
   -- Create temporary file names
   local temp_input = os.tmpname()
-  local temp_output = os.tmpname()
+  local temp_output = temp_input .. ".jpg"
 
   -- Save clipboard content to temporary input file
   os.execute("pngpaste " .. temp_input)
 
   -- Compress image using ffmpeg
-  local compress_command = string.format("ffmpeg -i %s -vf scale=1280:-1 -quality 85 %s", temp_input, temp_output)
+  local compress_command = string.format("ffmpeg -i %s %s", temp_input, temp_output)
   os.execute(compress_command .. " > /dev/null 2>&1")
 
   -- Copy compressed image back to clipboard
