@@ -367,6 +367,9 @@ local function _load_plugins(opts)
       ft = {
         "ruby",
       },
+      config = function()
+        require("plugins.vim-rails").setup()
+      end,
     },
     {
       "kevinhwang91/nvim-ufo",
@@ -402,6 +405,9 @@ local function _load_plugins(opts)
       "rgroli/other.nvim",
       config = function()
         require("plugins.other").setup()
+      end,
+      cond = function()
+        return vim.bo.filetype ~= "ruby"
       end,
     },
   }, opts)
