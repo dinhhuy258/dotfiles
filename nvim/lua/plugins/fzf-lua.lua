@@ -13,6 +13,7 @@ M.setup = function()
   fzf.setup {
     actions = {
       files = {
+        true,
         ["ctrl-h"] = actions.file_split,
         ["ctrl-v"] = actions.file_vsplit,
       },
