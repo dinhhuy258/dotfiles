@@ -17,9 +17,6 @@ return {
     pinned_button = "󰐃",
     separator_left = "▎",
   },
-  fzf = {
-    win_border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  },
   ibl = {
     char = "▏",
     tab_char = "▏",
