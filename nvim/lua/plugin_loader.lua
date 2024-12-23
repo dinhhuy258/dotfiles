@@ -410,6 +410,11 @@ local function _load_plugins(opts)
         return vim.bo.filetype ~= "ruby"
       end,
     },
+    {
+      "MeanderingProgrammer/render-markdown.nvim",
+      dependencies = { "nvim-treesitter/nvim-treesitter" },
+      opts = {},
+    },
   }, opts)
 end
 
