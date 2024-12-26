@@ -412,7 +412,6 @@ local function _load_plugins(opts)
     },
     {
       "MeanderingProgrammer/render-markdown.nvim",
-      dependencies = { "nvim-treesitter/nvim-treesitter" },
       opts = {},
     },
   }, opts)
