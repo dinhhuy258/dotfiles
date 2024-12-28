@@ -191,6 +191,9 @@ install_dotfiles() {
 
   # mise
   link_file "$DOTFILES/mise/config.toml" "$HOME/.config/mise/config.toml"
+
+  # fm
+  link_file "$DOTFILES/fm/config.lua" "$HOME/.config/fm/config.lua"
 }
 
 create_cmds_file() {
