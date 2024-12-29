@@ -1,0 +1,15 @@
+% pass
+
+# Create a new password
+pass insert <pass-name>
+
+# Edit a password
+pass edit <pass-name>
+
+# Remove a password
+pass rm <pass-name>
+
+# Rename an existing password
+pass mv <old-pass-name> <new-pass-name>
+
+$ old-pass-name: find -L "$HOME/.password-store" -path '*/.git' -prune -o -iname '*.gpg' -print | sed -e 's/.gpg$//' | sed -e 's/\/Users\/'$(whoami)'\/.password-store\///' | sort
