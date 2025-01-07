@@ -1,0 +1,16 @@
+% mysql
+
+# Connect to the MySQL database server
+mysql -h <host> -P <port> -u <username> -p
+
+# List all databases
+SHOW DATABASES;
+
+# Connect to a specific database
+USE <database_name>;
+
+# List all tables in the current database
+SHOW TABLES;
+
+$ host: echo 'localhost' --- --fzf-overrides '--no-select-1'
+$ port: echo '3306' --- --fzf-overrides '--no-select-1'
