@@ -1,0 +1,22 @@
+% redis
+
+# Connect to the Redis
+redis-cli -h <host> -p <port>
+
+# Returns all keys matching pattern
+KEYS <pattern>
+
+# Set key to hold the string value
+SET <key> <value>
+
+# Get the string value of key
+GET <key>
+
+# Checks if one or more keys exist
+EXISTS <key>
+
+# Removes the specified keys
+DEL <key>
+
+$ host: echo 'localhost' --- --fzf-overrides '--no-select-1'
+$ port: echo '6379' --- --fzf-overrides '--no-select-1'
