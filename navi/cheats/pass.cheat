@@ -7,9 +7,10 @@ pass insert <pass-name>
 pass edit <pass-name>
 
 # Remove a password
-pass rm <pass-name>
+pass rm <remove-pass-name>
 
 # Rename an existing password
 pass mv <old-pass-name> <new-pass-name>
 
 $ old-pass-name: find -L "$HOME/.password-store" -path '*/.git' -prune -o -iname '*.gpg' -print | sed -e 's/.gpg$//' | sed -e 's/\/Users\/'$(whoami)'\/.password-store\///' | sort
+$ remove-pass-name: find -L "$HOME/.password-store" -path '*/.git' -prune -o -iname '*.gpg' -print | sed -e 's/.gpg$//' | sed -e 's/\/Users\/'$(whoami)'\/.password-store\///' | sort
