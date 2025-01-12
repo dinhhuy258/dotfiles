@@ -42,5 +42,6 @@ brew 'yqrashawn/goku/goku'
 brew 'ffmpeg'
 brew 'cowsay'
 brew 'lolcat'
-tap 'beeftornado/rmtree'
 brew pngpaste
+brew wireguard-tools
+tap 'beeftornado/rmtree'
