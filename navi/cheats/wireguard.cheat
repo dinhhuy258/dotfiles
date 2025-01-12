@@ -1,0 +1,15 @@
+% wireguard
+
+# Start tunnel
+sudo wg-quick up <wireguard-conf>
+
+# Stop tunnel
+sudo wg-quick down <wireguard-conf>
+
+# Show wireguard status
+sudo wg show
+
+# Show tunnel configuration
+sudo cat /usr/local/etc/wireguard/<wireguard-conf>.conf
+
+$ wireguard-conf: ls /usr/local/etc/wireguard/*.conf | awk -F/ '{print $NF}' | sed 's/\.conf$//' | tail -n +1
