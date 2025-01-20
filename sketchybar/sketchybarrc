@@ -137,6 +137,11 @@ sketchybar --add       item    wifi right                     \
                                icon.font="$FONT:BOLD:16.0"    \
            --subscribe wifi    wifi_change
 
+sketchybar --add       item    vpn right                     \
+           --set       vpn     script="$PLUGIN_DIR/vpn.sh"   \
+                               icon.font="$FONT:BOLD:16.0"   \
+                               update_freq=10
+
 ############## FINALIZING THE SETUP ##############
 sketchybar --update
 
