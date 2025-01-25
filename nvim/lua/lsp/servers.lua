@@ -4,7 +4,7 @@ local servers = {
   "jsonls", -- json
   "lua_ls", -- lua
   "phpactor", -- php
-  "pyright", -- python
+  "basedpyright", -- python
   "sqlls", -- sql
   "yamlls", -- yaml
   "gopls", -- go
