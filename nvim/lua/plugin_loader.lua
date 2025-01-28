@@ -412,6 +412,14 @@ local function _load_plugins(opts)
     },
     {
       "MeanderingProgrammer/render-markdown.nvim",
+      ft = {
+        "markdown",
+      },
+      opts = {},
+    },
+    {
+      "kevinhwang91/nvim-hlslens",
+      event = { "BufReadPre" },
       opts = {},
     },
   }, opts)
