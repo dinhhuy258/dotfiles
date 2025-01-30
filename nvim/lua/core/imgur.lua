@@ -131,11 +131,6 @@ function M.setup()
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "markdown",
     callback = function()
-      local opts = { noremap = true, silent = true }
-
-      keymaps.set("n", "<C-V>", ":PasteImage<CR>", opts)
-      keymaps.set("i", "<C-V>", "<Esc>:PasteImage<CR>a", opts)
-
       vim.api.nvim_create_user_command("PasteImage", function()
         M.paste_image()
       end, {
