@@ -1,7 +1,5 @@
 -- Reference: https://github.com/evanpurkhiser/image-paste.nvim
 
-local keymaps = require "config.keymaps"
-
 local M = {}
 
 local image_name = "imgur.png"
