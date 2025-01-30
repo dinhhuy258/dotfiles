@@ -422,6 +422,20 @@ local function _load_plugins(opts)
       event = { "BufReadPre" },
       opts = {},
     },
+    {
+      "mg979/vim-visual-multi",
+      event = "VeryLazy",
+      config = function()
+        require("plugins.vim-visual-multi").setup()
+      end,
+    },
+    {
+      "folke/which-key.nvim",
+      event = "VeryLazy",
+      config = function()
+        require("plugins.which-key").setup()
+      end,
+    },
   }, opts)
 end
 
