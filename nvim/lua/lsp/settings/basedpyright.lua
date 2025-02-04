@@ -10,6 +10,7 @@ return {
           reportMissingParameterType = false,
           reportMissingTypeArgument = false,
           reportMissingTypeStubs = false,
+          reportUntypedFunctionDecorator = false,
           reportAny = false,
         },
       },
