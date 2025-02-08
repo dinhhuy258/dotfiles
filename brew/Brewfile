@@ -11,6 +11,7 @@ cask 'zalo'
 cask 'visual-studio-code'
 cask 'orbstack'
 cask 'homerow'
+cask 'winbox'
 tap 'homebrew/cask-fonts'
 cask 'font-fira-code-nerd-font'
 
