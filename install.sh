@@ -164,10 +164,6 @@ install_dotfiles() {
   mkdir -p "$HOME/.config/aerospace"
   link_file "$DOTFILES/aerospace/aerospace.toml" "$HOME/.config/aerospace/aerospace.toml"
 
-  # skhd
-  mkdir -p "$HOME/.config/skhd"
-  link_file "$DOTFILES/skhd/skhdrc" "$HOME/.config/skhd/skhdrc"
-
   # starship
   link_file "$DOTFILES/starship/starship.toml" "$HOME/.config/starship.toml"
 
@@ -203,7 +199,6 @@ create_cmds_file() {
   {
     echo 'say "test speaker"'
     echo 'calcurse'
-    echo 'skhd --reload'
     echo 'ping google.com'
     echo 'nvim -u NONE ~/.cmds'
     echo 'brew services restart sketchybar'
@@ -218,7 +213,6 @@ install_homebrew
 
 success 'All installed!'
 
-# skhd --start-service
 # brew services start sketchybar
 # go install github.com/dinhhuy258/fm@latest
 # curl -L https://github.com/rvaiya/warpd/releases/download/v1.3.5/warpd-1.3.5-osx.tar.gz |  sudo tar xzvfC - / && launchctl load /Library/LaunchAgents/com.warpd.warpd.plist
