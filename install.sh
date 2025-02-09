@@ -160,9 +160,9 @@ install_dotfiles() {
   # karabiner
   link_file "$DOTFILES/karabiner/karabiner.edn" "$HOME/.config/karabiner.edn"
 
-  # yabai
-  mkdir -p "$HOME/.config/yabai"
-  link_file "$DOTFILES/yabai/yabairc" "$HOME/.config/yabai/yabairc"
+  # aerospace
+  mkdir -p "$HOME/.config/aerospace"
+  link_file "$DOTFILES/aerospace/aerospace.toml" "$HOME/.config/aerospace/aerospace.toml"
 
   # skhd
   mkdir -p "$HOME/.config/skhd"
@@ -202,13 +202,11 @@ create_cmds_file() {
   touch "$HOME/.cmds"
   {
     echo 'say "test speaker"'
-    echo 'yabai --restart-service'
     echo 'calcurse'
     echo 'skhd --reload'
     echo 'ping google.com'
     echo 'nvim -u NONE ~/.cmds'
     echo 'brew services restart sketchybar'
-    echo 'bash ~/Workspace/dotfiles/yabai/scripts/toggle_stack.sh'
   } >"$HOME/.cmds"
 }
 
@@ -221,7 +219,6 @@ install_homebrew
 success 'All installed!'
 
 # skhd --start-service
-# yabai --start-service
 # brew services start sketchybar
 # go install github.com/dinhhuy258/fm@latest
 # curl -L https://github.com/rvaiya/warpd/releases/download/v1.3.5/warpd-1.3.5-osx.tar.gz |  sudo tar xzvfC - / && launchctl load /Library/LaunchAgents/com.warpd.warpd.plist
