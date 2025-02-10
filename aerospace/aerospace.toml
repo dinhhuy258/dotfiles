@@ -112,21 +112,27 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-alt-k = 'focus up'
     ctrl-alt-l = 'focus right'
 
-    ctrl-alt-1 = 'workspace 1'
-    ctrl-alt-2 = 'workspace 2'
-    ctrl-alt-3 = 'workspace 3'
-    ctrl-alt-4 = 'workspace 4'
-    ctrl-alt-5 = 'workspace 5'
+    ctrl-alt-q = 'workspace 1'
+    ctrl-alt-w = 'workspace 2'
+    ctrl-alt-e = 'workspace 3'
+    ctrl-alt-r = 'workspace 4'
+    ctrl-alt-t = 'workspace 5'
 
-    ctrl-alt-shift-1 = 'move-node-to-workspace 1'
-    ctrl-alt-shift-2 = 'move-node-to-workspace 2'
-    ctrl-alt-shift-3 = 'move-node-to-workspace 3'
-    ctrl-alt-shift-4 = 'move-node-to-workspace 4'
-    ctrl-alt-shift-5 = 'move-node-to-workspace 5'
+    ctrl-alt-shift-y = 'move-node-to-workspace 1'
+    ctrl-alt-shift-u = 'move-node-to-workspace 2'
+    ctrl-alt-shift-i = 'move-node-to-workspace 3'
+    ctrl-alt-shift-o = 'move-node-to-workspace 4'
+    ctrl-alt-shift-p = 'move-node-to-workspace 5'
 
-    ctrl-alt-f         = 'fullscreen'
+    ctrl-alt-a         = 'fullscreen'
     ctrl-alt-semicolon = 'layout floating tiling'
     ctrl-alt-c         = 'close'
+
+    ctrl-alt-s = 'resize smart -50'
+    ctrl-alt-d = 'resize smart +50'
+
+    ctrl-alt-f = 'layout tiles horizontal vertical'
+    ctrl-alt-g = 'layout accordion horizontal vertical'
 
     cmd-alt-ctrl-r = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fcmd ~/.cmds"'''
     cmd-alt-ctrl-a = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fapp"'''
@@ -138,17 +144,6 @@ automatically-unhide-macos-hidden-apps = false
     cmd-alt-ctrl-s = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "sgg"'''
     cmd-alt-ctrl-w = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "aow"'''
     cmd-alt-ctrl-n = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "vim ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/notes/index.norg"'''
-
-    ctrl-alt-r      = 'mode resize'
-
-[mode.resize.binding]
-    h = 'resize width -50'
-    j = 'resize height +50'
-    k = 'resize height -50'
-    l = 'resize width +50'
-
-    enter = 'mode main'
-    esc = 'mode main'
 
 [[on-window-detected]]
     if.app-id = 'com.tinyspeck.slackmacgap'
