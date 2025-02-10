@@ -104,6 +104,9 @@ automatically-unhide-macos-hidden-apps = false
     # end tell'
     # '''
 
+    cmd-h = [] # Disable "hide application"
+    cmd-alt-h = [] # Disable "hide others"
+
     ctrl-alt-h = 'focus left'
     ctrl-alt-j = 'focus down'
     ctrl-alt-k = 'focus up'
