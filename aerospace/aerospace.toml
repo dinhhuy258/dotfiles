@@ -65,12 +65,12 @@ automatically-unhide-macos-hidden-apps = false
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 0
-    inner.vertical =   0
-    outer.left =       0
-    outer.bottom =     0
+    inner.horizontal = 4
+    inner.vertical =   4
+    outer.left =       4
+    outer.bottom =     4
     outer.top =        [{ monitor."Builtin-in" = 27 }, { monitor."DELL U2723QE" = 30 }, 0]
-    outer.right =      0
+    outer.right =      4
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
