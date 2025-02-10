@@ -118,9 +118,15 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-alt-4 = 'workspace 4'
     ctrl-alt-5 = 'workspace 5'
 
-    ctrl-alt-f      = 'fullscreen'
-    ctrl-alt-period = 'layout floating tiling'
-    ctrl-alt-q      = 'close'
+    ctrl-alt-shift-1 = 'move-node-to-workspace 1'
+    ctrl-alt-shift-2 = 'move-node-to-workspace 2'
+    ctrl-alt-shift-3 = 'move-node-to-workspace 3'
+    ctrl-alt-shift-4 = 'move-node-to-workspace 4'
+    ctrl-alt-shift-5 = 'move-node-to-workspace 5'
+
+    ctrl-alt-f         = 'fullscreen'
+    ctrl-alt-semicolon = 'layout floating tiling'
+    ctrl-alt-c         = 'close'
 
     cmd-alt-ctrl-r = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fcmd ~/.cmds"'''
     cmd-alt-ctrl-a = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fapp"'''
