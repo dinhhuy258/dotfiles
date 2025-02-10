@@ -33,3 +33,8 @@ defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 - `Bluetooth` set `Show in Menu Bar`
 - Set `Automatically hide and show the menu bar` to `Always`
 
+## Disable windows opening animations
+
+```sh
+defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
+```
