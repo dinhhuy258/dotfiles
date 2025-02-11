@@ -11,6 +11,7 @@ return {
           reportMissingTypeArgument = false,
           reportMissingTypeStubs = false,
           reportUntypedFunctionDecorator = false,
+          reportImplicitRelativeImport = false,
           reportAny = false,
         },
       },
