@@ -126,6 +126,8 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-alt-shift-o = 'move-node-to-workspace 4'
     ctrl-alt-shift-p = 'move-node-to-workspace 5'
 
+    ctrl-alt-shift-m = 'move-node-to-monitor next --focus-follows-window --wrap-around'
+
     ctrl-alt-a         = 'fullscreen'
     ctrl-alt-semicolon = 'layout floating tiling'
     ctrl-alt-c         = 'close'
