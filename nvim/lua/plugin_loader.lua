@@ -335,6 +335,10 @@ local function _load_plugins(opts)
       end,
     },
     {
+      "echasnovski/mini.ai",
+      opts = {},
+    },
+    {
       "SmiteshP/nvim-navbuddy",
       dependencies = {
         "SmiteshP/nvim-navic",
