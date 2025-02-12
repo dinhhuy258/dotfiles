@@ -163,6 +163,7 @@ install_dotfiles() {
   # aerospace
   mkdir -p "$HOME/.config/aerospace"
   link_file "$DOTFILES/aerospace/aerospace.toml" "$HOME/.config/aerospace/aerospace.toml"
+  link_file "$DOTFILES/aerospace/notification.sh" "$HOME/.config/aerospace/notification.sh"
 
   # borders
   mkdir -p "$HOME/.config/borders"
