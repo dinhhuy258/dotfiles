@@ -135,7 +135,7 @@ automatically-unhide-macos-hidden-apps = false
 
     ctrl-alt-shift-z = [
       'mode join',
-      'exec-and-forget ~/.config/aerospace/notification.sh on',
+      'exec-and-forget ~/.config/aerospace/notification.sh "Enter join mode"',
     ]
 
     cmd-alt-ctrl-r = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fcmd ~/.cmds"'''
