@@ -164,6 +164,10 @@ install_dotfiles() {
   mkdir -p "$HOME/.config/aerospace"
   link_file "$DOTFILES/aerospace/aerospace.toml" "$HOME/.config/aerospace/aerospace.toml"
 
+  # borders
+  mkdir -p "$HOME/.config/borders"
+  link_file "$DOTFILES/borders/bordersrc" "$HOME/.config/borders/bordersrc"
+
   # starship
   link_file "$DOTFILES/starship/starship.toml" "$HOME/.config/starship.toml"
 
@@ -213,6 +217,7 @@ install_homebrew
 
 success 'All installed!'
 
+# brew services start borders
 # brew services start sketchybar
 # go install github.com/dinhhuy258/fm@latest
 # curl -L https://github.com/rvaiya/warpd/releases/download/v1.3.5/warpd-1.3.5-osx.tar.gz |  sudo tar xzvfC - / && launchctl load /Library/LaunchAgents/com.warpd.warpd.plist
