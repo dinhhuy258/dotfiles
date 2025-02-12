@@ -104,16 +104,16 @@ automatically-unhide-macos-hidden-apps = false
     cmd-h = [] # Disable "hide application"
     cmd-alt-h = [] # Disable "hide others"
 
-    ctrl-alt-h = 'focus left'
-    ctrl-alt-j = 'focus down'
-    ctrl-alt-k = 'focus up'
-    ctrl-alt-l = 'focus right'
+    ctrl-alt-shift-h = 'focus left'
+    ctrl-alt-shift-j = 'focus down'
+    ctrl-alt-shift-k = 'focus up'
+    ctrl-alt-shift-l = 'focus right'
 
-    ctrl-alt-q = 'workspace 1'
-    ctrl-alt-w = 'workspace 2'
-    ctrl-alt-e = 'workspace 3'
-    ctrl-alt-r = 'workspace 4'
-    ctrl-alt-t = 'workspace 5'
+    ctrl-alt-shift-q = 'workspace 1'
+    ctrl-alt-shift-w = 'workspace 2'
+    ctrl-alt-shift-e = 'workspace 3'
+    ctrl-alt-shift-r = 'workspace 4'
+    ctrl-alt-shift-t = 'workspace 5'
 
     ctrl-alt-shift-y = 'move-node-to-workspace 1'
     ctrl-alt-shift-u = 'move-node-to-workspace 2'
@@ -123,15 +123,17 @@ automatically-unhide-macos-hidden-apps = false
 
     ctrl-alt-shift-m = 'move-node-to-monitor next --focus-follows-window --wrap-around'
 
-    ctrl-alt-a         = 'fullscreen'
+    ctrl-alt-shift-a   = 'fullscreen'
     ctrl-alt-semicolon = 'layout floating tiling'
-    ctrl-alt-c         = 'close'
+    ctrl-alt-shift-c   = 'close'
 
-    ctrl-alt-s = 'resize smart -50'
-    ctrl-alt-d = 'resize smart +50'
+    ctrl-alt-shift-s = 'resize smart -50'
+    ctrl-alt-shift-d = 'resize smart +50'
 
-    ctrl-alt-f = 'layout tiles horizontal vertical'
-    ctrl-alt-g = 'layout accordion horizontal vertical'
+    ctrl-alt-shift-f = 'layout tiles horizontal vertical'
+    ctrl-alt-shift-g = 'layout accordion horizontal vertical'
+
+    ctrl-alt-shift-z = 'mode join'
 
     cmd-alt-ctrl-r = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fcmd ~/.cmds"'''
     cmd-alt-ctrl-a = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fapp"'''
@@ -143,6 +145,12 @@ automatically-unhide-macos-hidden-apps = false
     cmd-alt-ctrl-s = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "sgg"'''
     cmd-alt-ctrl-w = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "aow"'''
     cmd-alt-ctrl-n = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "vim ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/notes/index.norg"'''
+
+[mode.join.binding]
+    ctrl-alt-shift-h = ['join-with left', 'mode main']
+    ctrl-alt-shift-j = ['join-with down', 'mode main']
+    ctrl-alt-shift-k = ['join-with up', 'mode main']
+    ctrl-alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
     if.app-id = 'com.tinyspeck.slackmacgap'
