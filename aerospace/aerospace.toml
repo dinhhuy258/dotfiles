@@ -133,7 +133,10 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-alt-shift-f = 'layout tiles horizontal vertical'
     ctrl-alt-shift-g = 'layout accordion horizontal vertical'
 
-    ctrl-alt-shift-z = 'mode join'
+    ctrl-alt-shift-z = [
+      'mode join',
+      'exec-and-forget ~/.config/aerospace/notification.sh on',
+    ]
 
     cmd-alt-ctrl-r = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fcmd ~/.cmds"'''
     cmd-alt-ctrl-a = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fapp"'''
@@ -151,6 +154,8 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-alt-shift-j = ['join-with down', 'mode main']
     ctrl-alt-shift-k = ['join-with up', 'mode main']
     ctrl-alt-shift-l = ['join-with right', 'mode main']
+    enter = 'mode main'
+    esc = 'mode main'
 
 [[on-window-detected]]
     if.app-id = 'com.tinyspeck.slackmacgap'
