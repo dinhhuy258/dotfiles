@@ -158,26 +158,58 @@ automatically-unhide-macos-hidden-apps = false
     esc = 'mode main'
 
 [[on-window-detected]]
-    if.app-id = 'com.tinyspeck.slackmacgap'
-    run = 'layout floating'
-
-[[on-window-detected]]
-    if.app-id = 'com.vng.zalo'
-    run = 'layout floating'
-
-[[on-window-detected]]
-    if.app-id = 'ru.keepcoder.Telegram'
-    run = 'layout floating'
-
-[[on-window-detected]]
-    if.app-id = 'com.skype.skype'
-    run = 'layout floating'
-
-[[on-window-detected]]
     if.app-id = 'com.apple.systempreferences'
     run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.finder'
+    run='layout floating'
 
 [[on-window-detected]]
     if.app-id = 'com.google.Chrome'
     if.window-title-regex-substring = 'Bitwarden'
     run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'org.alacritty'
+    run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+    if.app-id = 'com.google.Chrome'
+    run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+    if.app-id = 'org.mozilla.firefox'
+    run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+    if.app-id = 'com.tinyspeck.slackmacgap'
+    run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+    if.app-id = 'com.vng.zalo'
+    run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+    if.app-id = 'ru.keepcoder.Telegram'
+    run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+    if.app-id = 'com.skype.skype'
+    run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+    if.app-id = 'com.microsoft.teams2'
+    run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+    if.app-id = 'com.jetbrains.intellij'
+    run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+    if.app-id = 'com.postmanlabs.mac'
+    run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.Notes'
+    run = 'move-node-to-workspace 5'
