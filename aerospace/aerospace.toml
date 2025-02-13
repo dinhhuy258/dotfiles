@@ -123,9 +123,9 @@ automatically-unhide-macos-hidden-apps = false
 
     ctrl-alt-shift-m = 'move-node-to-monitor next --focus-follows-window --wrap-around'
 
-    ctrl-alt-shift-a   = 'fullscreen'
-    ctrl-alt-semicolon = 'layout floating tiling'
-    ctrl-alt-shift-c   = 'close'
+    ctrl-alt-shift-a         = 'fullscreen'
+    ctrl-alt-shift-semicolon = 'layout floating tiling'
+    ctrl-alt-shift-c         = 'close'
 
     ctrl-alt-shift-f = 'layout tiles horizontal vertical'
     ctrl-alt-shift-g = 'layout accordion horizontal vertical'
