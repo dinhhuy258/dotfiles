@@ -127,15 +127,20 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-alt-semicolon = 'layout floating tiling'
     ctrl-alt-shift-c   = 'close'
 
-    ctrl-alt-shift-s = 'resize smart -50'
-    ctrl-alt-shift-d = 'resize smart +50'
-
     ctrl-alt-shift-f = 'layout tiles horizontal vertical'
     ctrl-alt-shift-g = 'layout accordion horizontal vertical'
 
     ctrl-alt-shift-z = [
       'mode join',
       'exec-and-forget ~/.config/aerospace/notification.sh "Enter join mode"',
+    ]
+    ctrl-alt-shift-s = [
+      'mode resize',
+      'exec-and-forget ~/.config/aerospace/notification.sh "Enter resize mode"',
+    ]
+    ctrl-alt-shift-d = [
+      'mode move',
+      'exec-and-forget ~/.config/aerospace/notification.sh "Enter move mode"',
     ]
 
     cmd-alt-ctrl-r = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fcmd ~/.cmds"'''
@@ -156,6 +161,34 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-alt-shift-l = ['join-with right', 'mode main']
     enter = 'mode main'
     esc = 'mode main'
+
+[mode.resize.binding]
+    ctrl-alt-shift-h = 'resize width -50'
+    ctrl-alt-shift-j = 'resize height +50'
+    ctrl-alt-shift-k = 'resize height -50'
+    ctrl-alt-shift-l = 'resize width +50'
+    enter = [
+      'mode main',
+      'exec-and-forget ~/.config/aerospace/notification.sh "Exit resize mode"'
+    ] 
+    esc = [
+      'mode main',
+      'exec-and-forget ~/.config/aerospace/notification.sh "Exit resize mode"'
+    ]
+
+[mode.move.binding]
+    ctrl-alt-shift-h = 'move left'
+    ctrl-alt-shift-j = 'move down'
+    ctrl-alt-shift-k = 'move up'
+    ctrl-alt-shift-l = 'move right'
+    enter = [
+      'mode main',
+      'exec-and-forget ~/.config/aerospace/notification.sh "Exit move mode"'
+    ] 
+    esc = [
+      'mode main',
+      'exec-and-forget ~/.config/aerospace/notification.sh "Exit move mode"'
+    ]
 
 [[on-window-detected]]
     if.app-id = 'com.apple.systempreferences'
