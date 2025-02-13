@@ -159,6 +159,10 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-alt-shift-j = ['join-with down', 'mode main']
     ctrl-alt-shift-k = ['join-with up', 'mode main']
     ctrl-alt-shift-l = ['join-with right', 'mode main']
+    h = ['join-with left', 'mode main']
+    j = ['join-with down', 'mode main']
+    k = ['join-with up', 'mode main']
+    l = ['join-with right', 'mode main']
     enter = 'mode main'
     esc = 'mode main'
 
@@ -167,6 +171,10 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-alt-shift-j = 'resize height +50'
     ctrl-alt-shift-k = 'resize height -50'
     ctrl-alt-shift-l = 'resize width +50'
+    h = 'resize width -50'
+    j = 'resize height +50'
+    k = 'resize height -50'
+    l = 'resize width +50'
     enter = [
       'mode main',
       'exec-and-forget ~/.config/aerospace/notification.sh "Exit resize mode"'
@@ -181,6 +189,10 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-alt-shift-j = 'move down'
     ctrl-alt-shift-k = 'move up'
     ctrl-alt-shift-l = 'move right'
+    h = 'move left'
+    j = 'move down'
+    k = 'move up'
+    l = 'move right'
     enter = [
       'mode main',
       'exec-and-forget ~/.config/aerospace/notification.sh "Exit move mode"'
