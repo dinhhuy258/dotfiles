@@ -2,7 +2,6 @@ local M = {}
 
 M.setup = function()
   vim.g.VM_default_mappings = 0
-  vim.g.VM_maps = {}
   vim.g.VM_add_cursor_at_pos_no_mappings = 1
 
   local function visual_cursors_with_delay()
