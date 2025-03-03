@@ -44,6 +44,9 @@ function M.setup()
       "lspinfo",
       "qf",
       "checkhealth",
+      "Avante",
+      "AvanteInput",
+      "AvanteSelectedFiles",
     },
     callback = function(event)
       vim.bo[event.buf].buflisted = false
