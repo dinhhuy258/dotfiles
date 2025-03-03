@@ -15,7 +15,11 @@ M.setup = function()
       auto_set_keymaps = false,
     },
     hints = { enabled = false },
-    copilot = {},
+    copilot = {
+      model = "claude-3.7-sonnet",
+      temperature = 0,
+      max_tokens = 8192,
+    },
     mappings = {},
   }
 
