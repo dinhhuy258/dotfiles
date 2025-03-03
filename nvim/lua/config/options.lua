@@ -22,7 +22,7 @@ local options = {
   number = true, -- Dislay line numbers
   numberwidth = 2, -- Set number column width to 2 (default 4)
   relativenumber = true, -- Disable relative number
-  laststatus = 2, -- Always show status line (2 = always)
+  laststatus = 3, -- Always and ONLY the last window
   showtabline = 2, -- Always show tabs (2 = always)
   hidden = true, -- Required to keep multiple buffers open multiple buffers
   backup = false, -- Disable backup file

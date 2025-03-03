@@ -311,14 +311,6 @@ local function _load_plugins(opts)
         require("plugins.vim-test").setup()
       end,
     },
-    -- copilot
-    {
-      "zbirenbaum/copilot.lua",
-      event = "BufRead",
-      config = function()
-        require("plugins.copilot").setup()
-      end,
-    },
     -- easily interact with tmux from vim
     { "preservim/vimux" },
     -- peek file
@@ -418,8 +410,11 @@ local function _load_plugins(opts)
       "MeanderingProgrammer/render-markdown.nvim",
       ft = {
         "markdown",
+        "Avante",
       },
-      opts = {},
+      opts = {
+        file_types = { "markdown", "Avante" },
+      },
     },
     {
       "kevinhwang91/nvim-hlslens",
@@ -438,6 +433,37 @@ local function _load_plugins(opts)
       event = "VeryLazy",
       config = function()
         require("plugins.which-key").setup()
+      end,
+    },
+    {
+      "zbirenbaum/copilot.lua",
+      event = "BufRead",
+      config = function()
+        require("plugins.copilot").setup()
+      end,
+    },
+    {
+      "yetone/avante.nvim",
+      event = "VeryLazy",
+      lazy = false,
+      version = false,
+      build = "make",
+      dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+        "stevearc/dressing.nvim",
+        "nvim-lua/plenary.nvim",
+        "MunifTanjim/nui.nvim",
+        "zbirenbaum/copilot.lua", -- for providers='copilot'
+        {
+          "MeanderingProgrammer/render-markdown.nvim",
+          opts = {
+            file_types = { "markdown", "Avante" },
+          },
+          ft = { "markdown", "Avante" },
+        },
+      },
+      config = function()
+        require("plugins.avante").setup()
       end,
     },
   }, opts)

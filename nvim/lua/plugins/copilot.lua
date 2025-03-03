@@ -1,7 +1,12 @@
 local M = {}
 
 M.setup = function()
-  require("copilot").setup {
+  local status_ok, copilot = pcall(require, "copilot")
+  if not status_ok then
+    return
+  end
+
+  copilot.setup {
     suggestion = {
       enabled = true,
       auto_trigger = true,
@@ -13,6 +18,9 @@ M.setup = function()
         next = "<C-k>",
         prev = "<C-l>",
       },
+    },
+    panel = {
+      enabled = false,
     },
   }
 end
