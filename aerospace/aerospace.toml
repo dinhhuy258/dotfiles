@@ -69,6 +69,13 @@ automatically-unhide-macos-hidden-apps = false
     outer.top =        [{ monitor."Builtin-in" = 27 }, { monitor."DELL U2723QE" = 30 }, 0]
     outer.right =      4
 
+[workspace-to-monitor-force-assignment]
+  1 = ['DELL U2723QE', 'DELL U2723QE (1)', 'DELL U2723QE (2)', 'Built-in Retina Display']
+  2 = ['Built-in Retina Display', 'DELL U2723QE', 'DELL U2723QE (2)', 'DELL U2723QE (1)']
+  3 = ['Built-in Retina Display', 'DELL U2723QE', 'DELL U2723QE (2)', 'DELL U2723QE (1)']
+  4 = ['DELL U2723QE', 'DELL U2723QE (2)', 'DELL U2723QE (1)', 'Built-in Retina Display']
+  5 = ['DELL U2723QE', 'DELL U2723QE (2)', 'DELL U2723QE (1)', 'Built-in Retina Display']
+
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
