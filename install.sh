@@ -195,6 +195,9 @@ install_dotfiles() {
 
   # fm
   link_file "$DOTFILES/fm/config.lua" "$HOME/.config/fm/config.lua"
+
+  # warpd
+  link_file "$DOTFILES/warpd/config" "$HOME/.config/warpd/config"
 }
 
 create_cmds_file() {
