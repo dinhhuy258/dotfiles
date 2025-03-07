@@ -39,7 +39,6 @@
       [:!!c [:launch "Visual Studio Code"]]
       [:!!a [:launch "Postman"]]
       [:!!s [:launch "Slack"]]
-      [:!!d [:launch "Skype"]]
       [:!!n [:launch "Notes"]]
     ]}
   ]
