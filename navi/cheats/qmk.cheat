@@ -1,0 +1,13 @@
+% qmk
+
+# Flash ErgoDox EZ
+make ergodox_ez:dinhhuy258:teensy
+
+# Flash Corne (default)
+make crkbd:dinhhuy258:flash
+
+# Flash Corne (with serial pin D3)
+make crkbd:dinhhuy258:flash USE_SERIAL_PIN_D3=yes
+
+# Flash Corne (with RGB Lighting)
+make crkbd:dinhhuy258:flash USE_RGB_LIGHTING=yes
