@@ -4,5 +4,6 @@ grid_activation_key:unbind
 history_activation_key:unbind
 activation_key:unbind
 hint2_oneshot_key:unbind 
-screen_activation_key:A-M-s
+screen_activation_key:unbind
 hint_oneshot_key:A-M-l
+screen_oneshot_key:A-M-s
