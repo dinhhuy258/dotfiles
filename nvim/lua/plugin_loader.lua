@@ -29,6 +29,12 @@ local function _load_plugins(opts)
     { "dinhhuy258/vim-local-history" },
     -- vim database
     { "dinhhuy258/vim-database" },
+    -- window picker
+    {
+      "s1n7ax/nvim-window-picker",
+      event = "VeryLazy",
+      opts = {},
+    },
     -- file explorer
     {
       "dinhhuy258/sfm.nvim",
@@ -38,6 +44,7 @@ local function _load_plugins(opts)
         "dinhhuy258/sfm-git.nvim",
         "dinhhuy258/sfm-telescope.nvim",
         "dinhhuy258/sfm-paste.nvim",
+        "s1n7ax/nvim-window-picker",
       },
       config = function()
         require("plugins.sfm").setup()
