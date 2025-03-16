@@ -4,6 +4,7 @@
     :chrome ["^com\\.google\\.Chrome$"]
     :firefox ["^org\\.mozilla\\.firefox$"]
     :alacritty ["^org\\.alacritty$"]
+    :postman ["^com\\.postmanlabs\\.mac$"]
   }
 
   :templates {
@@ -27,6 +28,9 @@
 
       [:f23 [:!Tf :h] :alacritty]
       [:f24 [:!Tf :l] :alacritty]
+
+      [:f23 :!CSopen_bracket :postman]
+      [:f24 :!CSclose_bracket :postman]
     ]}
 
     {:des "Launch applications" :rules [
