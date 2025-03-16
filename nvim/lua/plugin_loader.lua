@@ -388,13 +388,7 @@ local function _load_plugins(opts)
     },
     -- require for neorg
     {
-      "vhyrro/luarocks.nvim",
-      priority = 1000,
-      config = true,
-    },
-    {
       "nvim-neorg/neorg",
-      dependencies = { "luarocks.nvim" },
       lazy = false,
       config = function()
         require("plugins.neorg").setup()
