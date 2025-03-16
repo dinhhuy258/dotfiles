@@ -23,6 +23,15 @@ M.setup = function()
     mappings = {
       accept_diff = {
         normal = "ga",
+        insert = "",
+      },
+      reset = {
+        normal = "",
+        insert = "",
+      },
+      submit_prompt = {
+        normal = "<CR>",
+        insert = "",
       },
     },
   }
