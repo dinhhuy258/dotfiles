@@ -410,10 +410,9 @@ local function _load_plugins(opts)
       "MeanderingProgrammer/render-markdown.nvim",
       ft = {
         "markdown",
-        "Avante",
       },
       opts = {
-        file_types = { "markdown", "Avante" },
+        file_types = { "markdown" },
       },
     },
     {
@@ -443,27 +442,15 @@ local function _load_plugins(opts)
       end,
     },
     {
-      "yetone/avante.nvim",
+      "CopilotC-Nvim/CopilotChat.nvim",
       event = "VeryLazy",
-      lazy = false,
-      version = false,
-      build = "make",
       dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-        "stevearc/dressing.nvim",
-        "nvim-lua/plenary.nvim",
-        "MunifTanjim/nui.nvim",
-        "zbirenbaum/copilot.lua", -- for providers='copilot'
-        {
-          "MeanderingProgrammer/render-markdown.nvim",
-          opts = {
-            file_types = { "markdown", "Avante" },
-          },
-          ft = { "markdown", "Avante" },
-        },
+        { "zbirenbaum/copilot.lua" },
+        { "nvim-lua/plenary.nvim" },
       },
+      build = "make tiktoken",
       config = function()
-        require("plugins.avante").setup()
+        require("plugins.copilot-chat").setup()
       end,
     },
   }, opts)
