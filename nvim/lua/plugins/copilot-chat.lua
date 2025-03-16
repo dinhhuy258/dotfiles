@@ -1,3 +1,5 @@
+local icons = require "icons"
+
 local M = {}
 
 M.setup = function()
@@ -6,8 +8,23 @@ M.setup = function()
     return
   end
 
+  local prompts = {
+    Explain = "Please explain how the following code works.",
+    Review = "Please review the following code and provide suggestions for improvement.",
+    Tests = "Please explain how the selected code works, then generate unit tests for it.",
+    Refactor = "Please refactor the following code to improve its clarity and readability.",
+  }
+
   copilot_chat.setup {
     model = "claude-3.7-sonnet",
+    prompts = prompts,
+    question_header = icons.copilot_chat.user .. " dinhhuy258 ",
+    answer_header = icons.copilot_chat.copilot .. " Copilot ",
+    mappings = {
+      accept_diff = {
+        normal = "ga",
+      },
+    },
   }
 
   local wk = require "which-key"
@@ -23,9 +40,7 @@ M.setup = function()
     },
     {
       "<Leader>ip",
-      function()
-        copilot_chat.prompts()
-      end,
+      "<Cmd>CopilotChatPrompt<CR>",
       desc = "View/select prompt templates",
       mode = "n",
     },
