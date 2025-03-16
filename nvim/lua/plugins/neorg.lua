@@ -24,6 +24,8 @@ M.setup = function()
   }
 
   keymaps.set("n", "<Leader>ww", ":Neorg index<CR>", { noremap = true })
+
+  vim.cmd "command! NeorgFormat normal! gg=G"
 end
 
 return M
