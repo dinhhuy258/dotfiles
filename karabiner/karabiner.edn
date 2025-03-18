@@ -31,6 +31,9 @@
 
       [:f23 :!CSopen_bracket :postman]
       [:f24 :!CSclose_bracket :postman]
+
+      [:f21 [:semicolon :open_bracket] :alacritty]
+      [:f22 [:semicolon :close_bracket] :alacritty]
     ]}
 
     {:des "Launch applications" :rules [
@@ -43,6 +46,7 @@
       [:!!c [:launch "Visual Studio Code"]]
       [:!!a [:launch "Postman"]]
       [:!!s [:launch "Slack"]]
+      [:!!d [:launch "Microsoft Teams"]]
       [:!!n [:launch "Notes"]]
     ]}
   ]
