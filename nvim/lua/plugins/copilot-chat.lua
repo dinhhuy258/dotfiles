@@ -24,6 +24,9 @@ M.setup = function()
     separator = "---",
     error_header = "> [!ERROR] Error",
     mappings = {
+      complete = {
+        insert = "<Right>",
+      },
       accept_diff = {
         normal = "ga",
         insert = "",
