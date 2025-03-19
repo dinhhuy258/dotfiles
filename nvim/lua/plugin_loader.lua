@@ -411,9 +411,10 @@ local function _load_plugins(opts)
       "MeanderingProgrammer/render-markdown.nvim",
       ft = {
         "markdown",
+        "copilot-chat",
       },
       opts = {
-        file_types = { "markdown" },
+        file_types = { "markdown", "copilot-chat" },
       },
     },
     {
