@@ -4,6 +4,7 @@
     :chrome ["^com\\.google\\.Chrome$"]
     :firefox ["^org\\.mozilla\\.firefox$"]
     :alacritty ["^org\\.alacritty$"]
+    :cursor ["^com\\.todesktop\\.230313mzl4w4u92$"]
     :postman ["^com\\.postmanlabs\\.mac$"]
   }
 
@@ -31,6 +32,9 @@
 
       [:f23 :!CSopen_bracket :postman]
       [:f24 :!CSclose_bracket :postman]
+
+      [:f23 :!COleft_arrow :cursor]
+      [:f24 :!COright_arrow :cursor]
 
       [:f21 [:semicolon :open_bracket] :alacritty]
       [:f22 [:semicolon :close_bracket] :alacritty]
