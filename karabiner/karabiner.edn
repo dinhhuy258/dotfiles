@@ -43,7 +43,7 @@
       [:!!r [:launch "IntelliJ IDEA"]]
       [:!!z [:launch "Zalo"]]
       [:!!f [:launch "Finder"]]
-      [:!!c [:launch "Visual Studio Code"]]
+      [:!!c [:launch "Cursor"]]
       [:!!a [:launch "Postman"]]
       [:!!s [:launch "Slack"]]
       [:!!d [:launch "Microsoft Teams"]]
