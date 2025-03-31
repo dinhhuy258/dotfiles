@@ -7,7 +7,7 @@ make ergodox_ez:dinhhuy258:teensy
 make crkbd:dinhhuy258:flash
 
 # Flash Corne (with serial pin D3)
-make crkbd:dinhhuy258:flash USE_SERIAL_PIN_D3=yes
+make crkbd:dinhhuy258:flash SERIAL_PIN=D3 TAPPING_TERM=175
 
 # Flash Corne (with RGB Lighting)
 make crkbd:dinhhuy258:flash USE_RGB_LIGHTING=yes
