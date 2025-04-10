@@ -15,5 +15,8 @@ git config user.email "<default_user_email>"
 # Hard reset the current branch with origin
 git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)
 
+# Change git commit time back to 1 day
+git commit --amend --no-edit --date "$(date -v -1d -R)"
+
 $ default_user_name: echo 'Huy Duong'
 $ default_user_email: echo 'huy.duongdinh@gmail.com'
