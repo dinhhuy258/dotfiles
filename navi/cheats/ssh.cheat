@@ -6,3 +6,5 @@ scp <user>@<host>:<remote_file_path> <local_file_path>
 # Copy a file from the local host to a remote host
 scp <local_file_path> <user>@<host>:<remote_file_path>
 
+# Delete all manually added SSH keys
+ssh-add -D

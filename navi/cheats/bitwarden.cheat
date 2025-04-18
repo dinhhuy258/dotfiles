@@ -1,0 +1,10 @@
+% bitwarden
+
+# Create a session environment variable
+export BW_SESSION="$(bw unlock --raw)"
+
+# Sync the vault
+bw sync
+
+# Add SSH key to ssh-agent
+bw list items | jq -r '.[] | select(.sshKey != null) | "\(.name)\t\(.id)"' | fzf --delimiter='\t' --with-nth=1 | cut -f2 | xargs -I{} sh -c 'bw get item {} | jq -r ".sshKey.privateKey" | ssh-add -'
