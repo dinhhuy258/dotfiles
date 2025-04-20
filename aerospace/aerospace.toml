@@ -152,7 +152,7 @@ automatically-unhide-macos-hidden-apps = false
 
     cmd-alt-ctrl-r = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fcmd ~/.cmds"'''
     cmd-alt-ctrl-f = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fm"'''
-    cmd-alt-ctrl-p = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fpass"'''
+    cmd-alt-ctrl-p = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "bw_get_password"'''
     cmd-alt-ctrl-j = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "k9s"'''
     cmd-alt-ctrl-s = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "sgg"'''
     cmd-alt-ctrl-w = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "aow"'''

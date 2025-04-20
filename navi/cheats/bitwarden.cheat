@@ -6,5 +6,14 @@ export BW_SESSION="$(bw unlock --raw)"
 # Sync the vault
 bw sync
 
+# Check bitwarden status
+bw status | jq -r '.status'
+
+# Lock the vault
+bw lock
+
 # Add SSH key to ssh-agent
-bw list items | jq -r '.[] | select(.sshKey != null) | "\(.name)\t\(.id)"' | fzf --delimiter='\t' --with-nth=1 | cut -f2 | xargs -I{} sh -c 'bw get item {} | jq -r ".sshKey.privateKey" | ssh-add -'
+bw_load_ssh_keys
+
+# Get password
+bw_get_password
