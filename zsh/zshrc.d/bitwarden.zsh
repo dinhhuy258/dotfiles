@@ -41,3 +41,20 @@ function bw_get_password() {
     echo "No item selected."
   fi
 }
+
+function bw_get_totp() {
+  _bw_unlocked || return 1
+
+  echo "Fetching items with TOTP from Bitwarden..."
+  local selected_item
+  selected_item=$(bw list items | jq -r '.[] | select(.login != null and .login.totp != null) | "\(.name)\t\(.login.username // "")\t\(.id)"' | \
+    fzf --delimiter='\t' --with-nth=1,2 --header="Name"$'\t'"Username" | \
+    cut -f3)
+
+  if [[ -n "$selected_item" ]]; then
+    bw get totp "$selected_item" | pbcopy
+    echo "TOTP code copied to clipboard!"
+  else
+    echo "No item selected."
+  fi
+}
