@@ -13,8 +13,18 @@ local function lsp_keybindings(bufnr)
   keymaps.set("n", "gy", "<CMD>lua require('telescope.builtin').lsp_type_definitions()<CR>", opts)
   keymaps.set("n", "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
 
-  keymaps.set("n", "gnN", "<CMD>lua vim.diagnostic.goto_prev({ float = { border = 'rounded' } })<CR>", opts)
-  keymaps.set("n", "gnn", "<CMD>lua vim.diagnostic.goto_next({ float = { border = 'rounded' } })<CR>", opts)
+  keymaps.set("n", "gnN", function()
+    vim.diagnostic.jump {
+      count = -1,
+      float = true,
+    }
+  end, opts)
+  keymaps.set("n", "gnn", function()
+    vim.diagnostic.jump {
+      count = 1,
+      float = true,
+    }
+  end, opts)
   keymaps.set("n", "gno", "<CMD>lua vim.diagnostic.open_float({ border = 'rounded' })<CR>", opts)
 
   keymaps.set("n", "<Leader>cr", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
