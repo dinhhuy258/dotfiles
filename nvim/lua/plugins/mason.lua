@@ -1,4 +1,3 @@
-local servers = require "lsp.servers"
 local icons = require "icons"
 
 local M = {}

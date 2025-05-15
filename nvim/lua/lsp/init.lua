@@ -1,5 +1,4 @@
 local handlers = require "lsp.handlers"
-local servers = require "lsp.servers"
 
 local M = {}
 
@@ -11,6 +10,19 @@ function M.setup()
     return
   end
 
+  local servers = {
+    "clangd", -- c, c++
+    "ts_ls", -- typescript, javascript
+    "jsonls", -- json
+    "lua_ls", -- lua
+    "phpactor", -- php
+    "basedpyright", -- python
+    "sqlls", -- sql
+    "yamlls", -- yaml
+    "gopls", -- go
+    "bashls", -- bash
+    "terraformls", -- terraform
+  }
   local opts = {}
 
   for _, server in pairs(servers) do
