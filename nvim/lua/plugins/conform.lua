@@ -38,8 +38,9 @@ M.setup = function()
     conform.format {
       lsp_fallback = true,
       async = false,
-      timeout_ms = 1000,
+      timeout_ms = 5000,
     }
+    vim.notify("Format complete", vim.log.levels.INFO)
   end)
 end
 
