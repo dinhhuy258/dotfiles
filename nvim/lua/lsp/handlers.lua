@@ -66,22 +66,19 @@ function M.common_on_attach(client, bufnr)
 end
 
 function M.setup()
-  local signs = {
-    { name = "DiagnosticSignError", text = icons.diagnostics.error },
-    { name = "DiagnosticSignWarn", text = icons.diagnostics.warning },
-    { name = "DiagnosticSignHint", text = icons.diagnostics.hint },
-    { name = "DiagnosticSignInfo", text = icons.diagnostics.info },
+  vim.diagnostic.config {
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = icons.diagnostics.error,
+        [vim.diagnostic.severity.WARN] = icons.diagnostics.warning,
+        [vim.diagnostic.severity.INFO] = icons.diagnostics.info,
+        [vim.diagnostic.severity.HINT] = icons.diagnostics.hint,
+      },
+    },
   }
-
-  for _, sign in ipairs(signs) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-  end
 
   local config = {
     virtual_text = true,
-    signs = {
-      active = signs,
-    },
     update_in_insert = true,
     underline = true,
     severity_sort = true,
