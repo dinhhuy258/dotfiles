@@ -16,7 +16,7 @@ M.setup = function()
   }
 
   copilot_chat.setup {
-    model = "claude-3.7-sonnet",
+    model = "claude-sonnet-4",
     prompts = prompts,
     question_header = icons.copilot_chat.user .. " dinhhuy258 ",
     answer_header = icons.copilot_chat.copilot .. " Copilot ",
