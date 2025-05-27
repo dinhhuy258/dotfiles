@@ -12,6 +12,10 @@ aws s3api list-buckets
 # Invoke Lambda function
 aws lambda invoke --function-name <lambda-function> --cli-binary-format raw-in-base64-out --payload '<json-payload>' response.json
 
+# Check codebuild status
+aws codebuild batch-get-builds --ids $(aws codebuild list-builds-for-project --project-name <codebuild-project> --sort-order DESCENDING --max-items 1 --output json | jq -r '.ids[0]') --query 'builds[0].{Status:buildStatus,StartTime:startTime,EndTime:endTime,Duration:timeInMinutes,Commit:sourceVersion}' --output table
+
 $ bucket: aws s3api list-buckets --query "Buckets[].Name" --output text | tr '\t' '\n'
 $ local_file: ls -1
 $ lambda-function: aws lambda list-functions --query "Functions[].FunctionName" --output text | tr '\t' '\n'
+$ codebuild-project: aws codebuild list-projects --query 'projects[*]' --output text | tr '\t' '\n' | fzf 
