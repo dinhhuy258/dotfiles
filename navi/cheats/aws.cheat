@@ -9,5 +9,9 @@ aws s3api put-object --bucket <bucket> --key <key> --body <local_file>
 # List S3 buckets
 aws s3api list-buckets
 
+# Invoke Lambda function
+aws lambda invoke --function-name <lambda-function> --cli-binary-format raw-in-base64-out --payload '<json-payload>' response.json
+
 $ bucket: aws s3api list-buckets --query "Buckets[].Name" --output text | tr '\t' '\n'
 $ local_file: ls -1
+$ lambda-function: aws lambda list-functions --query "Functions[].FunctionName" --output text | tr '\t' '\n'
