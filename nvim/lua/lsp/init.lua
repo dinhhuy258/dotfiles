@@ -22,6 +22,7 @@ function M.setup()
     "gopls", -- go
     "bashls", -- bash
     "terraformls", -- terraform
+    "buf_ls", -- protobuf
   }
   local opts = {}
 
