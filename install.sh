@@ -198,6 +198,9 @@ install_dotfiles() {
 
   # warpd
   link_file "$DOTFILES/warpd/config" "$HOME/.config/warpd/config"
+
+  # mcp
+  link_file "$DOTFILES/mcp/servers.json" "$HOME/.config/mcphub/servers.json"
 }
 
 create_cmds_file() {
