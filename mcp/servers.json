@@ -7,6 +7,12 @@
       ],
       "command": "npx"
     },
+    "git": {
+      "args": [
+        "mcp-server-git"
+      ],
+      "command": "uvx"
+    },
     "sequentialthinking": {
       "args": [
         "-y",
