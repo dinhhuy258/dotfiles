@@ -410,9 +410,10 @@ local function _load_plugins(opts)
       ft = {
         "markdown",
         "copilot-chat",
+        "Avante",
       },
       opts = {
-        file_types = { "markdown", "copilot-chat" },
+        file_types = { "markdown", "copilot-chat", "Avante" },
       },
     },
     {
@@ -441,18 +442,18 @@ local function _load_plugins(opts)
         require("plugins.copilot").setup()
       end,
     },
-    {
-      "CopilotC-Nvim/CopilotChat.nvim",
-      event = "VeryLazy",
-      dependencies = {
-        { "zbirenbaum/copilot.lua" },
-        { "nvim-lua/plenary.nvim" },
-      },
-      build = "make tiktoken",
-      config = function()
-        require("plugins.copilot-chat").setup()
-      end,
-    },
+    -- {
+    --   "CopilotC-Nvim/CopilotChat.nvim",
+    --   event = "VeryLazy",
+    --   dependencies = {
+    --     { "zbirenbaum/copilot.lua" },
+    --     { "nvim-lua/plenary.nvim" },
+    --   },
+    --   build = "make tiktoken",
+    --   config = function()
+    --     require("plugins.copilot-chat").setup()
+    --   end,
+    -- },
     {
       "ravitemer/mcphub.nvim",
       dependencies = {
@@ -462,6 +463,19 @@ local function _load_plugins(opts)
       config = function()
         require("mcphub").setup()
       end,
+    },
+    {
+      "yetone/avante.nvim",
+      build = "make",
+      event = "VeryLazy",
+      version = false, -- Never set this value to "*"! Never!
+      config = function()
+        require("plugins.avante").setup()
+      end,
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "MunifTanjim/nui.nvim",
+      },
     },
   }, opts)
 end
