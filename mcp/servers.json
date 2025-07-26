@@ -13,6 +13,12 @@
       ],
       "command": "uvx"
     },
+    "github": {
+      "headers": {
+        "Authorization": "Bearer ${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      },
+      "url": "https://api.githubcopilot.com/mcp/"
+    },
     "sequentialthinking": {
       "args": [
         "-y",
