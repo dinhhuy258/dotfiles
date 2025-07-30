@@ -1,4 +1,3 @@
--- LSP Keymaps - extracted from handlers.lua for better organization
 local keymaps = require("config.keymaps")
 
 local M = {}
