@@ -1,4 +1,4 @@
-local keymaps = require("config.keymaps")
+local keymaps = require "config.keymaps"
 
 local M = {}
 
@@ -17,33 +17,43 @@ function M.setup(bufnr)
 
   -- Diagnostics navigation
   keymaps.set("n", "gnN", function()
-    vim.diagnostic.jump({
+    vim.diagnostic.jump {
       count = -1,
       float = true,
-    })
+    }
   end, opts)
 
   keymaps.set("n", "gnn", function()
-    vim.diagnostic.jump({
+    vim.diagnostic.jump {
       count = 1,
       float = true,
-    })
+    }
   end, opts)
 
   keymaps.set("n", "gno", "<CMD>lua vim.diagnostic.open_float({ border = 'rounded' })<CR>", opts)
 
-  -- Hover and signature help
-  keymaps.set("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
+  -- Hover and signature help with rounded borders
+  keymaps.set("n", "K", function()
+    vim.lsp.buf.hover { border = "rounded" }
+  end, opts)
+
+  keymaps.set("n", "<C-k>", function()
+    vim.lsp.buf.signature_help { border = "rounded" }
+  end, opts)
 
   -- Inlay hints toggle
   keymaps.set("n", "<Leader>hh", function()
-    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = bufnr }, { bufnr = bufnr })
   end, opts)
 
   -- Go-specific formatting (if needed)
   if vim.bo[bufnr].filetype == "go" then
-    keymaps.set("n", "<Leader>cf", "<CMD>lua require('go.format').format()<CR>",
-      { noremap = true, silent = true, buffer = bufnr })
+    keymaps.set(
+      "n",
+      "<Leader>cf",
+      "<CMD>lua require('go.format').format()<CR>",
+      { noremap = true, silent = true, buffer = bufnr }
+    )
   end
 end
 

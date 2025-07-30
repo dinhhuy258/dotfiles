@@ -35,19 +35,11 @@ function M.setup_handlers()
       focusable = true,
       style = "minimal",
       border = "rounded",
-      source = "always",
+      source = true,
       header = "",
       prefix = "",
     },
   }
-
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
-  })
-
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
-  })
 end
 
 function M.setup_servers()
@@ -81,6 +73,10 @@ function M.setup_autocmds()
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(args)
       local client = vim.lsp.get_client_by_id(args.data.client_id)
+      if not client then
+        return
+      end
+
       local bufnr = args.buf
 
       lsp_keymaps.setup(bufnr)
