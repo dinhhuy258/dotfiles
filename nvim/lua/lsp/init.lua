@@ -1,33 +1,28 @@
--- Modern LSP setup for Neovim 0.11+
--- Uses vim.lsp.config() and vim.lsp.enable() instead of nvim-lspconfig
-
 local M = {}
 
--- Cache require calls to avoid multiple loads
-local cmp_nvim_lsp = require('cmp_nvim_lsp')
-local icons = require("icons")
-local lsp_keymaps = require('lsp.keymaps')
-
--- Required dependencies
-local lsp_signature = require('lsp_signature')
-local navbuddy = require('nvim-navbuddy')
+local cmp_nvim_lsp = require "cmp_nvim_lsp"
+local icons = require "icons"
+local lsp_keymaps = require "lsp.keymaps"
+local lsp_signature = require "lsp_signature"
+local navbuddy = require "nvim-navbuddy"
 
 -- Configure global LSP settings for all servers
 function M.setup_global_config()
   -- Set global capabilities and settings that apply to all LSP clients
-  vim.lsp.config('*', {
-    capabilities = vim.tbl_deep_extend('force',
+  vim.lsp.config("*", {
+    capabilities = vim.tbl_deep_extend(
+      "force",
       vim.lsp.protocol.make_client_capabilities(),
       cmp_nvim_lsp.default_capabilities()
     ),
-    root_markers = { '.git', '.hg' },
+    root_markers = { ".git", ".hg" },
   })
 end
 
 -- Setup LSP handlers and diagnostics
 function M.setup_handlers()
   -- Configure diagnostics
-  vim.diagnostic.config({
+  vim.diagnostic.config {
     signs = {
       text = {
         [vim.diagnostic.severity.ERROR] = icons.diagnostics.error,
@@ -48,7 +43,7 @@ function M.setup_handlers()
       header = "",
       prefix = "",
     },
-  })
+  }
 
   -- Configure LSP handlers with rounded borders
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -92,8 +87,8 @@ end
 
 -- Setup LspAttach autocmd for buffer-local configuration
 function M.setup_autocmds()
-  vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(args)
       local client = vim.lsp.get_client_by_id(args.data.client_id)
       local bufnr = args.buf
@@ -112,26 +107,30 @@ function M.setup_autocmds()
         hi_parameter = "Underlined",
       }, bufnr)
 
-      -- Setup nvim-navbuddy
-      navbuddy.attach(client, bufnr)
+      -- Setup nvim-navbuddy (only for clients that support document symbols)
+      if client:supports_method "textDocument/documentSymbol" then
+        navbuddy.attach(client, bufnr)
+      end
 
       -- Enable completion if supported
-      if client:supports_method('textDocument/completion') then
+      if client:supports_method "textDocument/completion" then
         vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
       end
 
       -- Auto-format on save for supported servers
-      if client:supports_method('textDocument/formatting') and
-          not client:supports_method('textDocument/willSaveWaitUntil') then
-        vim.api.nvim_create_autocmd('BufWritePre', {
-          group = vim.api.nvim_create_augroup('LspFormatting', { clear = false }),
+      if
+          client:supports_method "textDocument/formatting"
+          and not client:supports_method "textDocument/willSaveWaitUntil"
+      then
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          group = vim.api.nvim_create_augroup("LspFormatting", { clear = false }),
           buffer = bufnr,
           callback = function()
-            vim.lsp.buf.format({
+            vim.lsp.buf.format {
               bufnr = bufnr,
               id = client.id,
               timeout_ms = 1000,
-            })
+            }
           end,
         })
       end
@@ -139,17 +138,17 @@ function M.setup_autocmds()
   })
 
   -- Setup LspDetach autocmd for cleanup
-  vim.api.nvim_create_autocmd('LspDetach', {
-    group = vim.api.nvim_create_augroup('UserLspConfig', { clear = false }),
+  vim.api.nvim_create_autocmd("LspDetach", {
+    group = vim.api.nvim_create_augroup("UserLspConfig", { clear = false }),
     callback = function(args)
       local client = vim.lsp.get_client_by_id(args.data.client_id)
 
       -- Clean up formatting autocmd if it exists
-      if client and client:supports_method('textDocument/formatting') then
-        vim.api.nvim_clear_autocmds({
-          group = 'LspFormatting',
+      if client and client:supports_method "textDocument/formatting" then
+        vim.api.nvim_clear_autocmds {
+          group = "LspFormatting",
           buffer = args.buf,
-        })
+        }
       end
     end,
   })
