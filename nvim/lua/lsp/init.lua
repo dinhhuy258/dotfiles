@@ -6,9 +6,7 @@ local lsp_keymaps = require "lsp.keymaps"
 local lsp_signature = require "lsp_signature"
 local navbuddy = require "nvim-navbuddy"
 
--- Configure global LSP settings for all servers
 function M.setup_global_config()
-  -- Set global capabilities and settings that apply to all LSP clients
   vim.lsp.config("*", {
     capabilities = vim.tbl_deep_extend(
       "force",
@@ -19,9 +17,7 @@ function M.setup_global_config()
   })
 end
 
--- Setup LSP handlers and diagnostics
 function M.setup_handlers()
-  -- Configure diagnostics
   vim.diagnostic.config {
     signs = {
       text = {
@@ -45,7 +41,6 @@ function M.setup_handlers()
     },
   }
 
-  -- Configure LSP handlers with rounded borders
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = "rounded",
   })
@@ -55,9 +50,7 @@ function M.setup_handlers()
   })
 end
 
--- Configure individual servers
 function M.setup_servers()
-  -- Load server-specific configurations
   local servers = {
     "clangd",
     "ts_ls",
@@ -74,18 +67,15 @@ function M.setup_servers()
   }
 
   for _, server in ipairs(servers) do
-    -- Try to load server-specific settings
     local ok, server_config = pcall(require, "lsp.settings." .. server)
     if ok then
       vim.lsp.config(server, server_config)
     end
 
-    -- Enable the server
     vim.lsp.enable(server)
   end
 end
 
--- Setup LspAttach autocmd for buffer-local configuration
 function M.setup_autocmds()
   vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -93,7 +83,6 @@ function M.setup_autocmds()
       local client = vim.lsp.get_client_by_id(args.data.client_id)
       local bufnr = args.buf
 
-      -- Setup keymaps
       lsp_keymaps.setup(bufnr)
 
       -- Disable formatting for Go files (handled by go.nvim)

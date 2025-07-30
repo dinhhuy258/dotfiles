@@ -49,4 +49,3 @@ function M.setup(bufnr)
 end
 
 return M
-
