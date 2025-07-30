@@ -8,5 +8,9 @@
 .idea
 .vscode
 
+# Claude
+.claude
+CLAUDE.md
+
 # ENV
 .env
