@@ -19,8 +19,10 @@ M.setup = function()
       }
     end,
     provider = "copilot",
-    copilot = {
-      model = "claude-sonnet-4",
+    providers = {
+      copilot = {
+        model = "claude-sonnet-4",
+      },
     },
     behaviour = {
       auto_suggestions = false,
