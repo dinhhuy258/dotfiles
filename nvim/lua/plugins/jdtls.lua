@@ -1,5 +1,3 @@
-local handlers = require "lsp.handlers"
-
 local M = {}
 
 M.setup = function()
@@ -21,9 +19,6 @@ M.setup = function()
   local path_to_config = jdtls_path .. "/config_mac_arm"
 
   local config = {
-    on_init = handlers.common_on_init,
-    on_attach = handlers.common_on_attach,
-    capabilities = handlers.common_capabilities(),
     root_dir = root_dir,
   }
 

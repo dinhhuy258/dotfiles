@@ -11,14 +11,6 @@ local function _load_plugins(opts)
     },
     -- intellij as language server
     {
-      "dinhhuy258/vintellij",
-      branch = "lsp",
-      ft = { "kotlin", "java", "ruby" },
-      config = function()
-        require("plugins.vintellij").setup()
-      end,
-    },
-    {
       "mfussenegger/nvim-jdtls",
       ft = "java",
       config = function()
