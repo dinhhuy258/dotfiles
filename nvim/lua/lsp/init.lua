@@ -49,6 +49,7 @@ function M.setup_servers()
     "jsonls",
     "lua_ls",
     "phpactor",
+    "ruby_lsp",
     "basedpyright",
     "sqlls",
     "yamlls",
