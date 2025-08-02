@@ -28,15 +28,34 @@ function bw_load_ssh_keys() {
 function bw_get_password() {
   _bw_unlocked || return 1
 
-  echo "Fetching logins from Bitwarden..."
-  local selected_item
-  selected_item=$(bw list items | jq -r '.[] | select(.login != null) | "\(.name)\t\(.login.username // "")\t\(.id)"' | \
+  echo "Fetching items from Bitwarden..."
+  local selected_option
+  selected_option=$(bw list items | jq -r '
+    .[] |
+    select(.login != null or (.fields != null and any(.fields[]; .type == 1))) |
+    . as $item |
+    (
+      if .login != null then
+        "\($item.name)\t\($item.login.username // "")\tpassword\t\($item.id)"
+      else empty end,
+      if .fields != null then
+        .fields[] | select(.type == 1) | "\($item.name) - \(.name)\t\($item.login.username // "")\t\(.name)\t\($item.id)"
+      else empty end
+    )' | \
     fzf --delimiter='\t' --with-nth=1,2 --header="Name"$'\t'"Username" | \
-    cut -f3)
+    cut -f3,4)
 
-  if [[ -n "$selected_item" ]]; then
-    bw get item "$selected_item" | jq -r '.login.password' | pbcopy
-    echo "Password copied to clipboard!"
+  if [[ -n "$selected_option" ]]; then
+    local field_type=$(echo "$selected_option" | cut -f1)
+    local item_id=$(echo "$selected_option" | cut -f2)
+
+    if [[ "$field_type" == "password" ]]; then
+      bw get item "$item_id" | jq -r '.login.password' | pbcopy
+      echo "Password copied to clipboard!"
+    else
+      bw get item "$item_id" | jq -r --arg field_name "$field_type" '.fields[] | select(.name == $field_name and .type == 1) | .value' | pbcopy
+      echo "Field '$field_type' copied to clipboard!"
+    fi
   else
     echo "No item selected."
   fi
