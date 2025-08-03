@@ -453,6 +453,7 @@ local function _load_plugins(opts)
       build = "npm install -g mcp-hub@latest",
       config = function()
         require("mcphub").setup {
+          config = vim.fn.expand "~/.config/mcphub/mcp.json",
           auto_approve = true,
         }
       end,

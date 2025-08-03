@@ -199,8 +199,10 @@ install_dotfiles() {
   # warpd
   link_file "$DOTFILES/warpd/config" "$HOME/.config/warpd/config"
 
-  # mcp
-  link_file "$DOTFILES/mcp/servers.json" "$HOME/.config/mcphub/servers.json"
+  # AI
+  link_file "$DOTFILES/ai/mcp.json" "$HOME/.config/mcphub/mcp.json"
+  link_file "$DOTFILES/ai/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+  link_file "$DOTFILES/ai/commands/gemini/commit.toml" "$HOME/.gemini/commands/commit.toml"
 }
 
 create_cmds_file() {
