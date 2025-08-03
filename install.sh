@@ -203,6 +203,7 @@ install_dotfiles() {
   link_file "$DOTFILES/ai/mcp.json" "$HOME/.config/mcphub/mcp.json"
   link_file "$DOTFILES/ai/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
   link_file "$DOTFILES/ai/commands/gemini/commit.toml" "$HOME/.gemini/commands/commit.toml"
+  link_file "$DOTFILES/ai/commands/gemini/review.toml" "$HOME/.gemini/commands/review.toml"
 }
 
 create_cmds_file() {
