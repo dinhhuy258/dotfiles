@@ -8,10 +8,12 @@
 - Plan test coverage and test improvements thoroughly.
 - Evaluate task completion and identify next steps effectively.
 
-**Context7** (for external documentation)
+**Context7**
 
-- Fetch up-to-date docs not available in Hex (Tailwind, Heroicons, DaisyUI, etc.)
-- Get current API references for frontend libraries
+Use context7 to access always up-to-date, version-specific documentation and code examples directly from the source — ensuring accurate, reliable answers without hallucinated or outdated APIs.
+
+- `context7:resolve-library-id` - Find Context7-compatible library IDs for documentation lookup
+- `context7:get-library_docs` - Fetch up-to-date documentation for libraries and frameworks
 
 # 🤖 AI Assistant Guidelines
 
