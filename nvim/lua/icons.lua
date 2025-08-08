@@ -119,8 +119,4 @@ return {
     nbsp = "␣",
     trail = "·",
   },
-  copilot_chat = {
-    user = '',
-    copilot = '',
-  }
 }

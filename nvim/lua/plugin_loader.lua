@@ -420,18 +420,6 @@ local function _load_plugins(opts)
         require("plugins.copilot").setup()
       end,
     },
-    -- {
-    --   "CopilotC-Nvim/CopilotChat.nvim",
-    --   event = "VeryLazy",
-    --   dependencies = {
-    --     { "zbirenbaum/copilot.lua" },
-    --     { "nvim-lua/plenary.nvim" },
-    --   },
-    --   build = "make tiktoken",
-    --   config = function()
-    --     require("plugins.copilot-chat").setup()
-    --   end,
-    -- },
     {
       "ravitemer/mcphub.nvim",
       dependencies = {
