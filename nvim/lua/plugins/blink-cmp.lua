@@ -10,6 +10,8 @@ M.setup = function()
     keymap = {
       preset = "super-tab",
       ["<CR>"] = { "accept", "fallback" },
+      ["<Tab>"] = { "select_next", "fallback" },
+      ["<S-Tab>"] = { "select_prev", "fallback" },
     },
 
     appearance = {
