@@ -1,18 +1,17 @@
 local M = {}
 
-local cmp_nvim_lsp = require "cmp_nvim_lsp"
+local blink = require "blink.cmp"
 local icons = require "icons"
 local lsp_keymaps = require "lsp.keymaps"
 local lsp_signature = require "lsp_signature"
 local navbuddy = require "nvim-navbuddy"
 
 function M.setup_global_config()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = vim.tbl_deep_extend("force", capabilities, blink.get_lsp_capabilities())
+
   vim.lsp.config("*", {
-    capabilities = vim.tbl_deep_extend(
-      "force",
-      vim.lsp.protocol.make_client_capabilities(),
-      cmp_nvim_lsp.default_capabilities()
-    ),
+    capabilities = capabilities,
     root_markers = { ".git", ".hg" },
   })
 end
@@ -96,11 +95,6 @@ function M.setup_autocmds()
       -- Setup nvim-navbuddy (only for clients that support document symbols)
       if client:supports_method "textDocument/documentSymbol" then
         navbuddy.attach(client, bufnr)
-      end
-
-      -- Enable completion if supported
-      if client:supports_method "textDocument/completion" then
-        vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
       end
 
       -- Auto-format on save for supported servers

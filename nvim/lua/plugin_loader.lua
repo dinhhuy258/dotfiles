@@ -183,29 +183,19 @@ local function _load_plugins(opts)
     },
     -- auto completion
     {
-      "hrsh7th/nvim-cmp",
+      "saghen/blink.cmp",
       dependencies = {
-        -- snippet
+        "rafamadriz/friendly-snippets",
         {
-          dependencies = {
-            "rafamadriz/friendly-snippets",
-            "saadparwaiz1/cmp_luasnip",
-          },
           "L3MON4D3/LuaSnip",
+          version = "v2.*",
           build = "make install_jsregexp",
-          config = function()
-            require("lsp_signature").setup()
-          end,
         },
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-vsnip",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
       },
+      version = "1.*",
       event = "InsertEnter",
       config = function()
-        require("plugins.nvim-cmp").setup()
+        require("plugins.blink-cmp").setup()
       end,
     },
     {
@@ -226,9 +216,6 @@ local function _load_plugins(opts)
     -- autopair
     {
       "windwp/nvim-autopairs",
-      dependencies = {
-        "nvim-cmp",
-      },
       config = function()
         require("plugins.nvim-autopairs").setup()
       end,
