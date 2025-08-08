@@ -1,3 +1,5 @@
+local icons = require "icons"
+
 local M = {}
 
 M.setup = function()
@@ -19,6 +21,7 @@ M.setup = function()
 
     appearance = {
       nerd_font_variant = "normal",
+      kind_icons = icons.lsp,
     },
 
     completion = {
