@@ -6,12 +6,15 @@ M.setup = function()
     return
   end
 
+  -- load VS Code style snippets from a plugin rafamadriz/friendly-snippets
+  require("luasnip.loaders.from_vscode").lazy_load()
+
   blink_cmp.setup {
     keymap = {
       preset = "super-tab",
       ["<CR>"] = { "accept", "fallback" },
-      ["<Tab>"] = { "select_next", "fallback" },
-      ["<S-Tab>"] = { "select_prev", "fallback" },
+      ["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
+      ["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
     },
 
     appearance = {
