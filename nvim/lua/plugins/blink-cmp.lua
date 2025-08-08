@@ -1,5 +1,3 @@
-local icons = require "icons"
-
 local M = {}
 
 M.setup = function()
@@ -9,20 +7,29 @@ M.setup = function()
   end
 
   blink_cmp.setup {
-    keymap = { preset = "super-tab" },
+    keymap = {
+      preset = "super-tab",
+      ["<CR>"] = { "accept", "fallback" },
+    },
 
     appearance = {
-      nerd_font_variant = "mono",
+      nerd_font_variant = "normal",
     },
 
     completion = {
-      accept = { auto_brackets = { enabled = true } },
+      keyword = {
+        range = "prefix",
+      },
 
       list = {
         selection = {
           preselect = true,
           auto_insert = true,
         },
+      },
+
+      accept = {
+        auto_brackets = { enabled = true },
       },
 
       menu = {
@@ -35,9 +42,10 @@ M.setup = function()
         },
       },
 
-      documentation = { auto_show = true, auto_show_delay_ms = 500 },
-
-      ghost_text = { enabled = true },
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 500,
+      },
     },
 
     cmdline = {
@@ -51,47 +59,16 @@ M.setup = function()
             auto_insert = true,
           },
         },
-        menu = { auto_show = false },
+        menu = { auto_show = true },
         ghost_text = { enabled = true },
       },
     },
 
-    sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
-      providers = {
-        lsp = {
-          name = "LSP",
-          fallbacks = { "buffer" },
-          transform_items = function(_, items)
-            return vim.tbl_filter(function(item)
-              return item.kind ~= require("blink.cmp.types").CompletionItemKind.Text
-            end, items)
-          end,
-        },
-
-        path = {
-          score_offset = 3,
-          fallbacks = { "buffer" },
-        },
-
-        snippets = {
-          score_offset = -1,
-        },
-
-        buffer = {
-          score_offset = -3,
-        },
-      },
-    },
-
-    -- Use LuaSnip preset to maintain compatibility with your existing snippets
     snippets = { preset = "luasnip" },
 
-    -- Enable signature help
-    signature = { enabled = true },
-
-    -- Configure fuzzy matching
-    fuzzy = { implementation = "prefer_rust_with_warning" },
+    sources = {
+      default = { "lsp", "path", "snippets", "buffer" },
+    },
   }
 end
 
