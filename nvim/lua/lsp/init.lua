@@ -1,20 +1,15 @@
 local M = {}
 
--- Remove cmp_nvim_lsp dependency - using blink.cmp instead
+local blink = require "blink.cmp"
 local icons = require "icons"
 local lsp_keymaps = require "lsp.keymaps"
 local lsp_signature = require "lsp_signature"
 local navbuddy = require "nvim-navbuddy"
 
 function M.setup_global_config()
-  -- Get blink.cmp capabilities if available, fallback to default
   local capabilities = vim.lsp.protocol.make_client_capabilities()
-  
-  local blink_ok, blink = pcall(require, "blink.cmp")
-  if blink_ok then
-    capabilities = vim.tbl_deep_extend("force", capabilities, blink.get_lsp_capabilities())
-  end
-  
+  capabilities = vim.tbl_deep_extend("force", capabilities, blink.get_lsp_capabilities())
+
   vim.lsp.config("*", {
     capabilities = capabilities,
     root_markers = { ".git", ".hg" },
