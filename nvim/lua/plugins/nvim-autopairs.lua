@@ -10,18 +10,18 @@ M.setup = function()
     ts_config = {
       lua = { "string" }, -- it will not add a pair on that treesitter node
       javascript = { "template_string" },
-      java = false, -- don't check treesitter on java
+      java = false,       -- don't check treesitter on java
     },
   }
 
   autopairs.add_rule(Rule("$$", "$$", "tex"))
   autopairs.add_rules {
-    Rule("$", "$", { "tex", "latex" }) -- don't add a pair if the next character is %
-      :with_pair(cond.not_after_regex_check "%%") -- don't add a pair if  the previous character is xxx
-      :with_pair(cond.not_before_regex_check("xxx", 3)) -- don't move right when repeat character
-      :with_move(cond.none()) -- don't delete if the next character is xx
-      :with_del(cond.not_after_regex_check "xx") -- disable  add newline when press <cr>
-      :with_cr(cond.none()),
+    Rule("$", "$", { "tex", "latex" })                  -- don't add a pair if the next character is %
+        :with_pair(cond.not_after_regex_check "%%")     -- don't add a pair if  the previous character is xxx
+        :with_pair(cond.not_before_regex_check("xxx", 3)) -- don't move right when repeat character
+        :with_move(cond.none())                         -- don't delete if the next character is xx
+        :with_del(cond.not_after_regex_check "xx")      -- disable  add newline when press <cr>
+        :with_cr(cond.none()),
   }
   autopairs.add_rules {
     Rule("$$", "$$", "tex"):with_pair(function(opts)
@@ -33,14 +33,8 @@ M.setup = function()
     end),
   }
 
-  -- If you want insert `(` after select function or method item
-  local cmp = require "cmp"
-  local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-  local map_char = {
-    all = "(",
-    tex = "{",
-  }
-  cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = map_char })
+  -- Note: blink.cmp handles auto brackets via its own configuration
+  -- No need for cmp integration since we're using blink.cmp
 
   require("nvim-treesitter.configs").setup { autopairs = { enable = true } }
   local ts_conds = require "nvim-autopairs.ts-conds"
