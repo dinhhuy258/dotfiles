@@ -97,11 +97,6 @@ function M.setup_autocmds()
         navbuddy.attach(client, bufnr)
       end
 
-      -- Enable completion if supported
-      if client:supports_method "textDocument/completion" then
-        vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
-      end
-
       -- Auto-format on save for supported servers
       if
           client:supports_method "textDocument/formatting"
