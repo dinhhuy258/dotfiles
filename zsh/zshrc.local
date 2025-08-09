@@ -1,4 +1,0 @@
-# Path to workspace folder
-export WORKSPACE=$HOME/Workspace
-# Path to dotfiles
-export DOTFILES="$WORKSPACE/dotfiles"

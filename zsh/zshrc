@@ -47,7 +47,17 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-source "${HOME}/.zshrc.local"
+# Path to workspace folder
+export WORKSPACE=$HOME/Workspace
+# Path to dotfiles
+export DOTFILES="$WORKSPACE/dotfiles"
+
+# Automatically source all .zshrc* files
+for zshrc_file in "${DOTFILES}"/zsh/.zshrc*; do
+  if [[ -f "$zshrc_file" ]]; then
+    source "$zshrc_file"
+  fi
+done
 
 for cfg in $DOTFILES/zsh/zshrc.d/*; do
   source $cfg

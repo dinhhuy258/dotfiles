@@ -154,7 +154,6 @@ install_dotfiles() {
   link_file "$DOTFILES/tmux/tmux.conf" "$HOME/.tmux.conf"
 
   # zsh
-  link_file "$DOTFILES/zsh/zshrc.local" "$HOME/.zshrc.local"
   link_file "$DOTFILES/zsh/zshrc" "$HOME/.zshrc"
 
   # karabiner

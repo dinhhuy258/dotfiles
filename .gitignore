@@ -7,7 +7,6 @@ navi/*.log
 .DS_Store
 
 lazy-lock.json
-zshrc.local
 
 Brewfile.lock.json
 
