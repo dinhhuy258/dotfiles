@@ -81,11 +81,6 @@ function M.setup_autocmds()
 
       lsp_keymaps.setup(bufnr)
 
-      -- Disable formatting for Go files (handled by go.nvim)
-      if vim.bo[bufnr].filetype == "go" then
-        client.server_capabilities.documentFormattingProvider = false
-      end
-
       -- Setup lsp_signature
       lsp_signature.on_attach({
         hint_enable = false,
