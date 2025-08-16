@@ -91,24 +91,6 @@ function M.setup_autocmds()
       if client:supports_method "textDocument/documentSymbol" then
         navbuddy.attach(client, bufnr)
       end
-
-      -- Auto-format on save for supported servers
-      if
-          client:supports_method "textDocument/formatting"
-          and not client:supports_method "textDocument/willSaveWaitUntil"
-      then
-        vim.api.nvim_create_autocmd("BufWritePre", {
-          group = vim.api.nvim_create_augroup("LspFormatting", { clear = false }),
-          buffer = bufnr,
-          callback = function()
-            vim.lsp.buf.format {
-              bufnr = bufnr,
-              id = client.id,
-              timeout_ms = 1000,
-            }
-          end,
-        })
-      end
     end,
   })
 
