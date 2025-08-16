@@ -21,6 +21,7 @@ M.setup = function()
       markdown = { "prettier" },
       graphql = { "prettier" },
       lua = { "stylua" },
+      go = { "golines", "gofumpt" },
       python = { "isort", "black" },
       cpp = { "clang_format" },
       php = { "pint" },
@@ -40,7 +41,7 @@ M.setup = function()
       async = false,
       timeout_ms = 5000,
     }
-    vim.notify("Format complete", vim.log.levels.INFO)
+    vim.notify("✨ Code formatted successfully", vim.log.levels.INFO)
   end)
 end
 
