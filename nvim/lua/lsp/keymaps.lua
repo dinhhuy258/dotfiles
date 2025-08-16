@@ -45,16 +45,6 @@ function M.setup(bufnr)
   keymaps.set("n", "<Leader>hh", function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = bufnr }, { bufnr = bufnr })
   end, opts)
-
-  -- Go-specific formatting (if needed)
-  if vim.bo[bufnr].filetype == "go" then
-    keymaps.set(
-      "n",
-      "<Leader>cf",
-      "<CMD>lua require('go.format').format()<CR>",
-      { noremap = true, silent = true, buffer = bufnr }
-    )
-  end
 end
 
 return M
