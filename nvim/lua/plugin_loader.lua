@@ -256,17 +256,6 @@ local function _load_plugins(opts)
         require("plugins.nvim-dap").setup()
       end,
     },
-    {
-      "dinhhuy258/go.nvim",
-      dependencies = {
-        "nvim-dap",
-        "nvim-dap-ui",
-      },
-      ft = { "go" },
-      config = function()
-        require("plugins.go").setup()
-      end,
-    },
     -- docs generation
     {
       "danymat/neogen",
