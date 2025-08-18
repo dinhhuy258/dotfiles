@@ -93,22 +93,6 @@ function M.setup_autocmds()
       end
     end,
   })
-
-  -- Setup LspDetach autocmd for cleanup
-  vim.api.nvim_create_autocmd("LspDetach", {
-    group = vim.api.nvim_create_augroup("UserLspConfig", { clear = false }),
-    callback = function(args)
-      local client = vim.lsp.get_client_by_id(args.data.client_id)
-
-      -- Clean up formatting autocmd if it exists
-      if client and client:supports_method "textDocument/formatting" then
-        vim.api.nvim_clear_autocmds {
-          group = "LspFormatting",
-          buffer = args.buf,
-        }
-      end
-    end,
-  })
 end
 
 function M.setup()
