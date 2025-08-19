@@ -41,17 +41,17 @@
     ]}
 
     {:des "Launch applications" :rules [
-      [:!!t [:launch "Alacritty"]]
-      [:!!b [:launch "Google Chrome"]]
-      [:!!v [:launch "Firefox"]]
-      [:!!r [:launch "IntelliJ IDEA"]]
-      [:!!z [:launch "Zalo"]]
-      [:!!f [:launch "Finder"]]
-      [:!!c [:launch "Cursor"]]
-      [:!!a [:launch "Postman"]]
+      [:!!r [:launch "Cursor"]]
+      [:!!e [:launch "Firefox"]]
+      [:!!w [:launch "Zalo"]]
+      [:!!q [:launch "Postman"]]
+
+      [:!!f [:launch "Alacritty"]]
+      [:!!d [:launch "Google Chrome"]]
       [:!!s [:launch "Slack"]]
-      [:!!d [:launch "Microsoft Teams"]]
-      [:!!n [:launch "Notes"]]
+      [:!!a [:launch "Finder"]]
+
+      [:!!z [:launch "Notes"]]
     ]}
   ]
 
