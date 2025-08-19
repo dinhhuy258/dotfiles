@@ -39,14 +39,13 @@ function asr() {
   }
 }
 
-# open aws console in firefox browser
-# pre
+# Open AWS Console in Firefox browser
 function aow() {
   prev_profile=$AWS_PROFILE
 
   unset AWS_PROFILE
 
-  # select aws profile
+  # Select AWS profile
   asp
 
   if [[ -z $AWS_PROFILE ]];then
