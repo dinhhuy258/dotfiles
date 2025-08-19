@@ -18,6 +18,7 @@ M.setup = function()
         require("mcphub.extensions.avante").mcp_tool(),
       }
     end,
+    instructions_file = "CLAUDE.md",
     provider = "copilot",
     providers = {
       copilot = {
@@ -28,7 +29,7 @@ M.setup = function()
       auto_suggestions = false,
       auto_set_keymaps = false,
     },
-    hints = { enabled = false },
+    selection = { enabled = false },
     mappings = {},
   }
 
