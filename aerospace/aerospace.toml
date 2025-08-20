@@ -150,14 +150,14 @@ automatically-unhide-macos-hidden-apps = false
       'exec-and-forget ~/.config/aerospace/notification.sh "Enter move mode"',
     ]
 
-    cmd-alt-ctrl-r = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fcmd ~/.cmds"'''
-    cmd-alt-ctrl-f = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fm"'''
-    cmd-alt-ctrl-p = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "bw_get_password"'''
-    cmd-alt-ctrl-o = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "bw_get_totp"'''
-    cmd-alt-ctrl-j = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "k9s"'''
+    cmd-alt-ctrl-j = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "bw_get_password"'''
+    cmd-alt-ctrl-k = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "bw_get_totp"'''
+    cmd-alt-ctrl-f = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fcmd ~/.cmds"'''
+    cmd-alt-ctrl-d = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "fm"'''
     cmd-alt-ctrl-s = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "sgg"'''
     cmd-alt-ctrl-w = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "aow"'''
-    cmd-alt-ctrl-n = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "vim ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/notes/index.norg"'''
+    cmd-alt-ctrl-a = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "vim ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/notes/index.norg"'''
+    cmd-alt-ctrl-q = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "k9s"'''
 
 [mode.join.binding]
     ctrl-alt-shift-h = ['join-with left', 'mode main']
