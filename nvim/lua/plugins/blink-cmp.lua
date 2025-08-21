@@ -67,7 +67,7 @@ M.setup = function()
             auto_insert = true,
           },
         },
-        menu = { auto_show = true },
+        menu = { auto_show = false },
         ghost_text = { enabled = true },
       },
     },
