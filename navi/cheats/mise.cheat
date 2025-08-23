@@ -1,0 +1,22 @@
+% mise
+
+# Install the latest version of a package
+mise install <name>
+
+# Install a specific version of a package
+mise install <name>@<version>
+
+# Set global version of a package
+mise use -g <name>
+
+# Set global version to a specific version of a package
+mise use -g <name>@<version>
+
+# Show currently active versions
+mise current
+
+# List installed runtime versions
+mise ls
+
+# List runtime versions available for install
+mise ls-remote <name>
