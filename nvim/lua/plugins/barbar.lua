@@ -4,8 +4,8 @@ local icons = require "icons"
 local M = {}
 
 M.setup = function()
-  keymaps.set("n", "<Leader>[", ":BufferPrevious<CR>", { noremap = true, silent = true })
-  keymaps.set("n", "<Leader>]", ":BufferNext<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>$", ":BufferPrevious<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>~", ":BufferNext<CR>", { noremap = true, silent = true })
 
   keymaps.set("n", "<Leader>1", ":BufferGoto 1<CR>", { noremap = true, silent = true })
   keymaps.set("n", "<Leader>2", ":BufferGoto 2<CR>", { noremap = true, silent = true })
