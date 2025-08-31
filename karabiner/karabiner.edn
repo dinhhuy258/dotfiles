@@ -27,17 +27,14 @@
       [:f23 :!Tpage_up :firefox]
       [:f24 :!Tpage_down :firefox]
 
-      [:f23 [:!Tf :h] :alacritty]
-      [:f24 [:!Tf :l] :alacritty]
+      [:f23 [:!Tf :!Sh] :alacritty]
+      [:f24 [:!Tf :!Sl] :alacritty]
 
       [:f23 :!CSopen_bracket :postman]
       [:f24 :!CSclose_bracket :postman]
 
       [:f23 :!COleft_arrow :cursor]
       [:f24 :!COright_arrow :cursor]
-
-      [:f21 [:semicolon :open_bracket] :alacritty]
-      [:f22 [:semicolon :close_bracket] :alacritty]
     ]}
 
     {:des "Launch applications" :rules [
