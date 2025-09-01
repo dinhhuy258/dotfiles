@@ -14,3 +14,6 @@ bindkey "^i" kill-line
 bindkey "^y" kill-whole-line
 
 bindkey '\t' complete-word
+
+bindkey -r '^g' # default key binding for navi
+bindkey '^a' _navi_widget

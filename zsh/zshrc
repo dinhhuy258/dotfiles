@@ -52,21 +52,6 @@ export WORKSPACE=$HOME/Workspace
 # Path to dotfiles
 export DOTFILES="$WORKSPACE/dotfiles"
 
-# Automatically source all .zshrc* files
-for zshrc_file in "${DOTFILES}"/zsh/.zshrc*; do
-  if [[ -f "$zshrc_file" ]]; then
-    source "$zshrc_file"
-  fi
-done
-
-for cfg in $DOTFILES/zsh/zshrc.d/*; do
-  source $cfg
-done
-
-for fn in $DOTFILES/zsh/functions/*; do
-  source $fn
-done
-
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -91,3 +76,18 @@ eval "$(navi widget zsh)"
 
 # prevent exit shell when pressing ctrl+d
 set -o ignoreeof
+
+# Automatically source all .zshrc* files
+for zshrc_file in "${DOTFILES}"/zsh/.zshrc*; do
+  if [[ -f "$zshrc_file" ]]; then
+    source "$zshrc_file"
+  fi
+done
+
+for cfg in $DOTFILES/zsh/zshrc.d/*; do
+  source $cfg
+done
+
+for fn in $DOTFILES/zsh/functions/*; do
+  source $fn
+done
