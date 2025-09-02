@@ -1,0 +1,16 @@
+% docker
+
+# Delete a Docker image
+docker rmi <image_id>
+
+# Stop a running container through SIGTERM
+docker stop <container_id
+
+# SSH into a running container
+docker exec -it <container_id> sh
+
+# Print the last lines of a container's logs and following its logs
+docker logs --tail 100 <container_id> -f
+
+$ image_id: docker images --- --headers 1 --column 3
+$ container_id: docker ps --- --headers 1 --column 1
