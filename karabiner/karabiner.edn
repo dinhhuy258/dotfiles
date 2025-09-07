@@ -21,6 +21,17 @@
     ]}
 
     {:des "Navigation" :rules [
+      ;; Move tabs to left/right 
+      [:f21 :!TSpage_up :chrome]
+      [:f22 :!TSpage_down :chrome]
+
+      [:f21 :!TSpage_up :firefox]
+      [:f22 :!TSpage_down :firefox]
+
+      [:f21 [:!Tf :z] :alacritty]
+      [:f22 [:!Tf :b] :alacritty]
+
+      ;; Switch tabs to left/right
       [:f23 :!CSopen_bracket :chrome]
       [:f24 :!CSclose_bracket :chrome]
 
