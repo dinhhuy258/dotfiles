@@ -22,7 +22,7 @@ M.setup = function()
     provider = "copilot",
     providers = {
       copilot = {
-        model = "claude-sonnet-4",
+        model = "claude-sonnet-4.5",
       },
     },
     behaviour = {
