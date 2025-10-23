@@ -173,11 +173,6 @@ local function _load_plugins(opts)
         require("plugins.mason").setup()
       end,
     },
-    -- typescript lsp
-    {
-      "pmizio/typescript-tools.nvim",
-      opts = {},
-    },
     -- lsp signature
     {
       "ray-x/lsp_signature.nvim",

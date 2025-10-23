@@ -44,6 +44,7 @@ end
 function M.setup_servers()
   local servers = {
     "clangd",
+    "ts_ls",
     "jsonls",
     "lua_ls",
     "phpactor",
