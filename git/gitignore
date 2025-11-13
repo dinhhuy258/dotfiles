@@ -12,5 +12,8 @@
 .claude
 CLAUDE.md
 
+# Codex
+AGENTS.md
+
 # ENV
 .env
