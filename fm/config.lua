@@ -44,7 +44,6 @@ fm.general.explorer_table.focus_ui = {
   prefix = "▸[",
   suffix = "]",
   style = {
-    fg = "blue",
     decorations = {
       "bold",
     },
