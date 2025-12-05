@@ -21,6 +21,11 @@ git commit --amend --no-edit --date "$(date -v -1d -R)"
 # Rebase interactive
 git rebase -i <branch>
 
+# Revert file to match origin branch (master/develop)
+git checkout <origin_branch> -- <file>
+
 $ default_user_name: echo 'Huy Duong'
 $ default_user_email: echo 'huy.duongdinh@gmail.com'
 $ branch: git branch --- --fzf-overrides '--no-select-1'
+$ origin_branch: echo -e "origin/master\norigin/main\norigin/develop" | fzf --prompt="Select origin branch: "
+$ file: find . -type f -not -path '*/\.git/*' | sed 's|^\./||' | fzf --prompt="Select file to revert: "
