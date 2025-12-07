@@ -62,6 +62,7 @@ M.setup = function()
 
   -- Keybindings
   keymaps.set("n", "<Leader>ff", ":Files<CR>", { noremap = true, silent = true })
+  keymaps.set("n", "<Leader>fb", ":Buffers<CR>", { noremap = true, silent = true })
   keymaps.set("n", "<Leader>fg", ":GFiles?<CR>", { noremap = true, silent = true })
   keymaps.set("n", "<Leader>fc", git_branches, { noremap = true, silent = true })
   keymaps.set("n", "<Leader>fh", ":History:<CR>", { noremap = true, silent = true })
