@@ -77,8 +77,8 @@ M.setup = function()
     },
   }
 
-  -- Keep only treesitter keybinding (everything else moved to fzf.vim)
   keymaps.set("n", "<Leader>ft", ":lua require('telescope.builtin').treesitter()<CR>", { noremap = true })
+  keymaps.set("n", "<Leader>fb", ":lua require('telescope.builtin').buffers()<CR>", { noremap = true, silent = true })
 end
 
 return M
