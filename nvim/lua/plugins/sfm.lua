@@ -14,26 +14,6 @@ M.setup = function()
         selection = "*",
       },
     },
-    mappings = {
-      list = {
-        {
-          key = "<C-v>",
-          action = nil,
-        },
-        {
-          key = "<C-h>",
-          action = nil,
-        },
-        {
-          key = "V",
-          action = "vsplit",
-        },
-        {
-          key = "H",
-          action = "split",
-        },
-      },
-    },
     file_nesting = {
       enabled = true,
       expand = true,
@@ -127,7 +107,11 @@ M.setup = function()
   sfm_explorer:load_extension "sfm-filter"
   sfm_explorer:load_extension "sfm-git"
   sfm_explorer:load_extension "sfm-telescope"
-  sfm_explorer:load_extension "sfm-paste"
+  sfm_explorer:load_extension("sfm-paste", {
+    mappings = {
+      paste = { "p" },
+    },
+  })
 
   sfm_explorer:subscribe(event.EntryDeleted, function(payload)
     local path = payload["path"]
