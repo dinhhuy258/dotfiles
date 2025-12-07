@@ -90,25 +90,24 @@ local function _load_plugins(opts)
     { "kyazdani42/nvim-web-devicons" },
     -- gitsigns, telescope... depend on this library
     { "nvim-lua/plenary.nvim" },
-    -- fzf
-    {
-      "ibhagwan/fzf-lua",
-      dependencies = {
-        "vijaymarupudi/nvim-fzf",
-      },
-      config = function()
-        require("plugins.fzf-lua").setup()
-      end,
-    },
-    -- telescope
+    -- telescope (for task picker, LSP, treesitter, and ui-select)
     {
       "nvim-telescope/telescope.nvim",
       dependencies = {
         "nvim-telescope/telescope-ui-select.nvim",
-        "nvim-telescope/telescope-live-grep-args.nvim",
       },
       config = function()
         require("plugins.telescope").setup()
+      end,
+    },
+    -- fzf.vim
+    {
+      "junegunn/fzf.vim",
+      dependencies = {
+        { "junegunn/fzf", dir = "/opt/homebrew/opt/fzf" },
+      },
+      config = function()
+        require("plugins.fzf-vim").setup()
       end,
     },
     -- show git diff in the sign column

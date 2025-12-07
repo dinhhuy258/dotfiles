@@ -3,41 +3,6 @@ local icons = require "icons"
 
 local M = {}
 
-local action_state = require "telescope.actions.state"
-local helpers = require "telescope-live-grep-args.helpers"
-
-local function quote_prompt(opts)
-  opts = opts or {}
-  opts = vim.tbl_extend("force", {
-    quote_char = '"',
-    postfix = " ",
-    trim = true,
-  }, opts)
-
-  return function(prompt_bufnr)
-    local picker = action_state.get_current_picker(prompt_bufnr)
-    local prompt = picker:_get_prompt()
-    if opts.trim then
-      prompt = vim.trim(prompt)
-    end
-
-    if prompt == nil or prompt == "" then
-      return
-    end
-
-    if prompt:sub(1, 1) ~= "\"" then
-      prompt = helpers.quote(prompt, { quote_char = opts.quote_char })
-    end
-
-    local postfix = vim.trim(opts.postfix)
-    if prompt ~= nil and prompt ~= "" and prompt:sub(-#postfix) ~= postfix then
-      prompt = prompt .. opts.postfix
-    end
-
-    picker:set_prompt(prompt)
-  end
-end
-
 M.setup = function()
   local status_ok, telescope = pcall(require, "telescope")
   if not status_ok then
@@ -46,6 +11,7 @@ M.setup = function()
 
   local actions = require "telescope.actions"
 
+  -- Load extensions (minimal set)
   telescope.load_extension "ui-select"
   telescope.load_extension "sfm-telescope"
 
@@ -93,46 +59,26 @@ M.setup = function()
       },
     },
     pickers = {
-      live_grep = {
-        only_sort_text = true,
+      -- Minimal picker configurations
+      lsp_references = {
+        show_line = false,
       },
-      find_files = {
-        hidden = false,
-        find_command = { "fd", "--type", "f", "--follow" },
+      lsp_definitions = {
+        show_line = false,
+      },
+      lsp_implementations = {
+        show_line = false,
       },
     },
     extensions = {
-      ["ui-select"] = {},
-      live_grep_args = {
-        auto_quoting = true,
-        mappings = {
-          i = {
-            ["<C-k>"] = quote_prompt(),
-            ["<C-i>"] = quote_prompt { postfix = " --iglob " },
-          },
-        },
-        vimgrep_arguments = {
-          "rg",
-          "--color=never",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-          "--smart-case",
-          "--hidden",
-          "--glob=!.git/",
-        },
+      ["ui-select"] = {
+        -- Use telescope for vim.ui.select
       },
     },
   }
 
-  keymaps.set("n", "<Leader>fg", ":lua require('telescope.builtin').git_status()<CR>", { noremap = true })
-  keymaps.set("n", "<Leader>fc", ":lua require('telescope.builtin').git_branches()<CR>", { noremap = true })
-  keymaps.set("n", "<Leader>fb", ":lua require('telescope.builtin').buffers()<CR>", { noremap = true })
+  -- Keep only treesitter keybinding (everything else moved to fzf.vim)
   keymaps.set("n", "<Leader>ft", ":lua require('telescope.builtin').treesitter()<CR>", { noremap = true })
-  keymaps.set("n", "<Leader>fh", ":lua require('telescope.builtin').command_history()<CR>", { noremap = true })
-  keymaps.set("n", "<Leader>f.", ":lua require('telescope.builtin').resume()<CR>", { noremap = true })
-  keymaps.set("n", "<leader>fr", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 end
 
 return M
