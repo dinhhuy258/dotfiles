@@ -6,7 +6,7 @@ local function _load_plugins(opts)
     -- colorscheme
     {
       "folke/tokyonight.nvim",
-      lazy = false,    -- make sure to load this during startup
+      lazy = false, -- make sure to load this during startup
       priority = 1000, -- make sure to load this before all the other start plugins
     },
     -- intellij as language server
@@ -109,6 +109,15 @@ local function _load_plugins(opts)
       },
       config = function()
         require("plugins.telescope").setup()
+      end,
+    },
+    -- easy pickup
+    {
+      "axkirillov/easypick.nvim",
+      requires = "nvim-telescope/telescope.nvim",
+      event = "VeryLazy",
+      config = function()
+        require("plugins.easypick").setup()
       end,
     },
     -- show git diff in the sign column

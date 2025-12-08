@@ -127,7 +127,6 @@ M.setup = function()
   }
 
   keymaps.set("n", "<Leader>fg", ":lua require('telescope.builtin').git_status()<CR>", { noremap = true })
-  keymaps.set("n", "<Leader>fc", ":lua require('telescope.builtin').git_branches()<CR>", { noremap = true })
   keymaps.set("n", "<Leader>fb", ":lua require('telescope.builtin').buffers()<CR>", { noremap = true })
   keymaps.set("n", "<Leader>ft", ":lua require('telescope.builtin').treesitter()<CR>", { noremap = true })
   keymaps.set("n", "<Leader>fh", ":lua require('telescope.builtin').command_history()<CR>", { noremap = true })
