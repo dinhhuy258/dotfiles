@@ -203,6 +203,9 @@ install_dotfiles() {
   link_file "$DOTFILES/ai/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
   link_file "$DOTFILES/ai/commands/gemini/commit.toml" "$HOME/.gemini/commands/commit.toml"
   link_file "$DOTFILES/ai/commands/gemini/review.toml" "$HOME/.gemini/commands/review.toml"
+
+  # docker
+  link_file "$DOTFILES/docker/config.json" "$HOME/.docker/config.json"
 }
 
 create_cmds_file() {
@@ -228,5 +231,6 @@ success 'All installed!'
 
 # brew services start borders
 # brew services start sketchybar
+# brew services start colima
 # go install github.com/dinhhuy258/fm@latest
 # curl -L https://github.com/rvaiya/warpd/releases/download/v1.3.5/warpd-1.3.5-osx.tar.gz |  sudo tar xzvfC - / && launchctl load /Library/LaunchAgents/com.warpd.warpd.plist
