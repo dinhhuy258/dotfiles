@@ -132,7 +132,7 @@ function M.setup()
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "markdown",
     callback = function()
-      vim.api.nvim_create_user_command("PicsurUpload", function()
+      vim.api.nvim_create_user_command("UploadImage", function()
         M.paste_image()
       end, {
         bang = true,
