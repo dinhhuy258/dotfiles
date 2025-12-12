@@ -386,10 +386,9 @@ local function _load_plugins(opts)
       "MeanderingProgrammer/render-markdown.nvim",
       ft = {
         "markdown",
-        "Avante",
       },
       opts = {
-        file_types = { "markdown", "Avante" },
+        file_types = { "markdown" },
       },
     },
     {
@@ -417,32 +416,6 @@ local function _load_plugins(opts)
       config = function()
         require("plugins.copilot").setup()
       end,
-    },
-    {
-      "ravitemer/mcphub.nvim",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-      },
-      build = "npm install -g mcp-hub@latest",
-      config = function()
-        require("mcphub").setup {
-          config = vim.fn.expand "~/.config/mcphub/mcp.json",
-          auto_approve = true,
-        }
-      end,
-    },
-    {
-      "yetone/avante.nvim",
-      build = "make",
-      event = "VeryLazy",
-      version = false, -- Never set this value to "*"! Never!
-      config = function()
-        require("plugins.avante").setup()
-      end,
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "MunifTanjim/nui.nvim",
-      },
     },
   }, opts)
 end
