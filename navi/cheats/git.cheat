@@ -15,6 +15,9 @@ git config user.email "<default_user_email>"
 # Get git current tag
 g describe --tags --abbrev=0 | tee /dev/tty | pbcopy
 
+# Get git current branch
+g branch --show-current | tee /dev/tty | pbcopy
+
 # Hard reset the current branch with origin
 git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)
 
