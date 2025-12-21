@@ -37,10 +37,6 @@ function M.setup(bufnr)
     vim.lsp.buf.hover { border = "rounded" }
   end, opts)
 
-  keymaps.set("n", "<C-k>", function()
-    vim.lsp.buf.signature_help { border = "rounded" }
-  end, opts)
-
   -- Inlay hints toggle
   keymaps.set("n", "<Leader>hh", function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = bufnr }, { bufnr = bufnr })
