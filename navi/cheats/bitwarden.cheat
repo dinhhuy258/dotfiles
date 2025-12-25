@@ -3,6 +3,9 @@
 # Create a session environment variable
 export BW_SESSION="$(bw unlock --raw)"
 
+# Login
+bw login
+
 # Sync the vault
 bw sync
 
