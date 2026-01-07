@@ -198,6 +198,10 @@ install_dotfiles() {
   # warpd
   link_file "$DOTFILES/warpd/config" "$HOME/.config/warpd/config"
 
+  # snipaste
+  mkdir -p "$HOME/.snipaste"
+  link_file "$DOTFILES/snipaste/config.ini" "$HOME/.snipaste/config.ini"
+
   # AI
   link_file "$DOTFILES/ai/mcp.json" "$HOME/.config/mcphub/mcp.json"
   link_file "$DOTFILES/ai/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
