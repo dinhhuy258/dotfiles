@@ -30,7 +30,20 @@ function M.setup(bufnr)
     }
   end, opts)
 
-  keymaps.set("n", "gno", "<CMD>lua vim.diagnostic.open_float({ border = 'rounded' })<CR>", opts)
+  keymaps.set("n", "gno", function()
+    vim.diagnostic.open_float({ border = "rounded", focusable = true, focus = true })
+  end, opts)
+
+  keymaps.set("n", "gny", function()
+    local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
+    if #diagnostics > 0 then
+      local message = diagnostics[1].message
+      vim.fn.setreg("+", message)
+      vim.notify("Diagnostic copied to clipboard", vim.log.levels.INFO)
+    else
+      vim.notify("No diagnostic on current line", vim.log.levels.WARN)
+    end
+  end, opts)
 
   -- Hover and signature help with rounded borders
   keymaps.set("n", "K", function()
