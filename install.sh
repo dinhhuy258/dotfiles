@@ -202,6 +202,9 @@ install_dotfiles() {
   mkdir -p "$HOME/.snipaste"
   link_file "$DOTFILES/snipaste/config.ini" "$HOME/.snipaste/config.ini"
 
+  # MCP
+  link_file "$DOTFILES/ai/mcp.json" "$HOME/.mcp.json"
+
   # Claude Code
   mkdir -p "$HOME/.claude/hooks"
   link_file "$DOTFILES/ai/claude/settings.json" "$HOME/.claude/settings.json"
