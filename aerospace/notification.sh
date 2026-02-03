@@ -1,3 +1,3 @@
 #!/bin/bash
 
-osascript -e "display notification \"$1\" with title \"AeroSpace\""
+terminal-notifier -message "$1" -title "AeroSpace" -sound default
