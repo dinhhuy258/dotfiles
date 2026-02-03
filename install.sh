@@ -208,9 +208,6 @@ install_dotfiles() {
   link_file "$DOTFILES/ai/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
   link_file "$DOTFILES/ai/hooks/claude/notification-desktop.ts" "$HOME/.claude/hooks/notification-desktop.ts"
 
-  # MCP Hub
-  link_file "$DOTFILES/ai/mcp.json" "$HOME/.config/mcphub/mcp.json"
-
   # Gemini
   link_file "$DOTFILES/ai/commands/gemini/commit.toml" "$HOME/.gemini/commands/commit.toml"
   link_file "$DOTFILES/ai/commands/gemini/review.toml" "$HOME/.gemini/commands/review.toml"
