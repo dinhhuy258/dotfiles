@@ -1,4 +1,12 @@
 {
+  "alwaysThinkingEnabled": false,
+  "permissions": {
+    "allow": []
+    "deny": [
+      "Bash(rm -rf:*)",
+      "Bash(rm -fr:*)"
+    ],
+  },
   "hooks": {
     "Notification": [
       {
