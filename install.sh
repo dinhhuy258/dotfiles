@@ -202,9 +202,16 @@ install_dotfiles() {
   mkdir -p "$HOME/.snipaste"
   link_file "$DOTFILES/snipaste/config.ini" "$HOME/.snipaste/config.ini"
 
-  # AI
+  # Claude Code
+  mkdir -p "$HOME/.claude/hooks"
+  link_file "$DOTFILES/ai/claude/settings.json" "$HOME/.claude/settings.json"
+  link_file "$DOTFILES/ai/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+  link_file "$DOTFILES/ai/hooks/claude/notification-desktop.ts" "$HOME/.claude/hooks/notification-desktop.ts"
+
+  # MCP Hub
   link_file "$DOTFILES/ai/mcp.json" "$HOME/.config/mcphub/mcp.json"
-  link_file "$DOTFILES/ai/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+
+  # Gemini
   link_file "$DOTFILES/ai/commands/gemini/commit.toml" "$HOME/.gemini/commands/commit.toml"
   link_file "$DOTFILES/ai/commands/gemini/review.toml" "$HOME/.gemini/commands/review.toml"
 
