@@ -1,8 +1,10 @@
 {
-  "alwaysThinkingEnabled": false,
   "permissions": {
     "allow": [],
-    "deny": ["Bash(rm -rf:*)", "Bash(rm -fr:*)"]
+    "deny": [
+      "Bash(rm -rf:*)",
+      "Bash(rm -fr:*)"
+    ]
   },
   "hooks": {
     "Notification": [
@@ -17,5 +19,7 @@
         ]
       }
     ]
-  }
+  },
+  "alwaysThinkingEnabled": false,
+  "promptSuggestionEnabled": false
 }
