@@ -1,16 +1,38 @@
 # Available MCPs for Development
 
-**Sequential Thinking**
+## Sequential Thinking
 
-- Analyze feature requests and break them into clear, executable steps.
-- Plan code improvements, refactoring, and architectural decisions systematically.
-- Debug issues using structured, step-by-step strategies.
-- Plan test coverage and test improvements thoroughly.
-- Evaluate task completion and identify next steps effectively.
+**Purpose**: Multi-step reasoning engine for complex analysis and systematic problem solving
 
-**Context7**
+### Triggers
 
-Use context7 to access always up-to-date, version-specific documentation and code examples directly from the source — ensuring accurate, reliable answers without hallucinated or outdated APIs.
+- Complex debugging scenarios with multiple layers
+- Architectural analysis and system design questions
+- Problems requiring hypothesis testing and validation
+- Multi-component failure investigation
+- Performance bottleneck identification requiring methodical approach
 
-- `context7:resolve-library-id` - Resolves a general library name 
-- `context7:query-docs` - Retrieves documentation for a library
+### Choose When
+
+- **Over native reasoning**: When problems have 3+ interconnected components
+- **For systematic analysis**: Root cause analysis, architecture review, security assessment
+- **When structure matters**: Problems benefit from decomposition and evidence gathering
+- **For cross-domain issues**: Problems spanning frontend, backend, database, infrastructure
+- **Not for simple tasks**: Basic explanations, single-file changes, straightforward fixes
+
+## Context7
+
+**Purpose**: Official library documentation lookup and framework pattern guidance
+
+### Triggers
+
+- Library-specific questions about APIs or best practices
+- Need for official documentation patterns vs generic solutions
+- Version-specific implementation requirements
+
+### Choose When
+
+- **Over WebSearch**: When you need curated, version-specific documentation
+- **Over native knowledge**: When implementation must follow official patterns
+- **For libraries**: Correct API usage, authentication flows, configuration
+- **For compliance**: When adherence to official standards is mandatory
