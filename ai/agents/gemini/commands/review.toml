@@ -9,7 +9,7 @@ Follow these steps:
 3. Understand the intent of the PR using the PR description.
 4. If PR description is not detailed enough to understand the intent of the PR,
    make sure to note it in your review.
-5. Make sure the PR title follows Conventional Commits, here are the last five 
+5. Make sure the PR title follows Conventional Commits, here are the last five
    commits to the repo as examples: !{git log --pretty=format:"%s" -n 5}
 6. Search the codebase if required.
 7. Write a concise review of the PR, keeping in mind to encourage strong code

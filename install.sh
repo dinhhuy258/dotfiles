@@ -202,18 +202,16 @@ install_dotfiles() {
   mkdir -p "$HOME/.snipaste"
   link_file "$DOTFILES/snipaste/config.ini" "$HOME/.snipaste/config.ini"
 
-  # MCP
-  link_file "$DOTFILES/ai/mcp.json" "$HOME/.mcp.json"
-
   # Claude Code
   mkdir -p "$HOME/.claude/hooks"
-  link_file "$DOTFILES/ai/claude/settings.json" "$HOME/.claude/settings.json"
-  link_file "$DOTFILES/ai/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
-  link_file "$DOTFILES/ai/hooks/claude/notification-desktop.ts" "$HOME/.claude/hooks/notification-desktop.ts"
+  link_file "$DOTFILES/ai/agents/claude/settings.json" "$HOME/.claude/settings.json"
+  link_file "$DOTFILES/ai/agents/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+  link_file "$DOTFILES/ai/agents/claude/hooks/notification-desktop.ts" "$HOME/.claude/hooks/notification-desktop.ts"
 
   # Gemini
-  link_file "$DOTFILES/ai/commands/gemini/commit.toml" "$HOME/.gemini/commands/commit.toml"
-  link_file "$DOTFILES/ai/commands/gemini/review.toml" "$HOME/.gemini/commands/review.toml"
+  mkdir -p "$HOME/.gemini/commands"
+  link_file "$DOTFILES/ai/agents/gemini/commands/commit.toml" "$HOME/.gemini/commands/commit.toml"
+  link_file "$DOTFILES/ai/agents/gemini/commands/review.toml" "$HOME/.gemini/commands/review.toml"
 
   # docker
   link_file "$DOTFILES/docker/config.json" "$HOME/.docker/config.json"
