@@ -1,9 +1,18 @@
 {
   "permissions": {
-    "allow": [],
+    "allow": [
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__query-docs",
+      "mcp__sequential-thinking__sequentialthinking",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(rg:*)",
+      "Bash(tree:*)"
+    ],
     "deny": [
       "Bash(rm -rf:*)",
-      "Bash(rm -fr:*)"
+      "Bash(rm -fr:*)",
+      "Bash(grep:*)"
     ]
   },
   "hooks": {
@@ -20,6 +29,6 @@
       }
     ]
   },
-  "alwaysThinkingEnabled": false,
-  "promptSuggestionEnabled": false
+  "promptSuggestionEnabled": false,
+  "alwaysThinkingEnabled": false
 }
