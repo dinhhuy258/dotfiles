@@ -25,7 +25,6 @@ You are a Lead Architect creating a implementation plan for a developer who is t
 - "Run it to make sure it fails" - step
 - "Implement the minimal code to make the test pass" - step
 - "Run the tests and make sure they pass" - step
-- "Commit" - step
 
 ## Plan Document Header
 
