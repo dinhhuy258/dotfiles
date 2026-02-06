@@ -38,6 +38,10 @@ Start by understanding the current project context, then ask questions one at a 
 **Documentation:**
 - Write the validated design to `docs/plans/YYYY-MM-DD-<topic>-design.md`
 
+**Implementation (if continuing):**
+- Ask: "Ready to set up for implementation?"
+- Use writing-plans to create detailed implementation plan
+
 ## Key Principles
 
 - **One question at a time** - Don't overwhelm with multiple questions
