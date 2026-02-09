@@ -16,7 +16,6 @@
       "Bash(find:*)"
     ]
   },
-  "model": "sonnet",
   "hooks": {
     "Notification": [
       {
@@ -31,6 +30,6 @@
       }
     ]
   },
-  "promptSuggestionEnabled": false,
-  "alwaysThinkingEnabled": false
+  "alwaysThinkingEnabled": false,
+  "promptSuggestionEnabled": false
 }
