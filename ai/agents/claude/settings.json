@@ -16,6 +16,7 @@
       "Bash(find:*)"
     ]
   },
+  "model": "sonnet",
   "hooks": {
     "Notification": [
       {
