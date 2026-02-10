@@ -11,9 +11,7 @@
     ],
     "deny": [
       "Bash(rm -rf:*)",
-      "Bash(rm -fr:*)",
-      "Bash(grep:*)",
-      "Bash(find:*)"
+      "Bash(rm -fr:*)"
     ]
   },
   "hooks": {
