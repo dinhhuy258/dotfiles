@@ -215,6 +215,7 @@ install_dotfiles() {
   link_file "$DOTFILES/ai/agents/claude/skills/executing-plans" "$HOME/.claude/skills/executing-plans"
   link_file "$DOTFILES/ai/agents/claude/skills/sequential-thinking" "$HOME/.claude/skills/sequential-thinking"
   link_file "$DOTFILES/ai/agents/claude/skills/documentation-research" "$HOME/.claude/skills/documentation-research"
+  link_file "$DOTFILES/ai/agents/claude/skills/gh-address-comments" "$HOME/.claude/skills/gh-address-comments"
 
   # Gemini
   mkdir -p "$HOME/.gemini/commands"
