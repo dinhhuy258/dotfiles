@@ -207,7 +207,6 @@ install_dotfiles() {
   link_file "$DOTFILES/ai/agents/claude/settings.json" "$HOME/.claude/settings.json"
   link_file "$DOTFILES/ai/agents/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
   link_file "$DOTFILES/ai/agents/claude/statusline.sh" "$HOME/.claude/statusline.sh"
-  link_file "$DOTFILES/ai/agents/claude/hooks/notification-desktop.ts" "$HOME/.claude/hooks/notification-desktop.ts"
   link_file "$DOTFILES/ai/agents/claude/rules/guidelines.md" "$HOME/.claude/rules/guidelines.md"
   link_file "$DOTFILES/ai/agents/claude/rules/commands.md" "$HOME/.claude/rules/commands.md"
   link_file "$DOTFILES/ai/agents/claude/commands/learn.md" "$HOME/.claude/commands/learn.md"
@@ -253,3 +252,4 @@ success 'All installed!'
 # brew services start colima
 # go install github.com/dinhhuy258/fm@latest
 # curl -L https://github.com/rvaiya/warpd/releases/download/v1.3.5/warpd-1.3.5-osx.tar.gz |  sudo tar xzvfC - / && launchctl load /Library/LaunchAgents/com.warpd.warpd.plist
+# curl -fsSL https://raw.githubusercontent.com/tonyyont/peon-ping/main/install.sh | bash
