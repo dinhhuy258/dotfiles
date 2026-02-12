@@ -251,5 +251,5 @@ success 'All installed!'
 # brew services start sketchybar
 # brew services start colima
 # go install github.com/dinhhuy258/fm@latest
-# curl -L https://github.com/rvaiya/warpd/releases/download/v1.3.5/warpd-1.3.5-osx.tar.gz |  sudo tar xzvfC - / && launchctl load /Library/LaunchAgents/com.warpd.warpd.plist
+# Build and install https://github.com/dinhhuy258/warpd/
 # curl -fsSL https://raw.githubusercontent.com/tonyyont/peon-ping/main/install.sh | bash
