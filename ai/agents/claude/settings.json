@@ -7,7 +7,9 @@
       "Bash(gh pr view:*)",
       "Bash(gh pr diff:*)",
       "Bash(rg:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)"
     ],
     "deny": [
       "Bash(rm -rf:*)",
@@ -28,6 +30,9 @@
       }
     ]
   },
-  "alwaysThinkingEnabled": false,
-  "promptSuggestionEnabled": false
+  "promptSuggestionEnabled": false,
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  }
 }
