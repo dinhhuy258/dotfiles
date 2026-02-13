@@ -40,7 +40,7 @@ RIGHT_LEN=$((BAR_WIDTH + 1 + ${#RIGHT_SUFFIX}))
 TERM_WIDTH=$(stty size </dev/tty 2>/dev/null | awk '{print $2}')
 [ -z "$TERM_WIDTH" ] && TERM_WIDTH=$(tput cols 2>/dev/null)
 [ -z "$TERM_WIDTH" ] && TERM_WIDTH=120
-PAD=$((TERM_WIDTH - ${#LEFT_PLAIN} - RIGHT_LEN - 4))
+PAD=$((TERM_WIDTH - ${#LEFT_PLAIN} - RIGHT_LEN - 5))
 [ "$PAD" -lt 1 ] && PAD=1
 
 PADDING=$(printf "%${PAD}s" "")
