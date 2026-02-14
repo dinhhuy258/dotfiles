@@ -56,19 +56,13 @@ if [ -n "${SOUND_FILE:-}" ] && [ -f "$SOUND_FILE" ]; then
   afplay -v 1.0 "$SOUND_FILE" >/dev/null 2>&1 &
 fi
 
-# Desktop notification via osascript — only when terminal is NOT focused
+# Desktop notification
 if [ -n "${NOTIFY_MSG:-}" ]; then
-  FRONTMOST=$(osascript -e 'tell application "System Events" to get name of first process whose frontmost is true' 2>/dev/null | tr '[:upper:]' '[:lower:]')
-  case "$FRONTMOST" in
-    alacritty) ;;
-    *)
-      if command -v terminal-notifier &>/dev/null; then
-        terminal-notifier -title "Claude Code" -message "$NOTIFY_MSG" -group "claude-code" >/dev/null 2>&1 &
-      else
-        osascript -e "display notification \"$NOTIFY_MSG\" with title \"Claude Code\"" >/dev/null 2>&1 &
-      fi
-      ;;
-  esac
+  if command -v terminal-notifier &>/dev/null; then
+    terminal-notifier -title "Claude Code" -message "$NOTIFY_MSG" -group "claude-code" >/dev/null 2>&1 &
+  else
+    osascript -e "display notification \"$NOTIFY_MSG\" with title \"Claude Code\"" >/dev/null 2>&1 &
+  fi
 fi
 
 exit 0
