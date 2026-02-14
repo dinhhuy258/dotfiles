@@ -203,7 +203,7 @@ install_dotfiles() {
   link_file "$DOTFILES/snipaste/config.ini" "$HOME/.snipaste/config.ini"
 
   # Claude Code
-  mkdir -p "$HOME/.claude/hooks" "$HOME/.claude/rules" "$HOME/.claude/commands" "$HOME/.claude/skills"
+  mkdir -p "$HOME/.claude/hooks" "$HOME/.claude/rules" "$HOME/.claude/commands" "$HOME/.claude/skills" "$HOME/.claude/agents"
   link_file "$DOTFILES/ai/agents/claude/settings.json" "$HOME/.claude/settings.json"
   link_file "$DOTFILES/ai/agents/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
   link_file "$DOTFILES/ai/agents/claude/statusline.sh" "$HOME/.claude/statusline.sh"
@@ -216,6 +216,7 @@ install_dotfiles() {
   link_file "$DOTFILES/ai/agents/claude/skills/sequential-thinking" "$HOME/.claude/skills/sequential-thinking"
   link_file "$DOTFILES/ai/agents/claude/skills/documentation-research" "$HOME/.claude/skills/documentation-research"
   link_file "$DOTFILES/ai/agents/claude/skills/gh-address-comments" "$HOME/.claude/skills/gh-address-comments"
+  link_file "$DOTFILES/ai/agents/claude/agents/plan-executor.md" "$HOME/.claude/agents/plan-executor.md"
 
   # Gemini
   mkdir -p "$HOME/.gemini/commands"

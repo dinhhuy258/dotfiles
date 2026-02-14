@@ -1,7 +1,7 @@
 ---
 name: writing-plans
 description: Turn a design document from brainstorming into a concrete implementation plan. Read-only — no code changes.
-allowed-tools: Read, Write(docs/plans/*), Grep, Glob, Bash(git:*, tree:*, wc:*), AskUserQuestion, TaskCreate, TaskUpdate, TaskList
+allowed-tools: Read, Write(docs/plans/*), Grep, Glob, Bash(git:*, tree:*, wc:*), AskUserQuestion, Task, TaskCreate, TaskUpdate, TaskList
 ---
 
 # Writing Plans
@@ -77,6 +77,12 @@ Expected: PASS
 ```
 
 Adapt the step format to the task — not every task follows the TDD cycle. For non-test tasks, use whatever structure makes the steps clear. But always provide complete code.
+
+## Handoff to Execution
+
+After saving the plan, ask the user: *"Ready to execute the plan?"*
+
+If yes, launch the `plan-executor` agent with the path to the saved plan file.
 
 ## Remember
 
