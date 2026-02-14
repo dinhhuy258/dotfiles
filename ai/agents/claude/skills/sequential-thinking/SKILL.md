@@ -1,6 +1,6 @@
 ---
 name: sequential-thinking
-description: Structured reasoning methodology for breaking down multi-step problems, debugging complex issues, and making architectural decisions
+description: Step-by-step reasoning for complex problems where jumping to conclusions causes mistakes
 user-invocable: false
 ---
 

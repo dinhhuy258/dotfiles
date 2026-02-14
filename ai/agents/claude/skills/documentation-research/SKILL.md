@@ -1,6 +1,7 @@
 ---
 name: documentation-research
 description: Official library and framework documentation lookup for version-specific APIs, best practices, and authoritative implementation patterns
+allowed-tools: mcp__context7__resolve-library-id, mcp__context7__query-docs
 ---
 
 # Documentation Research
