@@ -9,7 +9,8 @@
       "Bash(rg:*)",
       "Bash(tree:*)",
       "Bash(ls:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Skill(writing-plans)"
     ],
     "deny": [
       "Bash(rm -rf:*)",
