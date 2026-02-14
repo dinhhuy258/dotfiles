@@ -23,31 +23,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/peon-ping/peon.sh",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/peon-ping/peon.sh",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/peon-ping/peon.sh",
+            "command": "~/.claude/hooks/claude-notify.sh",
             "timeout": 10
           }
         ]
@@ -59,7 +35,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/peon-ping/peon.sh",
+            "command": "~/.claude/hooks/claude-notify.sh",
             "timeout": 10
           }
         ]
@@ -71,16 +47,16 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/peon-ping/peon.sh",
+            "command": "~/.claude/hooks/claude-notify.sh",
             "timeout": 10
           }
         ]
       }
     ]
   },
-  "promptSuggestionEnabled": false,
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
-  }
+  },
+  "promptSuggestionEnabled": false
 }

@@ -204,6 +204,8 @@ install_dotfiles() {
 
   # Claude Code
   mkdir -p "$HOME/.claude/hooks" "$HOME/.claude/rules" "$HOME/.claude/commands" "$HOME/.claude/skills" "$HOME/.claude/agents"
+  link_file "$DOTFILES/ai/agents/claude/hooks/claude-notify.sh" "$HOME/.claude/hooks/claude-notify.sh"
+  link_file "$DOTFILES/ai/agents/claude/hooks/sounds" "$HOME/.claude/hooks/sounds"
   link_file "$DOTFILES/ai/agents/claude/settings.json" "$HOME/.claude/settings.json"
   link_file "$DOTFILES/ai/agents/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
   link_file "$DOTFILES/ai/agents/claude/statusline.sh" "$HOME/.claude/statusline.sh"
@@ -253,4 +255,3 @@ success 'All installed!'
 # brew services start colima
 # go install github.com/dinhhuy258/fm@latest
 # Build and install https://github.com/dinhhuy258/warpd/
-# curl -fsSL https://raw.githubusercontent.com/tonyyont/peon-ping/main/install.sh | bash
