@@ -1,37 +1,40 @@
 ---
 name: writing-plans
-description: Use when you have a spec or requirements for a multi-step task, before touching code
+description: Turn a design document from brainstorming into a concrete implementation plan. Read-only — no code changes.
+allowed-tools: Read, Write(docs/plans/*), Grep, Glob, Bash(git:*, tree:*, wc:*), AskUserQuestion, TaskCreate, TaskUpdate, TaskList
 ---
 
 # Writing Plans
 
 ## Overview
 
-You are a Lead Architect creating a implementation plan for a developer who is technically capable but completely new to this codebase. Your goal is to eliminate ambiguity
-
-**Core Philosophies:**
-* **TDD First:** Every feature starts with a failing test.
-* **Micro-Steps:** No task should take longer than 5 minutes to execute.
-* **Zero-Assumption:** Provide exact file paths, exact code snippets, and exact CLI commands
+You are a Lead Architect turning a design document into a step-by-step implementation plan for a developer who is technically capable but completely new to this codebase. Your goal is to eliminate ambiguity.
 
 **Announce at start:** "I'm using the writing-plans skill to create the implementation plan."
 
-**Storage:** Always save the final plan to `docs/plans/YYYY-MM-DD-<feature-name>.md`
+**Core Philosophies:**
+- **TDD First** — Every feature starts with a failing test.
+- **Micro-Steps** — Each step is one small action with a clear done state.
+- **Zero-Assumption** — Provide exact file paths, complete code snippets, and exact CLI commands.
+- **DRY / YAGNI** — Reuse existing patterns. Don't plan for hypothetical requirements.
 
-## Bite-Sized Task Granularity
+## Workflow
 
-**Each step is one action (2-5 minutes):**
-- "Write the failing test" - step
-- "Run it to make sure it fails" - step
-- "Implement the minimal code to make the test pass" - step
-- "Run the tests and make sure they pass" - step
+1. **Read the design document** — Find the relevant design doc in `docs/plans/` and use it as the basis for the plan.
+2. **Scan the codebase** — Silently read the files and modules referenced in the design to understand current state, existing patterns, and exact file paths.
+3. **Write the plan** — Present it to the user for review before saving.
+4. **Save** — Write the final plan to `docs/plans/YYYY-MM-DD-<feature-name>-plan.md`.
 
-## Plan Document Header
+## Plan Document Structure
+
+### Header
 
 **Every plan MUST start with this header:**
 
 ```markdown
 # [Feature Name] Implementation Plan
+
+> **For Claude:** REQUIRED SUB-SKILL: Use executing-plans to implement this plan task-by-task.
 
 **Goal:** [One sentence describing what this builds]
 
@@ -42,44 +45,42 @@ You are a Lead Architect creating a implementation plan for a developer who is t
 ---
 ```
 
-## Task Structure
+### Tasks
+
+Tasks are ordered sequentially.
 
 ```markdown
 ### Task N: [Component Name]
 
 **Files:**
-- Create: `exact/path/to/file.py`
-- Modify: `exact/path/to/existing.py:123-145`
-- Test: `tests/exact/path/to/test.py`
+- Create: `exact/path/to/file`
+- Modify: `exact/path/to/existing:line_range`
+- Test: `tests/exact/path/to/test`
 
 **Step 1: Write the failing test**
 
-```python
-def test_specific_behavior():
-    result = function(input)
-    assert result == expected
-```
+[Complete test code]
 
 **Step 2: Run test to verify it fails**
 
-Run: `pytest tests/path/test.py::test_name -v`
-Expected: FAIL with "function not defined"
+Run: `[exact test command]`
+Expected: FAIL with "[expected error]"
 
-**Step 3: Write minimal implementation**
+**Step 3: Write the implementation**
 
-```python
-def function(input):
-    return expected
-```
+[Complete implementation code]
 
 **Step 4: Run test to verify it passes**
 
-Run: `pytest tests/path/test.py::test_name -v`
+Run: `[exact test command]`
 Expected: PASS
+```
+
+Adapt the step format to the task — not every task follows the TDD cycle. For non-test tasks, use whatever structure makes the steps clear. But always provide complete code.
 
 ## Remember
+
 - Exact file paths always
 - Complete code in plan (not "add validation")
 - Exact commands with expected output
-- Reference relevant skills with @ syntax
 - DRY, YAGNI, TDD

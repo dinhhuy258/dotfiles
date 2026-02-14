@@ -3,7 +3,7 @@ name: brainstorming
 description: Collaborative brainstorming for architecture decisions, feature design, or any problem with multiple viable approaches. Read-only — no code changes.
 user-invocable: true
 disable-model-invocation: true
-allowed-tools: Read, Write(docs/plans/*), Grep, Glob, Bash(git log:*, git diff:*, git show:*, git branch:*, tree:*, wc:*, find:*), AskUserQuestion, WebSearch, mcp__context7__resolve-library-id, mcp__context7__query-docs, TaskCreate, TaskUpdate, TaskList
+allowed-tools: Read, Write(docs/plans/*), Grep, Glob, Bash(git:*, tree:*, wc:*), AskUserQuestion, WebSearch, mcp__context7__resolve-library-id, mcp__context7__query-docs, TaskCreate, TaskUpdate, TaskList
 ---
 
 # Brainstorm
