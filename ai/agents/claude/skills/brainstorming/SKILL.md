@@ -106,9 +106,9 @@ When the design is validated:
 2. **Bridge to implementation:**
    Ask: *"Ready to move to implementation?"*
    - If a `writing-plans` skill is available, use it to generate a detailed implementation plan.
-   - Otherwise, use `TaskCreate` to build a concrete implementation task list, ordered by dependency.
+   - Otherwise, create a concrete implementation task list, ordered by dependency.
 
 ## Research
 
-- Use **WebSearch** for general research: evaluating approaches, checking API designs, or comparing established patterns.
+- Use **WebSearch** for general research: evaluating approaches, exploring best practices, or comparing established patterns.
 - Use **Context7** for library-specific documentation: version-specific APIs, configuration options, or implementation examples.
