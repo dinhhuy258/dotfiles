@@ -1,52 +1,114 @@
 ---
 name: brainstorming
-description: "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation."
+description: Collaborative brainstorming for architecture decisions, feature design, or any problem with multiple viable approaches. Read-only — no code changes.
+user-invocable: true
+disable-model-invocation: true
+allowed-tools: Read, Write(docs/plans/*), Grep, Glob, Bash(git log:*, git diff:*, git show:*, git branch:*, tree:*, wc:*, find:*), AskUserQuestion, WebSearch, mcp__context7__resolve-library-id, mcp__context7__query-docs, TaskCreate, TaskUpdate, TaskList
 ---
 
-# Brainstorming Ideas Into Designs
+# Brainstorm
 
-## Overview
+Help turn ideas into fully formed designs through natural collaborative dialogue.
 
-Help turn ideas into fully formed designs and specs through natural collaborative dialogue.
+## Core Principles
 
-Start by understanding the current project context, then ask questions one at a time to refine the idea. Once you understand what you're building, present the design in small sections (200-300 words), checking after each section whether it looks right so far.
+**Design philosophy:**
+- **YAGNI** — Push back on speculative features. If there's no concrete need today, leave it out.
+- **KISS** — Bias toward the simplest solution that works. Challenge unnecessary complexity.
+- **DRY** — Reuse existing patterns and modules in the codebase before proposing new ones.
 
-## The Process
+**Conversation style:**
+- **One question at a time** — Never ask multiple questions in a single message.
+- **Multiple choice when possible** — Always include an "Other" escape hatch so the user can freely share their own ideas.
+- **Explore before committing** — Always present 2–3 approaches before settling on one.
+- **Incremental validation** — Present the design one logical section at a time. Get a thumbs-up before moving on.
+- **Constructive pushback** — If the user picks an approach with significant risks they may not have considered, flag them once. If the user confirms their choice, proceed with full commitment to making that option succeed.
 
-**Understanding the idea:**
-- Identify the target codebase location for modifications or the integration flow for new features first
-- If you are unsure where to modify or how the flow works, ask for clarification immediately
-- Ask questions one at a time to refine the idea
-- Prefer multiple choice questions with an "Other" option when possible, but open-ended is fine too
-- Only one question per message - if a topic needs more exploration, break it into multiple questions
-- Focus on understanding: purpose, constraints, success criteria
+**Boundary:**
+- **No code changes** — This is a design-only session. If the user requests code changes, remind them and offer to switch to an implementation workflow.
 
-**Exploring approaches:**
-- Propose 2-3 different approaches with trade-offs
-- Present options conversationally with your recommendation and reasoning
-- Lead with your recommended option and explain why
+## Workflow
 
-**Presenting the design:**
-- Once you believe you understand what you're building, present the design
-- Break it into sections of 200-300 words
-- Ask after each section whether it looks right so far
-- Cover: architecture, components, data flow, error handling, testing
-- Be ready to go back and clarify if something doesn't make sense
+### Phase 1: Context & Discovery
 
-## After the Design
+**Step A — Read the codebase first:**
 
-**Documentation:**
-- Write the validated design to `docs/plans/YYYY-MM-DD-<topic>-design.md`
+Tell the user *"Let me explore the relevant parts of the codebase first."* then do the following silently (don't narrate each file read):
 
-**Implementation (if continuing):**
-- Ask: "Ready to set up for implementation?"
-- Use writing-plans to create detailed implementation plan
+1. **Quick scan** — Use Glob/Grep/Read to understand the relevant area: project structure, key modules, existing patterns (sync vs async, DB layer, error handling, auth).
+2. **Existing designs** — Check for existing design documents, ADRs, or past plans in `docs/plans/` or similar locations to avoid re-treading covered ground.
+3. **Locate the target** — Identify where the change belongs. If the location or integration flow is unclear, this becomes your **first question** to the user.
 
-## Key Principles
+**Step B — Scope the problem:**
 
-- **One question at a time** - Don't overwhelm with multiple questions
-- **Multiple choice preferred** - Easier to answer than open-ended when possible
-- **YAGNI ruthlessly** - Remove unnecessary features from all designs
-- **Explore alternatives** - Always propose 2-3 approaches before settling
-- **Incremental validation** - Present design in sections, validate each
-- **Be flexible** - Go back and clarify when something doesn't make sense
+If the topic is too broad to design in a single session, propose breaking it into scoped sub-problems and pick one to start with.
+
+**Step C — Then ask questions to fill the gaps:**
+
+Ask questions **one at a time** to deeply understand the **purpose**, **constraints**, and **success criteria**.
+
+Keep going until you can clearly articulate: **what** we're building, **why** it matters, and **where** it fits in the existing system.
+
+### Phase 2: Propose Options & Trade-offs
+
+Present 2–3 viable approaches. **Lead with your recommendation and why.**
+
+For each option, use this format:
+
+```markdown
+## Option X: [Name] (Recommended — if applicable)
+**Approach**: [Brief description]
+**When to choose**: [One-liner on what makes this the right pick]
+
+**Pros**:
+- [Advantage 1]
+- [Advantage 2]
+
+**Cons**:
+- [Disadvantage 1]
+- [Disadvantage 2]
+
+**Effort**: [Low/Medium/High]
+**Risk**: [Low/Medium/High]
+**Fits existing patterns**: [Yes/Partially/No]
+```
+
+After listing all options, include a **quick comparison table** to make trade-offs visible at a glance:
+
+```markdown
+| Criteria      | Option A [Name] | Option B [Name] | Option C [] |
+| ------------- | --------------- | --------------- | ----------- |
+| Effort        | Low             | Medium          | High        |
+| Risk          | Medium          | Low             | Low         |
+| Fits patterns | Yes             | Partially       | No          |
+```
+
+Wait for the user to pick one before moving to Phase 3.
+
+### Phase 3: Iterative Design
+
+For the chosen approach, present the design **one section at a time**. Wait for validation after each before continuing.
+
+Pick the sections that are relevant to the problem — not every design needs all of them:
+
+- **Logic flow & architecture** — How data/control flows through the system. Include a simple diagram if it helps (mermaid or ASCII).
+- **Component & file changes** — What gets created, modified, or removed. Be specific about file paths.
+- **Edge cases, error handling & security** — What can go wrong. How we handle it.
+- **Testing strategy** — What to test and at which level (unit, integration, e2e).
+
+## Handoff
+
+When the design is validated:
+
+1. **Save the design:**
+   Write the final design to `docs/plans/YYYY-MM-DD-<topic>-design.md` (e.g., `2026-02-14-auth-redesign-design.md`). Create the `docs/plans/` directory if it doesn't exist.
+
+2. **Bridge to implementation:**
+   Ask: *"Ready to move to implementation?"*
+   - If a `writing-plans` skill is available, use it to generate a detailed implementation plan.
+   - Otherwise, use `TaskCreate` to build a concrete implementation task list, ordered by dependency.
+
+## Research
+
+- Use **WebSearch** for general research: evaluating approaches, checking API designs, or comparing established patterns.
+- Use **Context7** for library-specific documentation: version-specific APIs, configuration options, or implementation examples.
