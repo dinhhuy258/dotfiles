@@ -61,6 +61,7 @@ General best practices applicable to all languages and frameworks. This guide is
   - **Misleading names**: Variable/function names that don't match behavior (e.g., `isValid` that also mutates state)
   - **Ambiguous abbreviations**: Names like `tmp`, `val`, `mgr`, `proc` that obscure meaning
   - **Boolean naming**: Boolean variables/parameters without `is`/`has`/`should` prefix, or double negatives (`!isNotEmpty`)
+  - **Missing units in names**: Numeric variables without unit suffix (e.g., `timeout` instead of `timeoutMs`, `size` instead of `sizeBytes`, `delay` instead of `delaySeconds`)
   - **Inconsistent conventions**: Mixing camelCase/snake_case, or different naming patterns for similar concepts
   - **Misleading comments**: Comments that describe what code *used to do* rather than what it *does now*
 - **Best practice**: Choose names that make comments unnecessary. Follow the project's existing conventions. A good name is the best documentation.
