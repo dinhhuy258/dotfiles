@@ -31,6 +31,25 @@ General best practices applicable to all languages and frameworks. This guide is
   - **String encoding**: Missing UTF-8 handling, locale-dependent comparisons, emoji/multi-byte issues
 - **Best practice**: Validate at system boundaries. Handle the empty/null case explicitly. Use safe access patterns (optional chaining, guard clauses).
 
+### Security
+
+- **What to check**: Code and queries are safe from injection, data leaks, and unintended bulk operations.
+- **Anti-patterns**:
+  - **SQL injection**: String concatenation or interpolation in raw SQL instead of parameterized queries/bind variables
+  - **Sensitive data exposure**: Storing passwords in plain text, logging full query results with PII, or including sensitive columns in default serialization
+  - **Unfiltered bulk operations**: `DELETE` or `UPDATE` without `WHERE` clause, or with a `WHERE` clause built from unsanitized user input
+- **Best practice**: Always use parameterized queries. Never store secrets in plain text. Allowlist serialized attributes explicitly. Audit logs for PII leakage.
+
+### Performance
+
+- **What to check**: Operations are bounded and don't degrade under load.
+- **Anti-patterns**:
+  - **Unbounded queries**: `SELECT` without `LIMIT` or pagination on tables that can grow large
+  - **SELECT ***: Fetching all columns when only a subset is needed, especially on wide or growing tables
+  - **Row-by-row operations in loops**: Inserting, updating, or deleting records one at a time in a loop instead of using bulk operations or chunking
+  - **Repeated queries**: Same query executed multiple times in a single request when it could be cached or batched
+- **Best practice**: Always paginate unbounded listings. Select only needed columns. Use bulk operations for multiple records and chunk large datasets.
+
 ### Concurrency & Race Conditions
 
 - **What to check**: Shared state is accessed safely in concurrent or async contexts.
@@ -39,7 +58,9 @@ General best practices applicable to all languages and frameworks. This guide is
   - **Shared mutable state**: Multiple threads/goroutines/coroutines modifying the same data without synchronization
   - **Race in async flows**: Multiple async operations modifying the same variable without coordination
   - **Deadlock risk**: Acquiring multiple locks in inconsistent order
-- **Best practice**: Prefer immutable data. Use atomic operations or transactions for shared state. Keep critical sections small.
+  - **Missing transactions**: Multi-step write operations that should be atomic but aren't wrapped in a transaction
+  - **Race conditions on writes**: Read-then-write patterns without optimistic locking or database-level constraints
+- **Best practice**: Prefer immutable data. Use atomic operations or transactions for shared state. Keep critical sections small. Wrap related writes in transactions.
 
 ### Code Organization
 
@@ -70,9 +91,12 @@ General best practices applicable to all languages and frameworks. This guide is
 
 | Anti-pattern | Severity | Signal |
 |-------------|----------|--------|
+| SQL injection via string interpolation | P0 | Security vulnerability |
 | Swallowed exceptions hiding failures | P1 | Silent bugs in production |
 | Check-then-act without atomicity | P1 | Race condition |
+| Missing transactions around multi-step writes | P1 | Data inconsistency |
 | Missing null/empty checks at boundaries | P2 | Runtime errors |
+| Unbounded queries without LIMIT | P2 | Memory/performance risk at scale |
 | Dead code / unused imports left behind | P2 | Maintainability debt |
 | Copy-paste duplication across files | P2 | Maintenance burden |
 | Magic numbers without named constants | P3 | Readability |
@@ -85,3 +109,5 @@ General best practices applicable to all languages and frameworks. This guide is
 - "Is there enough context to debug this error in production?"
 - "What's the valid range and maximum size for this input?"
 - "Can this code run concurrently? If so, is shared state protected?"
+- "Is user input reaching this query safely through parameterized bindings?"
+- "Is this operation wrapped in a transaction? What if it partially fails?"

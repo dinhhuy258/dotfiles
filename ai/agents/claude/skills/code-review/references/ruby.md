@@ -40,7 +40,8 @@ General Ruby review checklist covering exception handling, idiomatic patterns, m
   - **Long parameter lists**: Methods with more than 3 positional parameters instead of keyword arguments or parameter objects
   - **Unclear return values**: Methods that sometimes return a value and sometimes return `nil` without clear documentation
   - **Bang method misuse**: `!` methods that don't raise on failure, or non-bang methods that mutate state
-- **Best practice**: Default to `private`. Use keyword arguments for optional parameters. Methods should do one thing. Bang methods should raise on failure.
+  - **Mass assignment**: Accepting user input directly into create/update without `strong_parameters` allowlisting
+- **Best practice**: Default to `private`. Use keyword arguments for optional parameters. Methods should do one thing. Bang methods should raise on failure. Allowlist assignable attributes explicitly.
 
 ### Performance
 
@@ -56,7 +57,8 @@ General Ruby review checklist covering exception handling, idiomatic patterns, m
   - **Missing memoization**: Expensive computations or I/O repeated across calls when the result is deterministic (`@result ||= compute`)
   - **`include?` on large arrays**: Using `Array#include?` for membership checks on large collections instead of `Set`
   - **Loading entire collections**: Using `to_a` or `map` on large datasets when lazy enumeration or batching would work
-- **Best practice**: Use `<<` for string building. Prefer `Set` for membership checks. Memoize expensive calls. Use `Enumerable#lazy` for large chains.
+  - **Fat models**: Models with hundreds of lines mixing query scopes, business logic, and presentation concerns
+- **Best practice**: Use `<<` for string building. Prefer `Set` for membership checks. Memoize expensive calls. Use `Enumerable#lazy` for large chains. Extract query objects and presenters from fat models.
 
 ### Thread Safety & Concurrency
 
@@ -74,6 +76,40 @@ General Ruby review checklist covering exception handling, idiomatic patterns, m
 - **Rule**: Metaprogramming must be avoided entirely — `method_missing`, `define_method`, `eval`, `class_eval`, `instance_eval`, `send`, and monkey-patching are all prohibited. There are no acceptable use cases in application code. Always replace with explicit methods, delegation, or composition.
 - **Best practice**: Write explicit, boring code. If a pattern seems to need metaprogramming, redesign the approach instead.
 
+### ActiveRecord
+
+- **What to check**: ActiveRecord queries, associations, callbacks, and validations are correct and efficient.
+- **Anti-patterns**:
+  - **`where(...).first` instead of `find_by`**: `find_by` short-circuits; `where.first` does not
+  - **`.count > 0` / `.present?` on relations**: Use `.exists?` — avoids loading records
+  - **`.map(&:attr)` instead of `pluck`**: Loads full objects just to extract one column
+  - **`.all.each` on large tables**: Loads entire table into memory — use `find_each` or `in_batches`
+  - **Missing eager loading (N+1)**: Accessing associations in loops without `includes`, `preload`, or `eager_load`
+  - **`default_scope`**: Silently affects all queries including joins — use explicit scopes instead
+  - **Scopes returning `nil`**: Must return an `ActiveRecord::Relation` — return `all`/`none` instead
+  - **Raw SQL without parameterization**: `where("status = '#{value}'")` — SQL injection risk
+  - **Missing `dependent:` option**: `has_many`/`has_one` without `dependent:` leaves orphaned records
+  - **`dependent: :destroy` on large collections**: Loads and runs callbacks per record — use `:delete_all` when callbacks aren't needed
+  - **Missing `inverse_of`**: On associations with custom names or scopes — causes redundant queries and stale objects
+  - **`has_and_belongs_to_many` for complex joins**: Use `has_many :through` when the join table needs attributes
+  - **Side effects in `after_save`**: Runs inside the transaction — use `after_commit` for emails, jobs, and external calls
+  - **`validates_uniqueness_of` without DB unique index**: Race-condition-prone — always pair with a database constraint
+  - **Skippable validations for critical rules**: Can be bypassed with `save(validate: false)` — add DB-level constraints
+- **Best practice**: Use `find_by`, `exists?`, `pluck`, `find_each` for the right job. Always specify `dependent:`. Use `after_commit` for side effects. Mirror critical validations with DB constraints.
+
+### Migrations
+
+- **What to check**: Migrations are safe for zero-downtime deployments and reversible.
+- **Anti-patterns**:
+  - **Adding index without `algorithm: :concurrently`** (Postgres): Standard `add_index` locks the table — use `disable_ddl_transaction!` with `algorithm: :concurrently`
+  - **Renaming columns/tables in production**: Causes errors during deployment when old code references the old name — use a multi-step approach (add new, copy data, update code, remove old)
+  - **Non-reversible `change_column`**: Changing column types without an explicit `up`/`down` — ActiveRecord can't infer the reverse
+  - **Adding NOT NULL to existing column without backfill**: `change_column_null :table, :col, false` locks the table and fails if NULLs exist — backfill first, then add constraint
+  - **Data migration mixed with schema migration**: Running `Model.update_all(...)` in a migration that also changes schema — separate into two migrations
+  - **Missing index on foreign key**: Foreign key column without a supporting index, causing slow joins and cascading operations
+  - **Missing `reset_column_information`**: Modifying schema then querying the same model in one migration without calling `reset_column_information` — model uses cached (stale) schema
+- **Best practice**: Make migrations reversible. Separate schema and data migrations. Use concurrent index creation. Deploy in multiple steps for column renames/removals.
+
 ## Common Anti-patterns
 
 | Anti-pattern | Severity | Signal |
@@ -81,6 +117,12 @@ General Ruby review checklist covering exception handling, idiomatic patterns, m
 | Bare `retry` without limit | P1 | Infinite loop on persistent errors |
 | Any metaprogramming (`eval`, `method_missing`, `define_method`, `send`, monkey-patching) | P1 | Prohibited — use explicit code |
 | Mutable class/module state without synchronization | P1 | Thread safety in Puma/Sidekiq |
+| `default_scope` usage | P1 | Hidden query behavior, debugging nightmare |
+| Side effects in `after_save` instead of `after_commit` | P1 | Data inconsistency on rollback |
+| `validates_uniqueness_of` without DB unique index | P1 | Race condition on duplicates |
+| `.all.each` on large tables instead of `find_each` | P1 | Memory bloat, potential OOM |
+| Missing `dependent:` on has_many/has_one | P2 | Orphaned records |
+| `.map(&:attr)` instead of `pluck(:attr)` | P2 | Unnecessary object allocation |
 | String concatenation with `+=` in loops | P2 | O(n^2) memory allocation |
 | Missing `frozen_string_literal: true` | P3 | Unnecessary string allocations |
 | Explicit `return` in final expression | P3 | Non-idiomatic Ruby |
@@ -93,3 +135,7 @@ General Ruby review checklist covering exception handling, idiomatic patterns, m
 - "Could this be written with explicit methods instead of metaprogramming?"
 - "What happens when this operation fails? Is the error recoverable?"
 - "Is this code safe to run concurrently in Puma or Sidekiq?"
+- "Does this association have a `dependent:` option?"
+- "Is this `after_save` callback doing something that should wait for `after_commit`?"
+- "Will this migration lock the table?"
+- "Are associations eager loaded, or will this cause N+1 queries?"

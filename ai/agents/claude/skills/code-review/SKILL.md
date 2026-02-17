@@ -40,7 +40,6 @@ Scan the changed file names and diff content to determine which technologies are
 | Always | Common | `references/common.md` |
 | Changed files with `.jsx`, `.tsx` extensions | React | `references/react.md` |
 | Changed files with `.rb` extension | Ruby | `references/ruby.md` |
-| Changed files with `.sql` extension; OR file paths contain `migrations/`, `models/`; OR diff contains database/ORM patterns | Database | `references/database.md` |
 
 **Rules:**
 - Always load `references/common.md`.
