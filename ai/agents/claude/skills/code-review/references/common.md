@@ -45,7 +45,7 @@ General best practices applicable to all languages and frameworks. This guide is
 - **What to check**: Operations are bounded and don't degrade under load.
 - **Anti-patterns**:
   - **Unbounded queries**: `SELECT` without `LIMIT` or pagination on tables that can grow large
-  - **SELECT ***: Fetching all columns when only a subset is needed, especially on wide or growing tables
+  - **SELECT**: Fetching all columns when only a subset is needed, especially on wide or growing tables
   - **Row-by-row operations in loops**: Inserting, updating, or deleting records one at a time in a loop instead of using bulk operations or chunking
   - **Repeated queries**: Same query executed multiple times in a single request when it could be cached or batched
 - **Best practice**: Always paginate unbounded listings. Select only needed columns. Use bulk operations for multiple records and chunk large datasets.
@@ -85,7 +85,9 @@ General best practices applicable to all languages and frameworks. This guide is
   - **Missing units in names**: Numeric variables without unit suffix (e.g., `timeout` instead of `timeoutMs`, `size` instead of `sizeBytes`, `delay` instead of `delaySeconds`)
   - **Inconsistent conventions**: Mixing camelCase/snake_case, or different naming patterns for similar concepts
   - **Misleading comments**: Comments that describe what code *used to do* rather than what it *does now*
-- **Best practice**: Choose names that make comments unnecessary. Follow the project's existing conventions. A good name is the best documentation.
+  - **Missing comments on complex logic**: Non-obvious algorithms, business rules, or workarounds without a brief explanation of *why*
+  - **Undocumented options/hash parameters**: Functions accepting a hash or options object (e.g., `options = {}`) without documenting supported keys and their meaning
+- **Best practice**: Choose names that make comments unnecessary. Follow the project's existing conventions. A good name is the best documentation. Add comments for the *why*, not the *what*. Document supported keys for hash/options parameters.
 
 ## Common Anti-patterns
 
