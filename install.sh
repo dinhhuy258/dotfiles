@@ -213,6 +213,7 @@ install_dotfiles() {
   link_file "$DOTFILES/ai/agents/claude/rules/commands.md" "$HOME/.claude/rules/commands.md"
   link_file "$DOTFILES/ai/agents/claude/commands/learn.md" "$HOME/.claude/commands/learn.md"
   link_file "$DOTFILES/ai/agents/claude/skills/brainstorming" "$HOME/.claude/skills/brainstorming"
+  link_file "$DOTFILES/ai/agents/claude/skills/quick-plan" "$HOME/.claude/skills/quick-plan"
   link_file "$DOTFILES/ai/agents/claude/skills/writing-plans" "$HOME/.claude/skills/writing-plans"
   link_file "$DOTFILES/ai/agents/claude/skills/executing-plans" "$HOME/.claude/skills/executing-plans"
   link_file "$DOTFILES/ai/agents/claude/skills/sequential-thinking" "$HOME/.claude/skills/sequential-thinking"
