@@ -17,3 +17,9 @@ ifconfig \
 
 # Find public IP address
 dig +short myip.opendns.com @resolver1.opendns.com
+
+# Get current DNS servers for Wi-Fi
+networksetup -getdnsservers "Wi-Fi"
+
+# Set DNS to 1.1.1.1 for Wi-Fi
+sudo networksetup -setdnsservers "Wi-Fi" 1.1.1.1
