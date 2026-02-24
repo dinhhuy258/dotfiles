@@ -21,5 +21,7 @@ dig +short myip.opendns.com @resolver1.opendns.com
 # Get current DNS servers for Wi-Fi
 networksetup -getdnsservers "Wi-Fi"
 
-# Set DNS to 1.1.1.1 for Wi-Fi
-sudo networksetup -setdnsservers "Wi-Fi" 1.1.1.1
+# Set DNS for Wi-Fi (e.g., 1.1.1.1 or 192.168.0.1)
+sudo networksetup -setdnsservers "Wi-Fi" <dns>
+
+$ dns: printf "1.1.1.1\n192.168.0.1\n" --- --fzf-overrides '--no-select-1'
