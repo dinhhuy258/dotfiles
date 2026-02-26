@@ -203,22 +203,22 @@ install_dotfiles() {
   link_file "$DOTFILES/snipaste/config.ini" "$HOME/.snipaste/config.ini"
 
   # Claude Code
-  mkdir -p "$HOME/.claude/hooks" "$HOME/.claude/rules" "$HOME/.claude/commands" "$HOME/.claude/skills" "$HOME/.claude/agents"
-  link_file "$DOTFILES/ai/agents/claude/hooks/claude-notify.sh" "$HOME/.claude/hooks/claude-notify.sh"
-  link_file "$DOTFILES/ai/agents/claude/hooks/sounds" "$HOME/.claude/hooks/sounds"
+  mkdir -p "$HOME/.claude/hooks" "$HOME/.claude/rules" "$HOME/.claude/skills" "$HOME/.claude/agents"
   link_file "$DOTFILES/ai/agents/claude/settings.json" "$HOME/.claude/settings.json"
   link_file "$DOTFILES/ai/agents/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
   link_file "$DOTFILES/ai/agents/claude/statusline.sh" "$HOME/.claude/statusline.sh"
-  link_file "$DOTFILES/ai/agents/claude/rules/guidelines.md" "$HOME/.claude/rules/guidelines.md"
-  link_file "$DOTFILES/ai/agents/claude/rules/commands.md" "$HOME/.claude/rules/commands.md"
-  link_file "$DOTFILES/ai/agents/claude/skills/brainstorming" "$HOME/.claude/skills/brainstorming"
-  link_file "$DOTFILES/ai/agents/claude/skills/quick-plan" "$HOME/.claude/skills/quick-plan"
-  link_file "$DOTFILES/ai/agents/claude/skills/writing-plans" "$HOME/.claude/skills/writing-plans"
-  link_file "$DOTFILES/ai/agents/claude/skills/executing-plans" "$HOME/.claude/skills/executing-plans"
-  link_file "$DOTFILES/ai/agents/claude/skills/sequential-thinking" "$HOME/.claude/skills/sequential-thinking"
-  link_file "$DOTFILES/ai/agents/claude/skills/documentation-research" "$HOME/.claude/skills/documentation-research"
-  link_file "$DOTFILES/ai/agents/claude/skills/gh-address-comments" "$HOME/.claude/skills/gh-address-comments"
-  link_file "$DOTFILES/ai/agents/claude/agents/plan-executor.md" "$HOME/.claude/agents/plan-executor.md"
+  for entry in "$DOTFILES"/ai/agents/claude/hooks/*; do
+    link_file "$entry" "$HOME/.claude/hooks/$(basename "$entry")"
+  done
+  for entry in "$DOTFILES"/ai/agents/claude/rules/*; do
+    link_file "$entry" "$HOME/.claude/rules/$(basename "$entry")"
+  done
+  for entry in "$DOTFILES"/ai/agents/claude/skills/*/; do
+    link_file "$entry" "$HOME/.claude/skills/$(basename "$entry")"
+  done
+  for entry in "$DOTFILES"/ai/agents/claude/agents/*; do
+    link_file "$entry" "$HOME/.claude/agents/$(basename "$entry")"
+  done
 
   # Gemini
   mkdir -p "$HOME/.gemini/commands"
