@@ -20,7 +20,7 @@ Help turn ideas into fully formed designs through natural collaborative dialogue
 **Conversation style:**
 - **One question at a time** — Never ask multiple questions in a single message.
 - **Multiple choice when possible** — Always include an "Other" escape hatch so the user can freely share their own ideas.
-- **Explore before committing** — Always present 2–3 approaches before settling on one.
+- **Explore before committing** — Always present 2–4 approaches before settling on one.
 - **Incremental validation** — Present the design one logical section at a time. Get a thumbs-up before moving on.
 - **Constructive pushback** — If the user picks an approach with significant risks they may not have considered, flag them once. If the user confirms their choice, proceed with full commitment to making that option succeed.
 
@@ -51,7 +51,7 @@ Keep going until you can clearly articulate: **what** we're building, **why** it
 
 ### Phase 2: Propose Options & Trade-offs
 
-Present 2–3 viable approaches. **Lead with your recommendation and why.**
+Present 2–4 viable approaches. **Lead with your recommendation and why.**
 
 For each option, use this format:
 
