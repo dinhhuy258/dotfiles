@@ -16,6 +16,7 @@ Help turn ideas into fully formed designs through natural collaborative dialogue
 - **YAGNI** — Push back on speculative features. If there's no concrete need today, leave it out.
 - **KISS** — Bias toward the simplest solution that works. Challenge unnecessary complexity.
 - **DRY** — Reuse existing patterns and modules in the codebase before proposing new ones.
+- **Defensive Engineering** — Assume failures are possible. Right-size risk analysis to the feature’s complexity. Surface the most likely bottlenecks, silent failures, and edge cases for this domain.
 
 **Conversation style:**
 - **One question at a time** — Never ask multiple questions in a single message.
@@ -76,7 +77,7 @@ For each option, use this format:
 After listing all options, include a **quick comparison table** to make trade-offs visible at a glance:
 
 ```markdown
-| Criteria      | Option A [Name] | Option B [Name] | Option C [] |
+| Criteria      | Option A [Name] | Option B [Name] | Option C [Name] |
 | ------------- | --------------- | --------------- | ----------- |
 | Effort        | Low             | Medium          | High        |
 | Risk          | Medium          | Low             | Low         |
