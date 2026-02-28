@@ -4,7 +4,7 @@
 docker rmi <image_id>
 
 # Stop a running container through SIGTERM
-docker stop <container_id
+docker stop <container_id>
 
 # SSH into a running container
 docker exec -it <container_id> sh
