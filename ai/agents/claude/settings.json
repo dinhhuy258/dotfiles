@@ -59,5 +59,16 @@
     "type": "command",
     "command": "~/.claude/statusline.sh"
   },
+  "extraKnownMarketplaces": {
+    "knowledge-base-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "dinhhuy258/knowledge-base-mcp"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "knowledge-base-plugin@knowledge-base-marketplace": true
+  },
   "promptSuggestionEnabled": false
 }
