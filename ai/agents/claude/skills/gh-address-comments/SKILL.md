@@ -1,6 +1,7 @@
 ---
 name: gh-address-comments
 description: Help address review/issue comments on the open GitHub PR for the current branch using gh CLI
+disable-model-invocation: true
 ---
 
 # PR Comment Handler
