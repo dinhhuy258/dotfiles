@@ -17,6 +17,8 @@ AGENTS.md
 
 # AI docs
 docs/plans
+docs/documented
+docs/learned
 
 # ENV
 .env
