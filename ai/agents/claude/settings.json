@@ -61,14 +61,14 @@
   "spinnerVerbs": {
     "mode": "replace",
     "verbs": [
-      "What's a computer's favorite snack? Microchips.",
-      "Why do Java developers wear glasses? Because they don't C#.",
-      "Charging the laser… pew pew!",
-      "Dividing by zero… just kidding!",
-      "Trying to exit Vim.",
-      "Why don't programmers like nature? It has too many bugs.",
-      "Why did the developer go broke? Because they used up all their cache.",
-      "It's not a bug, it's a feature… of this loading screen."
+      "What's a computer's favorite snack? Microchips",
+      "Why do Java developers wear glasses? Because they don't C#",
+      "Charging the laser… pew pew",
+      "Dividing by zero… just kidding",
+      "Trying to exit Vim",
+      "Why don't programmers like nature? It has too many bugs",
+      "Why did the developer go broke? Because they used up all their cache",
+      "It's not a bug, it's a feature… of this loading screen"
     ]
   },
   "statusLine": {

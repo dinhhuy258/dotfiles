@@ -222,8 +222,9 @@ install_dotfiles() {
 
   # Gemini
   mkdir -p "$HOME/.gemini/commands"
-  link_file "$DOTFILES/ai/agents/gemini/commands/commit.toml" "$HOME/.gemini/commands/commit.toml"
-  link_file "$DOTFILES/ai/agents/gemini/commands/review.toml" "$HOME/.gemini/commands/review.toml"
+  for entry in "$DOTFILES"/ai/agents/gemini/commands/*; do
+    link_file "$entry" "$HOME/.gemini/commands/$(basename "$entry")"
+  done
 
   # docker
   link_file "$DOTFILES/docker/config.json" "$HOME/.docker/config.json"
