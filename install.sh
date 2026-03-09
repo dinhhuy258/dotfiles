@@ -219,6 +219,8 @@ install_dotfiles() {
   for entry in "$DOTFILES"/ai/agents/claude/agents/*; do
     link_file "$entry" "$HOME/.claude/agents/$(basename "$entry")"
   done
+  # External skills
+  # npx skills add https://github.com/obra/superpowers --skill systematic-debugging
 
   # Gemini
   mkdir -p "$HOME/.gemini/commands"

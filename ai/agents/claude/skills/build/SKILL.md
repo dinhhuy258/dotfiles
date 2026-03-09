@@ -1,9 +1,9 @@
 ---
-name: executing-plans
+name: build
 description: Use when you have a written implementation plan to execute in a separate session with review checkpoints
 ---
 
-# Executing Plans
+# Build
 
 ## Overview
 
@@ -11,7 +11,7 @@ Load plan, review critically, execute tasks in batches, report for review betwee
 
 **Core principle:** Batch execution with checkpoints for architect review.
 
-**Announce at start:** "I'm using the executing-plans skill to implement this plan."
+**Announce at start:** "I'm using the build skill to implement this plan."
 
 ## The Process
 

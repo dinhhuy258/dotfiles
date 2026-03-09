@@ -1,6 +1,6 @@
 ---
-name: quick-plan
-description: Lightweight design-and-implement skill for small-to-medium tasks. Collapses brainstorming + writing-plans + executing-plans into one session.
+name: quick-build
+description: Lightweight design-and-implement skill for small-to-medium tasks. Collapses brainstorm + plan + build into one session.
 user-invocable: true
 disable-model-invocation: true
 allowed-tools: Read, Edit, Write, Grep, Glob, Bash, AskUserQuestion, WebSearch, mcp__context7__resolve-library-id, mcp__context7__query-docs, mcp__sequential-thinking__sequentialthinking, TaskCreate, TaskUpdate, TaskList
@@ -10,7 +10,7 @@ allowed-tools: Read, Edit, Write, Grep, Glob, Bash, AskUserQuestion, WebSearch, 
 
 Design and implement small-to-medium tasks in a single session — no intermediate files, no skill handoffs.
 
-**Announce at start:** "I'm using the quick-plan skill to design and implement this task."
+**Announce at start:** "I'm using the quick-build skill to design and implement this task."
 
 ## Core Principles
 
@@ -41,7 +41,7 @@ Tell the user *"Let me explore the relevant parts of the codebase first."* then 
 
 **Step B — Scope the problem:**
 
-If the task is too broad or complex for a single session, suggest escalating to `/brainstorming` for the full design flow. Indicators of complexity:
+If the task is too broad or complex for a single session, suggest escalating to `/brainstorm` for the full design flow. Indicators of complexity:
 - Requires significant architectural decisions with long-term implications
 - Has unclear requirements that need extended discovery
 

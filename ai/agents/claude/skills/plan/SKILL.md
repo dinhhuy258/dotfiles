@@ -1,16 +1,16 @@
 ---
-name: writing-plans
-description: Turn a design document from brainstorming into a concrete implementation plan. Read-only — no code changes.
+name: plan
+description: Turn a design document from brainstorm into a concrete implementation plan. Read-only — no code changes.
 allowed-tools: Read, Write(docs/plans/*), Grep, Glob, Bash(git:*, tree:*, wc:*), AskUserQuestion, Task, TaskCreate, TaskUpdate, TaskList
 ---
 
-# Writing Plans
+# Plan
 
 ## Overview
 
 You are a Lead Architect turning a design document into a step-by-step implementation plan for a developer who is technically capable but completely new to this codebase. Your goal is to eliminate ambiguity.
 
-**Announce at start:** "I'm using the writing-plans skill to create the implementation plan."
+**Announce at start:** "I'm using the plan skill to create the implementation plan."
 
 **Core Philosophies:**
 - **TDD First** — Every feature starts with a failing test.
@@ -34,7 +34,7 @@ You are a Lead Architect turning a design document into a step-by-step implement
 ```markdown
 # [Feature Name] Implementation Plan
 
-> **For Claude:** REQUIRED SUB-SKILL: Use executing-plans to implement this plan task-by-task.
+> **For Claude:** REQUIRED SUB-SKILL: Use build to implement this plan task-by-task.
 
 **Goal:** [One sentence describing what this builds]
 
