@@ -222,6 +222,7 @@ install_dotfiles() {
   # External skills (requires npx/node)
   # npx skills add https://github.com/obra/superpowers --skill systematic-debugging
   # npx skills add https://github.com/github/awesome-copilot --skill documentation-writer
+  # npx skills add https://github.com/blader/humanizer --skill humanizer
 
   # Gemini
   mkdir -p "$HOME/.gemini/commands"
