@@ -58,6 +58,21 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "knowledge-base-plugin@knowledge-base-marketplace": true
+  },
+  "extraKnownMarketplaces": {
+    "knowledge-base-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "dinhhuy258/knowledge-base"
+      }
+    }
+  },
   "spinnerVerbs": {
     "mode": "replace",
     "verbs": [
@@ -70,21 +85,6 @@
       "Why did the developer go broke? Because they used up all their cache",
       "It's not a bug, it's a feature… of this loading screen"
     ]
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/statusline.sh"
-  },
-  "enabledPlugins": {
-    "knowledge-base-plugin@knowledge-base-marketplace": true
-  },
-  "extraKnownMarketplaces": {
-    "knowledge-base-marketplace": {
-      "source": {
-        "source": "github",
-        "repo": "dinhhuy258/knowledge-base-mcp"
-      }
-    }
   },
   "promptSuggestionEnabled": false
 }
