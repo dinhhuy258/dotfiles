@@ -20,7 +20,7 @@ Help turn ideas into fully formed designs through natural collaborative dialogue
 
 **Conversation style:**
 - **One question at a time** — Never ask multiple questions in a single message.
-- **Multiple choice when possible** — Always include an "Other" escape hatch so the user can freely share their own ideas.
+- **Multiple choice when possible** — Always include a recommended option (marked as such) and an "Other" escape hatch so the user can freely share their own ideas.
 - **Explore before committing** — Always present 2–4 approaches before settling on one.
 - **Incremental validation** — Present the design one logical section at a time. Get a thumbs-up before moving on.
 - **Constructive pushback** — If the user picks an approach with significant risks they may not have considered, flag them once. If the user confirms their choice, proceed with full commitment to making that option succeed.
@@ -105,9 +105,8 @@ When the design is validated:
    Write the final design to `docs/plans/YYYY-MM-DD-<topic>-design.md` (e.g., `2026-02-14-auth-redesign-design.md`). Create the `docs/plans/` directory if it doesn't exist.
 
 2. **Bridge to implementation:**
-   Ask: *"Ready to move to implementation?"*
-   - If a `plan` skill is available, use it to generate a detailed implementation plan.
-   - Otherwise, create a concrete implementation task list, ordered by dependency.
+   Ask: *"Ready to create a plan?"*
+   Use the `plan` skill to generate a detailed implementation plan.
 
 ## Research
 

@@ -22,7 +22,7 @@ Design and implement small-to-medium tasks in a single session — no intermedia
 
 **Conversation style:**
 - **One question at a time** — Never ask multiple questions in a single message.
-- **Multiple choice when possible** — Always include an "Other" escape hatch so the user can freely share their own ideas.
+- **Multiple choice when possible** — Always include a recommended option (marked as such) and an "Other" escape hatch so the user can freely share their own ideas.
 - **Explore before committing** — Always present 2–3 approaches before settling on one.
 - **Incremental validation** — Get user approval before moving between phases.
 - **Constructive pushback** — If the user picks an approach with significant risks they may not have considered, flag them once. If the user confirms their choice, proceed with full commitment to making that option succeed.
