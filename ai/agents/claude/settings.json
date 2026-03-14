@@ -7,6 +7,7 @@
       "mcp__context7__resolve-library-id",
       "mcp__context7__query-docs",
       "mcp__sequential-thinking__sequentialthinking",
+      "Bash(kb:*)",
       "Bash(gh pr view:*)",
       "Bash(gh pr diff:*)",
       "Bash(rg:*)",
