@@ -14,6 +14,7 @@ function fprj() {
   for dir in $WORKSPACE/*/; do
     local name=${dir%/}
     name=${name##*/}
+    projects+=("$name")
     if (( ${root_projects[(Ie)$name]} )); then
       for subdir in $dir*/; do
         if [[ -d "$subdir" ]]; then
@@ -22,8 +23,6 @@ function fprj() {
           projects+=("$name/$subname")
         fi
       done
-    else
-      projects+=("$name")
     fi
   done
 
