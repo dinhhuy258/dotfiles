@@ -1,11 +1,35 @@
 #!/bin/zsh
 
 # Open project under workspace folder
+# Set WORKSPACE_ROOT_PROJECTS to expand root projects (comma-separated)
+# e.g. export WORKSPACE_ROOT_PROJECTS="root_prj1,root_prj2"
 function fprj() {
-  cd $WORKSPACE; ls -d */ | __fzfp | {
-    cd -;
+  local projects=()
+  local root_projects=()
+
+  if [[ -n "$WORKSPACE_ROOT_PROJECTS" ]]; then
+    IFS=',' read -rA root_projects <<< "$WORKSPACE_ROOT_PROJECTS"
+  fi
+
+  for dir in $WORKSPACE/*/; do
+    local name=${dir%/}
+    name=${name##*/}
+    if (( ${root_projects[(Ie)$name]} )); then
+      for subdir in $dir*/; do
+        if [[ -d "$subdir" ]]; then
+          local subname=${subdir%/}
+          subname=${subname##*/}
+          projects+=("$name/$subname")
+        fi
+      done
+    else
+      projects+=("$name")
+    fi
+  done
+
+  printf '%s\n' "${projects[@]}" | __fzfp | {
     read result;
-    if [ ! -z "$result" ]; then
+    if [[ -n "$result" ]]; then
       cd $WORKSPACE/$result
     fi
   }
