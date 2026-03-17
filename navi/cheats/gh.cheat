@@ -1,0 +1,4 @@
+% gh
+
+# Approve a pull request
+gh pr review <pr_url> --approve --body "LGTM"
