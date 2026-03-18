@@ -43,6 +43,8 @@ require("config.colorschema").setup()
 require("config.keymaps").setup()
 require("config.commands").setup()
 
+require("config.local")
+
 -- load core
 require("core.tasks").setup()
 require("core.open").setup()
