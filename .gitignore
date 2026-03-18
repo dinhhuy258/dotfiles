@@ -1,6 +1,7 @@
 nvim/autoload
 nvim/plugged
 nvim/session
+nvim/lua/config/local.lua
 
 navi/*.log
 
