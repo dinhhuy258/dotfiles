@@ -9,15 +9,16 @@ gapr() {
   fi
 
   local pr_info
-  pr_info="$(gh pr view "$pr_url" --json title,state 2>/dev/null)"
+  pr_info="$(gh pr view "$pr_url" --json title,state,author 2>/dev/null)"
   if [[ $? -ne 0 || -z "$pr_info" ]]; then
     echo "Error: Failed to fetch PR details for $pr_url"
     return 1
   fi
 
-  local pr_title pr_state
+  local pr_title pr_state pr_author
   pr_title="$(echo "$pr_info" | jq -r '.title')"
   pr_state="$(echo "$pr_info" | jq -r '.state')"
+  pr_author="$(echo "$pr_info" | jq -r '.author.login')"
 
   if [[ "$pr_state" != "OPEN" ]]; then
     echo "Error: PR is $pr_state, cannot approve"
@@ -25,6 +26,7 @@ gapr() {
   fi
 
   echo "PR: $pr_title"
+  echo "Author: $pr_author"
   echo "URL: $pr_url"
   read -q "confirm?Approve this PR? [y/N] "
   echo
