@@ -26,7 +26,7 @@ gapr() {
 
   echo "PR: $pr_title"
   echo "URL: $pr_url"
-  read -q "Approve this PR? [y/N] "
+  read -q "confirm?Approve this PR? [y/N] "
   echo
 
   if [[ "$confirm" == "y" ]]; then

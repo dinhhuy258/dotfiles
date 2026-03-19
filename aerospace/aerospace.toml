@@ -157,6 +157,7 @@ automatically-unhide-macos-hidden-apps = false
     cmd-alt-ctrl-s = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "sgg"'''
     cmd-alt-ctrl-w = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "aow"'''
     cmd-alt-ctrl-a = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "vim ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/notes/index.norg"'''
+    cmd-alt-ctrl-g = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "gapr"'''
     cmd-alt-ctrl-q = '''exec-and-forget open -a AlacrittyPopup --args --config-file=$HOME/.config/alacritty-popup.yml -e zsh -ci "k9s"'''
 
 [mode.join.binding]
