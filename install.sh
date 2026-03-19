@@ -230,6 +230,10 @@ install_dotfiles() {
     link_file "$entry" "$HOME/.gemini/commands/$(basename "$entry")"
   done
 
+  # pr-monitor
+  mkdir -p "$HOME/.config/pr-monitor"
+  link_file "$DOTFILES/pr-monitor/config.yml" "$HOME/.config/pr-monitor/config.yml"
+
   # docker
   link_file "$DOTFILES/docker/config.json" "$HOME/.docker/config.json"
 }

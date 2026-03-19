@@ -20,5 +20,8 @@ docs/plans
 docs/documented
 docs/learned
 
+# PR Monitor
+.pr-monitor.yml
+
 # ENV
 .env
