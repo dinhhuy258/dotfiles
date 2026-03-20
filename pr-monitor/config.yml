@@ -2,3 +2,5 @@ interval: 60
 sound: ~/Workspace/dotfiles/pr-monitor/notification.wav
 fix_ci_prompt: "/gh-fix-ci PR #{pr_number}{repo}"
 address_comments_prompt: "/gh-address-comments PR #{pr_number}{repo}"
+ignore_users:
+  - sonarqubecloud
