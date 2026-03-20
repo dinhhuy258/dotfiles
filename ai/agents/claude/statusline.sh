@@ -15,14 +15,16 @@ RED='\033[38;2;247;118;142m'     # #f7768e
 MAGENTA='\033[38;2;187;154;247m' # #bb9af7
 RESET='\033[0m'
 
-# Bar color based on context usage
-if [ "$PCT" -ge 90 ]; then
-  BAR_COLOR="$RED"
-elif [ "$PCT" -ge 70 ]; then
-  BAR_COLOR="$YELLOW"
-else BAR_COLOR="$GREEN"; fi
+# Color based on percentage threshold
+pct_color() {
+  local pct=$1
+  if [ "$pct" -ge 90 ] 2>/dev/null; then echo "$RED"
+  elif [ "$pct" -ge 70 ] 2>/dev/null; then echo "$YELLOW"
+  else echo "$GREEN"; fi
+}
 
-# Build 20-char progress bar
+# Build 20-char progress bar for context
+BAR_COLOR=$(pct_color "$PCT")
 BAR_WIDTH=20
 FILLED=$((PCT * BAR_WIDTH / 100))
 EMPTY=$((BAR_WIDTH - FILLED))
@@ -32,4 +34,12 @@ BAR=""
 
 COST_FMT=$(printf '$%.4f' "$COST")
 
-echo -e "${DIR_NAME} ${CYAN}${MODEL}${RESET} ${BAR_COLOR}${BAR}${RESET} ${PCT}% ${MAGENTA}${COST_FMT}${RESET}"
+# Rate limits
+HOURLY_PCT=$(echo "$input" | jq -r 'if .rate_limits.five_hour.used_percentage != null then (.rate_limits.five_hour.used_percentage | ceil) else "" end')
+WEEKLY_PCT=$(echo "$input" | jq -r 'if .rate_limits.seven_day.used_percentage != null then (.rate_limits.seven_day.used_percentage | ceil) else "" end')
+
+RATE_DISPLAY=""
+[ -n "$HOURLY_PCT" ] && RATE_DISPLAY=" $(pct_color "$HOURLY_PCT")H:${HOURLY_PCT}%${RESET}"
+[ -n "$WEEKLY_PCT" ] && RATE_DISPLAY="${RATE_DISPLAY} $(pct_color "$WEEKLY_PCT")W:${WEEKLY_PCT}%${RESET}"
+
+echo -e "${DIR_NAME} ${CYAN}${MODEL}${RESET} ${BAR_COLOR}${BAR}${RESET} ${PCT}% ${MAGENTA}${COST_FMT}${RESET}${RATE_DISPLAY}"
