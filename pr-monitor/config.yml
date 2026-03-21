@@ -9,8 +9,10 @@ hooks:
   ci_failed:
     - command: "claude --worktree -- '/gh-fix-ci PR #{pr_number} in {repo}'"
       confirm: true
+      interactive: true
       confirm_message: "Fix with Claude?"
   comment:
     - command: "claude --worktree -- '/gh-address-comments PR #{pr_number} in {repo}'"
       confirm: true
+      interactive: true
       confirm_message: "Address with Claude?"
