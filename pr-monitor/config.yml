@@ -1,6 +1,14 @@
 interval: 60
+reminder_interval: 60
 sound: ~/Workspace/dotfiles/pr-monitor/notification.wav
-fix_ci_prompt: "/gh-fix-ci PR #{pr_number}{repo}"
-address_comments_prompt: "/gh-address-comments PR #{pr_number}{repo}"
 ignore_users:
   - sonarqubecloud
+hooks:
+  ci_failed:
+    - command: "claude --worktree -- '/gh-fix-ci PR #{pr_number} in {repo}'"
+      confirm: true
+      confirm_message: "Fix with Claude?"
+  comment:
+    - command: "claude --worktree -- '/gh-address-comments PR #{pr_number} in {repo}'"
+      confirm: true
+      confirm_message: "Address with Claude?"
