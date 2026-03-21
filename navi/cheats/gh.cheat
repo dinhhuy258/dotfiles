@@ -2,3 +2,6 @@
 
 # Approve a pull request
 gh pr review <pr_url> --approve --body "LGTM"
+
+# Monitor a pull request
+pr-monitor <pr_url>
