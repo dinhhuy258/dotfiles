@@ -1,6 +1,8 @@
 interval: 60
 reminder_interval: 60
-sound: ~/Workspace/dotfiles/pr-monitor/notification.wav
+sound:
+  default: ~/Workspace/dotfiles/pr-monitor/default.wav
+  ci_passed: ~/Workspace/dotfiles/pr-monitor/success.wav
 ignore_users:
   - sonarqubecloud
 hooks:
