@@ -2,7 +2,8 @@ interval: 60
 reminder_interval: 60
 sound:
   default: ~/Workspace/dotfiles/pr-monitor/default.wav
-  ci_passed: ~/Workspace/dotfiles/pr-monitor/success.wav
+  ready_to_merge: ~/Workspace/dotfiles/pr-monitor/success.wav
+  merged: ~/Workspace/dotfiles/pr-monitor/success.wav
 comments:
   ignore_users:
     - sonarqubecloud
