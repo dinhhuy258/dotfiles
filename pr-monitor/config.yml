@@ -3,8 +3,9 @@ reminder_interval: 60
 sound:
   default: ~/Workspace/dotfiles/pr-monitor/default.wav
   ci_passed: ~/Workspace/dotfiles/pr-monitor/success.wav
-ignore_users:
-  - sonarqubecloud
+comments:
+  ignore_users:
+    - sonarqubecloud
 hooks:
   ci_failed:
     - command: "claude --worktree -- '/gh-fix-ci PR #{pr_number} in {repo}'"
