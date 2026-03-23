@@ -6,7 +6,7 @@ sound:
   merged: ~/Workspace/dotfiles/pr-monitor/success.wav
 comments:
   ignore_users:
-    - sonarqubecloud
+    - sonarqubecloud[bot]
 hooks:
   ci_failed:
     - command: "claude --worktree -- '/gh-fix-ci PR #{pr_number} in {repo}'"
