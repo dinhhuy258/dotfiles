@@ -2,8 +2,7 @@
 # claude-notify.sh — Claude Code sound + notification hook
 set -uo pipefail
 
-HOOKS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SOUNDS_DIR="$HOOKS_DIR/sounds"
+SOUNDS_DIR="$HOME/Workspace/dotfiles/assets/sounds"
 
 INPUT=$(cat)
 
@@ -25,8 +24,8 @@ project = cwd.rsplit('/', 1)[-1] if cwd else 'claude'
 sounds_dir = os.environ.get('SOUNDS_DIR', '')
 
 sounds_map = {
-    'task.complete':    ['complete_1.mp3'],
-    'input.required':   ['permission_1.mp3', 'permission_2.mp3'],
+    'task.complete':    ['ff_victory_fanfare.mp3'],
+    'input.required':   ['ff_item_received'],
 }
 
 category = ''

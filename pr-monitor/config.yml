@@ -1,20 +1,38 @@
 interval: 60
-reminder_interval: 60
-sound:
-  default: ~/Workspace/dotfiles/pr-monitor/default.wav
-  ready_to_merge: ~/Workspace/dotfiles/pr-monitor/success.wav
-  merged: ~/Workspace/dotfiles/pr-monitor/success.wav
 comments:
   ignore_users:
     - sonarqubecloud[bot]
 hooks:
   ci_failed:
+    - notify: "[{repo}] CI failed on PR #{pr_number}"
+      sound: ~/Workspace/dotfiles/assets/sounds/lol_you_have_been_slain.wav
+      remind: 60
+      confirm: "[{repo}] CI failed. Press Enter to continue"
     - command: "claude --worktree -- '/gh-fix-ci PR #{pr_number} in {repo}'"
-      confirm: true
+      confirm: "Fix with Claude?"
       interactive: true
-      confirm_message: "Fix with Claude?"
+  ready_to_merge:
+    - notify: "[{repo}] PR #{pr_number} is ready to merge"
+      sound: ~/Workspace/dotfiles/assets/sounds/lol_victory.wav
   comment:
+    - notify: "[{repo}] New comment on PR #{pr_number}"
+      sound: ~/Workspace/dotfiles/assets/sounds/lol_you_have_been_slain.wav
+      remind: 60
+      confirm: "[{repo}] New comment. Press Enter to continue"
     - command: "claude --worktree -- '/gh-address-comments PR #{pr_number} in {repo}'"
-      confirm: true
+      confirm: "Address with Claude?"
       interactive: true
-      confirm_message: "Address with Claude?"
+  conflict:
+    - notify: "[{repo}] PR #{pr_number} has merge conflicts"
+      sound: ~/Workspace/dotfiles/assets/sounds/lol_you_have_been_slain.wav
+      remind: 60
+      confirm: "[{repo}] Merge conflict detected. Press Enter to continue"
+  merged:
+    - notify: "[{repo}] PR #{pr_number} merged"
+      sound: ~/Workspace/dotfiles/assets/sounds/lol_victory.wav
+  approved:
+    - notify: "[{repo}] @{reviewer} approved PR #{pr_number}"
+      sound: ~/Workspace/dotfiles/assets/sounds/lol_victory.wav
+  changes_requested:
+    - notify: "[{repo}] @{reviewer} requested changes on PR #{pr_number}"
+      sound: ~/Workspace/dotfiles/assets/sounds/lol_you_have_been_slain.wav
