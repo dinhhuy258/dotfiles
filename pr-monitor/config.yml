@@ -5,7 +5,8 @@ comments:
 hooks:
   ci_failed:
     - notify: "[{repo}] CI failed on PR #{pr_number}"
-      sound: ~/Workspace/dotfiles/assets/sounds/lol_you_have_been_slain.wav
+      sounds:
+        - ~/Workspace/sounds/lol_you_have_been_slain.wav
       remind: 60
       confirm: "[{repo}] CI failed. Press Enter to continue"
     - command: "claude --worktree -- '/gh-fix-ci PR #{pr_number} in {repo}'"
@@ -13,10 +14,12 @@ hooks:
       interactive: true
   ready_to_merge:
     - notify: "[{repo}] PR #{pr_number} is ready to merge"
-      sound: ~/Workspace/dotfiles/assets/sounds/lol_victory.wav
+      sounds:
+        - ~/Workspace/sounds/lol_victory.wav
   comment:
     - notify: "[{repo}] New comment on PR #{pr_number}"
-      sound: ~/Workspace/dotfiles/assets/sounds/lol_you_have_been_slain.wav
+      sounds:
+        - ~/Workspace/sounds/lol_you_have_been_slain.wav
       remind: 60
       confirm: "[{repo}] New comment. Press Enter to continue"
     - command: "claude --worktree -- '/gh-address-comments PR #{pr_number} in {repo}'"
@@ -24,15 +27,22 @@ hooks:
       interactive: true
   conflict:
     - notify: "[{repo}] PR #{pr_number} has merge conflicts"
-      sound: ~/Workspace/dotfiles/assets/sounds/lol_you_have_been_slain.wav
+      sounds:
+        - ~/Workspace/sounds/lol_you_have_been_slain.wav
       remind: 60
       confirm: "[{repo}] Merge conflict detected. Press Enter to continue"
   merged:
     - notify: "[{repo}] PR #{pr_number} merged"
-      sound: ~/Workspace/dotfiles/assets/sounds/lol_victory.wav
+      sounds:
+        - ~/Workspace/sounds/lol_victory.wav
   approved:
     - notify: "[{repo}] @{reviewer} approved PR #{pr_number}"
-      sound: ~/Workspace/dotfiles/assets/sounds/lol_victory.wav
+      sounds:
+        - ~/Workspace/sounds/lol_first_blood.wav
+        - ~/Workspace/sounds/lol_double_kill.wav
+        - ~/Workspace/sounds/lol_triple_kill.wav
+        - ~/Workspace/sounds/lol_penta_kill.wav
   changes_requested:
     - notify: "[{repo}] @{reviewer} requested changes on PR #{pr_number}"
-      sound: ~/Workspace/dotfiles/assets/sounds/lol_you_have_been_slain.wav
+      sounds:
+        - ~/Workspace/sounds/lol_you_have_been_slain.wav

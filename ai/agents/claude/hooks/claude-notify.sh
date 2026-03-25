@@ -2,7 +2,7 @@
 # claude-notify.sh — Claude Code sound + notification hook
 set -uo pipefail
 
-SOUNDS_DIR="$HOME/Workspace/dotfiles/assets/sounds"
+SOUNDS_DIR="$HOME/Workspace/sounds"
 
 INPUT=$(cat)
 
