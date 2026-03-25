@@ -44,3 +44,13 @@ hooks:
     - notify: "[{repo}] @{reviewer} requested changes on PR #{pr_number}"
       sounds:
         - ~/Workspace/sounds/lol_you_have_been_slain.wav
+keymaps:
+  o:
+    hint: "Open PR"
+    actions:
+      - command: "gh pr view {pr_number} --web --repo {repo}"
+  m:
+    hint: "Squash and merge"
+    actions:
+      - command: "gh pr merge {pr_number} --squash --repo {repo}"
+        confirm: "Squash and merge PR #{pr_number}?"
