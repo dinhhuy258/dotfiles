@@ -8,11 +8,10 @@
 .idea
 .vscode
 
-# Claude
+# AI
 .claude
+.agents
 CLAUDE.md
-
-# Codex
 AGENTS.md
 
 # AI docs
