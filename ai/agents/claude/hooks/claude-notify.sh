@@ -25,7 +25,7 @@ sounds_dir = os.environ.get('SOUNDS_DIR', '')
 
 sounds_map = {
     'task.complete':    ['ff_victory_fanfare.mp3'],
-    'input.required':   ['ff_item_received'],
+    'input.required':   ['ff_item_received.mp3'],
 }
 
 category = ''
