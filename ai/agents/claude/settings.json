@@ -87,5 +87,6 @@
       "It's not a bug, it's a feature… of this loading screen"
     ]
   },
-  "promptSuggestionEnabled": false
+  "promptSuggestionEnabled": false,
+  "skipDangerousModePermissionPrompt": true
 }
