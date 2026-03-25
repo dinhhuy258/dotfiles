@@ -4,12 +4,11 @@ comments:
     - sonarqubecloud[bot]
 hooks:
   ci_failed:
-    - notify: "[{repo}] CI failed on PR #{pr_number}"
+    - command: "claude --worktree -- '/gh-fix-ci PR #{pr_number} in {repo}'"
+      notify: "[{repo}] CI failed on PR #{pr_number}"
       sounds:
         - ~/Workspace/sounds/lol_you_have_been_slain.wav
       remind: 60
-      confirm: "[{repo}] CI failed. Press Enter to continue"
-    - command: "claude --worktree -- '/gh-fix-ci PR #{pr_number} in {repo}'"
       confirm: "Fix with Claude?"
       interactive: true
   ready_to_merge:
@@ -17,12 +16,11 @@ hooks:
       sounds:
         - ~/Workspace/sounds/lol_victory.wav
   comment:
-    - notify: "[{repo}] New comment on PR #{pr_number}"
+    - command: "claude --worktree -- '/gh-address-comments PR #{pr_number} in {repo}'"
+      notify: "[{repo}] New comment on PR #{pr_number}"
       sounds:
         - ~/Workspace/sounds/lol_you_have_been_slain.wav
       remind: 60
-      confirm: "[{repo}] New comment. Press Enter to continue"
-    - command: "claude --worktree -- '/gh-address-comments PR #{pr_number} in {repo}'"
       confirm: "Address with Claude?"
       interactive: true
   conflict:
