@@ -2,9 +2,13 @@ gapr() {
   local pr_url
   pr_url="$(pbpaste)"
 
-  if [[ ! "$pr_url" =~ ^https://github\.com/[^/]+/[^/]+/pull/[0-9]+$ ]]; then
+  if [[ "$pr_url" =~ ^(https://github\.com/[^/]+/[^/]+/pull/[0-9]+) ]]; then
+    pr_url="${match[1]}"
+  else
     echo "Error: Clipboard does not contain a valid GitHub PR URL"
     echo "Got: $pr_url"
+    read -sk1 "?Press any key to continue..."
+    echo
     return 1
   fi
 
@@ -12,6 +16,8 @@ gapr() {
   pr_info="$(gh pr view "$pr_url" --json title,state,author 2>/dev/null)"
   if [[ $? -ne 0 || -z "$pr_info" ]]; then
     echo "Error: Failed to fetch PR details for $pr_url"
+    read -sk1 "?Press any key to continue..."
+    echo
     return 1
   fi
 
@@ -22,6 +28,8 @@ gapr() {
 
   if [[ "$pr_state" != "OPEN" ]]; then
     echo "Error: PR is $pr_state, cannot approve"
+    read -sk1 "?Press any key to continue..."
+    echo
     return 1
   fi
 
