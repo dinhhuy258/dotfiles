@@ -24,7 +24,7 @@ project = cwd.rsplit('/', 1)[-1] if cwd else 'claude'
 sounds_dir = os.environ.get('SOUNDS_DIR', '')
 
 sounds_map = {
-    'task.complete':    ['ff_victory_fanfare.mp3'],
+    'task.complete':    ['ff_victory_fanfare.mp3', 'ff_barret_victory_fanfare.mp3'],
     'input.required':   ['ff_item_received.mp3'],
 }
 
