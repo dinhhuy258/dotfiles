@@ -2,3 +2,4 @@
 node = "latest"
 go = "latest"
 rust = "latest"
+python = "latest"
