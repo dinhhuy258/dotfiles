@@ -223,6 +223,8 @@ install_dotfiles() {
   # npx skills add https://github.com/obra/superpowers --skill systematic-debugging
   # npx skills add https://github.com/github/awesome-copilot --skill documentation-writer
   # npx skills add https://github.com/blader/humanizer --skill humanizer
+  # npx skills add datadog-labs/agent-skills --skill dd-pup --full-depth -g -y
+  # Requirement: https://github.com/datadog-labs/pup
 
   # Gemini
   mkdir -p "$HOME/.gemini/commands"
