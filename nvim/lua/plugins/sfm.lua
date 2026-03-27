@@ -24,6 +24,23 @@ M.setup = function()
           key = "<C-h>",
           action = nil,
         },
+        {
+          key = "yr",
+          action = function()
+            local entry = require("sfm.api").entry.current()
+            local relative_path = vim.fn.fnamemodify(entry.path, ":~:.")
+            vim.fn.setreg("+", relative_path)
+            vim.notify("Copied: " .. relative_path)
+          end,
+        },
+        {
+          key = "yf",
+          action = function()
+            local entry = require("sfm.api").entry.current()
+            vim.fn.setreg("+", entry.path)
+            vim.notify("Copied: " .. entry.path)
+          end,
+        },
       },
     },
     file_nesting = {
