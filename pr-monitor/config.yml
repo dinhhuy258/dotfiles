@@ -52,5 +52,5 @@ keymaps:
   m:
     hint: "Squash and merge"
     actions:
-      - command: "gh pr merge {pr_number} --squash --repo {repo}"
+      - command: "gh pr merge {pr_number} --squash --repo {repo} --body ''"
         confirm: "Squash and merge PR #{pr_number}?"
