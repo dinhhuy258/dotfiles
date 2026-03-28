@@ -20,7 +20,7 @@ Help turn ideas into fully formed designs through natural collaborative dialogue
 
 **Conversation style:**
 - **One question at a time** — Never ask multiple questions in a single message.
-- **Multiple choice when possible** — Always include a recommended option (marked as such) and an "Other" escape hatch so the user can freely share their own ideas.
+- **Multiple choice when possible** — Easier to answer than open-ended when possible
 - **Explore before committing** — Always present 2–4 approaches before settling on one.
 - **Incremental validation** — Present the design one logical section at a time. Get a thumbs-up before moving on.
 - **Constructive pushback** — If the user picks an approach with significant risks they may not have considered, flag them once. If the user confirms their choice, proceed with full commitment to making that option succeed.
@@ -37,8 +37,7 @@ Help turn ideas into fully formed designs through natural collaborative dialogue
 Tell the user *"Let me explore the relevant parts of the codebase first."* then do the following silently (don't narrate each file read):
 
 1. **Quick scan** — Use Glob/Grep/Read to understand the relevant area: project structure, key modules, existing patterns (sync vs async, DB layer, error handling, auth).
-2. **Existing designs** — Check for existing design documents, ADRs, or past plans in `docs/plans/` or similar locations to avoid re-treading covered ground.
-3. **Locate the target** — Identify where the change belongs. If the location or integration flow is unclear, this becomes your **first question** to the user.
+2. **Locate the target** — Identify where the change belongs. If the location or integration flow is unclear, this becomes your **first question** to the user.
 
 **Step B — Scope the problem:**
 
@@ -46,7 +45,7 @@ If the topic is too broad to design in a single session, propose breaking it int
 
 **Step C — Then ask questions to fill the gaps:**
 
-Ask questions **one at a time** to deeply understand the **purpose**, **constraints**, and **success criteria**.
+Use the **AskUserQuestion** tool to ask questions **one at a time** to deeply understand the **purpose**, **constraints**, and **success criteria**.
 
 Keep going until you can clearly articulate: **what** we're building, **why** it matters, and **where** it fits in the existing system.
 
