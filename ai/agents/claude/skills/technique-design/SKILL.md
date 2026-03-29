@@ -19,6 +19,7 @@ Write clear, comprehensive technical design documents that serve as the single s
 - **Defensive Engineering** — Surface failure modes, edge cases, and operational risks proportional to the feature's complexity.
 
 **Conversation style:**
+- **Always use AskUserQuestion** — Use the **AskUserQuestion** tool with `Other` options for all questions to the user.
 - **One question at a time** — Never ask multiple questions in a single message.
 - **Multiple choice when possible** — Always include a recommended option (marked as such) and an "Other" escape hatch so the user can freely share their own ideas.
 - **Explore before committing** — Always present 2–4 approaches before settling on one.
@@ -43,8 +44,7 @@ Write clear, comprehensive technical design documents that serve as the single s
 Tell the user *"Let me explore the relevant parts of the codebase first."* then silently:
 
 1. **Quick scan** — Use Glob/Grep/Read to understand the relevant area: project structure, key modules, existing patterns, dependencies.
-2. **Existing designs** — Check `docs/designs/`, `docs/plans/`, or similar locations for prior art.
-3. **Locate the target** — Identify where the change belongs and what it touches. If unclear, ask the user.
+2. **Locate the target** — Identify where the change belongs and what it touches. If unclear, ask the user.
 
 **Step B — Clarify scope:**
 

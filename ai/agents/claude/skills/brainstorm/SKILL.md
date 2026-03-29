@@ -19,6 +19,7 @@ Help turn ideas into fully formed designs through natural collaborative dialogue
 - **Defensive Engineering** — Assume failures are possible. Right-size risk analysis to the feature’s complexity. Surface the most likely bottlenecks, silent failures, and edge cases for this domain.
 
 **Conversation style:**
+- **Always use AskUserQuestion** — Use the **AskUserQuestion** tool with `Other` options for all questions to the user.
 - **One question at a time** — Never ask multiple questions in a single message.
 - **Multiple choice when possible** — Easier to answer than open-ended when possible
 - **Explore before committing** — Always present 2–4 approaches before settling on one.
@@ -45,7 +46,7 @@ If the topic is too broad to design in a single session, propose breaking it int
 
 **Step C — Then ask questions to fill the gaps:**
 
-Use the **AskUserQuestion** tool to ask questions **one at a time** to deeply understand the **purpose**, **constraints**, and **success criteria**.
+Ask questions **one at a time** to deeply understand the **purpose**, **constraints**, and **success criteria**.
 
 Keep going until you can clearly articulate: **what** we're building, **why** it matters, and **where** it fits in the existing system.
 
