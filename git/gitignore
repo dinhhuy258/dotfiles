@@ -13,6 +13,7 @@
 .agents
 CLAUDE.md
 AGENTS.md
+skills-lock.json
 
 # AI docs
 docs/plans
