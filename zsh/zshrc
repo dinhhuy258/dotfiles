@@ -59,6 +59,8 @@ export LC_ALL=en_US.UTF-8
 export EDITOR=nvim
 export VISUAL="$EDITOR"
 
+export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+
 if [ -z "$ALACRITTY_POPUP" ]
 then
   neofetch --ascii "$(echo "Hello Huy Duong.\n\nHave a good day" | cowsay)" | lolcat
