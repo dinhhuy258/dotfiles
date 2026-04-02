@@ -1,0 +1,2 @@
+[repls]
+ssh = "root@\\S+:~#\\s*$"

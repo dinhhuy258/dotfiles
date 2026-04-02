@@ -236,6 +236,10 @@ install_dotfiles() {
   mkdir -p "$HOME/.config/pr-monitor"
   link_file "$DOTFILES/pr-monitor/config.yml" "$HOME/.config/pr-monitor/config.yml"
 
+  # tmux-relay
+  mkdir -p "$HOME/.config/tmux-relay"
+  link_file "$DOTFILES/tmux-relay/config.toml" "$HOME/.config/tmux-relay/config.toml"
+
   # docker
   link_file "$DOTFILES/docker/config.json" "$HOME/.docker/config.json"
 }
