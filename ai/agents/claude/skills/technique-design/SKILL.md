@@ -43,7 +43,7 @@ Write clear, comprehensive technical design documents that serve as the single s
 
 Tell the user *"Let me explore the relevant parts of the codebase first."* then silently:
 
-1. **Quick scan** — Use Glob/Grep/Read to understand the relevant area: project structure, key modules, existing patterns, dependencies.
+1. **Quick scan** — Understand the relevant area: project structure, key modules, existing patterns, dependencies.
 2. **Locate the target** — Identify where the change belongs and what it touches. If unclear, ask the user.
 
 **Step B — Clarify scope:**

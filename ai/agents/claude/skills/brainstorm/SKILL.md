@@ -37,7 +37,7 @@ Help turn ideas into fully formed designs through natural collaborative dialogue
 
 Tell the user *"Let me explore the relevant parts of the codebase first."* then do the following silently (don't narrate each file read):
 
-1. **Quick scan** — Use Glob/Grep/Read to understand the relevant area: project structure, key modules, existing patterns (sync vs async, DB layer, error handling, auth).
+1. **Quick scan** — Understand the relevant area: project structure, key modules, existing patterns (sync vs async, DB layer, error handling, auth).
 2. **Locate the target** — Identify where the change belongs. If the location or integration flow is unclear, this becomes your **first question** to the user.
 
 **Step B — Scope the problem:**

@@ -54,7 +54,7 @@ Store the selected mode for the session.
 ## Phase 3: Understand the Problem
 
 1. **Ask** — Use AskUserQuestion to understand what the user wants to debug or investigate
-2. **Analyze code** — Explore relevant models, services, policies, scopes, associations, and validations using Read/Grep/Glob/Serena tools. Do this silently — don't narrate each file read
+2. **Analyze code** — Explore relevant models, services, policies, scopes, associations, and validations. Do this silently — don't narrate each file read
 3. **Summarize** — Briefly explain the relevant code paths and data flow
 4. **Propose plan** — Outline debugging steps and the Rails console commands you'll suggest
 
