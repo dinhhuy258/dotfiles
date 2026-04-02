@@ -1,2 +1,3 @@
 [repls]
 ssh = "root@\\S+:~#\\s*$"
+herocli = '\[\d+\]\s*(\[\w+\]\[\w+\]\s*)?pry\(.*\)>\s*$'
