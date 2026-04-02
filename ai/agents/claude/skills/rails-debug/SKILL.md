@@ -10,16 +10,32 @@ allowed-tools: Read, Grep, Glob, AskUserQuestion
 
 Combine codebase understanding with controlled Rails console execution via tmux-relay.
 
-## Safety Contract
+## Safety Modes
 
-**CRITICAL — applies to EVERY command, read or write:**
+Three execution modes control how commands are confirmed. Default is **strict**.
 
-1. Display the exact command before asking for confirmation
-2. Use AskUserQuestion with options `["Yes, execute", "Skip", "Modify"]` for every `tmux-relay send`
-3. NEVER send a command without explicit user approval
-4. For write/mutation operations, add a `⚠️ WRITE OPERATION` warning before the command
+### Strict Mode (default)
 
-## Phase 1: Pane Discovery
+- Confirm **every** command (read and write) before execution
+- Use AskUserQuestion with options `["Yes, execute", "Skip", "Modify"]` for every `tmux-relay send`
+- NEVER send a command without explicit user approval
+
+### Guardrail Mode
+
+- **Read commands** — execute automatically without confirmation
+- **Write/mutation commands** — confirm before execution using AskUserQuestion with options `["Yes, execute", "Skip", "Modify"]`
+- Always display the command and its purpose before executing, even for auto-executed reads
+
+### Yolo Mode
+
+- Execute **all** commands (read and write) without confirmation
+- Still display each command and its purpose before executing
+
+### Common Rules (all modes)
+
+- For write/mutation operations, always add a `⚠️ WRITE OPERATION` warning before the command
+
+## Phase 1: Pane Discovery & Mode Selection
 
 Run `tmux-relay list` to find available panes.
 
@@ -29,14 +45,20 @@ Run `tmux-relay list` to find available panes.
 
 Store the selected pane target for the session.
 
-## Phase 2: Understand the Problem
+## Phase 2: Mode Selection
+
+Ask the user which safety mode to use via AskUserQuestion with options `["Strict (confirm all)", "Guardrail (confirm writes only)", "Yolo (no confirmation)"]`. Default to **Strict** if the user skips.
+
+Store the selected mode for the session.
+
+## Phase 3: Understand the Problem
 
 1. **Ask** — Use AskUserQuestion to understand what the user wants to debug or investigate
 2. **Analyze code** — Explore relevant models, services, policies, scopes, associations, and validations using Read/Grep/Glob/Serena tools. Do this silently — don't narrate each file read
 3. **Summarize** — Briefly explain the relevant code paths and data flow
 4. **Propose plan** — Outline debugging steps and the Rails console commands you'll suggest
 
-## Phase 3: Debug Loop
+## Phase 4: Debug Loop
 
 One command at a time:
 
@@ -45,8 +67,13 @@ One command at a time:
    Command: User.where(email: 'foo@bar.com').first
    Purpose: Find the user record by email to inspect their current state
    ```
-2. **Confirm** — AskUserQuestion: `["Yes, execute", "Skip", "Modify"]`
-   - *Yes* → run `tmux-relay send -t <pane> "<command>"`
+2. **Confirm or Execute** — Behavior depends on the active safety mode:
+   - **Strict** → AskUserQuestion: `["Yes, execute", "Skip", "Modify"]` for every command
+   - **Guardrail** → Auto-execute read commands; AskUserQuestion: `["Yes, execute", "Skip", "Modify"]` for write/mutation commands
+   - **Yolo** → Execute immediately without asking
+   
+   For all modes:
+   - *Yes / auto-execute* → run `tmux-relay send -t <pane> "<command>"`
    - *Skip* → move to next step
    - *Modify* → ask for the modified command, then confirm again
 3. **Interpret output** — Explain what the result means in context of the codebase
