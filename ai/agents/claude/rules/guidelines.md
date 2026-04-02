@@ -17,3 +17,4 @@
 
 - **NEVER ASSUME OR GUESS** - When in doubt, ask for clarification
 - **Always verify file paths and module names** before use
+- **Never treat a question as approval to proceed.** If I ask about approaches, tradeoffs, or preferences, answer the question only. Wait for explicit confirmation (e.g., "go ahead", "do it", "proceed") before implementing anything.
