@@ -14,6 +14,8 @@
       "Bash(tree:*)",
       "Bash(ls:*)",
       "Bash(cat:*)",
+      "Bash(tmux-relay list:*)",
+      "Bash(tmux-relay send:*)",
       "Skill(plan)"
     ],
     "deny": [
