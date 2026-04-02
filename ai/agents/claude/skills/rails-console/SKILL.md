@@ -1,12 +1,12 @@
 ---
-name: rails-debug
-description: Safe staging/production debugging via Rails console over tmux. Reads project code (models, services, policies, data flow) to build intelligent Rails console queries, then executes via tmux-relay with mandatory user confirmation. Trigger when debugging prod/staging issues, investigating data, running Rails console commands that need codebase context, or any controlled interaction with a remote Rails console pane.
+name: rails-console
+description: Safe Rails console interaction over tmux. Reads project code (models, services, policies, data flow) to build intelligent Rails console commands, then executes via tmux-relay. Trigger when interacting with a Rails console pane — debugging, investigating data, running queries, performing tasks, or any controlled operation that needs codebase context.
 user-invocable: true
 disable-model-invocation: true
 allowed-tools: Read, Grep, Glob, AskUserQuestion
 ---
 
-# Rails Debug — Safe Rails Console Debugging
+# Rails Console — Safe Rails Console Interaction
 
 Combine codebase understanding with controlled Rails console execution via tmux-relay.
 
@@ -51,14 +51,14 @@ Ask the user which safety mode to use via AskUserQuestion with options `["Strict
 
 Store the selected mode for the session.
 
-## Phase 3: Understand the Problem
+## Phase 3: Understand the Task
 
-1. **Ask** — Use AskUserQuestion to understand what the user wants to debug or investigate
+1. **Ask** — Use AskUserQuestion to understand what the user wants to accomplish
 2. **Analyze code** — Explore relevant models, services, policies, scopes, associations, and validations. Do this silently — don't narrate each file read
 3. **Summarize** — Briefly explain the relevant code paths and data flow
-4. **Propose plan** — Outline debugging steps and the Rails console commands you'll suggest
+4. **Propose plan** — Outline the steps and Rails console commands you'll suggest
 
-## Phase 4: Debug Loop
+## Phase 4: Execution Loop
 
 One command at a time:
 
@@ -77,9 +77,9 @@ One command at a time:
    - *Skip* → move to next step
    - *Modify* → ask for the modified command, then confirm again
 3. **Interpret output** — Explain what the result means in context of the codebase
-4. **Next step** — Suggest the next command or ask if the issue is resolved
+4. **Next step** — Suggest the next command or ask if the task is complete
 
-Repeat until resolved or user stops.
+Repeat until done or user stops.
 
 ## tmux-relay Reference
 
