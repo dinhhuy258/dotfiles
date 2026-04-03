@@ -9,9 +9,9 @@
 
 ## Workflow Patterns
 
-- Use "think hard" for architecture decisions
 - Break complex tasks into smaller, testable units
 - Validate understanding before implementation
+- **When the user provides numbered tasks** always use the TaskCreate tool to create a task for each item before starting work. Mark each task as completed as you finish it.
 
 ## Important Notes
 
