@@ -54,7 +54,7 @@ Store the selected mode for the session.
 ## Phase 3: Understand the Task
 
 1. **Ask** — Use AskUserQuestion to understand what the user wants to accomplish
-2. **Analyze code** — Explore relevant models, services, policies, scopes, associations, and validations. Do this silently — don't narrate each file read
+2. **Analyze code** — Explore relevant models, services, policies, scopes, associations, and validations. Verify that all columns, fields, and methods you plan to use actually exist in the schema and model definitions. Do this silently — don't narrate each file read
 3. **Summarize** — Briefly explain the relevant code paths and data flow
 4. **Propose plan** — Outline the steps and Rails console commands you'll suggest
 
