@@ -45,3 +45,7 @@ gapr() {
     echo "Cancelled"
   fi
 }
+
+gopr() {
+  gh pr view --web
+}
