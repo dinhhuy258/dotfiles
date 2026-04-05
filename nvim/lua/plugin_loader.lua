@@ -410,13 +410,6 @@ local function _load_plugins(opts)
         require("plugins.which-key").setup()
       end,
     },
-    {
-      "zbirenbaum/copilot.lua",
-      event = "BufRead",
-      config = function()
-        require("plugins.copilot").setup()
-      end,
-    },
   }, opts)
 end
 
