@@ -1,3 +1,3 @@
 [repls]
-ssh = "root@\\S+:~#\\s*$"
+ssh = "root@\\S+:\\S+#\\s*$"
 herocli = '\[\d+\]\s*(\[\w+\]\[\w+\]\s*)?pry\(.*\)>\s*$'
