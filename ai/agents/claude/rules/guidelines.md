@@ -13,8 +13,14 @@
 - Validate understanding before implementation
 - **When the user provides numbered tasks** always use the TaskCreate tool to create a task for each item before starting work. Mark each task as completed as you finish it.
 
+## Strict Mutation Control
+
+**CRITICAL: Never modify, create, or delete files without explicit user approval.**
+
+- **The Consent Gate:** Implementation is strictly forbidden until the user provides a clear affirmative command (e.g., "go ahead", "proceed", "do it", "yes").
+- **Non-Approval Triggers:** Listing plans, asking questions, or providing feedback does **NOT** constitute approval. If in doubt, ask: "Shall I go ahead and make these changes?"
+
 ## Important Notes
 
 - **NEVER ASSUME OR GUESS** - When in doubt, ask for clarification
 - **Always verify file paths and module names** before use
-- **Never treat a question as approval to proceed.** If I ask about approaches, tradeoffs, or preferences, answer the question only. Wait for explicit confirmation (e.g., "go ahead", "do it", "proceed") before implementing anything.
