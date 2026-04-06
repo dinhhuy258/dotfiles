@@ -14,7 +14,7 @@
 CLAUDE.md
 AGENTS.md
 skills-lock.json
-.playwright-mcp
+.mcp.json
 
 # AI docs
 docs/plans
