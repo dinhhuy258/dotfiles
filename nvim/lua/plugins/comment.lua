@@ -8,6 +8,12 @@ M.setup = function()
     return
   end
 
+  local ts_context_commentstring_ok, ts_context_commentstring = pcall(require, "ts_context_commentstring")
+  if ts_context_commentstring_ok then
+    ts_context_commentstring.setup {}
+    vim.g.skip_ts_context_commentstring_module = true
+  end
+
   comment.setup {
     ---Add a space b/w comment and the line
     padding = true,
