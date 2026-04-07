@@ -59,15 +59,24 @@ local function _load_plugins(opts)
     -- highlighting
     {
       "nvim-treesitter/nvim-treesitter",
-      run = ":TSUpdate",
+      branch = "main",
+      build = ":TSUpdate",
       dependencies = {
         "JoosepAlviste/nvim-ts-context-commentstring",
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        "RRethy/nvim-treesitter-endwise",
         "windwp/nvim-ts-autotag",
       },
       config = function()
         require("plugins.nvim-treesitter").setup()
+      end,
+    },
+    {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      branch = "main",
+      dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+      },
+      config = function()
+        require("plugins.nvim-treesitter-textobjects").setup()
       end,
     },
     -- formating

@@ -33,7 +33,6 @@ M.setup = function()
     end),
   }
 
-  require("nvim-treesitter.configs").setup { autopairs = { enable = true } }
   local ts_conds = require "nvim-autopairs.ts-conds"
 
   -- TODO: can these rules be safely added from "config.lua" ?
