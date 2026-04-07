@@ -2,17 +2,17 @@ local M = {}
 
 M.setup = function()
   local home = os.getenv "HOME"
-  local jdtls_path = require("mason-registry").get_package("jdtls"):get_install_path()
+  local jdtls_path = require("mason-core.installer.InstallLocation").global():package("jdtls")
   -- File types that signify a Java project's root directory. This will be
   -- used by eclipse to determine what constitutes a workspace
   local root_markers = { ".gradlew", ".git", "mvnw", "pom.xml", "build.gradle" }
   local root_dir = require("jdtls.setup").find_root(root_markers)
 
-  -- eclipse.jdt.ls stores project specific data within a folder. If you are working
-  -- with multiple different projects, each project must use a dedicated data directory.
-  -- This variable is used to configure eclipse to use the directory name of the
-  -- current project found using the root_marker as the folder for project specific data.
-  local workspace_dir = home .. "/.cache/jdtls/workspace" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+  if not root_dir then
+    return
+  end
+
+  local workspace_dir = home .. "/.cache/jdtls/workspace/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
   local lombok_path = jdtls_path .. "/lombok.jar"
   local path_to_jar = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
   -- The configuration for jdtls. This will need to be updated depending on your environment
@@ -23,7 +23,7 @@ M.setup = function()
   }
 
   config.cmd = {
-    "java", -- or '/path/to/java17_or_newer/bin/java'
+    vim.fn.trim(vim.fn.system("mise where java@corretto-21 2>/dev/null")) .. "/bin/java",
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
     "-Dosgi.bundles.defaultStartLevel=4",
     "-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -102,6 +102,8 @@ M.setup = function()
       -- },
     },
   }
+
+  require("jdtls").start_or_attach(config)
 
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "java",
