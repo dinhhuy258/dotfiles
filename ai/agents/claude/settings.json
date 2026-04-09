@@ -66,7 +66,8 @@
     "command": "~/.claude/statusline.sh"
   },
   "enabledPlugins": {
-    "knowledge-base-plugin@knowledge-base-marketplace": true
+    "knowledge-base-plugin@knowledge-base-marketplace": true,
+    "atlassian@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "knowledge-base-marketplace": {
