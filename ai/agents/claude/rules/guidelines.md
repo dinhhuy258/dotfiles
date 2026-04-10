@@ -17,7 +17,7 @@
 
 **CRITICAL: Never modify, create, or delete files without explicit user approval.**
 
-- **The Consent Gate:** Implementation is strictly forbidden until the user provides a clear affirmative command (e.g., "go ahead", "proceed", "do it", "yes").
+- **The Consent Gate:** Implementation is strictly forbidden until the user provides a clear affirmative command (e.g., "go ahead", "proceed", "do it", "yes", "LGTM").
 - **Non-Approval Triggers:** Listing plans, asking questions, or providing feedback does **NOT** constitute approval. If in doubt, ask: "Shall I go ahead and make these changes?"
 
 ## Important Notes
