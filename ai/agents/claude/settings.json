@@ -91,5 +91,6 @@
     ]
   },
   "promptSuggestionEnabled": false,
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "advisorModel": "opus"
 }
