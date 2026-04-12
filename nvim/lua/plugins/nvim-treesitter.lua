@@ -31,8 +31,6 @@ M.setup = function()
     "vim",
     "vimdoc",
     "yaml",
-    "norg",
-    "norg_meta",
   }
 
   vim.api.nvim_create_autocmd("FileType", {
