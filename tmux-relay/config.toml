@@ -1,3 +1,5 @@
 [repls]
 ssh = "\\S+@\\S+:\\S+[#$]\\s*$"
+# ssh via tailscale docker
+docker = "\\S+@\\S+:\\S+[#$]\\s*$"
 herocli = '\[\d+\]\s*(\[\w+\]\[\w+\]\s*)?pry\(.*\)>\s*$'
