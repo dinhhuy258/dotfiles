@@ -2,9 +2,9 @@
 
 local M = {}
 
-local image_name = "picsur.png"
-local picsur_base_url = "https://img.dinhhuy258.dev"
-local picsur_api_key = vim.env.PICSUR_API_KEY
+local image_name = "imgnest"
+local imgnest_base_url = vim.env.IMGNEST_BASE_URL or "https://img.dinhhuy258.dev"
+local imgnest_api_key = vim.env.IMGNEST_API_KEY
 
 local function has_clipboard_img()
   local handle = io.popen "pngpaste -b 2>&1"
@@ -89,13 +89,14 @@ function M.paste_image()
         --silent \
         --fail \
         --request POST \
-        --form "image=@-" \
-        --header "Authorization: Api-Key %s" \
-        "%s/api/image/upload" \
-      | jq --raw-output .data.id
+        --form "file=@-;filename=%s" \
+        --header "Authorization: Bearer %s" \
+        "%s/api/upload" \
+      | jq --raw-output .url
   ]],
-    picsur_api_key,
-    picsur_base_url
+    image_name,
+    imgnest_api_key,
+    imgnest_base_url
   )
 
   local url = nil
@@ -103,12 +104,14 @@ function M.paste_image()
   -- Start uploading
   vim.fn.jobstart(upload_command, {
     stdout_buffered = true,
-    on_stdout = function(_, img_id)
-      local id = vim.fn.join(img_id):gsub("^%s*(.-)%s*$", "%1")
-      url = string.format("%s/i/%s.jpg", picsur_base_url, id)
+    on_stdout = function(_, out)
+      local got = vim.fn.join(out):gsub("^%s*(.-)%s*$", "%1")
+      if got ~= "" and got ~= "null" then
+        url = got
+      end
     end,
     on_exit = function(_, exit_code)
-      local failed = url == "" or exit_code ~= 0
+      local failed = url == nil or url == "" or exit_code ~= 0
       local replacement = ""
 
       -- Create the replacement string
