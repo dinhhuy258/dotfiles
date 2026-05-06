@@ -1,6 +1,7 @@
 {
   "env": {
-    "ENABLE_TOOL_SEARCH": "true"
+    "ENABLE_TOOL_SEARCH": "true",
+    "ENABLE_LSP_TOOL": "1"
   },
   "permissions": {
     "allow": [
@@ -59,6 +60,17 @@
           }
         ]
       }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
@@ -67,7 +79,8 @@
   },
   "enabledPlugins": {
     "knowledge-base-plugin@knowledge-base-marketplace": true,
-    "atlassian@claude-plugins-official": true
+    "atlassian@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "knowledge-base-marketplace": {
@@ -93,4 +106,5 @@
   "promptSuggestionEnabled": false,
   "skipDangerousModePermissionPrompt": true,
   "advisorModel": "opus"
+  "awaySummaryEnabled": false
 }
