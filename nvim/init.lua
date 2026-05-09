@@ -5,8 +5,8 @@ local disabled_built_ins = {
   "netrwSettings",
   "netrwFileHandlers",
   "gzip",
-  -- "zip", (vintellij)
-  -- "zipPlugin", (vintellij)
+  "zip",
+  "zipPlugin",
   "tar",
   "tarPlugin",
   "getscript",
