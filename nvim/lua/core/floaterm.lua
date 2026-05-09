@@ -85,7 +85,7 @@ local function open_floaterm(cmd)
   vim.api.nvim_win_set_option(floaterm_win, "colorcolumn", "")
 
   if cmd then
-    vim.call("termopen", "bash -c " .. cmd)
+    vim.fn.termopen { "bash", "-c", cmd }
   else
     vim.api.nvim_command "terminal"
   end
@@ -121,9 +121,38 @@ function M.toggle_floaterm()
   end
 end
 
+local function get_git_dir()
+  local function in_git(dir)
+    vim.fn.system("git -C " .. vim.fn.shellescape(dir) .. " rev-parse --is-inside-work-tree")
+    return vim.v.shell_error == 0
+  end
+
+  local cwd = vim.fn.getcwd()
+  if in_git(cwd) then
+    return cwd
+  end
+
+  local bufname = vim.api.nvim_buf_get_name(0)
+  if bufname == "" or vim.fn.filereadable(bufname) == 0 then
+    return nil
+  end
+
+  local file_dir = vim.fn.fnamemodify(bufname, ":h")
+  local toplevel = vim.fn.system("git -C " .. vim.fn.shellescape(file_dir) .. " rev-parse --show-toplevel")
+  if vim.v.shell_error ~= 0 then
+    return nil
+  end
+  return vim.trim(toplevel)
+end
+
 function M.setup()
   keymaps.set("n", "<Leader>tg", function()
-    M.new_floaterm "lazygit"
+    local dir = get_git_dir()
+    if dir then
+      M.new_floaterm("lazygit -p " .. vim.fn.shellescape(dir))
+    else
+      M.new_floaterm "lazygit"
+    end
   end)
 end
 
