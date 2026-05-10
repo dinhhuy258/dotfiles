@@ -373,6 +373,10 @@ local function _load_plugins(opts)
     -- require for neorg
     {
       "nvim-neorg/neorg",
+      dependencies = {
+        "nvim-neorg/tree-sitter-norg",
+        "nvim-neorg/tree-sitter-norg-meta",
+      },
       lazy = false,
       config = function()
         require("plugins.neorg").setup()
