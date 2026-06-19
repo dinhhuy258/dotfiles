@@ -12,5 +12,14 @@ USE <database_name>;
 # List all tables in the current database
 SHOW TABLES;
 
+# Create user
+CREATE USER '<user>'@'<host_pattern>' IDENTIFIED BY '<password>';
+
+# Grant all privileges on database to user
+GRANT ALL PRIVILEGES ON <database>.* TO '<user>'@'<host_pattern>';
+FLUSH PRIVILEGES;
+
 $ host: echo 'localhost' --- --fzf-overrides '--no-select-1'
 $ port: echo '3306' --- --fzf-overrides '--no-select-1'
+$ user: echo 'dinhhuy258' --- --fzf-overrides '--no-select-1'
+$ host_pattern: echo '%' --- --fzf-overrides '--no-select-1'

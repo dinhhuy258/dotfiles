@@ -21,6 +21,26 @@ pg_dump -h <host> -p <port> -U <username> <database> > <db_export_file>
 # Import database
 psql -h <host> -p <port> -U <username> <database> < <db_export_file>
 
+# Grant all privileges on database to user
+GRANT ALL PRIVILEGES ON DATABASE <database> TO <full_access_user>;
+\c <database>
+GRANT ALL PRIVILEGES ON SCHEMA public TO <full_access_user>;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO <full_access_user>;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO <full_access_user>;
+
+# Grant read-only backup privileges to databasus user
+GRANT CONNECT ON DATABASE <database> TO <readonly_user>;
+\c <database>
+GRANT USAGE ON SCHEMA public TO <readonly_user>;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO <readonly_user>;
+GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO <readonly_user>;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO <readonly_user>;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON SEQUENCES TO <readonly_user>;
+REVOKE TEMP ON DATABASE <database> FROM <readonly_user>;
+REVOKE TEMP ON DATABASE <database> FROM PUBLIC;
+
 $ host: echo 'localhost' --- --fzf-overrides '--no-select-1'
 $ port: echo '5432' --- --fzf-overrides '--no-select-1'
 $ db_export_file = echo 'db.dump' --- --fzf-overrides '--no-select-1'
+$ full_access_user: echo 'dinhhuy258' --- --fzf-overrides '--no-select-1'
+$ readonly_user: echo 'databasus' --- --fzf-overrides '--no-select-1'
