@@ -25,3 +25,8 @@
 
 - **NEVER ASSUME OR GUESS** - When in doubt, ask for clarification
 - **Always verify file paths and module names** before use
+
+## Browser automation / Playwright
+
+- **NEVER** call Playwright/browser MCP tools (`mcp__plugin_playwright_playwright__browser_*`) directly in the main conversation.
+- **ALWAYS** delegate live UI verification, browser reproduction, and Playwright automation to the `browser-verifier` subagent (via the Agent/Task tool), then relay its findings.
