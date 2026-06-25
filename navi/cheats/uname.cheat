@@ -1,0 +1,28 @@
+% uname
+
+# Print all available system information (first thing to run on a new shell)
+uname -a
+
+# Print kernel release - feed this to exploit-db for privesc (e.g. 5.4.0-42)
+uname -r
+
+# Print kernel name only
+uname -s
+
+# Print kernel version (build string, often leaks distro/build date)
+uname -v
+
+# Print machine hardware architecture - pick 32 vs 64-bit payload
+uname -m
+
+# Print processor type
+uname -p
+
+# Print hardware platform
+uname -i
+
+# Print operating system
+uname -o
+
+# Print network node hostname
+uname -n
