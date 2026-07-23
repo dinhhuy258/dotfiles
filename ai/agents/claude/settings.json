@@ -3,6 +3,9 @@
     "ENABLE_TOOL_SEARCH": "true",
     "ENABLE_LSP_TOOL": "1"
   },
+  "attribution": {
+    "commit": ""
+  },
   "permissions": {
     "allow": [
       "mcp__context7__resolve-library-id",
