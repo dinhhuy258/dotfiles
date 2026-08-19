@@ -1,5 +1,10 @@
 % ffuf
 
+; SecLists is the go-to wordlist collection for fuzzing: https://github.com/danielmiessler/SecLists
+
+# Open the SecLists wordlist collection in the browser
+open https://github.com/danielmiessler/SecLists
+
 # Directory / file discovery (FUZZ marks the injection point)
 ffuf -u <url>/FUZZ -w <wordlist>
 
