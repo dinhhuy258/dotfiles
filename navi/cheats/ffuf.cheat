@@ -1,0 +1,55 @@
+% ffuf
+
+# Directory / file discovery (FUZZ marks the injection point)
+ffuf -u <url>/FUZZ -w <wordlist>
+
+# Discover files with specific extensions
+ffuf -u <url>/FUZZ -w <wordlist> -e .php,.html,.txt,.bak
+
+# Recursive directory discovery (dig into found dirs)
+ffuf -u <url>/FUZZ -w <wordlist> -recursion -recursion-depth 2
+
+# Virtual host / subdomain discovery via Host header
+ffuf -u <url> -H "Host: FUZZ.<domain>" -w <wordlist>
+
+# Subdomain discovery via DNS name in the URL
+ffuf -u https://FUZZ.<domain>/ -w <wordlist>
+
+# GET parameter name fuzzing
+ffuf -u <url>?FUZZ=value -w <wordlist>
+
+# GET parameter value fuzzing
+ffuf -u <url>?<param>=FUZZ -w <wordlist>
+
+# POST body fuzzing (e.g. login brute-force)
+ffuf -u <url> -X POST -d "<param>=FUZZ" -H "Content-Type: application/x-www-form-urlencoded" -w <wordlist>
+
+# Authenticated fuzzing with a bearer token / cookie
+ffuf -u <url>/FUZZ -w <wordlist> -H "Authorization: Bearer <token>"
+
+# Filter out noise by response size / words / lines / status
+ffuf -u <url>/FUZZ -w <wordlist> -fs <size> -fw <words> -fl <lines> -fc 404
+
+# Match only specific status codes
+ffuf -u <url>/FUZZ -w <wordlist> -mc 200,301,302,401,403
+
+# Auto-calibrate to filter wildcard/soft-404 responses
+ffuf -u <url>/FUZZ -w <wordlist> -ac
+
+# Throttle: rate limit, threads, and per-request delay (stay under the radar)
+ffuf -u <url>/FUZZ -w <wordlist> -rate <rate> -t <threads> -p <delay>
+
+# Route through a proxy (Burp) for inspection
+ffuf -u <url>/FUZZ -w <wordlist> -x http://127.0.0.1:8080
+
+# Cluster-bomb two wordlists (W1 x W2)
+ffuf -u <url>/W1?W2=test -w <wordlist>:W1 -w <wordlist>:W2 -mode clusterbomb
+
+# Save results to JSON for later triage
+ffuf -u <url>/FUZZ -w <wordlist> -o results.json -of json
+
+$ url: printf "http://localhost\nhttp://127.0.0.1\n" --- --fzf-overrides '--no-select-1'
+$ wordlist: find /usr/share/wordlists /opt/SecLists -type f \( -name '*.txt' -o -name '*.lst' \) 2>/dev/null
+$ rate: printf "10\n50\n100\n" --- --fzf-overrides '--no-select-1'
+$ threads: printf "10\n40\n100\n" --- --fzf-overrides '--no-select-1'
+$ delay: printf "0.1\n0.5\n1\n" --- --fzf-overrides '--no-select-1'
