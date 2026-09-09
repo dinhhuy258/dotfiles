@@ -109,6 +109,6 @@
   },
   "promptSuggestionEnabled": false,
   "skipDangerousModePermissionPrompt": true,
-  "advisorModel": "opus"
-  "awaySummaryEnabled": false
+  "disableRemoteControl": true,
+  "remoteControlAtStartup": false
 }
