@@ -43,7 +43,7 @@ Run `tmux-relay list` to find available panes.
 - **One pane** → Auto-select. Inform user: *"Using pane X (command: Y)."*
 - **Multiple panes** → Show pane list. Ask user to choose via AskUserQuestion with pane options.
 
-Store the selected **window** (e.g., `@35`) and **pane index** (e.g., `2`) for the session. Both are required for all subsequent commands.
+Store the selected **window** (e.g., `@35`) and **pane ID** (e.g., `%166`) for the session. Both are required for all subsequent commands. Never store or target the pane index: indexes shift when panes open or close, the ID does not.
 
 ## Phase 2: Mode Selection
 
@@ -73,7 +73,7 @@ One command at a time:
    - **Yolo** → Execute immediately without asking
 
    For all modes:
-   - *Yes / auto-execute* → run `tmux-relay send -w <window> -t <pane> "<command>"`
+   - *Yes / auto-execute* → run `tmux-relay send -w <window> -t <pane-id> "<command>"`
    - *Skip* → move to next step
    - *Modify* → ask for the modified command, then confirm again
 3. **Interpret output** — Explain what the result means in context of the codebase
@@ -88,13 +88,13 @@ Repeat until done or user stops.
 tmux-relay list
 
 # Send command (default 30s timeout) — always include -w <window>
-tmux-relay send -w <window> -t <pane> "<command>"
+tmux-relay send -w <window> -t <pane-id> "<command>"
 
 # Longer timeout for slow queries
-tmux-relay send -w <window> -t <pane> --timeout 60 "<command>"
+tmux-relay send -w <window> -t <pane-id> --timeout 60 "<command>"
 ```
 
-Target pane by index (`1`) or pane ID (`%2`). Always include `-w <window>` (e.g., `-w @35`).
+Target the pane by its ID (`%166`), never by index. Always include `-w <window>` (e.g., `-w @35`).
 
 ### Quote Escaping
 
@@ -102,8 +102,8 @@ Ruby commands often contain quotes. Use the opposite quote style for the outer s
 
 ```bash
 # Double quotes inside → wrap with single quotes outside, or escape
-tmux-relay send -w @35 -t 1 'User.where("email LIKE ?", "%@example.com")'
-tmux-relay send -w @35 -t 1 "User.where(email: 'test@example.com')"
+tmux-relay send -w @35 -t %166 'User.where("email LIKE ?", "%@example.com")'
+tmux-relay send -w @35 -t %166 "User.where(email: 'test@example.com')"
 ```
 
 ## Guidelines
