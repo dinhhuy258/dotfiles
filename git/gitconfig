@@ -47,3 +47,6 @@
 
 [include]
 	path = ~/.gitconfig.local
+
+[branch]
+	autoSetupMerge = simple
