@@ -242,6 +242,10 @@ install_dotfiles() {
 
   # docker
   link_file "$DOTFILES/docker/config.json" "$HOME/.docker/config.json"
+
+  # bx
+  mkdir -p "$HOME/.bx"
+  link_file "$DOTFILES/bx/config.toml" "$HOME/.bx/config.toml"
 }
 
 create_cmds_file() {

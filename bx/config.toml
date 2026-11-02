@@ -1,0 +1,3 @@
+[client]
+# Where `bx` finds `bx serve`. `bx --server <url>` overrides this.
+server = "http://100.86.43.122:7357"
