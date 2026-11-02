@@ -12,7 +12,7 @@ Session:
 
 - Run every command under one named session so all items share a live browser: `playwright-cli -s=verify <command>`. Open once, do shared setup (navigate, log in) once, then run every item against it. Group items by page to minimize navigation.
 - `playwright-cli -s=verify open <url>` to start; `close` only when the whole batch is done, never between items.
-- If `playwright-cli` is not on PATH, install it with `brew install playwright-cli` (or use a project-local `npx playwright cli`). If the browser is missing, `playwright-cli install-browser`.
+- If `playwright-cli` is not on PATH or the browser fails to launch, stop and report the exact error.
 
 Interaction:
 
