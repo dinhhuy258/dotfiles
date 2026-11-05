@@ -1,3 +1,6 @@
 [client]
 # Where `bx` finds `bx serve`. `bx --server <url>` overrides this.
 server = "http://100.86.43.122:7357"
+# Moves between the story list and Claude (default C-q). Tab means Claude in bx never gets Tab:
+# accept autocomplete with → instead (see ai/agents/claude/keybindings.json).
+switch_pane = "Tab"
