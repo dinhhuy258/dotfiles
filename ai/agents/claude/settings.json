@@ -82,7 +82,6 @@
     "command": "~/.claude/statusline.sh"
   },
   "enabledPlugins": {
-    "knowledge-base-plugin@knowledge-base-marketplace": true,
     "atlassian@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true
   },
